@@ -4,7 +4,9 @@
   "description": "Product page for Starkfront",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Hello world\""
+    "test": "echo \"Hello world\"",
+    "dev": "webpack serve",
+    "build": "webpack watch --mode development"
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,19 @@
   "bugs": {
     "url": "https://github.com/Stark-Direwolves/Starkfront/issues"
   },
-  "homepage": "https://github.com/Stark-Direwolves/Starkfront#readme"
+  "homepage": "https://github.com/Stark-Direwolves/Starkfront#readme",
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.4",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  },
+  "dependencies": {
+    "node": "^17.7.2",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  }
 }
