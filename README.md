@@ -1,8 +1,3 @@
-# Starkfront Apparel
+# Starkfront
 
-Git Workflow
-
-git checkout -b "branch name"
-
-"test123"
-
+Product page for Starkfront
