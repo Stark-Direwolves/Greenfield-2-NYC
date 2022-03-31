@@ -5,4 +5,8 @@
 node_modules/
 
 ## compiled ##
+client/dist/bundle.js.map
 client/dist/bundle.js
+
+## dotenv file ##
+.env
