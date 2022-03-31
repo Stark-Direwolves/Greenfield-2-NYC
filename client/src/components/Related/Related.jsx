@@ -1,7 +1,12 @@
 import React from 'react';
+import Card from './Card.jsx';
 
 function Related() {
-  return (<>test</>);
+  return (
+    <div>
+      <Card />
+    </div>
+  );
 }
 
 export default Related;
