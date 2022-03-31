@@ -1,9 +1,10 @@
 import React from 'react';
+import Question from './Question.jsx';
 
 function List() {
   return (
     <div>
-      list
+      <Question />
     </div>
   );
 }
