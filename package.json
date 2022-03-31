@@ -2,11 +2,12 @@
   "name": "starkfront",
   "version": "1.0.0",
   "description": "Product page for Starkfront",
-  "main": "index.js",
+  "main": "index.jsx",
   "scripts": {
     "test": "jest",
     "dev": "webpack serve",
-    "build": "webpack watch --mode development"
+    "build": "webpack watch --mode development",
+    "server": "nodemon server"
   },
   "repository": {
     "type": "git",
