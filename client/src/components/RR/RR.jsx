@@ -1,7 +1,7 @@
 import React from 'react';
 
 function RR () {
-  return ();
+  return (<>test</>);
 }
 
 export default RR;
