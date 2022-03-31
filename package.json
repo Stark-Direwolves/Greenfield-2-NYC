@@ -37,7 +37,8 @@
     "eslint-plugin-react-hooks": "^4.4.0",
     "nodemon": "^2.0.15",
     "webpack": "^5.70.0",
-    "webpack-cli": "^4.9.2"
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.6",
