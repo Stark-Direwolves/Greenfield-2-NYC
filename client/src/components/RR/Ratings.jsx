@@ -5,3 +5,5 @@ function Ratings () {
 }
 
 export default Ratings;
+
+// ratings in top left
