@@ -11,12 +11,14 @@ function Card({ id, style }) {
 
   return (
     <Container>
-      <button type="button" onClick={toggleFavorite}>Favorite</button>
+      <button type="button" onClick={toggleFavorite}>
+        Favorite
+      </button>
       <StyledImage src={style.results[0].photos[0].thumbnail_url}/>
-      <div>{id.name}</div>
+      <p>{id.name}</p>
       <div>{style.results[0].name}</div>
       <div>{style.results[0].original_price}</div>
-      <div>3.5</div>
+      <div>Placeholder Rating</div>
     </Container>
   );
 }
