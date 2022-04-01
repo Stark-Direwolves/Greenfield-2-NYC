@@ -3,9 +3,9 @@ import RatingsBox from './RRstyles/RatingsBox.js';
 
 function Ratings() {
   return (
-    <div>
-      <RatingsBox> test </RatingsBox>
-    </div>
+    <RatingsBox>
+      <h5> avg num & some stuff </h5>
+    </RatingsBox>
   );
 }
 

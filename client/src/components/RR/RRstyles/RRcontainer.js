@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 const RRcontainer = styled.div`
-  display: inline-flex;
-  flex-direction: row;
-  // align-items: flex-start;
-  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: flex-start;
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 3px;
   flex-basis: content;
   `;
 

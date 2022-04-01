@@ -5,21 +5,24 @@ import Review from './Review.jsx';
 import ReviewList from './ReviewList.jsx';
 import NewRR from './NewRR.jsx';
 import RRcontainer from './RRstyles/RRcontainer.js';
+import RatingsBox from './RRstyles/RatingsBox.js';
 
 function RR() {
   return (
     // if there are reviews, will refactor for no reviews
-    <RRcontainer>
+    <div>
       <div>
         <h2> Ratings & Reviews </h2>
       </div>
-      <div>
-        <Ratings ratingslist={reviews.meta} />
-      </div>
-      <div>
-        <ReviewList reviewslist={reviews.list.results} />
-      </div>
-    </RRcontainer>
+      <RRcontainer>
+        <div>
+          <Ratings ratingslist={reviews.meta} />
+        </div>
+        <div>
+          <ReviewList reviewslist={reviews.list.results} />
+        </div>
+      </RRcontainer>
+    </div>
   );
 }
 

@@ -5,11 +5,11 @@ import ReviewBox from './RRstyles/ReviewBox.js';
 function ReviewList({ reviewslist }) {
   return (
     <div>
-      <ReviewBox>
+      {/* <ReviewBox> */}
         <ul>
           {reviewslist.map((review, key) => <Review key={key} review={review} />)}
         </ul>
-      </ReviewBox>
+      {/* </ReviewBox> */}
     </div>
   );
 }
