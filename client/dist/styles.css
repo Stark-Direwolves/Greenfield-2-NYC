@@ -1,0 +1,71 @@
+header {
+  width: auto;
+  background-color:aliceblue;
+  outline: 1px dotted black;
+  padding: 20px;
+  margin: 0 0 15px 0;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  margin: auto;
+  background-color:aquamarine;
+  outline: 1px dotted black;
+  width: 1300px;
+}
+
+#nav {
+  flex: auto;
+  margin: auto;
+}
+
+.comp-contain {
+  background-color:red;
+  outline: 1px dotted black;
+  padding: 12px;
+}
+
+#overview {
+  display: grid;
+  grid-template-columns: [col1-start] 60% [col1-end col2-start] 40% [col2-end];
+  height: 900px;
+}
+
+#image-selector {
+  background-color:aliceblue;
+  outline: 1px dotted black;
+  padding: 20px;
+  grid-column-start: col1-start;
+  grid-column-end: col1-end;
+
+}
+
+#details {
+  background-color:aliceblue;
+  outline: 1px dotted black;
+  padding: 20px;
+  grid-column-start: col2-start;
+  grid-column-end: col2-end;
+
+}
+
+#related {
+  background-color:aliceblue;
+  outline: 1px dotted black;
+  padding: 20px;
+}
+
+#qa {
+  background-color:aliceblue;
+  outline: 1px dotted black;
+  padding: 20px;
+}
+
+#rr {
+  background-color:aliceblue;
+  outline: 1px dotted black;
+  padding: 20px;
+}
+
