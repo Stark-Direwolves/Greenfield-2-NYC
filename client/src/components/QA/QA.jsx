@@ -4,15 +4,17 @@ import Answer from './components/Answer.jsx';
 import Ask from './components/Ask.jsx';
 import List from './components/List.jsx';
 import Search from './components/Search.jsx';
+import Questions from '../../seedData/qaSeed.js';
 
 function QA() {
-  const [state, setState] = useState({list: []});
-  const list = state.list;
-
+  const questions = Questions.list.results;
+  // const [list, setList] = useList(Questions);
+  // const [searched, setSearched] = useSearched('');
+  console.log(questions);
   return (
     <Container>
       <Search />
-      <List />
+      <List questions={questions} />
       <Answer />
       <Ask />
     </Container>

@@ -11,6 +11,7 @@ function Search() {
   return (
     <div>
       <input placeholder="search..." onChange={onChange} />
+      {/* <input placeholder="search..." /> */}
     </div>
   );
 }
