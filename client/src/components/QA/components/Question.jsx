@@ -7,7 +7,7 @@ function Question({ question, answers }) {
     <div>
       {question.question_body}
       {answerId.map((answer) => (
-        <QAnswer answer={answers[answer].body} />
+        <QAnswer key={answerId} answer={answers[answer].body} />
       ))}
     </div>
   );
