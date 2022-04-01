@@ -10,14 +10,10 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
 
-app.get('/products', (req, res) => {
-  api.getAll('products', (err, results) => {
-    if (err) {
-      res.status(404).send(err);
-    } else {
-      res.status(200).send(results);
-    }
-  });
+app.get('/:category', (req, res) => {
+  api.get(req.params.category)
+    .then((results) => res.status(200).send(results))
+    .catch((err) => res.status(404).send(err));
 });
 
 app.listen(process.env.PORT, () => {
