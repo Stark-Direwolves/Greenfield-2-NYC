@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const products = require('./routes/productsRoute');
-const questions = require('./routes/qaRoute');
+const reviews = require('./routes/reviewsRoute');
 require('dotenv').config();
 
 // all keys in .env file available as variables
@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
 
 app.use('/products', products);
 
-app.use('/questions', questions);
+app.use('/reviews', reviews);
 
 app.listen(process.env.PORT, () => {
   console.log(`Listening on port ${process.env.PORT}`);
