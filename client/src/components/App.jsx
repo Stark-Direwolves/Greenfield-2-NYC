@@ -8,9 +8,9 @@ function App() {
   return (
     <div id="container">
       <Overview />
+      <Related />
       <QA />
       <RR />
-      <Related />
     </div>
   );
 }
