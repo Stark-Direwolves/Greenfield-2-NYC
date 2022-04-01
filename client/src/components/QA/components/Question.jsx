@@ -3,11 +3,13 @@ import QAnswer from './QAnswer.jsx';
 
 function Question({ question, answers }) {
   const answerId = Object.keys(answers);
+  // console.log('question', question);
+  // console.log('answers', answers);
   return (
     <div>
-      {question.question_body}
-      {answerId.map((answer) => (
-        <QAnswer key={answerId} answer={answers[answer].body} />
+      Q: {question.question_body}
+      {answerId.map((id) => (
+        <QAnswer key={id} answer={answers[id]} />
       ))}
     </div>
   );

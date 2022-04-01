@@ -10,7 +10,7 @@ function QA() {
   const questions = Questions.list.results;
   // const [list, setList] = useList(Questions);
   // const [searched, setSearched] = useSearched('');
-  console.log(questions);
+  // console.log(questions);
   return (
     <Container>
       <Search />

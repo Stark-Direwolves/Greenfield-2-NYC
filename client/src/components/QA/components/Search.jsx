@@ -8,14 +8,9 @@ function Search() {
     setInputValue(newValue);
   };
 
-  const onClick = (event) => {
-    event.preventDefault();
-  };
-
   return (
     <form>
       <input placeholder="search..." onChange={onChange} />
-      <button type="submit" onClick={onClick}>Search!</button>
     </form>
   );
 }
