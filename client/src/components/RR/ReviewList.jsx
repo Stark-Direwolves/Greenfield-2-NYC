@@ -1,6 +1,6 @@
 import React from 'react';
 import Review from './Review.jsx';
-import ReviewBox from './RRstyles.js';
+import ReviewBox from './RRstyles/ReviewBox.js';
 
 function ReviewList({ reviewslist }) {
   return (

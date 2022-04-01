@@ -1,5 +1,5 @@
 import React from 'react';
-import RatingsBox from './RRstyles.js';
+import RatingsBox from './RRstyles/RatingsBox.js';
 
 function Ratings() {
   return (

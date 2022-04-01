@@ -4,7 +4,7 @@ import Ratings from './Ratings.jsx';
 import Review from './Review.jsx';
 import ReviewList from './ReviewList.jsx';
 import NewRR from './NewRR.jsx';
-import RRcontainer from './RRstyles.js';
+import RRcontainer from './RRstyles/RRcontainer.js';
 
 function RR() {
   return (
