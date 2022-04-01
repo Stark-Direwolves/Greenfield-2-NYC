@@ -6,11 +6,10 @@ import Related from'./Related/components/Related.jsx';
 
 function App() {
   return (
-    <div>
-      <div className="App">Hello World</div>
-      <QA />
+    <div id="container">
       <Overview />
       <Related />
+      <QA />
       <RR />
     </div>
   );
