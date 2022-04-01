@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Ratings () {
+function Ratings() {
   return (<>test</>);
 }
 
