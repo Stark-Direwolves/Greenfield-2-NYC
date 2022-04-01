@@ -5,9 +5,9 @@ const RRcontainer = styled.div`
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  border: 1px solid black;
+  border: 100px solid black;
   flex-basis: content;
-`;
+  `;
 
 const ReviewBox = styled.div`
   display: flex;
@@ -19,4 +19,15 @@ const ReviewBox = styled.div`
   border-radius: 30px;
   `;
 
-export default (RRcontainer, ReviewBox);
+const RatingsBox = styled.div`
+  height:120px;
+  width:700px;
+  background-color:#e1e9f5;
+  border:1px solid #c1cee0;
+  border-radius: 10px;
+  // display:flex;
+  // justify-content:flex-start;
+  // flex-direction: column;
+`;
+
+export default (RRcontainer, ReviewBox, RatingsBox);

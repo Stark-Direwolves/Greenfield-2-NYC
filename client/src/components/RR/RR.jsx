@@ -4,11 +4,12 @@ import Ratings from './Ratings.jsx';
 import Review from './Review.jsx';
 import ReviewList from './ReviewList.jsx';
 import NewRR from './NewRR.jsx';
+import RRcontainer from './RRstyles.js';
 
 function RR() {
   return (
     // if there are reviews, will refactor for no reviews
-    <div>
+    <RRcontainer>
       <div>
         <h2> Ratings & Reviews </h2>
       </div>
@@ -18,7 +19,7 @@ function RR() {
       <div>
         <ReviewList reviewslist={reviews.list.results} />
       </div>
-    </div>
+    </RRcontainer>
   );
 }
 
