@@ -1,4 +1,5 @@
 import React from 'react';
+import reviews from '../../seedData/reviewSeed.js';
 import Ratings from './Ratings.jsx';
 import Review from './Review.jsx';
 import ReviewList from './ReviewList.jsx';
@@ -12,8 +13,10 @@ function RR() {
         <h2> Ratings & Reviews </h2>
       </div>
       <div>
-        <Ratings />
-        <ReviewList />
+        <Ratings ratingslist={reviews.meta} />
+      </div>
+      <div>
+        <ReviewList reviewslist={reviews.list.results} />
       </div>
     </div>
   );
