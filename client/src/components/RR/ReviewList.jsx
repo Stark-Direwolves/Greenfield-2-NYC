@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ReviewList () {
+function ReviewList() {
   return (<>test</>);
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function NewRR () {
+function NewRR() {
   return (<>test</>);
 }
 
