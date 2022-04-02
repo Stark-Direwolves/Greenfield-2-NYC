@@ -1,10 +1,25 @@
 import React from 'react';
+import StyleSelectorEntry from './StyleSelectorEntry.jsx';
 
-function StyleSelector() {
+/*
+    styleIndex={styleIndex}
+    setStyleIndex={setStyleIndex}
+    styles={productInfo.idStyles.results}
+*/
+
+function StyleSelector({ styleIndex, setStyleIndex, styles }) {
+  console.log('this is styles', styles);
   return (
-    <div className="component-separator">
-      Style Selector
-    </div>
+    <ul className="component-separator">
+      {styles.map((style, index) => (
+        <StyleSelectorEntry
+          style={style}
+          key={index}
+          index={index}
+          setStyleIndex={setStyleIndex}
+        />
+      ))}
+    </ul>
   );
 }
 

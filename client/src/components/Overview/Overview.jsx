@@ -7,15 +7,25 @@ import StyleSelector from './children/StyleSelector.jsx';
 import productInfo from '../../seedData/productSeed.js';
 
 function Overview() {
-  const [ style, setStyle ] = React.useState(productInfo.idStyles.results[0]);
+  const [ styleIndex, setStyleIndex ] = React.useState(0);
 
-  // giving productInfo seed data to productInformation
+  /*
+    productInformation will only get the style it needs and the default productInfo
+    styleSelector receives the current index, the method to change state, and the list of styles
+  */
   return (
     <div id="overview">
       <ImageGallery />
       <div id="details">
-        <ProductInformation productInfo={productInfo} style={style} />
-        <StyleSelector style={style} setStyle={setStyle} productInfo={productInfo} />
+        <ProductInformation
+          productInfo={productInfo}
+          style={productInfo.idStyles.results[styleIndex]}
+        />
+        <StyleSelector
+          styleIndex={styleIndex}
+          setStyleIndex={setStyleIndex}
+          styles={productInfo.idStyles.results}
+        />
         <AddToCart />
       </div>
     </div>
