@@ -10,16 +10,17 @@ import StyleSelectorEntry from './StyleSelectorEntry.jsx';
 function StyleSelector({ styleIndex, setStyleIndex, styles }) {
   console.log('this is styles', styles);
   return (
-    <ul className="component-separator">
-      {styles.map((style, index) => (
-        <StyleSelectorEntry
-          style={style}
-          key={index}
-          index={index}
-          setStyleIndex={setStyleIndex}
-        />
-      ))}
-    </ul>
+      <ul className="component-separator">
+        {styles[styleIndex].name}
+        {styles.map((style, index) => (
+          <StyleSelectorEntry
+            style={style}
+            key={index}
+            index={index}
+            setStyleIndex={setStyleIndex}
+          />
+        ))}
+      </ul>
   );
 }
 

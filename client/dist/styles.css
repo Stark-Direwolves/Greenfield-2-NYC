@@ -77,14 +77,15 @@ header {
   padding: 20px;
 }
 
-/* .style-selector {
-
+.style-selector-thumb {
+  width: 40px;
+  height: auto;
 }
 
-.add-to-cart {
-
+.style-selector-entry {
+  background-color:aliceblue;
+  outline: 1px dotted black;
+  height: 60px;
+  width: 45px;
+  padding: 5px;
 }
-
-.image-gallery {
-
-} */

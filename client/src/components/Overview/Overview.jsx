@@ -15,7 +15,7 @@ function Overview() {
   */
   return (
     <div id="overview">
-      <ImageGallery />
+      <ImageGallery styleImages={productInfo.idStyles.results[styleIndex].photos} />
       <div id="details">
         <ProductInformation
           productInfo={productInfo}
