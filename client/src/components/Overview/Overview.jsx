@@ -26,7 +26,7 @@ function Overview() {
           setStyleIndex={setStyleIndex}
           styles={productInfo.idStyles.results}
         />
-        <AddToCart />
+        <AddToCart style={productInfo.idStyles.results[styleIndex]} />
       </div>
     </div>
   );

@@ -8,7 +8,6 @@ import StyleSelectorEntry from './StyleSelectorEntry.jsx';
 */
 
 function StyleSelector({ styleIndex, setStyleIndex, styles }) {
-  console.log('this is styles', styles);
   return (
       <ul className="component-separator">
         {styles[styleIndex].name}
