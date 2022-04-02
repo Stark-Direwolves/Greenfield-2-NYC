@@ -1,5 +1,5 @@
 import React from 'react';
-import ReviewBox from './RRstyles/ReviewBox.js';
+import ReviewBox from '../RRstyles/ReviewBox.js';
 
 function Review(props, review) {
   return (

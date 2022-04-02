@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import reviews from '../../seedData/reviewSeed.js';
-import Ratings from './Ratings.jsx';
-import Review from './Review.jsx';
-import ReviewList from './ReviewList.jsx';
-import NewRR from './NewRR.jsx';
+import Ratings from './components/Ratings.jsx';
+import Review from './components/Review.jsx';
+import ReviewList from './components/ReviewList.jsx';
+import NewRR from './components/NewRR.jsx';
+// styles
 import RRcontainer from './RRstyles/RRcontainer.js';
 import RatingsBox from './RRstyles/RatingsBox.js';
 
 function RR() {
+
+  // use
+
+
+
+
+
+
+
   return (
     // if there are reviews, will refactor for no reviews
     <div>
@@ -15,9 +25,7 @@ function RR() {
         <h2> Ratings & Reviews </h2>
       </div>
       <RRcontainer>
-        <div>
-          <Ratings ratingslist={reviews.meta} />
-        </div>
+        <Ratings ratingslist={reviews.meta} />
         <div>
           <ReviewList reviewslist={reviews.list.results} />
         </div>
