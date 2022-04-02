@@ -1,20 +1,21 @@
+/* eslint-disable import/extensions */
 import React from 'react';
 import AddToCart from './children/AddToCart.jsx';
 import ImageGallery from './children/ImageGallery.jsx';
 import ProductInformation from './children/ProductInformation.jsx';
 import StyleSelector from './children/StyleSelector.jsx';
-import { productSeed } from '../../seedData/productSeed.js';
+import productInfo from '../../seedData/productSeed.js';
 
 function Overview() {
+  const [ style, setStyle ] = React.useState(productInfo.idStyles.results[0]);
 
-  const [ product, setProduct ] = React.useState()
-
+  // giving productInfo seed data to productInformation
   return (
     <div id="overview">
       <ImageGallery />
       <div id="details">
-        <ProductInformation />
-        <StyleSelector />
+        <ProductInformation productInfo={productInfo} style={style} />
+        <StyleSelector style={style} setStyle={setStyle} productInfo={productInfo} />
         <AddToCart />
       </div>
     </div>

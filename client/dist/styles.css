@@ -69,3 +69,22 @@ header {
   padding: 20px;
 }
 
+/* nathaniel's componenets */
+
+.component-separator {
+  background-color:aliceblue;
+  outline: 1px dotted black;
+  padding: 20px;
+}
+
+/* .style-selector {
+
+}
+
+.add-to-cart {
+
+}
+
+.image-gallery {
+
+} */
