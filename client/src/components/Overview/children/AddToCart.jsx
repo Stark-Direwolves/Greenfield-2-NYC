@@ -6,24 +6,35 @@ function AddToCart({ style }) {
   // handle state for Size, SKU, and Quantity
   // change size = qt 1
   const [ sku, setSku ] = React.useState('Select Size');
-  const [ quantity, setQuantity ] = React.useState(0);
+  const [ quantity, setQuantity ] = React.useState('-');
+  const [ error, setError ] = React.useState('');
 
   const handleChange = (e) => {
     e.preventDefault();
     if (e.target.value !== 'Select Size') {
       setSku(e.target.value);
+      setQuantity('-');
     }
   };
 
   const quantityConditional = () => {
     if (sku !== 'Select Size') {
-      return <Quantity sku={style.skus[sku]} setQuantity={setQuantity}/>
+      return <Quantity sku={style.skus[sku]} setQuantity={setQuantity} key={sku} />;
     }
-    return;
+  };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    // if (sku === 'Select Size') {
+
+    // }
+    let purchaseObj = { sku, quantity };
+    console.log('purchase object:', purchaseObj);
   };
 
   return (
     <form className="component-separator">
+      <div>{error}</div>
       <label htmlFor="sizes">
         Sizes
         <select name="sizes" id="sizes" onChange={handleChange}>
@@ -35,7 +46,7 @@ function AddToCart({ style }) {
         </select>
       </label>
       {quantityConditional()}
-      <input type="submit" value="Add To Cart" onClick={(e) => { e.preventDefault(); }}/>
+      <input type="submit" value="Add To Cart" onClick={handleClick} />
     </form>
   );
 }
