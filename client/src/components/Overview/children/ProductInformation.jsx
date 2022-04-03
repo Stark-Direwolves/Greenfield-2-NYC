@@ -1,7 +1,7 @@
 import React from 'react';
 
 function ProductInformation({ currentProduct, currentStyle }) {
-  let { category, name, default_price, description, slogan } = currentProduct.id;
+  let { category, name, default_price, description, slogan } = currentProduct;
 
   return (
     <div className="component-separator">

@@ -9,7 +9,17 @@ import productInfo from '../../seedData/productSeed.js';
 function Overview() {
   let styleList = productInfo.idStyles.results
   let currentProduct = productInfo.id
+
   const [ currentStyle, setCurrentStyle ] = React.useState(productInfo.idStyles.results[0]);
+  const [ sku, setSku ] = React.useState('Select Size');
+  const [ quantity, setQuantity ] = React.useState('-');
+
+  React.useEffect(
+    () => {
+      setSku('Select Size');
+      setQuantity('-');
+    }, [currentStyle],
+  );
 
   /*
     productInformation will only get the style it needs and the default productInfo
@@ -28,7 +38,13 @@ function Overview() {
           setCurrentStyle={setCurrentStyle}
           styles={styleList}
         />
-        <AddToCart currentStyle={currentStyle} />
+        <AddToCart
+          currentStyle={currentStyle}
+          sku={sku}
+          setSku={setSku}
+          quantity={quantity}
+          setQuantity={setQuantity}
+        />
       </div>
     </div>
   );

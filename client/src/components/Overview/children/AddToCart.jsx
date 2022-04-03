@@ -2,12 +2,9 @@ import React from 'react';
 import Size from './Size.jsx';
 import Quantity from './Quantity.jsx'
 
-function AddToCart({ currentStyle }) {
+function AddToCart({ currentStyle, sku, setSku, quantity, setQuantity }) {
   // handle state for Size, SKU, and Quantity
   // change size = qt 1
-  const [ sku, setSku ] = React.useState('Select Size');
-  const [ quantity, setQuantity ] = React.useState('-');
-  const [ error, setError ] = React.useState('');
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -28,7 +25,6 @@ function AddToCart({ currentStyle }) {
 
   return (
     <form className="component-separator">
-      <div>{error}</div>
       <label htmlFor="sizes">
         Sizes
         <select name="sizes" id="sizes" onChange={handleChange}>
