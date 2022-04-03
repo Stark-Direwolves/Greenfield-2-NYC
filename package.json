@@ -5,7 +5,6 @@
   "main": "index.jsx",
   "scripts": {
     "test": "jest",
-    "dev": "webpack serve",
     "build": "webpack watch --mode development",
     "server": "nodemon server"
   },
