@@ -30,16 +30,29 @@ header {
 #overview {
   display: grid;
   grid-template-columns: [col1-start] 60% [col1-end col2-start] 40% [col2-end];
-  height: 900px;
+  height: auto;
 }
 
-#image-selector {
+#image-gallery {
+  display: grid;
   background-color:aliceblue;
   outline: 1px dotted black;
   padding: 20px;
   grid-column-start: col1-start;
   grid-column-end: col1-end;
+  grid-template-rows: [row1-start] 80% [row1-end row2-start] 20% [row2-end];
+}
 
+#image-preview {
+  grid-row-start: row1-start;
+  grid-row-end: row1-end;
+  display: flex;
+  margin: auto;
+}
+
+#image-selector {
+  grid-row-start: row2-start;
+  grid-row-end: row2-end;
 }
 
 #details {
