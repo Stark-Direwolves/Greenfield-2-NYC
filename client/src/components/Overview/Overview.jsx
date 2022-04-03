@@ -28,7 +28,7 @@ function Overview() {
           setCurrentStyle={setCurrentStyle}
           styles={styleList}
         />
-        <AddToCart style={currentStyle} />
+        <AddToCart currentStyle={currentStyle} />
       </div>
     </div>
   );

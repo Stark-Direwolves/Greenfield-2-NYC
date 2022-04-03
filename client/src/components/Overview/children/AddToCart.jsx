@@ -2,7 +2,7 @@ import React from 'react';
 import Size from './Size.jsx';
 import Quantity from './Quantity.jsx'
 
-function AddToCart({ style }) {
+function AddToCart({ currentStyle }) {
   // handle state for Size, SKU, and Quantity
   // change size = qt 1
   const [ sku, setSku ] = React.useState('Select Size');
@@ -33,13 +33,13 @@ function AddToCart({ style }) {
         Sizes
         <select name="sizes" id="sizes" onChange={handleChange}>
           <option value="Select Size">Select Size</option>
-          {Object.keys(style.skus).map(
+          {Object.keys(currentStyle.skus).map(
             (sku_id, index) =>
-              <Size sku={style.skus[sku_id]} key={sku_id} setSku={setSku} sku_id={sku_id} />,
+              <Size sku={currentStyle.skus[sku_id]} key={sku_id} setSku={setSku} sku_id={sku_id} />,
           )}
         </select>
       </label>
-      <Quantity sku={style.skus[sku]} setQuantity={setQuantity} key={sku} />
+      <Quantity sku={currentStyle.skus[sku]} setQuantity={setQuantity} key={sku} />
       <input type="submit" value="Add To Cart" onClick={handleClick} />
     </form>
   );
