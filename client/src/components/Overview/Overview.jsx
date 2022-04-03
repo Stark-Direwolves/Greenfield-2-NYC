@@ -7,7 +7,9 @@ import StyleSelector from './children/StyleSelector.jsx';
 import productInfo from '../../seedData/productSeed.js';
 
 function Overview() {
-  const [ styleIndex, setStyleIndex ] = React.useState(0);
+  let styleList = productInfo.idStyles.results
+  let currentProduct = productInfo.id
+  const [ currentStyle, setCurrentStyle ] = React.useState(productInfo.idStyles.results[0]);
 
   /*
     productInformation will only get the style it needs and the default productInfo
@@ -15,18 +17,18 @@ function Overview() {
   */
   return (
     <div id="overview">
-      <ImageGallery styleImages={productInfo.idStyles.results[styleIndex].photos} />
+      <ImageGallery styleImages={currentStyle.photos} />
       <div id="details">
         <ProductInformation
-          productInfo={productInfo}
-          style={productInfo.idStyles.results[styleIndex]}
+          currentProduct={currentProduct}
+          currentStyle={currentStyle}
         />
         <StyleSelector
-          styleIndex={styleIndex}
-          setStyleIndex={setStyleIndex}
-          styles={productInfo.idStyles.results}
+          currentStyle={currentStyle}
+          setCurrentStyle={setCurrentStyle}
+          styles={styleList}
         />
-        <AddToCart style={productInfo.idStyles.results[styleIndex]} />
+        <AddToCart style={currentStyle} />
       </div>
     </div>
   );

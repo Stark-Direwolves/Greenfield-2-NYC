@@ -1,7 +1,7 @@
 import React from 'react';
 
-function ProductInformation({ productInfo, style }) {
-  let { category, name, default_price, description, slogan } = productInfo.id;
+function ProductInformation({ currentProduct, currentStyle }) {
+  let { category, name, default_price, description, slogan } = currentProduct.id;
 
   return (
     <div className="component-separator">
@@ -11,18 +11,18 @@ function ProductInformation({ productInfo, style }) {
       <div>{category}</div>
       <div>{name}</div>
       <div>
-        { default_price !== style.original_price ?
+        { default_price !== currentStyle.original_price ?
           (
             <>
-              <div style={{ textDecoration: default_price !== style.original_price ? 'line-through' : '' }}>
+              <div style={{ textDecoration: default_price !== currentStyle.original_price ? 'line-through' : '' }}>
                 {default_price}
               </div>
               <div>
-                {style.original_price}
+                {currentStyle.original_price}
               </div>
             </>
           )
-          : <div>{style.original_price}</div>
+          : <div>{currentStyle.original_price}</div>
         }
       </div>
       <div>{slogan}</div>

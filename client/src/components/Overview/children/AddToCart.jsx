@@ -17,12 +17,6 @@ function AddToCart({ style }) {
     }
   };
 
-  const quantityConditional = () => {
-    if (sku !== 'Select Size') {
-      return <Quantity sku={style.skus[sku]} setQuantity={setQuantity} key={sku} />;
-    }
-  };
-
   const handleClick = (e) => {
     e.preventDefault();
     // if (sku === 'Select Size') {
@@ -45,7 +39,7 @@ function AddToCart({ style }) {
           )}
         </select>
       </label>
-      {quantityConditional()}
+      <Quantity sku={style.skus[sku]} setQuantity={setQuantity} key={sku} />
       <input type="submit" value="Add To Cart" onClick={handleClick} />
     </form>
   );

@@ -3,9 +3,9 @@
 
 import React from 'react';
 
-function StyleSelectorEntry({ style, setStyleIndex, index }) {
+function StyleSelectorEntry({ style, setCurrentStyle, index }) {
   return (
-    <li className="style-selector-entry" onClick={() => { setStyleIndex(index); }}>
+    <li className="style-selector-entry" onClick={() => { setCurrentStyle(style); }}>
       <img className="style-selector-thumb" src={style.photos[0].thumbnail_url} alt={style.name} />
     </li>
   );

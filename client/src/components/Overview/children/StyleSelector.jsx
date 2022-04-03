@@ -7,16 +7,16 @@ import StyleSelectorEntry from './StyleSelectorEntry.jsx';
     styles={productInfo.idStyles.results}
 */
 
-function StyleSelector({ styleIndex, setStyleIndex, styles }) {
+function StyleSelector({ currentStyle, setCurrentStyle, styles }) {
   return (
       <ul className="component-separator">
-        {styles[styleIndex].name}
+        {currentStyle.name}
         {styles.map((style, index) => (
           <StyleSelectorEntry
             style={style}
             key={index}
             index={index}
-            setStyleIndex={setStyleIndex}
+            setCurrentStyle={setCurrentStyle}
           />
         ))}
       </ul>
