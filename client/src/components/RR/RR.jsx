@@ -9,15 +9,6 @@ import RRcontainer from './RRstyles/RRcontainer.js';
 import RatingsBox from './RRstyles/RatingsBox.js';
 
 function RR() {
-
-  // use
-
-
-
-
-
-
-
   return (
     // if there are reviews, will refactor for no reviews
     <div>
