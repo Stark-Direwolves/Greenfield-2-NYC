@@ -78,9 +78,7 @@ router.get('/:product_id/related', (req, res) => {
       const promises = [];
       results.data.forEach((result) => {
         const productInfo = [];
-        productInfo.push(getProductsById(result));
-        productInfo.push(getProductStyles(result));
-        productInfo.push(getReviewsMeta(result));
+        productInfo.push(getProductsById(result), getProductStyles(result), getReviewsMeta(result));
         promises.push(Promise.all(productInfo));
       });
       return Promise.all(promises);
@@ -89,11 +87,11 @@ router.get('/:product_id/related', (req, res) => {
       const products = {};
       result.forEach((product) => {
         const productInfo = {};
-        productInfo.products = product[0].data
-        productInfo.styles = product[1].data
-        productInfo.reviews = product[2].datanp
+        productInfo.products = product[0].data;
+        productInfo.styles = product[1].data;
+        productInfo.reviews = product[2].data;
         products[product[0].data.id] = productInfo;
-      })
+      });
       res.status(200).send(products);
     })
     .catch((err) => res.status(404).send(err));
