@@ -33,7 +33,7 @@ const findTotalScore = (ratingObj) => {
 };
 
 // stars need 1 decimal
-const averageRating = (ratingObj) => {
+const findAverageRating = (ratingObj) => {
   const avg = (findTotalScore(ratingObj) / findReviewCount(ratingObj));
   const staravg = (Math.round(avg * 10) / 10);
   return staravg;
@@ -42,4 +42,4 @@ const averageRating = (ratingObj) => {
 // var test = { 1: '5', 2: '1', 3: '9', 4: '24', 5: '8'}
 // = 3.6
 
-module.exports = { findReviewCount, averageRating };
+module.exports = { findReviewCount, findTotalScore, findAverageRating };
