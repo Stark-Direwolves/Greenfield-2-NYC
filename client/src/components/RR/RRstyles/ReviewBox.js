@@ -1,12 +1,33 @@
 import styled from 'styled-components';
 
 const ReviewBox = styled.div`
-  column-gap: 20px;
+  display:flex;
+  row-gap: 12px;
   justify-content: space-between;
   box-sizing: 'border-box';
-  minWidth: 100;
+  max-height: 140px;
+  min-height: 140px;
+  min-width: 700px;
+  max-width: 700px;
   border-radius: 3px;
-  border: 1px solid-black;
-  `;
+  border: 1px solid;
+  padding: 10px 10px;
+  margin: 15px;
+  flex-direction: column;
+  align-items:center;
+
+  div1 {
+    align-self: flex-start;
+  }
+
+  div2 {
+    align-self: flex-end;
+    
+  }
+
+  div3 {
+    align-self: flex-start;
+  }
+`;
 
 export default ReviewBox;

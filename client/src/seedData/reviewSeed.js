@@ -69,7 +69,7 @@ const list = {
 const meta = {
   product_id: '65631',
   ratings: {
-    3: '7',
+    3: '5',
     4: '12',
     5: '7',
   },
