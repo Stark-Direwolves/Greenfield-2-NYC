@@ -696,12 +696,12 @@ const related = [
   65637,
 ];
 
-const product = {
-  categories,
-  list,
+const productInfo = {
+  // categories,
+  // list,
   id,
   idStyles,
   related,
 };
 
-export default product;
+export default productInfo;
