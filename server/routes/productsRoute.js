@@ -73,26 +73,31 @@ router.get('/:product_id/styles', (req, res) => {
     .catch((err) => res.status(404).send(err));
 });
 
-router.get('/:product_id/related', (req, res) => {
-  const promises = [];
-  getRelatedProducts(req.params.product_id)
-    .then((results) => results.data.forEach((result) => {
-      promises.push(getProductsById(result));
-      promises.push(getProductStyles(result));
-      promises.push(getReviewsMeta(result));
-    }))
-    .then(() => Promise.all(promises))
-    .then((results) => results.map((result) => result.data))
-    .then((results) => res.status(200).send(results))
-    .catch((err) => res.status(404).send(err));
-});
-
-// router.get('/:products_id/related', (req, res) => {
-//   getRelatedProducts(req.params.products_id)
-//     .then((results) => results.data.map((result) => getProductsById(result)))
-//     .then((results) => Promise.all(results))
+// router.get('/:product_id/related', (req, res) => {
+//   const promises = [];
+//   const ids = [];
+//   const styles = [];
+//   const ratings = [];
+//   getRelatedProducts(req.params.product_id)
+//     .then((results) => results.data.forEach((result) => {
+//       ids.push(getProductsById(result));
+//       styles.push(getProductStyles(result));
+//       ratings.push(getReviewsMeta(result));
+//     }))
+//     .then(() => promises.push(ids, styles, ratings))
+//     .then((results) => console.log(results))
+//     .then(() => promises.forEach((promise) => Promise.all(promise)))
 //     .then((results) => results.map((result) => result.data))
 //     .then((results) => res.status(200).send(results))
 //     .catch((err) => res.status(404).send(err));
 // });
+
+router.get('/:products_id/related', (req, res) => {
+  getRelatedProducts(req.params.products_id)
+    .then((results) => results.data.map((result) => getProductsById(result)))
+    .then((results) => Promise.all(results))
+    .then((results) => results.map((result) => result.data))
+    .then((results) => res.status(200).send(results))
+    .catch((err) => res.status(404).send(err));
+});
 module.exports = router;
