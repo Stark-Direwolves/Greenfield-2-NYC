@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 
-function Search() {
-  const [inputValue, setInputValue] = useState('');
-
+function Search({ setSearch }) {
   const onChange = (event) => {
     const newValue = event.target.value;
-    setInputValue(newValue);
+
+    setSearch(newValue);
   };
 
   return (
