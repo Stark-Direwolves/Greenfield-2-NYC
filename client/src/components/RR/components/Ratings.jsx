@@ -1,10 +1,15 @@
 import React from 'react';
 import RatingsBox from '../RRstyles/RatingsBox.js';
 
-function Ratings() {
+function Ratings({ reviewCount, averageRating }) {
   return (
     <RatingsBox>
-      <h5> avg num & ratings </h5>
+      <h4>
+        {averageRating}
+      </h4>
+      <div>
+        {reviewCount} Reviews
+      </div>
     </RatingsBox>
   );
 }

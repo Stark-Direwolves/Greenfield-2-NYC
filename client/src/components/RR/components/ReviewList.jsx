@@ -1,29 +1,30 @@
-import React from 'react';
+/* eslint-disable max-len */
+/* eslint-disable import/extensions */
+import React, { useState } from 'react';
 import Review from './Review.jsx';
-import ReviewBox from '../RRstyles/ReviewBox.js';
 import MoreButton from '../RRstyles/MoreButton.js';
 
-// need to handle situation with 0 reviews
-
 function ReviewList({ reviewslist }) {
-  if (reviewslist.length >= 2) {
-    const firstTwo = reviewslist.slice(0, 2);
+  const [view, setView] = useState(2);
+
+  const firstTwo = reviewslist.slice(0, view);
+  if (reviewslist.length >= view) {
     return (
       <div>
-        {/* <ReviewBox> */}
-          <ul>
-            {firstTwo.map((review, key) => <Review key={key} review={review} />)}
-          </ul>
-        {/* </ReviewBox> */}
-        <MoreButton> MORE REVIEWS </MoreButton>
+        <div>
+          {firstTwo.map((review) => <Review key={review.review_id} review={review} />)}
+        </div>
+        <div>
+          <MoreButton onClick={() => setView((prevCount) => prevCount + 2)}> MORE REVIEWS </MoreButton>
+        </div>
       </div>
     );
   }
   return (
     <div>
-      <ul>
-        {reviewslist.map((review, key) => <Review key={key} review={review} />)}
-      </ul>
+      <div>
+        {firstTwo.map((review) => <Review key={review.review_id} review={review} />)}
+      </div>
     </div>
   );
 }

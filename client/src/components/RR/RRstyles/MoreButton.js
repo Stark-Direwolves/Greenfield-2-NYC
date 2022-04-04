@@ -7,6 +7,9 @@ const MoreButton = styled.button`
   text-align: center;
   display: inline-block;
   font-size: 16px;
+  &:hover {
+    background-color: #dcdcdc;
+  }
 `;
 
 export default MoreButton;

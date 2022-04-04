@@ -36,7 +36,7 @@ router.get('/meta', (req, res) => {
     .catch((err) => res.status(404).send(err));
 });
 
-// move below vvv routes to avoid merge conflict
+// move below vvv routes to avoid merge conflict if any changes were made
 
 const addReview = (body) => {
   const options = {
@@ -47,6 +47,8 @@ const addReview = (body) => {
   };
   return axios.post(options.url, body, options);
 };
+
+// note to self: in postman post req, characteristics labeled by id given in meta get req
 
 const markReviewHelpful = (id) => {
   const options = {
