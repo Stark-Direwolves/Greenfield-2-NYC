@@ -1,20 +1,19 @@
 import React from 'react';
+import Carousel, { CarouselItem } from './Carousel.jsx';
 
 function ImageGallery({ styleImages }) {
-  const limit = styleImages.length - 1;
+  const limit = styleImages.length;
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
 
-  const goNext = () => {
-    if (currentImageIndex < limit) {
-      setCurrentImageIndex(currentImageIndex + 1);
+  const updateIndex = (newIndex) => {
+    if (newIndex < 0) {
+      newIndex = 0;
+    } else if (newIndex >= limit) {
+      newIndex = limit - 1;
     }
-  }
 
-  const goPrevious = () => {
-    if (currentImageIndex > 0) {
-      setCurrentImageIndex(currentImageIndex - 1);
-    }
-  }
+    setCurrentImageIndex(newIndex);
+  };
 
   React.useEffect(() => {
     setCurrentImageIndex(0);
@@ -22,14 +21,24 @@ function ImageGallery({ styleImages }) {
 
   return (
     <div id="image-gallery">
-      <div id="image-preview" className="component-separator">
-        <img src={styleImages[currentImageIndex].url} width="670"/>
+      <div id="image-carousel" className="component-separator">
+        <Carousel
+          styleImages={styleImages}
+          setCurrentImageIndex={setCurrentImageIndex}
+          limit={limit}
+          currentImageIndex={currentImageIndex}
+        >
+          {styleImages.map((image, index) => <CarouselItem image={image} key={index} />)}
+        </Carousel>
       </div>
-      <div id="image-selector" className="component-separator">
-        <button onClick={goPrevious}>previous</button><button onClick={goNext}>next</button>
+      <div id="image-selector" className="indicators component-separator">
+        <button onClick={() => { updateIndex(currentImageIndex - 1); }}>prev</button>
+        <button onClick={() => { updateIndex(currentImageIndex + 1); }}>next</button>
       </div>
     </div>
   );
 }
+
+//<img src={image.url} width="100"/>
 
 export default ImageGallery;

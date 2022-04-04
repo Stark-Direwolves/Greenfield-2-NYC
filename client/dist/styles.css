@@ -46,6 +46,7 @@ header {
 #image-preview {
   grid-row-start: row1-start;
   grid-row-end: row1-end;
+  height: auto;
   display: flex;
   margin: auto;
 }
@@ -101,4 +102,37 @@ header {
   height: 60px;
   width: 45px;
   padding: 5px;
+}
+
+.carousel {
+  overflow: hidden;
+}
+
+.inner {
+  white-space: nowrap;
+  transition: transform 0.3s;
+}
+
+.carousel-item {
+  display: inline-flex;
+  align-items: center;
+  height: auto;
+  justify-content: center;
+  background-color: green;
+  color: #fff;
+}
+
+.indicators {
+  display: flex;
+  justify-content: center;
+}
+
+.indicators > button {
+  margin: 5px;
+}
+
+img {
+  max-height:100%;
+  max-width:100%;
+  object-fit: cover;
 }
