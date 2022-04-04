@@ -16,16 +16,14 @@ const ReviewBox = styled.div`
   flex-direction: column;
   align-items:center;
 
-  div1 {
+  Div1 {
     align-self: flex-start;
   }
-
-  div2 {
+  Div2 {
     align-self: flex-end;
-    
-  }
 
-  div3 {
+  }
+  Div3 {
     align-self: flex-start;
   }
 `;
