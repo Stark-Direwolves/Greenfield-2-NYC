@@ -46,26 +46,29 @@ const getRelatedProducts = (id) => {
 
 router.get('/', (req, res) => {
   getProducts()
-    .then((results) => (res.status(200).send(results.data)))
-    .catch((err) => (res.status(404).send(err)));
+    .then((results) => res.status(200).send(results.data))
+    .catch((err) => res.status(404).send(err));
 });
 
 router.get('/:products_id', (req, res) => {
   getProductsById(req.params.products_id)
-    .then((results) => (res.status(200).send(results.data)))
-    .catch((err) => (res.status(404).send(err)));
+    .then((results) => res.status(200).send(results.data))
+    .catch((err) => res.status(404).send(err));
 });
 
 router.get('/:products_id/styles', (req, res) => {
   getProductStyles(req.params.products_id)
-    .then((results) => (res.status(200).send(results.data)))
-    .catch((err) => (res.status(404).send(err)));
+    .then((results) => res.status(200).send(results.data))
+    .catch((err) => res.status(404).send(err));
 });
 
 router.get('/:products_id/related', (req, res) => {
   getRelatedProducts(req.params.products_id)
-    .then((results) => (res.status(200).send(results.data)))
-    .catch((err) => (res.status(404).send(err)));
+    .then((results) => results.data.map((result) => getProductsById(result)))
+    .then((results) => Promise.all(results))
+    .then((results) => results.map((result) => result.data))
+    .then((results) => res.status(200).send(results))
+    .catch((err) => res.status(404).send(err));
 });
 
 module.exports = router;
