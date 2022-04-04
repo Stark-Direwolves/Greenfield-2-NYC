@@ -23,6 +23,4 @@ function Card({ product }) {
   );
 }
 
-Card.prop
-
 export default Card;
