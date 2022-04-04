@@ -28,17 +28,4 @@ const ReviewBox = styled.div`
   }
 `;
 
-// const Div1 = styled(ReviewBox)`
-//     align-self: flex-start;
-//     font-weight: 900;
-//   `;
-
-// const Div2 = styled(ReviewBox)`
-//     align-self: flex-end;
-//   `;
-
-// const Div3 = styled(ReviewBox)`
-//     align-self: flex-start;
-//   `;
-
 export default ReviewBox;
