@@ -4,9 +4,9 @@ require('dotenv').config();
 
 const router = express.Router();
 
-const getReviews = (id) => {
+const getReviews = (id, count, sort) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews?product_id=${id}`,
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews?product_id=${id}&count=${count}&sort=${sort}`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -34,6 +34,56 @@ router.get('/meta', (req, res) => {
   getReviewsMeta(req.query.product_id)
     .then((results) => res.status(200).send(results.data))
     .catch((err) => res.status(404).send(err));
+});
+
+// move below vvv routes to avoid merge conflict
+
+const addReview = (body) => {
+  const options = {
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews`,
+    headers: {
+      Authorization: process.env.GITHUB_AUTH_KEY,
+    },
+  };
+  return axios.post(options.url, body, options);
+};
+
+const markReviewHelpful = (id) => {
+  const options = {
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews/${id}/helpful`,
+    headers: {
+      Authorization: process.env.GITHUB_AUTH_KEY,
+    },
+  };
+  return axios.put(options.url, options);
+};
+
+const reportReview = (id) => {
+  const options = {
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews/${id}/report`,
+    headers: {
+      Authorization: process.env.GITHUB_AUTH_KEY,
+    },
+  };
+  return axios.put(options.url, options);
+};
+
+router.post('/', (req, res) => {
+  addReview(req.body)
+    .then((results) => res.status(201).send(results.data))
+    .catch((err) => res.status(400).send(err));
+});
+
+router.put('/:review_id/helpful', (req, res) => {
+  markReviewHelpful(req.params.review_id)
+    .then((results) => res.status(200).send(results.data))
+    .catch((err) => res.status(400).send(err));
+});
+
+router.put('/:review_id/report', (req, res) => {
+  reportReview(req.params.review_id)
+    .then((results) => res.status(200).send(results.data))
+    .catch((err) => res.status(400).send(err));
 });
 
 module.exports = router;

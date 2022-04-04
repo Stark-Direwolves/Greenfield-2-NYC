@@ -6,7 +6,7 @@ const RatingsBox = styled.div`
   border: 0;
   height:200px;
   width:100%;
-  background-color:#f5f9ff;
+  background-color:#f5f5f5;
   text-align: center;
 `;
 
