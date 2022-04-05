@@ -101,39 +101,4 @@ router.get('/:product_id/related', (req, res) => {
     .catch((err) => res.status(404).send(err));
 });
 
-// router.get('/:products_id/related', (req, res) => {
-//   getRelatedProducts(req.params.products_id)
-//     .then((results) => results.data.map((result) => getProductsById(result)))
-//     .then((results) => Promise.all(results))
-//     .then((results) => results.map((result) => result.data))
-//     .then((results) => res.status(200).send(results))
-//     .catch((err) => res.status(404).send(err));
-// });
-
-// router.get('/:product_id/related', (req, res) => {
-//   getRelatedProducts(req.params.product_id)
-//     .then((results) => {
-//       const promises = [];
-//       results.data.forEach((result) => {
-//         const productInfo = [];
-//         productInfo.push(getProductsById(result));
-//         productInfo.push(getProductStyles(result));
-//         productInfo.push(getReviewsMeta(result));
-//         promises.push(Promise.all(productInfo));
-//       });
-//       return Promise.all(promises);
-//     })
-//     .then((result) => {
-//       const products = {};
-//       result.forEach((product) => {
-//         const productInfo = {};
-//         productInfo.products = product[0].data
-//         productInfo.styles = product[1].data
-//         productInfo.reviews = product[2].data
-//         products[product[0].data.id] = productInfo;
-//       })
-//       res.status(200).send(products);
-//     })
-//     .catch((err) => res.status(404).send(err));
-// });
 module.exports = router;

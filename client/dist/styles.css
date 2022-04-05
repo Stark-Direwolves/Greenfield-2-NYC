@@ -38,6 +38,7 @@ header {
   background-color:aliceblue;
   outline: 1px dotted black;
   padding: 20px;
+  height: 835px;
   grid-column-start: col1-start;
   grid-column-end: col1-end;
   grid-template-rows: [row1-start] 80% [row1-end row2-start] 20% [row2-end];
@@ -150,4 +151,15 @@ img {
   max-height:100%;
   max-width:100%;
   object-fit: cover;
+}
+
+ul > li {
+  display: inline-block;
+  /* You can also add some margins here to make it look prettier */
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
 }
