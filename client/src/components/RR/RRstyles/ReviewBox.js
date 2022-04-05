@@ -10,7 +10,8 @@ const ReviewBox = styled.div`
   min-width: 700px;
   max-width: 700px;
   border-radius: 3px;
-  border: 1px solid;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
   padding: 10px 10px;
   margin: 15px;
   flex-direction: column;

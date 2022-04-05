@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Review from './Review.jsx';
 import MoreButton from '../RRstyles/MoreButton.js';
 import AddButton from '../RRstyles/AddButton.js';
+import ReviewListBox from '../RRstyles/ReviewListBox.js';
 
 function ReviewList({ reviewslist, setShowModal }) {
   const [view, setView] = useState(2);
@@ -11,7 +12,7 @@ function ReviewList({ reviewslist, setShowModal }) {
   const firstTwo = reviewslist.slice(0, view);
   // if (reviewslist.length >= view) {
   return (
-    <div>
+    <ReviewListBox>
       <div>
         {firstTwo.map((review) => <Review key={review.review_id} review={review} />)}
       </div>
@@ -23,7 +24,7 @@ function ReviewList({ reviewslist, setShowModal }) {
         }
         <AddButton onClick={setShowModal}> ADD REVIEW </AddButton>
       </div>
-    </div>
+    </ReviewListBox>
   );
 }
 //   return (
