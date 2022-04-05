@@ -4,11 +4,13 @@ import Container from '../styles/Container.styled';
 
 function Related({ relatedProducts }) {
   return (
-    <div>
+    <div data-testid="related">
       <h3>Related Products</h3>
       <Container>
         {relatedProducts.map((product) => <Card key={product.id} product={product} />)}
       </Container>
+      <button type="button">Left</button>
+      <button type="button">Right</button>
     </div>
   );
 }
