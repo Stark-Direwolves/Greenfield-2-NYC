@@ -9,8 +9,9 @@ import StyleSelectorEntry from './StyleSelectorEntry.jsx';
 
 function StyleSelector({ currentStyle, setCurrentStyle, styles }) {
   return (
-      <ul className="component-separator">
-        {currentStyle.name}
+    <div className="component-separator">
+      {currentStyle.name}
+      <ul>
         {styles.map((style, index) => (
           <StyleSelectorEntry
             style={style}
@@ -20,6 +21,8 @@ function StyleSelector({ currentStyle, setCurrentStyle, styles }) {
           />
         ))}
       </ul>
+    </div>
+
   );
 }
 
