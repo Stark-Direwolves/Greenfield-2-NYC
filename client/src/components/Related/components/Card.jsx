@@ -6,18 +6,18 @@ import Button from '../styles/Button.styled';
 import Ratings from '../../RR/RatingHelpers';
 
 function Card({ product }) {
-  const [favorite, setFavorite] = useState(false);
+  const [compare, setCompare] = useState(false);
 
-  const toggleFavorite = () => {
-    setFavorite(!favorite);
-  };
+  function toggleFavorite() {
+    setCompare(!compare);
+  }
 
-  const filterAverageRating = (item) => {
+  function filterAverageRating(item) {
     if (Number.isNaN(Ratings.findAverageRating(item.ratings))) {
       return 'No Reviews Yet';
     }
     return Ratings.findAverageRating(item.ratings);
-  };
+  }
 
   return (
     <CardContainer>
