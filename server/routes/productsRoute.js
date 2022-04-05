@@ -44,16 +44,6 @@ const getRelatedProducts = (id) => {
   return axios.get(options.url, options);
 };
 
-const getReviewsMeta = (id) => {
-  const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews/meta?product_id=${id}`,
-    headers: {
-      Authorization: process.env.GITHUB_AUTH_KEY,
-    },
-  };
-  return axios.get(options.url, options);
-};
-
 router.get('/', (req, res) => {
   getProducts()
     .then((results) => (res.status(200).send(results.data)))
@@ -72,29 +62,10 @@ router.get('/:products_id/styles', (req, res) => {
     .catch((err) => (res.status(404).send(err)));
 });
 
-router.get('/:product_id/related', (req, res) => {
-  getRelatedProducts(req.params.product_id)
-    .then((results) => {
-      const promises = [];
-      results.data.forEach((result) => {
-        const productInfo = [];
-        productInfo.push(getProductsById(result), getProductStyles(result), getReviewsMeta(result));
-        promises.push(Promise.all(productInfo));
-      });
-      return Promise.all(promises);
-    })
-    .then((result) => {
-      const products = {};
-      result.forEach((product) => {
-        const productInfo = {};
-        productInfo.products = product[0].data;
-        productInfo.styles = product[1].data;
-        productInfo.reviews = product[2].data;
-        products[product[0].data.id] = productInfo;
-      });
-      res.status(200).send(products);
-    })
-    .catch((err) => res.status(404).send(err));
+router.get('/:products_id/related', (req, res) => {
+  getRelatedProducts(req.params.products_id)
+    .then((results) => (res.status(200).send(results.data)))
+    .catch((err) => (res.status(404).send(err)));
 });
 
 module.exports = router;
