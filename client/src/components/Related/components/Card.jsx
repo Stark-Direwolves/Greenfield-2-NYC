@@ -3,7 +3,7 @@ import StyledImage from '../styles/Image.styled';
 import CardContainer from '../styles/CardContainer.styled';
 import Ratings from '../../RR/RatingHelpers';
 
-function Card({ product, setProductID }) {
+function Card({ product }) {
   const [favorite, setFavorite] = useState(false);
 
   const toggleFavorite = () => {
@@ -18,7 +18,7 @@ function Card({ product, setProductID }) {
       <StyledImage
         src={product.styles[0].photos[0].thumbnail_url}
         onClick={() => {
-          setProductID(product.id);
+          window.location.href = `/${product.id}`;
         }}
       />
       <p>{product.category}</p>
