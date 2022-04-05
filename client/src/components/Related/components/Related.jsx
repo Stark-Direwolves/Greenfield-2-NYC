@@ -1,12 +1,16 @@
 import React from 'react';
 import Card from './Card.jsx';
-import product from '../../../seedData/productSeed.js';
+import Container from '../styles/Container.styled';
 
-function Related() {
+function Related({ relatedProducts }) {
   return (
-    <div>
+    <div data-testid="related">
       <h3>Related Products</h3>
-      <Card id={product.id} style={product.idStyles} />
+      <Container>
+        {relatedProducts.map((product) => <Card key={product.id} product={product} />)}
+      </Container>
+      <button type="button">Left</button>
+      <button type="button">Right</button>
     </div>
   );
 }

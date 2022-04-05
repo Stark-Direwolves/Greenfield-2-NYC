@@ -1,11 +1,13 @@
 /* eslint-disable max-len */
 /* eslint-disable import/extensions */
 import React, { useState } from 'react';
+import axios from 'axios';
 import reviews from '../../seedData/reviewSeed.js';
 import product from '../../seedData/productSeed.js';
 import Ratings from './components/Ratings.jsx';
 import ReviewList from './components/ReviewList.jsx';
 import NewReview from './components/NewReview.jsx';
+
 // styles
 import RRcontainer from './RRstyles/RRcontainer.js';
 import AddReview from './RRstyles/AddReview.js';
@@ -19,6 +21,15 @@ function RR() {
   const currentProduct = product.id.name;
   const currentProductId = product.id.id;
   const [showModal, setShowModal] = useState(false);
+
+  axios.get('/reviews')
+    .then((res) => {
+      console.log(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+  }
 
   return (
     // if there are reviews, if none just show add review button
