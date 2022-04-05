@@ -18,7 +18,6 @@ function Card({ product, setProductID }) {
       <StyledImage
         src={product.styles[0].photos[0].thumbnail_url}
         onClick={() => {
-          console.log('firing');
           setProductID(product.id);
         }}
       />
