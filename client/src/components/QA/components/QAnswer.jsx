@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import moment from 'moment';
 
 function QAnswer({ answer }) {
-  // console.log('body ', body);
-  // console.log('answer:', answer);
+  const [answerHelp, setAnswerHelp] = useState(answer.helpfulness);
+
   return (
     <div>
-      A: {answer.body}
+      {answer.body}
       <div>
-        name: {answer.answerer_name}
-        date: {answer.date}
-        helpfulness: {answer.helpfulness}
+        by: {answer.answerer_name}
+        ,  {moment(answer.date).format('LL')}
+        Helpful?
+        <span onClick={() => setAnswerHelp(answerHelp + 1)}>Yes</span>
+        ({answerHelp})
       </div>
     </div>
   );

@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import QAnswer from './QAnswer.jsx';
 
 function Question({ question, answers }) {
   const answerId = Object.keys(answers);
-  // console.log('question', question);
+  const [qHelpful, setQHelpful] = useState(question.question_helpfulness)
+  console.log('question', question);
   // console.log('answers', answers);
   return (
     <div>
       Q: {question.question_body}
-      {answerId.map((id) => (
+      Helpful?
+      <span onClick={() => setQHelpful(qHelpful + 1)}>Yes</span>
+      ({qHelpful})
+      <br />
+      A: {answerId.map((id) => (
         <QAnswer key={id} answer={answers[id]} />
       ))}
     </div>

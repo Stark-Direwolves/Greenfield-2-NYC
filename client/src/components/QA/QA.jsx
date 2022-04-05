@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import moment from 'moment'
 import axios from 'axios';
 
 import { Container } from './components/styles/Container.style.jsx';
@@ -11,29 +12,34 @@ import Search from './components/Search.jsx';
 
 function QA() {
   const [questions, setQuestions] = useState([]);
+  const [ogQues, setOgQues] = useState([]);
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    axios.get('/qa/questions', { params: { product_id: '65631' } })
+    axios.get('/qa/questions', { params: { product_id: '65632' } })
       .then((result) => {
         setQuestions(result.data.results);
+        setOgQues(result.data.results);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  var array = [];
-  if (search.length > 2) {
-    for (var i = 0; i < questions.length; i++) {
-      if (questions[i].question_body.toLowerCase().includes(search.toLowerCase())) {
-        array.push(questions[i]);
+  useEffect(() => {
+    var array = [];
+    if (search.length > 2) {
+      for (var i = 0; i < questions.length; i++) {
+        if (questions[i].question_body.toLowerCase().includes(search.toLowerCase())) {
+          array.push(questions[i]);
+          setQuestions(array);
+        }
       }
     }
-    // setQuestions(array);
-    console.log(array);
-    // setQuestions(array);
-  }
+    if (search.length < 3) {
+      setQuestions(ogQues);
+    }
+  }, [search]);
 
   return (
     <Container>
