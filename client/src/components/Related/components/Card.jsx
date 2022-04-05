@@ -14,7 +14,7 @@ function Card({ product }) {
       <button type="button" onClick={toggleFavorite}>
         Favorite
       </button>
-      <StyledImage />
+      <StyledImage src={product.styles[0].photos} />
       <p>{product.category}</p>
       <div>{product.name}</div>
       <div>{product.default_price}</div>

@@ -6,11 +6,9 @@ const axios = require('axios');
 
 function Related() {
   const [products, setProducts] = useState([]);
-  const [styles, setStyles] = useState([]);
-  const [ratings, setRatings] = useState([]);
 
   useEffect(() => {
-    axios.get('/products/65639/related')
+    axios.get('/products/65631/related')
       .then((res) => {
         setProducts(res.data);
       });
