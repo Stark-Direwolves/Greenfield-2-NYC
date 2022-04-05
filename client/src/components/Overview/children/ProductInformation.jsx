@@ -9,20 +9,20 @@ function ProductInformation({ currentProduct, currentStyle }) {
       <div>!!Number of Reviews</div>
       <div>!!Read all # reviews</div>
       <div>{category}</div>
-      <div>{name}</div>
+      <h2>{name}</h2>
       <div>
         { default_price !== currentStyle.original_price ?
           (
             <>
-              <div style={{ textDecoration: default_price !== currentStyle.original_price ? 'line-through' : '' }}>
+              <h3 style={{ textDecoration: default_price !== currentStyle.original_price ? 'line-through' : '' }}>
                 {default_price}
-              </div>
-              <div>
+              </h3>
+              <h3>
                 {currentStyle.original_price}
-              </div>
+              </h3>
             </>
           )
-          : <div>{currentStyle.original_price}</div>
+          : <h3>{currentStyle.original_price}</h3>
         }
       </div>
       <div>{slogan}</div>
