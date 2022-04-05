@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { HeartIcon } from '@heroicons/react/outline';
 import StyledImage from '../styles/Image.styled';
 import CardContainer from '../styles/CardContainer.styled';
+import Button from '../styles/Button.styled';
 import Ratings from '../../RR/RatingHelpers';
 
 function Card({ product }) {
@@ -12,11 +14,11 @@ function Card({ product }) {
 
   return (
     <CardContainer>
-      <button type="button" onClick={toggleFavorite}>
+      <Button type="button" onClick={toggleFavorite}>
         Favorite
-      </button>
+      </Button>
       <StyledImage
-        src={product.styles[0].photos[0].thumbnail_url}
+        src={product.styles[0].photos[0].url}
         onClick={() => {
           window.location.href = `/${product.id}`;
         }}
