@@ -28,6 +28,7 @@ grabInfo(id)
       getProduct={product}
       getStyles={styles}
       getRelated={related}
+      grabInfo={grabInfo}
     />, document.getElementById('App'));
   })
   .catch((err) => {
