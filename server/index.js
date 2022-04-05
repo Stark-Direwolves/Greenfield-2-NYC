@@ -10,13 +10,15 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
+app.use(express.static(path.join(__dirname, '..', 'client', 'dist'))); // moved static get down to catch all req
 
 app.use('/products', products);
 
 app.use('/reviews', reviews);
 
 app.use('/qa/questions', questions);
+
+app.use('/:product', express.static(path.join(__dirname, '..', 'client', 'dist'))); // moved static get down to catch all req
 
 app.listen(process.env.PORT, () => {
   console.log(`Listening on port ${process.env.PORT}`);

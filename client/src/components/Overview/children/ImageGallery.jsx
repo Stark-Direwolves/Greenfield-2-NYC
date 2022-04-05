@@ -27,13 +27,13 @@ function ImageGallery({ styleImages }) {
           setCurrentImageIndex={setCurrentImageIndex}
           limit={limit}
           currentImageIndex={currentImageIndex}
+          updateIndex={updateIndex}
         >
           {styleImages.map((image, index) => <CarouselItem image={image} key={index} />)}
         </Carousel>
       </div>
-      <div id="image-selector" className="indicators component-separator">
-        <button onClick={() => { updateIndex(currentImageIndex - 1); }}>prev</button>
-        <button onClick={() => { updateIndex(currentImageIndex + 1); }}>next</button>
+      <div id="image-selector" className="component-separator">
+        {styleImages.map((image, index) => <span key={index}>{index}</span>)}
       </div>
     </div>
   );
