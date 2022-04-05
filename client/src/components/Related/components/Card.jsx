@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import StyledImage from '../styles/Image.styled';
 import CardContainer from '../styles/CardContainer.styled';
+import Ratings from '../../RR/RatingHelpers';
 
-function Card({ product }) {
+function Card({ product, grabInfo }) {
   const [favorite, setFavorite] = useState(false);
 
   const toggleFavorite = () => {
@@ -14,11 +15,14 @@ function Card({ product }) {
       <button type="button" onClick={toggleFavorite}>
         Favorite
       </button>
-      <StyledImage src={product.styles[0].photos} />
+      <StyledImage
+        src={product.styles[0].photos[0].thumbnail_url}
+        onClick={() => grabInfo(product.id)}
+      />
       <p>{product.category}</p>
       <div>{product.name}</div>
       <div>{product.default_price}</div>
-      <div>Placeholder Rating</div>
+      <div>{Ratings.findAverageRating(product.ratings)}</div>
     </CardContainer>
   );
 }

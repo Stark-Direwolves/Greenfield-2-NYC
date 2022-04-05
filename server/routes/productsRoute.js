@@ -1,6 +1,5 @@
 const express = require('express');
 const axios = require('axios');
-const reviews = require('./reviewsRoute');
 require('dotenv').config();
 
 const router = express.Router();
@@ -91,7 +90,7 @@ router.get('/:product_id/related', (req, res) => {
           category: results[i].category,
           name: results[i].name,
           default_price: results[i].default_price,
-          styles: results[i + 1].results.filter((item) => item['default?'] === true),
+          styles: results[i + 1].results,
           ratings: results[i + 2].ratings,
         };
         products.push(obj);

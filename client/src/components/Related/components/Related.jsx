@@ -1,24 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Card from './Card.jsx';
 import Container from '../styles/Container.styled';
 
-const axios = require('axios');
-
-function Related() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    axios.get('/products/65631/related')
-      .then((res) => {
-        setProducts(res.data);
-      });
-  }, []);
-
+function Related({ relatedProducts, grabInfo }) {
   return (
     <div>
       <h3>Related Products</h3>
       <Container>
-        {products.map((product) => <Card key={product.id} product={product} />)}
+        {relatedProducts.map((product) =>
+          <Card key={product.id} product={product} grabInfo={grabInfo} />)}
       </Container>
     </div>
   );
