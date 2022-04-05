@@ -8,7 +8,7 @@ export function CarouselItem({ children, width, image}) {
   );
 };
 
-function Carousel({ children, currentImageIndex }) {
+function Carousel({ children, currentImageIndex, updateIndex }) {
   return (
     <div className="carousel">
       <div
@@ -17,6 +17,8 @@ function Carousel({ children, currentImageIndex }) {
       >
         {React.Children.map(children, (child, index) => React.cloneElement(child, { width: '100%' }))}
       </div>
+      <button className="carousel-button-left" onClick={() => { updateIndex(currentImageIndex - 1); }}>prev</button>
+      <button className="carousel-button-right" onClick={() => { updateIndex(currentImageIndex + 1); }}>next</button>
     </div>
   );
 }

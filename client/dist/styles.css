@@ -106,6 +106,7 @@ header {
 
 .carousel {
   overflow: hidden;
+  position: relative;
 }
 
 .inner {
@@ -120,6 +121,20 @@ header {
   justify-content: center;
   background-color: green;
   color: #fff;
+}
+
+.carousel-button-right {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  font-size: 30px;
+}
+
+.carousel-button-left {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  font-size: 30px;
 }
 
 .indicators {
