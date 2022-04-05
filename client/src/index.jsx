@@ -24,7 +24,11 @@ grabInfo(id)
     let product = data[0].data;
     let styles = data[1].data;
     let related = data[2].data;
-    ReactDOM.render(<App getProduct={product} getStyles={styles} getRelated={related} />, document.getElementById('App'));
+    ReactDOM.render(<App
+      getProduct={product}
+      getStyles={styles}
+      getRelated={related}
+    />, document.getElementById('App'));
   })
   .catch((err) => {
     console.log(err);

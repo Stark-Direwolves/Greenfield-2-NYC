@@ -7,7 +7,8 @@ import Related from'./Related/components/Related.jsx';
 function App({ getProduct, getStyles, getRelated }) {
   const [ product, setProduct ] = React.useState(getProduct)
   const [ styles, setStyles ] = React.useState(getStyles)
-  const [ related, setRelated ] = React.useState(getRelated)
+  // const [ related, setRelated ] = React.useState(getRelated)
+  // not sure where you were keeping state/data for your app julian
 
   return (
     <div id="container">
