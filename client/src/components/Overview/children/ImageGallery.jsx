@@ -36,7 +36,6 @@ function ImageGallery({ styleImages }) {
         <ul>
           {styleImages.map((image, index) => <ImageSelectorEntry key={index} thumb_url={image.thumbnail_url} index={index} updateIndex={updateIndex} />)}
         </ul>
-
       </div>
     </div>
   );
@@ -45,8 +44,10 @@ function ImageGallery({ styleImages }) {
 function ImageSelectorEntry ({ thumb_url, updateIndex, index }) {
 
   return (
-    <li className="image-selector-entry image-separator" onClick={() => { updateIndex(index); }}>
-      <img src={thumb_url} height="70" />
+    <li onClick={() => { updateIndex(index); }}>
+      <div className="curvedBase style-selector-curved">
+        <img src={thumb_url} className="image-selector-thumb" height="70" />
+      </div>
     </li>
   )
 }

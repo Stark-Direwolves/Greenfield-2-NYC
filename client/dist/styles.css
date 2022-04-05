@@ -113,6 +113,7 @@ header {
   height: 60px;
   width: 45px;
   padding: 5px;
+  border-radius: 25%
 }
 
 .carousel {
@@ -130,7 +131,6 @@ header {
   align-items: center;
   height: auto;
   justify-content: center;
-  background-color: green;
   color: #fff;
 }
 
@@ -165,13 +165,13 @@ img {
 
 ul > li {
   display: inline-block;
+  flex: 1 0 21%; /* explanation below */
   /* You can also add some margins here to make it look prettier */
 }
 
 ul {
   padding: 0;
   margin: 0;
-  display: flex;
 }
 
 
@@ -185,24 +185,63 @@ ul {
   justify-content: center;
 }
 
-.image-selector-circle {
+.style-selector-circle {
   width: 50px;
   height: 50px;
   background: #ccc;
 }
 
-/* .circleBase.image-selector-circle.unselected { */
-.circleBase.image-selector-circle.unselected {
+/* .circleBase.style-selector-circle.unselected { */
+.circleBase.style-selector-circle.unselected {
+  transition: box-shadow 0.7s;
   box-shadow: 4px 3px 10px grey;
 }
 
-.circleBase.image-selector-circle.selected {
+.circleBase.style-selector-circle.selected {
+  content: '\2713';
   box-shadow: 1px 2px 11px 0px black;
-  transform: scale(1.1, 1.1);
 }
 
-.circleBase.image-selector-circle:hover {
-  transition: transform 0.3s;
-  transform: scale(1.1, 1.1);
+.circleBase.style-selector-circle:hover {
+  transition: box-shadow 0.7s;
+  /* transition: transform 0.3s, box-shadow 0.7s; */
+  /* transform: scale(1.1, 1.1); */
   box-shadow: 1px 2px 11px 0px black;
+}
+
+.curvedBase {
+  margin: 5px 5px 5px 0;
+  border-radius: 8%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.style-selector-curved {
+  width: 75px;
+  height: 75px;
+  background: #ccc;
+}
+
+.curvedBase.style-selector-curved {
+  border: 1px black;
+}
+
+.image-selector-thumb {
+  height: auto;
+  width: 100%;
+}
+
+.checkmark {
+  content: '✔';
+  position: relative;
+  right:-36px; top: 16px;
+  width: 17px;
+  height: 17px;
+  text-align: center;
+  border: 1px solid #aaa;
+  background: #f8f8f8;
+  border-radius: 50%;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
+  z-index: 1;
 }
