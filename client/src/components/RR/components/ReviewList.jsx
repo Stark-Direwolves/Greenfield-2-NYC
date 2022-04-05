@@ -10,7 +10,6 @@ function ReviewList({ reviewslist, setShowModal }) {
   const [view, setView] = useState(2);
 
   const firstTwo = reviewslist.slice(0, view);
-  // if (reviewslist.length >= view) {
   return (
     <ReviewListBox>
       <div>

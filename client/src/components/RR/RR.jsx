@@ -21,7 +21,7 @@ function RR() {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    // if there are reviews, will refactor for no reviews
+    // if there are reviews, if none just show add review button
     <div>
       <div>
         <h3> Ratings & Reviews </h3>
@@ -45,5 +45,3 @@ function RR() {
 }
 
 export default RR;
-
-// main rr component

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import AddReview from '../RRstyles/AddReview.js';
 import AddPhoto from '../RRstyles/AddPhoto.js';
+import axios from 'axios';
 
 function NewReview({ currentProduct, currentProductId, setShowModal }) {
   const [formRating, setFormRating] = useState(0);
@@ -19,11 +20,6 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
   const [length, setLength] = useState(0);
   const [fit, setFit] = useState(0);
 
-  const submitForm = (event) => {
-    event.preventDefault();
-    setShowModal((prev) => !prev);
-  };
-
   const reviewBody = {
     product_id: currentProductId,
     rating: formRating,
@@ -40,8 +36,20 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
       quality: quality,
       length: length,
       fit: fit,
-    }
-  }
+    },
+  };
+
+  const submitForm = (event) => {
+    event.preventDefault();
+    setShowModal((prev) => !prev);
+    axios.post('/reviews', reviewBody)
+    .then((res) => {
+        console.log('review submitted', res);
+      })
+    .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div>
@@ -108,7 +116,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
       <div>
         <b> Review Summary </b>
         <form>
-          <input type="text" maxLength="60" placeholder="Example: Best purchase ever!" onChange={(event) => { setFormSummary(event.target.value); }} size="60" />
+          <textarea type="text" maxLength="60" placeholder="Example: Best purchase ever!" onChange={(event) => { setFormSummary(event.target.value); }} style={{ width: '418px', resize: 'none' }} />
         </form>
       </div>
       <br />
@@ -116,7 +124,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
         <b> Review Body </b>
         <br />
         <form>
-          <input type="text" display="flex" maxLength="1000" size="60" placeholder="Why did you like the product or not?" style={{ paddingBottom: 80, height: '80px' }} onChange={(event) => { setFormBody(event.target.value); }} required />
+          <textarea type="text" display="flex" maxLength="1000" size="60" placeholder="Why did you like the product or not?" style={{ resize: 'none', paddingBottom: 80, height: '80px', width: '418px' }} onChange={(event) => { setFormBody(event.target.value); }} required />
           <div>
             {(formBody.length < 50)
               ? (
@@ -138,7 +146,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
       <div>
         <b> What is your Name </b>
         <form>
-          <input type="text" maxLength="60" placeholder="Example: jackson11!" onChange={(event) => { setFormName(event.target.value); }} size="60" required />
+          <textarea type="text" maxLength="60" placeholder="Example: jackson11!" onChange={(event) => { setFormName(event.target.value); }} style={{ resize: 'none' }} size="60" required />
           <br />
           <small> For privacy reasons, do not use your full name or email address </small>
         </form>
@@ -147,7 +155,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
       <div>
         <b> Email </b>
         <form>
-          <input type="text" maxLength="60" placeholder="Example: jackson11@email.com" onChange={(event) => { setFormEmail(event.target.value); }} size="60" required />
+          <textarea type="text" maxLength="60" placeholder="Example: jackson11@email.com" onChange={(event) => { setFormEmail(event.target.value); }} style={{ resize: 'none' }} required />
           <br />
           <small> For authentication reasons, you will not be emailed </small>
         </form>

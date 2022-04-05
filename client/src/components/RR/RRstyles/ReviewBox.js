@@ -5,8 +5,8 @@ const ReviewBox = styled.div`
   row-gap: 10px;
   justify-content: space-between;
   box-sizing: 'border-box';
-  max-height: 140px;
-  min-height: 140px;
+  // max-height: 140px;
+  // min-height: 140px;
   min-width: 700px;
   max-width: 700px;
   border-radius: 3px;

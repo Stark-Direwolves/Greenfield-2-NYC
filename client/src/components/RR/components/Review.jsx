@@ -11,6 +11,11 @@ function Review({ review }) {
       <div2 is="x3d">{review.reviewer_name}</div2>
       <div3 is="x3d">{review.body}</div3>
       <div4 is="x3d">{review.date}</div4>
+      <div4 is="x3d">
+        {(review.photos.length >= 1)
+          ? <img src={review.photos} alt="" style={{ height: '80px', width: '80px' }} />
+          : null}
+      </div4>
     </ReviewBox>
   );
 }
