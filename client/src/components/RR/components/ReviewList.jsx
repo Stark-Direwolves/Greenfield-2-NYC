@@ -22,18 +22,10 @@ function ReviewList({ reviewslist, setShowModal }) {
           ? <MoreButton onClick={() => setView((prevCount) => prevCount + 2)}> MORE REVIEWS </MoreButton>
           : null
         }
-        <AddButton onClick={setShowModal}> ADD REVIEW </AddButton>
+        <AddButton onClick={() => { setShowModal(true) }}> ADD REVIEW </AddButton>
       </div>
     </ReviewListBox>
   );
 }
-//   return (
-//     <div>
-//       <div>
-//         {firstTwo.map((review) => <Review key={review.review_id} review={review} />)}
-//       </div>
-//     </div>
-//   );
-// }
 
 export default ReviewList;

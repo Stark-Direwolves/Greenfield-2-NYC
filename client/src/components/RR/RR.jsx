@@ -8,6 +8,7 @@ import ReviewList from './components/ReviewList.jsx';
 import NewReview from './components/NewReview.jsx';
 // styles
 import RRcontainer from './RRstyles/RRcontainer.js';
+import AddReview from './RRstyles/AddReview.js';
 
 const { findReviewCount, findAverageRating } = require('./RatingHelpers.js');
 
@@ -26,7 +27,7 @@ function RR() {
       <div>
         {(showModal === true)
           ? (
-            <NewReview currentProduct={currentProduct} setShowModal={setShowModal}> </NewReview>
+            <AddReview><NewReview currentProduct={currentProduct} setShowModal={setShowModal}> </NewReview></AddReview>
           )
           : (
             <RRcontainer>

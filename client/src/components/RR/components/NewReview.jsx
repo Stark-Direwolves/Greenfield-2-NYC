@@ -16,34 +16,35 @@ function NewReview({ currentProduct, setShowModal }) {
   };
 
   return (
-    <AddReview>
+    <div>
       <form onSubmit={(event) => { submitForm(event) }} />
       <h2> Write your Review </h2>
-      <h3> About the {currentProduct} </h3>
+      <h3>
+        About the {currentProduct}
+      </h3>
       <b> Select Rating </b>
       <div>
         <b> Do you recommend this product? </b>
         <label>
           Yes
-          <input type="radio"
-            checked={formRecommend === "Yes"}
+          <input
+            type="radio"
+            checked={formRecommend === 'Yes'}
             value="Yes"
-            key={ Math.random }
             onChange={ (e) => { setFormRecommend(e.target.value) }}
           />
         </label>
         <label>
           No
           <input type="radio"
-            checked={formRecommend === "No"}
+            checked={formRecommend === 'No'}
             value="No"
-            key={ Math.random }
             onChange={ (e) => { setFormRecommend(e.target.value) }}
           />
         </label>
       </div>
       {/* </form> */}
-    </AddReview>
+    </div>
   );
 }
 
