@@ -6,10 +6,10 @@ const CardContainer = styled.div`
   flex-direction: column;
   flex-basis: 250px;
   flex-shrink: 0;
-  padding: 10px 10px;
+  align-items: flex-start;
+  padding: 5px 5px;
   border: 2px solid;
   background-color: white;
 `;
 
 export default CardContainer;
-
