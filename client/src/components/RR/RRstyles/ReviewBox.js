@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const ReviewBox = styled.div`
-  display:flex;
-  row-gap: 12px;
+  display: flex;
+  row-gap: 10px;
   justify-content: space-between;
   box-sizing: 'border-box';
   max-height: 140px;
@@ -18,12 +18,15 @@ const ReviewBox = styled.div`
 
   Div1 {
     align-self: flex-start;
+    font-weight: 900;
   }
   Div2 {
     align-self: flex-end;
-
   }
   Div3 {
+    align-self: flex-start;
+  }
+  Div4 {
     align-self: flex-start;
   }
 `;
