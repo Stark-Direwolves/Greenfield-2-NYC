@@ -4,13 +4,10 @@ import AddToCart from './children/AddToCart.jsx';
 import ImageGallery from './children/ImageGallery.jsx';
 import ProductInformation from './children/ProductInformation.jsx';
 import StyleSelector from './children/StyleSelector.jsx';
-import productInfo from '../../seedData/productSeed.js';
 
-function Overview() {
-  let styleList = productInfo.idStyles.results
-  let currentProduct = productInfo.id
+function Overview({ product, styles }) {
 
-  const [ currentStyle, setCurrentStyle ] = React.useState(productInfo.idStyles.results[0]);
+  const [ currentStyle, setCurrentStyle ] = React.useState(styles.results[0]);
   const [ sku, setSku ] = React.useState('Select Size');
   const [ quantity, setQuantity ] = React.useState('-');
 
@@ -30,13 +27,13 @@ function Overview() {
       <ImageGallery styleImages={currentStyle.photos} />
       <div id="details">
         <ProductInformation
-          currentProduct={currentProduct}
+          currentProduct={product}
           currentStyle={currentStyle}
         />
         <StyleSelector
           currentStyle={currentStyle}
           setCurrentStyle={setCurrentStyle}
-          styles={styleList}
+          styles={styles.results}
         />
         <AddToCart
           currentStyle={currentStyle}
