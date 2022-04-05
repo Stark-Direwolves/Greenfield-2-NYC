@@ -8,8 +8,8 @@ function QAnswer({ answer }) {
     <div>
       {answer.body}
       <div>
-        by: {answer.answerer_name}
-        ,  {moment(answer.date).format('LL')}
+        by: {(answer.answerer_name.toLowerCase() === 'seller') ? <b>{answer.answerer_name}</b> : answer.answerer_name}
+        , {moment(answer.date).format('LL')}
         Helpful?
         <span onClick={() => setAnswerHelp(answerHelp + 1)}>Yes</span>
         ({answerHelp})

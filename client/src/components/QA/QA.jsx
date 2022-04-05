@@ -16,7 +16,7 @@ function QA() {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    axios.get('/qa/questions', { params: { product_id: '65632' } })
+    axios.get('/qa/questions', { params: { product_id: '65631' } })
       .then((result) => {
         setQuestions(result.data.results);
         setOgQues(result.data.results);
