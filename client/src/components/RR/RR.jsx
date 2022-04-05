@@ -9,13 +9,15 @@ import NewReview from './components/NewReview.jsx';
 // styles
 import RRcontainer from './RRstyles/RRcontainer.js';
 import AddReview from './RRstyles/AddReview.js';
+// import { star0, starHalf, star1, star1Half, star2, star2Half, star3, star3Half, star4, star4Half, star5 } from './RRstyles/starImages/index.js';
 
 const { findReviewCount, findAverageRating } = require('./RatingHelpers.js');
 
 function RR() {
-  let reviewCount = findReviewCount(reviews.meta.ratings);
-  let averageRating = findAverageRating(reviews.meta.ratings);
-  let currentProduct = product.id.name;
+  const reviewCount = findReviewCount(reviews.meta.ratings);
+  const averageRating = findAverageRating(reviews.meta.ratings);
+  const currentProduct = product.id.name;
+  const currentProductId = product.id.id;
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -27,7 +29,7 @@ function RR() {
       <div>
         {(showModal === true)
           ? (
-            <AddReview><NewReview currentProduct={currentProduct} setShowModal={setShowModal}> </NewReview></AddReview>
+            <AddReview><NewReview currentProduct={currentProduct} currentProductId={currentProductId} setShowModal={setShowModal}> </NewReview></AddReview>
           )
           : (
             <RRcontainer>

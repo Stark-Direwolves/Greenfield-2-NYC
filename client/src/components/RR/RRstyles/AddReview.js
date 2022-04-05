@@ -5,13 +5,13 @@ const AddReview = styled.div`
   min-width: 900px;
   color: black;
   // display: block;
-  height: 500px;
+  height: 750px;
   margin: auto;
   border: 2px solid black;
-  align-items: center;
   margin-top: 25%;
   margin-bottom: 25%;
   z-index: 9;
+  padding: 5%;
 `;
 
 export default AddReview;
