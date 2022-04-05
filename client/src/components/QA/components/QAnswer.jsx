@@ -17,4 +17,5 @@ function QAnswer({ answer }) {
     </div>
   );
 }
+
 export default QAnswer;
