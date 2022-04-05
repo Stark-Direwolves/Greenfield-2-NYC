@@ -8,6 +8,7 @@ import StyleSelectorEntry from './StyleSelectorEntry.jsx';
 */
 
 function StyleSelector({ currentStyle, setCurrentStyle, styles }) {
+  console.log(currentStyle, styles);
   return (
     <div className="component-separator">
       {currentStyle.name}
@@ -17,6 +18,7 @@ function StyleSelector({ currentStyle, setCurrentStyle, styles }) {
             style={style}
             key={index}
             index={index}
+            currentStyle={currentStyle}
             setCurrentStyle={setCurrentStyle}
           />
         ))}

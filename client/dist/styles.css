@@ -88,14 +88,24 @@ header {
 
 .component-separator {
   background-color:aliceblue;
+  /* outline: 1px dotted black; */
+  /* padding: 20px; */
+}
+
+.image-separator {
+  background-color:aliceblue;
   outline: 1px dotted black;
-  padding: 20px;
+  padding: 10px;
 }
 
 .style-selector-thumb {
-  width: 40px;
   height: auto;
+  width: 100%;
 }
+
+/* .style-selector-thumb img {
+  max-width:100%;
+} */
 
 .style-selector-entry {
   background-color:aliceblue;
@@ -162,4 +172,37 @@ ul {
   padding: 0;
   margin: 0;
   display: flex;
+}
+
+
+/* CIRCLE STUFF */
+
+.circleBase {
+  margin: 5px 5px 5px 0;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.image-selector-circle {
+  width: 50px;
+  height: 50px;
+  background: #ccc;
+}
+
+/* .circleBase.image-selector-circle.unselected { */
+.circleBase.image-selector-circle.unselected {
+  box-shadow: 4px 3px 10px grey;
+}
+
+.circleBase.image-selector-circle.selected {
+  box-shadow: 1px 2px 11px 0px black;
+  transform: scale(1.1, 1.1);
+}
+
+.circleBase.image-selector-circle:hover {
+  transition: transform 0.3s;
+  transform: scale(1.1, 1.1);
+  box-shadow: 1px 2px 11px 0px black;
 }

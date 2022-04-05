@@ -3,11 +3,16 @@
 
 import React from 'react';
 
-function StyleSelectorEntry({ style, setCurrentStyle, index }) {
+function StyleSelectorEntry({ currentStyle, style, setCurrentStyle, index }) {
+  const current = style.style_id === currentStyle.style_id;
+  console.log(current);
   return (
-    <li className="style-selector-entry" onClick={() => { setCurrentStyle(style); }}>
-      <img className="style-selector-thumb" src={style.photos[0].thumbnail_url} alt={style.name} />
+    <li>
+      <div className={`circleBase image-selector-circle ${current ? "selected" : "unselected"}`} onClick={() => { setCurrentStyle(style); }}>
+        <img className="style-selector-thumb" src={style.photos[0].thumbnail_url} alt={style.name} />
+      </div>
     </li>
+
   );
 }
 

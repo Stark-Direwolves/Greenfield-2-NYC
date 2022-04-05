@@ -33,12 +33,22 @@ function ImageGallery({ styleImages }) {
         </Carousel>
       </div>
       <div id="image-selector" className="component-separator">
-        {styleImages.map((image, index) => <span key={index}>{index}</span>)}
+        <ul>
+          {styleImages.map((image, index) => <ImageSelectorEntry key={index} thumb_url={image.thumbnail_url} index={index} updateIndex={updateIndex} />)}
+        </ul>
+
       </div>
     </div>
   );
 }
 
-//<img src={image.url} width="100"/>
+function ImageSelectorEntry ({ thumb_url, updateIndex, index }) {
+
+  return (
+    <li className="image-selector-entry image-separator" onClick={() => { updateIndex(index); }}>
+      <img src={thumb_url} height="70" />
+    </li>
+  )
+}
 
 export default ImageGallery;
