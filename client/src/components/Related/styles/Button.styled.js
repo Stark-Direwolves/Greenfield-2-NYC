@@ -8,6 +8,7 @@ const Button = styled.button`
   background-color: transparent;
   border: none;
   z-index: 1;
+  cursor: pointer;
 
   svg:hover {
     fill: black;

@@ -90,6 +90,7 @@ router.get('/:product_id/related', (req, res) => {
           category: results[i].category,
           name: results[i].name,
           default_price: results[i].default_price,
+          features: results[i].features,
           styles: results[i + 1].results,
           ratings: results[i + 2].ratings,
         };

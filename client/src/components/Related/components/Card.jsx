@@ -4,13 +4,14 @@ import StyledImage from '../styles/Image.styled';
 import CardContainer from '../styles/CardContainer.styled';
 import Button from '../styles/Button.styled';
 import Ratings from '../../RR/RatingHelpers';
+import Comparison from './Comparison.jsx';
 
 function Card({ product }) {
   const [compare, setCompare] = useState(false);
 
-  function toggleFavorite() {
+  const toggleCompare = () => {
     setCompare(!compare);
-  }
+  };
 
   function filterAverageRating(item) {
     if (Number.isNaN(Ratings.findAverageRating(item.ratings))) {
@@ -21,7 +22,8 @@ function Card({ product }) {
 
   return (
     <CardContainer>
-      <Button type="button" onClick={toggleFavorite}>
+      <Comparison compare={compare} toggleCompare={toggleCompare} product={product} />
+      <Button type="button" onClick={toggleCompare}>
         <StarIcon className="h-5 w-5 text-blue-500" />
       </Button>
       <StyledImage

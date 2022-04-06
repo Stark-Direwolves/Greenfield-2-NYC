@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import Card from './Card.jsx';
 import Container from '../styles/Container.styled';
 
