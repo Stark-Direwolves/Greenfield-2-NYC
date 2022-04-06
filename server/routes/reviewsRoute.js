@@ -57,7 +57,7 @@ const markReviewHelpful = (id) => {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
   };
-  return axios.put(options.url, options);
+  return axios.put(options.url, {}, options);
 };
 
 const reportReview = (id) => {
@@ -67,7 +67,7 @@ const reportReview = (id) => {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
   };
-  return axios.put(options.url, options);
+  return axios.put(options.url, {}, options);
 };
 
 router.post('/', (req, res) => {
