@@ -4,20 +4,21 @@ import Ratings from '../../RR/RatingHelpers';
 // client/src/components/RR/RatingHelpers.js
 
 
-function ProductInformation({ currentProduct, currentStyle, reviewMeta }) {
+function ProductInformation({ currentProduct, currentStyle, meta }) {
   let { category, name, default_price, description, slogan } = currentProduct;
+  console.log(meta);
   return (
     <div>
-      <div>{Ratings.findAverageRating(reviewMeta.ratings)}</div>
+      <div>{Ratings.findAverageRating(meta.ratings)}</div>
       <div>
         <span
           className="stars"
           style={{
-            '--rating': Ratings.findAverageRating(reviewMeta.ratings),
+            '--rating': Ratings.findAverageRating(meta.ratings),
           }}
         />
       </div>
-      <div><a href="#reviews">Read all {Ratings.findReviewCount(reviewMeta.ratings)} reviews</a></div>
+      <div><a href="#reviews">Read all {Ratings.findReviewCount(meta.ratings)} reviews</a></div>
       <div>{category}</div>
       <h2>{name}</h2>
       <div>

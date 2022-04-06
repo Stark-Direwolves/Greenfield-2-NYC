@@ -4,17 +4,19 @@ import RR from './RR/RR.jsx';
 import Overview from './Overview/Overview.jsx';
 import Related from './Related/components/Related.jsx';
 
-function App({ getProduct, getStyles, getRelated, getReviewMeta }) {
+function App({ getProduct, getStyles, getRelated, getReviews, getMeta }) {
   const [product, setProduct] = useState(getProduct);
   const [styles, setStyles] = useState(getStyles);
   const [related, setRelated] = useState(getRelated);
+  const [reviews, setReviews] = useState(getReviews);
+  const [meta, setMeta] = useState(getMeta);
 
   return (
     <div id="container">
-      <Overview product={product} styles={styles} reviewMeta={getReviewMeta} />
+      <Overview product={product} styles={styles} meta={meta} />
       <Related relatedProducts={related} />
       <QA productId={getProduct.id} />
-      <RR />
+      <RR reviews={reviews} meta={meta} product={product} />
     </div>
   );
 }

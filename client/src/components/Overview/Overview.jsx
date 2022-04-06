@@ -6,7 +6,7 @@ import ProductInformation from './components/ProductInformation.jsx';
 import StyleSelector from './components/StyleSelector.jsx';
 import { StyledOverview, StyledDetails } from './styles/Overview.styled.js';
 
-function Overview({ product, styles, reviewMeta }) {
+function Overview({ product, styles, meta }) {
 
   const [ currentStyle, setCurrentStyle ] = React.useState(styles.results[0]);
   const [ sku, setSku ] = React.useState('Select Size');
@@ -26,7 +26,7 @@ function Overview({ product, styles, reviewMeta }) {
         <ProductInformation
           currentProduct={product}
           currentStyle={currentStyle}
-          reviewMeta={reviewMeta}
+          meta={meta}
         />
         <StyleSelector
           currentStyle={currentStyle}

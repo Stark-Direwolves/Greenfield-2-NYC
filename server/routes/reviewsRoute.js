@@ -4,9 +4,9 @@ require('dotenv').config();
 
 const router = express.Router();
 
-const getReviews = (id, count, sort) => {
+const getReviews = (id) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews?product_id=${id}&count=${count}&sort=${sort}`,
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews?product_id=${id}&sort=relevant&count=9`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -30,8 +30,8 @@ router.get('/', (req, res) => {
     .catch((err) => res.status(404).send(err));
 });
 
-router.get('/meta/:id', (req, res) => {
-  getReviewsMeta(req.params.id) // getReviewsMeta(req.query.product_id)
+router.get('/meta', (req, res) => {
+  getReviewsMeta(req.query.product_id)
     .then((results) => res.status(200).send(results.data))
     .catch((err) => res.status(404).send(err));
 });
