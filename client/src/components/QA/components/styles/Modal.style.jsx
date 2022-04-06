@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const SModalOverlay = styled.div`
   background-color: #999999;
@@ -30,8 +30,8 @@ export const SModal = styled.div`
   border-radius: 0.25rem;
   display: flex;
   flex-direction: column;
-  margin: 1.875rem;
-  max-width: 500px;
+  margin: 15% auto;
+  width: 80%;
   position: relative;
   z-index: 100;
 `;

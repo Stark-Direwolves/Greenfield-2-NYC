@@ -17,10 +17,19 @@ function Modal({ isVisible, hideModal }) {
         >
           <SModal>
             <SHeader>
-              <STitle>Modal</STitle>
+              <STitle>Ask a Question</STitle>
               <SDescription>
                 <form>
-                  <input type="text" placeholder="email..." />
+                  Name <input type="text" placeholder="Example: jackson11!" />
+                  For privacy reasons, do not use your full name or email address
+                  <br />
+                  Email <input type="text" placeholder="email..." />
+                  <br />
+                  Question
+                  <textarea type="text" placeholder="Question" maxLength="1000" />
+                  <br />
+                  <button onClick={(e) => { e.preventDefault() }}>Submit</button>
+
                 </form>
               </SDescription>
             </SHeader>
