@@ -250,8 +250,8 @@ ul {
 
 :root {
   --star-size: 25px;
-  --star-color: #fff;
-  --star-background: rgb(75, 74, 71);
+  --star-color: rgb(204, 204, 204);
+  --star-background: rgb(45, 45, 44);
 }
 
 .stars {
@@ -269,4 +269,7 @@ ul {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+
+
 
