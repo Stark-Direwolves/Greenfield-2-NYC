@@ -1,12 +1,11 @@
 /* eslint-disable import/extensions */
 import React from 'react';
-import AddToCart from './components/AddToCart.jsx';
-import ImageGallery from './components/ImageGallery.jsx';
-import ProductInformation from './components/ProductInformation.jsx';
-import StyleSelector from './components/StyleSelector.jsx';
-import { StyledOverview, StyledDetails } from './styles/Overview.styled.js';
+import AddToCart from './children/AddToCart.jsx';
+import ImageGallery from './children/ImageGallery.jsx';
+import ProductInformation from './children/ProductInformation.jsx';
+import StyleSelector from './children/StyleSelector.jsx';
 
-function Overview({ product, styles, meta }) {
+function Overview({ product, styles }) {
 
   const [ currentStyle, setCurrentStyle ] = React.useState(styles.results[0]);
   const [ sku, setSku ] = React.useState('Select Size');
@@ -19,14 +18,17 @@ function Overview({ product, styles, meta }) {
     }, [currentStyle],
   );
 
+  /*
+    productInformation will only get the style it needs and the default productInfo
+    styleSelector receives the current index, the method to change state, and the list of styles
+  */
   return (
-    <StyledOverview>
+    <div id="overview">
       <ImageGallery styleImages={currentStyle.photos} />
-      <StyledDetails>
+      <div id="details">
         <ProductInformation
           currentProduct={product}
           currentStyle={currentStyle}
-          meta={meta}
         />
         <StyleSelector
           currentStyle={currentStyle}
@@ -40,8 +42,8 @@ function Overview({ product, styles, meta }) {
           quantity={quantity}
           setQuantity={setQuantity}
         />
-      </StyledDetails>
-    </StyledOverview>
+      </div>
+    </div>
   );
 }
 

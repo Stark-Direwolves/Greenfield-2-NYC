@@ -20,7 +20,7 @@ function RR({ reviews, meta, product }) {
 
   return (
     // if there are reviews, if none just show add review button
-    <div id="reviews">
+    <div>
       <div>
         <h3> Ratings & Reviews </h3>
       </div>
