@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const MoreButton = styled.button`
+const AddButton = styled.button`
   border: 2px solid black;
   color: black;
   padding: 15px 32px;
@@ -10,7 +10,8 @@ const MoreButton = styled.button`
   &:hover {
     background-color: #dcdcdc;
   }
-  margin-right: 100px;
+  margin-left: 275px;
+  position: static;
 `;
 
-export default MoreButton;
+export default AddButton;
