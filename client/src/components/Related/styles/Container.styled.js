@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
-  overflow-x: hidden;
-  height: 375px;
+  width: 100%;
   gap: 20px;
   padding: 0 10px;
+  height: 385px;
 `;
 
 export default Container;
