@@ -10,6 +10,7 @@ const MoreButton = styled.button`
   &:hover {
     background-color: #dcdcdc;
   }
+  margin-right: 100px;
 `;
 
 export default MoreButton;

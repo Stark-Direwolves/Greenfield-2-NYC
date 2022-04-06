@@ -13,7 +13,12 @@ const list = {
       date: '2022-03-31T00:00:00.000Z',
       reviewer_name: 'funtime',
       helpfulness: 0,
-      photos: [],
+      photos: [
+        {
+          id: 2259011,
+          url: 'http://vancouvereast.vet/wp-content/uploads/2018/01/Heavy-Breathing-Cat.jpg',
+        },
+      ],
     },
     {
       review_id: 1155698,
@@ -69,9 +74,11 @@ const list = {
 const meta = {
   product_id: '65631',
   ratings: {
+    1: '2',
+    2: '0',
     3: '5',
-    4: '12',
-    5: '7',
+    4: '24',
+    5: '17',
   },
   recommended: {
     false: '1',

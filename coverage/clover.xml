@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <coverage generated="1649231999038" clover="3.2.0">
   <project timestamp="1649231999039" name="All files">
     <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1" elements="6" coveredelements="5" complexity="0" loc="3" ncloc="3" packages="2" files="2" classes="2"/>
@@ -13,6 +14,74 @@
     <package name="styles">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="Comparison.styled.js" path="/Users/julian/fec/Starkfront/client/src/components/Related/styles/Comparison.styled.js">
+=======
+<coverage generated="1649227098012" clover="3.2.0">
+  <project timestamp="1649227098012" name="All files">
+    <metrics statements="31" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="1" elements="39" coveredelements="11" complexity="0" loc="31" ncloc="31" packages="4" files="8" classes="8"/>
+    <package name="QA.components.styles">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="Container.style.jsx" path="/Users/kimmie/HR/Starkfront/client/src/components/QA/components/styles/Container.style.jsx">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="RR">
+      <metrics statements="19" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="RatingHelpers.js" path="/Users/kimmie/HR/Starkfront/client/src/components/RR/RatingHelpers.js">
+        <metrics statements="19" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="Related.components">
+      <metrics statements="7" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="1"/>
+      <file name="Card.jsx" path="/Users/kimmie/HR/Starkfront/client/src/components/Related/components/Card.jsx">
+        <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+      </file>
+      <file name="Related.jsx" path="/Users/kimmie/HR/Starkfront/client/src/components/Related/components/Related.jsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="Related.styles">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="Button.styled.js" path="/Users/kimmie/HR/Starkfront/client/src/components/Related/styles/Button.styled.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="CardContainer.styled.js" path="/Users/kimmie/HR/Starkfront/client/src/components/Related/styles/CardContainer.styled.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="Container.styled.js" path="/Users/kimmie/HR/Starkfront/client/src/components/Related/styles/Container.styled.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="Image.styled.js" path="/Users/kimmie/HR/Starkfront/client/src/components/Related/styles/Image.styled.js">
+>>>>>>> 6a90956411ac6a2fbf9842054c9f1e02d26bb6fd
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="3" count="1" type="stmt"/>
       </file>

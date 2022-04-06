@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const RatingsBox = styled.div`
-  height:150px;
+  height:400px;
   width:100%;
   background-color:#f5f5f5;
   text-align: center;
