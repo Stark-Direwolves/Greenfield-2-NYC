@@ -1,14 +1,27 @@
 import React, { useState } from 'react';
 import QAnswer from './QAnswer.jsx';
+import axios from 'axios';
 
 function Question({ question, answers }) {
   const answerId = Object.keys(answers);
   const [qHelpful, setQHelpful] = useState(question.question_helpfulness);
   const [displayAn, setDisplayAn] = useState(2);
-  const [isHelpfulQ, setIsHelpfulQ] = useState(true);
+  const [isHelpfulQ, setIsHelpfulQ] = useState(false);
 
-  // console.log('question', question);
-  // console.log('answers', answers);
+  // useEffect(() => {
+  //   axios.put(`/qa/questions`,)
+  //     .then((result) => {
+  //       console.log(result.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, [qHelpful]);
+
+  const updateHelpQ = () => {
+    !isHelpfulQ ? (setIsHelpfulQ(true), setQHelpful(qHelpful + 1))
+      : null; //block from incrementing
+  };
 
   const firstTwo = answerId.slice(0, displayAn);
 
@@ -17,8 +30,7 @@ function Question({ question, answers }) {
       <div>
         <b>Q: {question.question_body} </b>
         Helpful?
-
-        <span onClick={() => { isHelpfulQ ? (setIsHelpfulQ(!isHelpfulQ), setQHelpful(qHelpful + 1)) : (setIsHelpfulQ(!isHelpfulQ), setQHelpful(qHelpful - 1)) }}>Yes</span>
+        <span onClick={updateHelpQ}>Yes</span>
         ({qHelpful})
         <span>Add Answer</span>
         <br />
@@ -38,9 +50,10 @@ function Question({ question, answers }) {
     <div>
       <b>Q: {question.question_body} </b>
       Helpful?
-      <span onClick={() => { isHelpfulQ ? (setIsHelpfulQ(!isHelpfulQ), setQHelpful(qHelpful + 1)) : (setIsHelpfulQ(!isHelpfulQ), setQHelpful(qHelpful - 1)) }}>Yes</span>
+      <span onClick={() => { updateHelpQ; }}>Yes</span>
       ({qHelpful})
       <br />
+      {}
       <b>A: </b>
       <div>
         {firstTwo.map((id) => (

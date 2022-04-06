@@ -5,7 +5,7 @@ function List({ questions }) {
   const [display, setDisplay] = useState(4);
 
   const firstFour = questions.slice(0, display);
-  if (questions.length >= display) {
+  if (questions.length > display) {
     return (
       <div>
         <div>
