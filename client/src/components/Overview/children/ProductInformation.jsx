@@ -1,8 +1,8 @@
 import React from 'react';
 
-function ProductInformation({ currentProduct, currentStyle }) {
+function ProductInformation({ currentProduct, currentStyle, reviewMeta }) {
   let { category, name, default_price, description, slogan } = currentProduct;
-
+  console.log(reviewMeta);
   return (
     <div className="component-separator">
       <div>!!Star Rating</div>

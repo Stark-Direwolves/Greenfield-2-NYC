@@ -9,6 +9,7 @@ const grabInfo = (id) => {
     axios.get(`/products/${id}`),
     axios.get(`/products/${id}/styles`),
     axios.get(`/products/${id}/related`),
+    axios.get(`/reviews/meta/${id}`),
   ];
   return Promise.all(promises);
 };
@@ -24,10 +25,12 @@ grabInfo(id)
     let product = data[0].data;
     let styles = data[1].data;
     let related = data[2].data;
+    let reviewMeta = data[3].data;
     ReactDOM.render(<App
       getProduct={product}
       getStyles={styles}
       getRelated={related}
+      getReviewMeta={reviewMeta}
       grabInfo={grabInfo}
     />, document.getElementById('App'));
   })

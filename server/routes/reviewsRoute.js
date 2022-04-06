@@ -30,8 +30,8 @@ router.get('/', (req, res) => {
     .catch((err) => res.status(404).send(err));
 });
 
-router.get('/meta', (req, res) => {
-  getReviewsMeta(req.query.product_id)
+router.get('/meta/:id', (req, res) => {
+  getReviewsMeta(req.params.id) // getReviewsMeta(req.query.product_id)
     .then((results) => res.status(200).send(results.data))
     .catch((err) => res.status(404).send(err));
 });
