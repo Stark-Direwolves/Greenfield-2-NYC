@@ -36,26 +36,26 @@ grabInfo(id)
     ReactDOM.render(<div>Error please contact admin</div>, document.getElementById('App'));
   })
 
-const getProductReviews = (id, sort) => {
-  const promises = [
-    axios.get(`/reviews/${id}/${sort}`),
-  ];
-  return Promise.all(promises);
-};
+// const getProductReviews = (id, sort) => {
+//   const promises = [
+//     axios.get(`/reviews/${id}/${sort}`),
+//   ];
+//   return Promise.all(promises);
+// };
 
-const getProductMeta = (id) => {
-  const promises = [
-    axios.get(`/reviews/meta/${id}}`),
-  ];
-  return Promise.all(promises);
-};
+// const getProductMeta = (id) => {
+//   const promises = [
+//     axios.get(`/reviews/meta/${id}}`),
+//   ];
+//   return Promise.all(promises);
+// };
 
-getProductReviews(id, 'relevant')
-  .then((res) => {
-    let reviews = res.data;
-  });
+// getProductReviews(id, 'relevant')
+//   .then((res) => {
+//     let reviews = res.data;
+//   });
 
-getProductMeta(id)
-  .then((res) => {
-    let meta = res.data;
-  });
+// getProductMeta(id)
+//   .then((res) => {
+//     let meta = res.data;
+//   });
