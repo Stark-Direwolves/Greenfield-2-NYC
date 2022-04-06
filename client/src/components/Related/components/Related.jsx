@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline';
 import Card from './Card.jsx';
 import Container from '../styles/Container.styled';
+import LeftButton from '../styles/LeftButton.styled';
+import RightButton from '../styles/RightButton.styled';
 
 function Related({ relatedProducts }) {
   const [index, setIndex] = useState(0);
@@ -17,13 +20,17 @@ function Related({ relatedProducts }) {
   }
 
   return (
-    <div data-testid="related">
+    <div id="related" data-testid="related">
       <h3>Related Products</h3>
-      <Container style={{ transform: `translateX(-${index * 285}px)` }}>
+      <Container style={{ transform: `translateX(-${index * 280}px)` }}>
         {relatedProducts.map((product) => <Card key={product.id} product={product} />)}
       </Container>
-      <button type="button" onClick={() => updateIndex(index - 1)}>Left</button>
-      <button type="button" onClick={() => updateIndex(index + 1)}>Right</button>
+      <LeftButton type="button" onClick={() => updateIndex(index - 1)}>
+        <ChevronLeftIcon className="h-5 w-5 text-blue-500" />
+      </LeftButton>
+      <RightButton type="button" onClick={() => updateIndex(index + 1)}>
+        <ChevronRightIcon className="h-5 w-5 text-blue-500" />
+      </RightButton>
     </div>
   );
 }

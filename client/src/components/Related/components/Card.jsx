@@ -15,7 +15,7 @@ function Card({ product }) {
 
   function filterAverageRating(item) {
     if (Number.isNaN(Ratings.findAverageRating(item.ratings))) {
-      return 'No Reviews Yet';
+      return 0;
     }
     return Ratings.findAverageRating(item.ratings);
   }
@@ -35,7 +35,7 @@ function Card({ product }) {
       <p>{product.category}</p>
       <div>{product.name}</div>
       <div>{product.default_price}</div>
-      <div>{filterAverageRating(product)}</div>
+      <div><span className="stars" style={{ '--rating': filterAverageRating(product), '--star-size': '15px' }} /></div>
     </CardContainer>
   );
 }
