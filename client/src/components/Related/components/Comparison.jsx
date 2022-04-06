@@ -16,9 +16,10 @@ const ComparisonContainer = styled.div`
 function Comparison({ compare, toggleCompare, product }) {
   return compare
     ? createPortal(
-      <StyledComparison>
+      <StyledComparison data-testid="comparison">
         <ComparisonContainer>
           <button type="button" onClick={toggleCompare}>X</button>
+          <h3>Compare</h3>
           <table>
             <thead>
               <tr>

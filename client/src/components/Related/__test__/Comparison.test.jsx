@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Related from '../components/Related.jsx';
+import Comparison from '../components/Comparison.jsx';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Related></Related>, div);
+  ReactDOM.render(<Comparison />, div);
 });

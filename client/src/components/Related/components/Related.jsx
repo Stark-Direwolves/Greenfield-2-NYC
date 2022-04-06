@@ -6,13 +6,13 @@ function Related({ relatedProducts }) {
   const [index, setIndex] = useState(0);
   const { length } = relatedProducts;
 
-  function updateIndex(newIndex) {
+  function updateIndex(i) {
+    let newIndex = i;
     if (newIndex < 0) {
       newIndex = 0;
     } else if (newIndex >= length) {
       newIndex = length - 1;
     }
-
     setIndex(newIndex);
   }
 
