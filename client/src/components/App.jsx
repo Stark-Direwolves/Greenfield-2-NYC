@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import QA from './QA/QA.jsx';
 import RR from './RR/RR.jsx';
-import Overview from'./Overview/Overview.jsx';
-import Related from'./Related/components/Related.jsx';
+import Overview from './Overview/Overview.jsx';
+import Related from './Related/components/Related.jsx';
 
 function App({ getProduct, getStyles, getRelated }) {
   const [product, setProduct] = useState(getProduct);
@@ -13,7 +13,7 @@ function App({ getProduct, getStyles, getRelated }) {
     <div id="container">
       <Overview product={product} styles={styles} />
       <Related relatedProducts={related} />
-      <QA />
+      <QA productId={getProduct.id} />
       <RR />
     </div>
   );

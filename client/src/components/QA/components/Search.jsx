@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
+import { SContainer, Input, Form } from './styles/Search.style.jsx'
 
-function Search() {
-  const [inputValue, setInputValue] = useState('');
-
+function Search({ setSearch }) {
   const onChange = (event) => {
     const newValue = event.target.value;
-    setInputValue(newValue);
+    setSearch(newValue);
   };
 
   return (
-    <form>
-      <input placeholder="search..." onChange={onChange} />
-    </form>
+    <SContainer>
+      <Form>
+        <Input placeholder="Have a question? Search for answers…" onChange={onChange} />
+      </Form>
+    </SContainer>
   );
 }
 
