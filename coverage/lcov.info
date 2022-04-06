@@ -1,9 +1,7 @@
 TN:
-<<<<<<< HEAD
 SF:client/src/components/Related/components/Comparison.jsx
 FN:16,Comparison
 FNF:1
-=======
 SF:client/src/components/QA/components/styles/Container.style.jsx
 FNF:0
 FNH:0
@@ -72,7 +70,6 @@ SF:client/src/components/Related/components/Related.jsx
 FN:5,Related
 FN:10,(anonymous_1)
 FNF:2
->>>>>>> 6a90956411ac6a2fbf9842054c9f1e02d26bb6fd
 FNH:1
 FNDA:1,Comparison
 DA:6,1

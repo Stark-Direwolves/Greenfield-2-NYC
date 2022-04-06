@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <coverage generated="1649231999038" clover="3.2.0">
   <project timestamp="1649231999039" name="All files">
     <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1" elements="6" coveredelements="5" complexity="0" loc="3" ncloc="3" packages="2" files="2" classes="2"/>
@@ -14,7 +13,6 @@
     <package name="styles">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="Comparison.styled.js" path="/Users/julian/fec/Starkfront/client/src/components/Related/styles/Comparison.styled.js">
-=======
 <coverage generated="1649227098012" clover="3.2.0">
   <project timestamp="1649227098012" name="All files">
     <metrics statements="31" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="1" elements="39" coveredelements="11" complexity="0" loc="31" ncloc="31" packages="4" files="8" classes="8"/>
@@ -81,7 +79,6 @@
         <line num="3" count="1" type="stmt"/>
       </file>
       <file name="Image.styled.js" path="/Users/kimmie/HR/Starkfront/client/src/components/Related/styles/Image.styled.js">
->>>>>>> 6a90956411ac6a2fbf9842054c9f1e02d26bb6fd
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="3" count="1" type="stmt"/>
       </file>
