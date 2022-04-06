@@ -1,17 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
+import moment from 'moment';
 
 function QAnswer({ answer }) {
-  // console.log('body ', body);
-  // console.log('answer:', answer);
+  const [answerHelp, setAnswerHelp] = useState(answer.helpfulness);
+  const [isHelpful, setIsHelpful] = useState(true);
+
   return (
     <div>
-      A: {answer.body}
+      {answer.body}
       <div>
-        name: {answer.answerer_name}
-        date: {answer.date}
-        helpfulness: {answer.helpfulness}
-      </div>
+        by: {(answer.answerer_name.toLowerCase() === 'seller') ? <b>{answer.answerer_name}</b> : answer.answerer_name}
+        , {moment(answer.date).format('LL')}
+        Helpful?
+        <span onClick={() => { isHelpful ? (setIsHelpful(!isHelpful), setAnswerHelp(answerHelp + 1)) : (setIsHelpful(!isHelpful),setAnswerHelp(answerHelp - 1))}}>Yes</span>
+      ({answerHelp})
     </div>
+    </div >
   );
 }
+
+// return (
+//   <div>
+//       {isLoggedIn ? <button>Logout</button> : <button>Login</button>}
+//   </div>
+//   );
+// }
+
+
 export default QAnswer;
