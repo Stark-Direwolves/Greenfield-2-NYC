@@ -29,7 +29,7 @@ function QA({ productId }) {
   useEffect(() => {
     const array = [];
     if (search.length > 2) {
-      for (let i = 0; i < questions.length; i + 1) {
+      for (let i = 0; i < questions.length; i++) {
         if (questions[i].question_body.toLowerCase().includes(search.toLowerCase())) {
           array.push(questions[i]);
           setQuestions(array);

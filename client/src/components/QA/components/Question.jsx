@@ -50,7 +50,7 @@ function Question({ question, answers }) {
     <div>
       <b>Q: {question.question_body} </b>
       Helpful?
-      <span onClick={() => { updateHelpQ; }}>Yes</span>
+      <span onClick={() => { updateHelpQ }}>Yes</span>
       ({qHelpful})
       <br />
       {}
