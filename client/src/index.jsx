@@ -32,7 +32,6 @@ grabInfo(id)
       getProduct={product}
       getStyles={styles}
       getRelated={related}
-      grabInfo={grabInfo}
       getReviews={reviews}
       getMeta={meta}
     />, document.getElementById('App'));
