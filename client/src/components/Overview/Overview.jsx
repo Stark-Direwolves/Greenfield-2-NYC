@@ -1,9 +1,10 @@
 /* eslint-disable import/extensions */
 import React from 'react';
-import AddToCart from './children/AddToCart.jsx';
-import ImageGallery from './children/ImageGallery.jsx';
-import ProductInformation from './children/ProductInformation.jsx';
-import StyleSelector from './children/StyleSelector.jsx';
+import AddToCart from './components/AddToCart.jsx';
+import ImageGallery from './components/ImageGallery.jsx';
+import ProductInformation from './components/ProductInformation.jsx';
+import StyleSelector from './components/StyleSelector.jsx';
+import { StyledOverview, StyledDetails } from './styles/Overview.styled.js';
 
 function Overview({ product, styles, reviewMeta }) {
 
@@ -18,14 +19,10 @@ function Overview({ product, styles, reviewMeta }) {
     }, [currentStyle],
   );
 
-  /*
-    productInformation will only get the style it needs and the default productInfo
-    styleSelector receives the current index, the method to change state, and the list of styles
-  */
   return (
-    <div id="overview">
+    <StyledOverview>
       <ImageGallery styleImages={currentStyle.photos} />
-      <div id="details">
+      <StyledDetails>
         <ProductInformation
           currentProduct={product}
           currentStyle={currentStyle}
@@ -43,8 +40,8 @@ function Overview({ product, styles, reviewMeta }) {
           quantity={quantity}
           setQuantity={setQuantity}
         />
-      </div>
-    </div>
+      </StyledDetails>
+    </StyledOverview>
   );
 }
 

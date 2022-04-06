@@ -1,13 +1,23 @@
 import React from 'react';
+import Ratings from '../../RR/RatingHelpers';
+
+// client/src/components/RR/RatingHelpers.js
+
 
 function ProductInformation({ currentProduct, currentStyle, reviewMeta }) {
   let { category, name, default_price, description, slogan } = currentProduct;
-  console.log(reviewMeta);
   return (
-    <div className="component-separator">
-      <div>!!Star Rating</div>
-      <div>!!Number of Reviews</div>
-      <div>!!Read all # reviews</div>
+    <div>
+      <div>{Ratings.findAverageRating(reviewMeta.ratings)}</div>
+      <div>
+        <span
+          className="stars"
+          style={{
+            '--rating': Ratings.findAverageRating(reviewMeta.ratings),
+          }}
+        />
+      </div>
+      <div><a href="#reviews">Read all {Ratings.findReviewCount(reviewMeta.ratings)} reviews</a></div>
       <div>{category}</div>
       <h2>{name}</h2>
       <div>

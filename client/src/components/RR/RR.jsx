@@ -24,7 +24,7 @@ function RR() {
 
   return (
     // if there are reviews, if none just show add review button
-    <div>
+    <div id="reviews">
       <div>
         <h3> Ratings & Reviews </h3>
       </div>
