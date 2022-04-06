@@ -22,15 +22,6 @@ function RR() {
   const currentProductId = product.id.id;
   const [showModal, setShowModal] = useState(false);
 
-  axios.get('/reviews')
-    .then((res) => {
-      console.log(res.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-  }
-
   return (
     // if there are reviews, if none just show add review button
     <div>
