@@ -8,18 +8,41 @@ function Question({ question, answers }) {
   // console.log('question', question);
   // console.log('answers', answers);
 
+  const firstTwo = answerId.slice(0, displayAn);
+
+  if (answerId.length >= displayAn) {
+    return (
+      <div>
+        <b>Q: {question.question_body} </b>
+        Helpful?
+        <span onClick={() => setQHelpful(qHelpful + 1)}>Yes</span>
+        ({qHelpful})
+        <br />
+        <b>A: </b>
+        <div>
+          {firstTwo.map((id) => (
+            <QAnswer key={id} answer={answers[id]} />
+          ))}
+        </div>
+        <div>
+          <div onClick={() => setDisplayAn((prevCount) => prevCount + 2)}> LOAD MORE ANSWERS </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div>
-      Q: {question.question_body}
+      <b>Q: {question.question_body} </b>
       Helpful?
       <span onClick={() => setQHelpful(qHelpful + 1)}>Yes</span>
       ({qHelpful})
       <br />
-      A:
-      {(answerId.length >= setDisplayAn) ||
-        answerId.map((id) => (
+      <b>A: </b>
+      <div>
+        {firstTwo.map((id) => (
           <QAnswer key={id} answer={answers[id]} />
         ))}
+      </div>
     </div>
   );
 }

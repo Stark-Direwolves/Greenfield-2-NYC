@@ -19,7 +19,9 @@ function Modal({ isVisible, hideModal }) {
             <SHeader>
               <STitle>Modal</STitle>
               <SDescription>
-                Why this modal has popped up
+                <form>
+                  <input type="text" placeholder="email..." />
+                </form>
               </SDescription>
             </SHeader>
             <SButton onClick={hideModal}>

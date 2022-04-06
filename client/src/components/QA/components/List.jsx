@@ -25,7 +25,7 @@ function List({ questions }) {
         <Question key={question.question_id} question={question} answers={question.answers} />
       ))}
     </div>
-  )
+  );
 }
 
 export default List;

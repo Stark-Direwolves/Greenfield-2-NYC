@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SContainer, Input, Form } from './styles/Search.style.jsx'
 
 function Search({ setSearch }) {
   const onChange = (event) => {
@@ -7,9 +8,11 @@ function Search({ setSearch }) {
   };
 
   return (
-    <form>
-      <input placeholder="Have a question? Search for answers…" onChange={onChange} />
-    </form>
+    <SContainer>
+      <Form>
+        <Input placeholder="Have a question? Search for answers…" onChange={onChange} />
+      </Form>
+    </SContainer>
   );
 }
 
