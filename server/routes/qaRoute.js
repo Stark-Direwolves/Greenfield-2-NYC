@@ -48,7 +48,7 @@ router.get('/:question_id/answers', (req, res) => {
 
 router.put('/:question_id/helpful', (req, res) => {
   putQ(req.params.question_id)
-    .then((results) => res.status(200).send(`this was marked helpful ${req.params.question_id}`))
+    .then(() => res.status(200).send(`this was marked helpful ${req.params.question_id}`))
     .catch((err) => res.status(404).send(err));
 });
 
