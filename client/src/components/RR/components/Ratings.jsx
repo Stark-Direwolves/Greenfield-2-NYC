@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-wrap-multilines */
 import React from 'react';
 import RatingsBox from '../RRstyles/RatingsBox.js';
 
@@ -39,30 +40,42 @@ function Ratings({ reviewCount, averageRating, meta }) {
           Total Reviews
         </div>
         <br />
-        <div className="slidecontainer">
-          <span> Size </span>
-          <input type="range" min="1" max="5" value={size} className="slider" disabled />
-        </div>
-        <div className="slidecontainer">
-          <span> Width </span>
-          <input type="range" min="1" max="5" value={width} className="slider" disabled />
-        </div>
-        <div className="slidecontainer">
-          <span> Comfort </span>
-          <input type="range" min="1" max="5" value={comfort} className="slider" disabled />
-        </div>
-        <div className="slidecontainer">
-          <span> Quality </span>
-          <input type="range" min="1" max="5" value={quality} className="slider" disabled />
-        </div>
-        <div className="slidecontainer">
-          <span> Length </span>
-          <input type="range" min="1" max="5" value={length} className="slider" disabled />
-        </div>
-        <div className="slidecontainer">
-          <span> Fit </span>
-          <input type="range" min="1" max="5" value={fit} className="slider" disabled />
-        </div>
+        {(size > 0)
+          ? <div className="slidecontainer">
+            <span> Size </span>
+            <input type="range" min="1" max="5" value={size} className="slider" disabled />
+            </div>
+          : null}
+        {(width > 0)
+          ? <div className="slidecontainer">
+            <span> Width </span>
+            <input type="range" min="1" max="5" value={width} className="slider" disabled />
+            </div>
+          : null}
+        {(comfort > 0)
+          ? <div className="slidecontainer">
+            <span> Comfort </span>
+            <input type="range" min="1" max="5" value={comfort} className="slider" disabled />
+            </div>
+          : null}
+        {(quality > 0)
+          ? <div className="slidecontainer">
+            <span> Quality </span>
+            <input type="range" min="1" max="5" value={quality} className="slider" disabled />
+            </div>
+          : null}
+        {(length > 0)
+          ? <div className="slidecontainer">
+            <span> Length </span>
+            <input type="range" min="1" max="5" value={length} className="slider" disabled />
+            </div>
+          : null}
+        {(fit > 0)
+          ? <div className="slidecontainer">
+            <span> Fit </span>
+            <input type="range" min="1" max="5" value={fit} className="slider" disabled />
+            </div>
+          : null}
       </div>
     </RatingsBox>
   );

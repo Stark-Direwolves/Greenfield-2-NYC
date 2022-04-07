@@ -3,6 +3,7 @@ const axios = require('axios');
 require('dotenv').config();
 
 const router = express.Router();
+router.use(express.json());
 
 const getReviews = (id) => {
   const options = {
@@ -71,6 +72,7 @@ const reportReview = (id) => {
 };
 
 router.post('/', (req, res) => {
+  console.log(req.body)
   addReview(req.body)
     .then((results) => res.status(201).send(results.data))
     .catch((err) => res.status(400).send(err));
