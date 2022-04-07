@@ -1,8 +1,9 @@
 import React from 'react';
+import { DropBtn, DropdownContent, Dropdown, DropdownContentA } from './styles/AddToCart.styled.js'
 
-function Quantity({ sku, setQuantity }) {
-  const qty = (num) => <option value={num} key={num}>{num}</option>;
-  let qtyArray = [qty('-')];
+function Quantity({ sku, currentQty, handleQtyClick }) {
+  const qty = (num) => <DropdownContentA key={num} onClick={() => {handleQtyClick(num)}}>{num}</DropdownContentA>;
+  let qtyArray = [];
   if (sku) {
     if (sku.quantity > 0) {
       let cur = 1;
@@ -13,18 +14,17 @@ function Quantity({ sku, setQuantity }) {
     }
   }
 
-
-  const handleChange = (e) => {
-    e.preventDefault();
-    setQuantity(e.target.value);
-  };
-
   return (
-    <label htmlFor="quantity">
-      <select name="quantity" id="quantity" onChange={handleChange}>
-        {qtyArray}
-      </select>
-    </label>
+    <>
+      Quantity:
+      <br />
+      <Dropdown>
+        <DropBtn>{currentQty}</DropBtn>
+        <DropdownContent>
+          {qtyArray}
+        </DropdownContent>
+      </Dropdown>
+    </>
   );
 }
 

@@ -4,6 +4,7 @@ import RR from './RR/RR.jsx';
 import Overview from './Overview/Overview.jsx';
 import Related from './Related/components/Related.jsx';
 import Outfit from './Related/components/Outfit.jsx';
+import Theme from './Theme.jsx';
 
 function App({ getProduct, getStyles, getRelated, getReviews, getMeta }) {
   const [product, setProduct] = useState(getProduct);
@@ -13,13 +14,15 @@ function App({ getProduct, getStyles, getRelated, getReviews, getMeta }) {
   const [meta, setMeta] = useState(getMeta);
 
   return (
-    <div id="container">
-      <Overview product={product} styles={styles} meta={meta} />
-      <Related relatedProducts={related} currentProduct={product} />
-      <Outfit />
-      <QA productId={getProduct.id} />
-      <RR reviews={reviews} meta={meta} product={product} />
-    </div>
+    <Theme>
+      <div id="container">
+        <Overview product={product} styles={styles} meta={meta} />
+        <Related relatedProducts={related} currentProduct={product} />
+        <Outfit />
+        <QA productId={getProduct.id} />
+        <RR reviews={reviews} meta={meta} product={product} />
+      </div>
+    </Theme>
   );
 }
 

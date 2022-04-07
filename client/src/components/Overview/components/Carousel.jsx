@@ -12,7 +12,7 @@ export function CarouselItem({ children, width, image}) {
 
 function Carousel({ children, currentImageIndex, updateIndex, limit }) {
   let show = {};
-  console.log(limit, currentImageIndex)
+
   if (currentImageIndex === 0) {
     show.left = 'hidden';
   }
