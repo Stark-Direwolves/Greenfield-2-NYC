@@ -7,8 +7,7 @@ const StyledOverview = styled.div`
 `;
 
 const StyledDetails = styled.div`
-  background-color:aliceblue;
-  outline: 1px dotted black;
+  background-color: ${props => props.theme.colors[0]};
   padding: 20px;
   grid-column-start: col2-start;
   grid-column-end: col2-end;

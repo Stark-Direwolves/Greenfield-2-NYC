@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 const StyledImageGallery = styled.div`
   display: grid;
-  background-color:aliceblue;
-  outline: 1px dotted black;
+  background-color: ${props => props.theme.colors[0]};
   padding: 20px;
   height: 835px;
   grid-column-start: col1-start;

@@ -1,24 +1,25 @@
 import React from 'react';
 import Ratings from '../../RR/RatingHelpers';
+import { StyledDiv } from './styles/ProductInformation.styled.js';
 
 
 function ProductInformation({ currentProduct, currentStyle, meta }) {
   let { category, name, description, slogan } = currentProduct;
   return (
-    <div>
-      <div>{Ratings.findAverageRating(meta.ratings)}</div>
-      <div>
+    <StyledDiv>
+      <StyledDiv>{Ratings.findAverageRating(meta.ratings)}</StyledDiv>
+      <StyledDiv>
         <span
           className="stars"
           style={{
             '--rating': Ratings.findAverageRating(meta.ratings),
           }}
         />
-      </div>
-      <div><a href="#reviews">Read all {Ratings.findReviewCount(meta.ratings)} reviews</a></div>
-      <div>{category}</div>
+      </StyledDiv>
+      <StyledDiv><a href="#reviews">Read all {Ratings.findReviewCount(meta.ratings)} reviews</a></StyledDiv>
+      <StyledDiv>{category}</StyledDiv>
       <h2>{name}</h2>
-      <div>
+      <StyledDiv>
         { currentStyle.sale_price ?
           (
             <>
@@ -32,19 +33,19 @@ function ProductInformation({ currentProduct, currentStyle, meta }) {
           )
           : <h3>{currentStyle.original_price}</h3>
         }
-      </div>
-      <div>{slogan}</div>
-      <div>{description}</div>
+      </StyledDiv>
+      <StyledDiv>{slogan}</StyledDiv>
+      <StyledDiv>{description}</StyledDiv>
       <br />
       { currentProduct.features.map((feature, index) => { return (
-        <div key={index}>
+        <StyledDiv key={index}>
           <b>{feature.feature}</b>: {feature.value}
-        </div>
+        </StyledDiv>
         )
       }) }
       <br />
-      <div>Share on Social Media</div>
-    </div>
+      <StyledDiv>Share on Social Media</StyledDiv>
+    </StyledDiv>
   );
 }
 

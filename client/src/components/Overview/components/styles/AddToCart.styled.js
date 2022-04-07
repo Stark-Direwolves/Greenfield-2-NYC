@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const DropBtn = styled.div`
-  background-color: #4CAF50;
+  background-color: ${props => props.theme.colors[6]};
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -27,7 +27,7 @@ const Dropdown = styled.div`
     display: block;
   }
   &:hover ${DropBtn} {
-    background-color: #3e8e41;
+    background-color: ${props => props.theme.colors[7]};
   }
 `
 
@@ -39,17 +39,21 @@ const DropdownContentA = styled.a`
   text-decoration: none;
   display: block;
   &:hover {
-    background-color: red;
+    background-color: ${props => props.theme.colors[6]};
   }
 `
 
 const AddToCartButton = styled.button`
-  background-color: #4CAF50;
+  width: 100%;
+  background-color: ${props => props.theme.colors[6]};
   color: white;
   padding: 16px;
   font-size: 16px;
   border: none;
   cursor: pointer;
+  &:hover {
+    background-color: ${props => props.theme.colors[7]};
+  }
 `
 
 export { DropBtn, DropdownContent, Dropdown, DropdownContentA, AddToCartButton };
