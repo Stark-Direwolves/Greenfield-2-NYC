@@ -46,9 +46,6 @@ export default AddToCart;
 
 /*
 
-    let purchaseObj = { sku, quantity };
-    console.log('purchase object:', purchaseObj);
-
 "ADD TO CART" will be used to place the style, size and quantity of the
 product selected into the user’s cart.
 
