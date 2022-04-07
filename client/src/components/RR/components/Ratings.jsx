@@ -3,12 +3,7 @@ import RatingsBox from '../RRstyles/RatingsBox.js';
 
 function Ratings({ reviewCount, averageRating, meta }) {
   console.log(meta);
-  let size = 0;
-  let width = 0;
-  let comfort = 0;
-  let quality = 0;
-  let length = 0;
-  let fit = 0;
+  let [size, width, comfort, quality, length, fit] = Array(6).fill(0);
 
   if (meta.characteristics.Size) {
     size = Number(meta.characteristics.Size.value)};
