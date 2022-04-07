@@ -14,13 +14,15 @@ function App({ getProduct, getStyles, getRelated, getReviews, getMeta }) {
   const [meta, setMeta] = useState(getMeta);
 
   return (
-    <div id="container">
-      <Overview product={product} styles={styles} meta={meta} />
-      <Related relatedProducts={related} currentProduct={product} />
-      <Outfit styles={styles} product={product} />
-      <QA productId={getProduct.id} />
-      <RR reviews={reviews} meta={meta} product={product} />
-    </div>
+    <Theme>
+      <div id="container">
+        <Overview product={product} styles={styles} meta={meta} />
+        <Related relatedProducts={related} currentProduct={product} />
+        <Outfit styles={styles} product={product} />
+        <QA productId={getProduct.id} />
+        <RR reviews={reviews} meta={meta} product={product} />
+      </div>
+    </Theme>
   );
 }
 
