@@ -3,19 +3,14 @@ import Modal from "./Modal.jsx";
 import useModal from "./useModal.jsx";
 
 function Answer() {
-  // const { isVisible, toggleModal } = useModal();
+  const { isVisibleA, toggleModalA } = useModal();
 
-  // return (
-  //   <div>
-  //     <button onClick={toggleModal}>
-  //       Show modal
-  //     </button>
-  //     <Modal isVisible={isVisible} hideModal={toggleModal} />
-  //   </div>
-  // );
   return (
     <div>
-      answer
+      <button type="submit" onClick={toggleModalA}>
+        Add Answer
+      </button>
+      <Modal isVisibleA={isVisibleA} hideModalA={toggleModalA} />
     </div>
   );
 }

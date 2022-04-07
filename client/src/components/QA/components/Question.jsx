@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import QAnswer from './QAnswer.jsx';
+import Answer from './Answer.jsx';
 import axios from 'axios';
 
 function Question({ question, answers }) {
@@ -28,7 +29,7 @@ function Question({ question, answers }) {
       Helpful?
       {!isHelpfulQ ? (<span onClick={updateHelpQ}>Yes</span>) : (<span>ty</span>)}
       ({qHelpful})
-      <span>Add Answer</span>
+      <Answer />
       <br />
       <b>A: </b>
       <div>

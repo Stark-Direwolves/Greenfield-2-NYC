@@ -4,7 +4,6 @@ import axios from 'axios';
 
 import { Container } from './components/styles/Container.style.jsx';
 import { Header } from './components/styles/Header.style.jsx';
-import Answer from './components/Answer.jsx';
 import Ask from './components/Ask.jsx';
 import List from './components/List.jsx';
 import Search from './components/Search.jsx';
@@ -46,7 +45,6 @@ function QA({ productId }) {
       <Header> Questions & Answers</Header>
       <Search search={search} setSearch={setSearch} />
       <List questions={questions} />
-      <Answer />
       <Ask productId={productId} />
     </Container>
   );

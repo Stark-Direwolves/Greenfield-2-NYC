@@ -6,12 +6,11 @@ import {
   SModalOverlay, SModalWrapper, SModal, SHeader, STitle, SButton, SDescription,
 } from './styles/Modal.style.jsx';
 
-function Modal({ isVisible, hideModal, productId }) {
+function Modal({ isVisible, hideModal, productId, isVisibleA, hideModalA }) {
   const [data, setData] = useState({ product_id: productId });
 
   function handleEvent(event) {
     setData({ ...data, [event.target.name]: event.target.value });
-    // console.log(data);
   }
 
   function handleSubmitQ(event) {
@@ -29,7 +28,7 @@ function Modal({ isVisible, hideModal, productId }) {
       ) : alert('missing fields');
   }
 
-  return isVisible
+  return ((isVisible
     ? createPortal(
       <>
         <SModalOverlay />
@@ -68,7 +67,8 @@ function Modal({ isVisible, hideModal, productId }) {
       </>,
       App,
     )
-    : null;
+    : null)
+    );
 }
 
 export default Modal;
