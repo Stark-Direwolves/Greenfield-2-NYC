@@ -4,7 +4,7 @@ const CardContainer = styled.div`
   display: flex;
   flex-gap: .5px;
   flex-direction: column;
-  flex-basis: 250px;
+  flex-basis: 20%;
   flex-shrink: 0;
   align-items: flex-start;
   padding: 5px 5px;
