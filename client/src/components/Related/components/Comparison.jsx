@@ -1,27 +1,14 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import styled from 'styled-components';
+import { XIcon } from '@heroicons/react/outline';
+import ComparisonContainer from '../styles/ComparisonContainer.styled';
 import StyledComparison from '../styles/Comparison.styled';
+import ModalButton from '../styles/ModalButton.styled';
 import Table from './Table.jsx';
 
-const ComparisonContainer = styled.div`
-  display: flex;
-  align-items: center;
-  background: white;
-  border-radius: 10px;
-  flex-direction: column;
-  position: relative;
-  width: 500px;
-`;
-
-const ModalButton = styled.div`
-  cursor: pointer;
-  position: absolute;
-  top: 5%;
-  right: 5%;
-`;
-
-function Comparison({ compare, toggleCompare, related, current }) {
+function Comparison({
+  compare, toggleCompare, related, current,
+}) {
   const filterFeatures = (currentProduct, relatedProduct) => {
     const features = currentProduct.features.concat(relatedProduct.features);
     const filtered = [];
@@ -41,20 +28,19 @@ function Comparison({ compare, toggleCompare, related, current }) {
     ? createPortal(
       <StyledComparison data-testid="comparison">
         <ComparisonContainer>
-          <ModalButton type="button" onClick={toggleCompare}>X</ModalButton>
+          <ModalButton type="button" onClick={toggleCompare}><XIcon /></ModalButton>
           <h3>Compare</h3>
           <table>
             <thead>
               <tr>
                 <th>{current.name}</th>
                 <th> </th>
-                <th> </th>
                 <th>{related.name}</th>
               </tr>
             </thead>
             <tbody>
               {filterFeatures(current, related).map((feature) => (
-                <Table feature={feature} />
+                <Table feature={feature} related={related.features} current={current.features} />
               ))}
             </tbody>
           </table>

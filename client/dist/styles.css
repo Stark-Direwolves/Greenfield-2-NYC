@@ -35,6 +35,14 @@ header {
   overflow-x: hidden;
 }
 
+#outfit {
+  position: relative;
+  background-color:aliceblue;
+  outline: 1px dotted black;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
 #qa {
   background-color:aliceblue;
   outline: 1px dotted black;
