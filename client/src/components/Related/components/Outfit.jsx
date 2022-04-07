@@ -14,4 +14,5 @@ function Outfit() {
     </div>
   );
 }
+
 export default Outfit;
