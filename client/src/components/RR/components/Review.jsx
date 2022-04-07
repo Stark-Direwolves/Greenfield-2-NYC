@@ -22,8 +22,7 @@ function Review({ review }) {
   //   setClicked(true);
   // };
 
-  const updateYesCount = (event) => {
-    event.preventDefault();
+  const updateYesCount = () => {
     console.log(review.review_id);
     axios.put(`/reviews/${review.review_id}/helpful`)
       .then((res) => {
@@ -36,8 +35,7 @@ function Review({ review }) {
       });
   };
 
-  const reportReview = (event) => {
-    event.preventDefault();
+  const reportReview = () => {
     axios.put(`/reviews/${review.review_id}/report`)
       .then(() => {
         console.log('successfully reported');
