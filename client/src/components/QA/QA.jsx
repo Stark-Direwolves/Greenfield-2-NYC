@@ -47,7 +47,7 @@ function QA({ productId }) {
       <Search search={search} setSearch={setSearch} />
       <List questions={questions} />
       <Answer />
-      <Ask />
+      <Ask productId={productId} />
     </Container>
   );
 }

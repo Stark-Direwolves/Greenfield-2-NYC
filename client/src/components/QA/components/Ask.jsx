@@ -2,7 +2,7 @@ import * as React from "react";
 import Modal from "./Modal.jsx";
 import useModal from "./useModal.jsx";
 
-function Ask() {
+function Ask({ productId }) {
   const { isVisible, toggleModal } = useModal();
 
   return (
@@ -10,7 +10,7 @@ function Ask() {
       <button onClick={toggleModal}>
         ADD A QUESTION +
       </button>
-      <Modal isVisible={isVisible} hideModal={toggleModal} />
+      <Modal isVisible={isVisible} hideModal={toggleModal} productId={productId} />
     </div>
   );
 }

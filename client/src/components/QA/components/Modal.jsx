@@ -1,10 +1,34 @@
-import * as React from "react";
-import { createPortal } from "react-dom";
+/* eslint-disable no-unused-expressions */
+import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
+import axios from 'axios';
 import {
   SModalOverlay, SModalWrapper, SModal, SHeader, STitle, SButton, SDescription,
-} from "./styles/Modal.style.jsx";
+} from './styles/Modal.style.jsx';
 
-function Modal({ isVisible, hideModal }) {
+function Modal({ isVisible, hideModal, productId }) {
+  const [data, setData] = useState({ product_id: productId });
+
+  function handleEvent(event) {
+    setData({ ...data, [event.target.name]: event.target.value });
+    // console.log(data);
+  }
+
+  function handleSubmitQ(event) {
+    event.preventDefault();
+    console.log(data);
+    (Object.keys(data).length === 4)
+      ? (
+        axios.post('/qa/questions', data)
+          .then((result) => {
+            console.log(result);
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+      ) : alert('missing fields');
+  }
+
   return isVisible
     ? createPortal(
       <>
@@ -22,17 +46,17 @@ function Modal({ isVisible, hideModal }) {
                 <form>
                   Name
                   {' '}
-                  <input type="text" placeholder="Example: jackson11!" />
+                  <input name="name" type="text" placeholder="Example: jackson11!" onChange={(e) => { handleEvent(e); }} />
                   For privacy reasons, do not use your full name or email address
                   <br />
                   Email
                   {' '}
-                  <input type="text" placeholder="email..." />
+                  <input name="email" type="text" placeholder="email..." onChange={(e) => { handleEvent(e); }} />
                   <br />
                   Question
-                  <textarea type="text" placeholder="Question" maxLength="1000" />
+                  <textarea name="body" type="text" placeholder="Question" maxLength="1000" onChange={(e) => { handleEvent(e); }} style={{ width: '418px', resize: 'none' }} />
                   <br />
-                  <button onClick={(e) => { e.preventDefault(); }}>Submit</button>
+                  <button type="submit" onClick={handleSubmitQ}>Submit</button>
                 </form>
               </SDescription>
             </SHeader>

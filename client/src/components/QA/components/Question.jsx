@@ -10,7 +10,7 @@ function Question({ question, answers }) {
 
   const updateHelpQ = () => {
     !isHelpfulQ ? (setIsHelpfulQ(true), setQHelpful(qHelpful + 1))
-      : null; //block from incrementing
+      : null;
     axios.put(`/qa/questions/${question.question_id}/helpful`)
       .then((result) => {
         console.log(result.data);
@@ -37,7 +37,9 @@ function Question({ question, answers }) {
         ))}
       </div>
       <div>
-        {(answerId.length > displayAn) ? (<div onClick={() => setDisplayAn((prevCount) => prevCount + 2)}> LOAD MORE ANSWERS </div>) : (null)}
+        {(answerId.length > displayAn)
+          ? (<div onClick={() => setDisplayAn((prevCount) => prevCount + 2)}> LOAD MORE ANSWERS </div>)
+          : (null)}
       </div>
     </div>
   );
