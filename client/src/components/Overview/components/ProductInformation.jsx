@@ -1,12 +1,9 @@
 import React from 'react';
 import Ratings from '../../RR/RatingHelpers';
 
-// client/src/components/RR/RatingHelpers.js
-
 
 function ProductInformation({ currentProduct, currentStyle, meta }) {
-  let { category, name, default_price, description, slogan } = currentProduct;
-  console.log(meta);
+  let { category, name, description, slogan } = currentProduct;
   return (
     <div>
       <div>{Ratings.findAverageRating(meta.ratings)}</div>
@@ -22,14 +19,14 @@ function ProductInformation({ currentProduct, currentStyle, meta }) {
       <div>{category}</div>
       <h2>{name}</h2>
       <div>
-        { default_price !== currentStyle.original_price ?
+        { currentStyle.sale_price ?
           (
             <>
-              <h3 style={{ textDecoration: default_price !== currentStyle.original_price ? 'line-through' : '' }}>
-                {default_price}
+              <h3 style={{ textDecoration: currentStyle.sale_price ? 'line-through' : '' }}>
+                {currentStyle.original_price}
               </h3>
               <h3>
-                {currentStyle.original_price}
+                {currentStyle.sale_price}
               </h3>
             </>
           )
@@ -38,6 +35,14 @@ function ProductInformation({ currentProduct, currentStyle, meta }) {
       </div>
       <div>{slogan}</div>
       <div>{description}</div>
+      <br />
+      { currentProduct.features.map((feature, index) => { return (
+        <div key={index}>
+          <b>{feature.feature}</b>: {feature.value}
+        </div>
+        )
+      }) }
+      <br />
       <div>Share on Social Media</div>
     </div>
   );
