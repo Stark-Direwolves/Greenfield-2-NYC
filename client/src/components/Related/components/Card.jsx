@@ -6,36 +6,43 @@ import Button from '../styles/Button.styled';
 import Ratings from '../../RR/RatingHelpers';
 import Comparison from './Comparison.jsx';
 
-function Card({ product }) {
+function Card({ related, current }) {
   const [compare, setCompare] = useState(false);
 
   const toggleCompare = () => {
     setCompare(!compare);
   };
 
-  function filterAverageRating(item) {
+  const filterAverageRating = (item) => {
     if (Number.isNaN(Ratings.findAverageRating(item.ratings))) {
       return 0;
     }
     return Ratings.findAverageRating(item.ratings);
-  }
+  };
 
   return (
     <CardContainer>
-      <Comparison compare={compare} toggleCompare={toggleCompare} product={product} />
+      <Comparison
+        compare={compare}
+        toggleCompare={toggleCompare}
+        related={related}
+        current={current}
+      />
       <Button type="button" onClick={toggleCompare}>
         <StarIcon className="h-5 w-5 text-blue-500" />
       </Button>
       <StyledImage
-        src={product.styles[0].photos[0].url}
+        src={related.styles[0].photos[0].url}
         onClick={() => {
-          window.location.href = `/${product.id}`;
+          window.location.href = `/${related.id}`;
         }}
       />
-      <p>{product.category}</p>
-      <div>{product.name}</div>
-      <div>{product.default_price}</div>
-      <div><span className="stars" style={{ '--rating': filterAverageRating(product), '--star-size': '15px' }} /></div>
+      <p>{related.category}</p>
+      <div>{related.name}</div>
+      <div>{related.default_price}</div>
+      <div>
+        <span className="stars" style={{ '--rating': filterAverageRating(related), '--star-size': '15px' }} />
+      </div>
     </CardContainer>
   );
 }

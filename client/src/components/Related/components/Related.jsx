@@ -5,7 +5,7 @@ import Container from '../styles/Container.styled';
 import LeftButton from '../styles/LeftButton.styled';
 import RightButton from '../styles/RightButton.styled';
 
-function Related({ relatedProducts }) {
+function Related({ relatedProducts, currentProduct }) {
   const [index, setIndex] = useState(0);
   const { length } = relatedProducts;
 
@@ -23,7 +23,13 @@ function Related({ relatedProducts }) {
     <div id="related" data-testid="related">
       <h3>Related Products</h3>
       <Container style={{ transform: `translateX(-${index * 280}px)` }}>
-        {relatedProducts.map((product) => <Card key={product.id} product={product} />)}
+        {relatedProducts.map((product) => (
+          <Card
+            key={product.id}
+            related={product}
+            current={currentProduct}
+          />
+        ))}
       </Container>
       <LeftButton type="button" onClick={() => updateIndex(index - 1)}>
         <ChevronLeftIcon className="h-5 w-5 text-blue-500" />

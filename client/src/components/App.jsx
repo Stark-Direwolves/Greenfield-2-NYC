@@ -12,7 +12,7 @@ function App({ getProduct, getStyles, getRelated }) {
   return (
     <div id="container">
       <Overview product={product} styles={styles} />
-      <Related relatedProducts={related} />
+      <Related relatedProducts={related} currentProduct={product} />
       <QA productId={getProduct.id} />
       <RR />
     </div>

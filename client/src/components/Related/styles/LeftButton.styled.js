@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const LeftButton = styled.button`
+  cursor: pointer;
   position: absolute;
   top: 50%;
   left: 0;
