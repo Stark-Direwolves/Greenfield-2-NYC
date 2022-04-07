@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReviewBox from '../RRstyles/ReviewBox.js';
 import ReviewHelpful from '../RRstyles/ReviewHelpful.js';
+import ReviewReport from '../RRstyles/ReviewReport.js';
 import axios from 'axios';
 
 // reference to get rid of warning message
@@ -10,17 +11,19 @@ const moment = require('moment');
 
 function Review({ review }) {
   const [clicked, setClicked] = useState(false);
+  const [report, setReport] = useState(false);
   const [clickYes, setClickYes] = useState(0);
-  const [clickNo, setClickNo] = useState(0);
+  // const [clickNo, setClickNo] = useState(0);
 
-  const updateNoCount = (event) => {
-    event.preventDefault();
-    setClickNo(clickNo + 1);
-    setClicked(true);
-  };
+  // no review API information for no counter, omitting for now
+  // const updateNoCount = (event) => {
+  //   event.preventDefault();
+  //   setClickNo(clickNo + 1);
+  //   setClicked(true);
+  // };
 
-  const updateYesCount = (event) => {
-    event.preventDefault();
+  const updateYesCount = () => {
+    console.log(review.review_id);
     axios.put(`/reviews/${review.review_id}/helpful`)
       .then((res) => {
         setClickYes(clickYes + 1);
@@ -29,6 +32,17 @@ function Review({ review }) {
       })
       .catch((err) => {
         console.log('unable to vote', err);
+      });
+  };
+
+  const reportReview = () => {
+    axios.put(`/reviews/${review.review_id}/report`)
+      .then(() => {
+        console.log('successfully reported');
+        setReport(true);
+      })
+      .catch((err) => {
+        console.log('not successfully reported', err);
       });
   };
 
@@ -61,20 +75,24 @@ function Review({ review }) {
         {(clicked)
           ? ('Thanks for your vote!')
           : (
-            <>
-              <ReviewHelpful onClick={updateYesCount}>
-                {' '}
-                Yes
-                {' '}
-                {review.helpfulness}
-              </ReviewHelpful>
-              <ReviewHelpful onClick={updateNoCount}>
-                {' '}
-                No
-                {' '}
-                {clickNo}
-              </ReviewHelpful>
-            </>
+            <ReviewHelpful onClick={updateYesCount}>
+              {' '}
+              Yes:
+              {' '}
+              {review.helpfulness}
+              {' '}
+            </ReviewHelpful>
+          )}
+      </div4>
+      <div4 is="x3d">
+        {(report)
+          ? ('Review Reported! You wont see this again!')
+          : (
+            <ReviewReport onClick={reportReview}>
+              {' '}
+              Report?
+              {' '}
+            </ReviewReport>
           )}
       </div4>
     </ReviewBox>

@@ -216,6 +216,29 @@ header {
   -webkit-text-fill-color: transparent;
 }
 
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%%;
+  height: 15px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.5;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 5px;
+  background: #3e3f3f;
+}
 
 
 
