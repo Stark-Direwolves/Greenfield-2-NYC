@@ -4,18 +4,22 @@ import RatingsBox from '../RRstyles/RatingsBox.js';
 function Ratings({ reviewCount, averageRating }) {
   return (
     <RatingsBox>
-      <span style={{ fontSize: '50px', fontWeight: 'bold' }}> {averageRating} </span>
+      <span style={{ fontSize: '50px', fontWeight: 'bold' }}>
+        {(averageRating > 1)
+          ? averageRating
+          : 'No Reviews Yet!'}
+      </span>
       <span
         className="stars"
         style={{
           '--rating': averageRating,
+          paddingLeft: '15px',
         }}
       />
-      <h4>
-        {averageRating}
-      </h4>
       <div>
-        {reviewCount} Reviews
+        {reviewCount}
+        {' '}
+        Total Reviews
       </div>
     </RatingsBox>
   );

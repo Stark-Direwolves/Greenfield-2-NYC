@@ -6,48 +6,41 @@ import axios from 'axios';
 
 function NewReview({ currentProduct, currentProductId, setShowModal }) {
   const [formRating, setFormRating] = useState(0);
-  const [formRecommend, setFormRecommend] = useState(false);
   const [formSummary, setFormSummary] = useState('');
   const [formBody, setFormBody] = useState('');
-  const [formPhotos, setFormPhotos] = useState([]);
+  const [formRecommend, setFormRecommend] = useState(false);
   const [formName, setFormName] = useState('');
   const [formEmail, setFormEmail] = useState('');
+  const [formPhotos, setFormPhotos] = useState([]);
   // characteristics/meta data
-  const [size, setSize] = useState(0);
-  const [width, setWidth] = useState(0);
-  const [comfort, setComfort] = useState(0);
-  const [quality, setQuality] = useState(0);
-  const [length, setLength] = useState(0);
-  const [fit, setFit] = useState(0);
+  const [charSize, charSetSize] = useState(1);
+  const [charWidth, charSetWidth] = useState(1);
+  const [charComfort, charSetComfort] = useState(1);
+  const [charQuality, charSetQuality] = useState(1);
+  const [charLength, charSetLength] = useState(1);
+  const [charFit, charSetFit] = useState(1);
 
   const reviewBody = {
-    product_id: currentProductId,
-    rating: formRating,
-    summary: formSummary,
-    body: formBody,
-    recommend: formRecommend,
-    name: formName,
-    email: formEmail,
-    photos: formPhotos,
-    characteristics: {
-      size: size,
-      width: width,
-      comfort: comfort,
-      quality: quality,
-      length: length,
-      fit: fit,
-    },
+    "product_id": 65631,
+    "rating": 1,
+    "summary": "1 star review",
+    "body": "I hate this product",
+    "recommend": false,
+    "name": "hater",
+    "email": "meanreviewer@gmail.com",
+    "photos": [],
+    "characteristics": { }
   };
 
   const submitForm = (event) => {
     event.preventDefault();
     setShowModal((prev) => !prev);
     axios.post('/reviews', reviewBody)
-    .then((res) => {
+      .then((res) => {
         console.log('review submitted', res);
       })
-    .catch((err) => {
-        console.log(err);
+      .catch((err) => {
+        console.log('uh oh try again', err);
       });
   };
 

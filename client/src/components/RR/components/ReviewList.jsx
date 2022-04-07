@@ -8,10 +8,15 @@ import ReviewListBox from '../RRstyles/ReviewListBox.js';
 
 function ReviewList({ reviewslist, setShowModal }) {
   const [view, setView] = useState(2);
-
   const firstTwo = reviewslist.slice(0, view);
   return (
     <ReviewListBox>
+      <label>Sort By</label>
+      <select>
+        <option>Relevance</option>
+        <option>Newest</option>
+        <option>Helpful</option>
+      </select>
       <div>
         {firstTwo.map((review) => <Review key={review.review_id} review={review} />)}
       </div>
