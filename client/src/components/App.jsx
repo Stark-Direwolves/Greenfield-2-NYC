@@ -13,10 +13,40 @@ function App({ getProduct, getStyles, getRelated, getReviews, getMeta }) {
   const [reviews, setReviews] = useState(getReviews);
   const [meta, setMeta] = useState(getMeta);
 
+  // overview
+  const [ currentStyle, setCurrentStyle ] = React.useState(styles.results[0]);
+  const [ currentSku, setCurrentSku ] = React.useState('none');
+  const [ currentSize, setCurrentSize ] = React.useState('Select Size');
+  const [ currentQty, setCurrentQty ] = React.useState('-');
+  const [ currentTotal, setCurrentTotal ] = React.useState(0);
+
+  React.useEffect(
+    () => {
+      setCurrentSku('none');
+      setCurrentSize('Select Size');
+      setCurrentQty('-');
+      setCurrentTotal(0);
+    }, [currentStyle],
+  );
+
   return (
     <Theme>
       <div id="container">
-        <Overview product={product} styles={styles} meta={meta} />
+        <Overview
+          product={product}
+          styles={styles}
+          meta={meta}
+          currentStyle={currentStyle}
+          currentSku={currentSku}
+          currentSize={currentSize}
+          currentQty={currentQty}
+          currentTotal={currentTotal}
+          setCurrentSize={setCurrentSize}
+          setCurrentStyle={setCurrentStyle}
+          setCurrentSku={setCurrentSku}
+          setCurrentQty={setCurrentQty}
+          setCurrentTotal={setCurrentTotal}
+        />
         <Related relatedProducts={related} currentProduct={product} />
         <Outfit />
         <QA productId={getProduct.id} />
