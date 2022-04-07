@@ -5,7 +5,7 @@ const Container = styled.div`
   width: 100%;
   height: 385px;
   gap: 20px;
-  padding: 0 30px;
+  padding: 0 10px;
 `;
 
 export default Container;

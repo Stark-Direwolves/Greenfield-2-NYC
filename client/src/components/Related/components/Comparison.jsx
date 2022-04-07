@@ -1,32 +1,14 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import { XIcon } from '@heroicons/react/outline';
-import styled from 'styled-components';
+import ComparisonContainer from '../styles/ComparisonContainer.styled';
 import StyledComparison from '../styles/Comparison.styled';
+import ModalButton from '../styles/ModalButton.styled';
 import Table from './Table.jsx';
 
-const ComparisonContainer = styled.div`
-  display: flex;
-  align-items: center;
-  background: white;
-  border-radius: 10px;
-  flex-direction: column;
-  position: relative;
-  width: 500px;
-`;
-
-const ModalButton = styled.button`
-  cursor: pointer;
-  position: absolute;
-  top: 5%;
-  right: 5%;
-  width: 35px;
-  height: 35px;
-  background-color: transparent;
-  border: none;
-`;
-
-function Comparison({ compare, toggleCompare, related, current }) {
+function Comparison({
+  compare, toggleCompare, related, current,
+}) {
   const filterFeatures = (currentProduct, relatedProduct) => {
     const features = currentProduct.features.concat(relatedProduct.features);
     const filtered = [];

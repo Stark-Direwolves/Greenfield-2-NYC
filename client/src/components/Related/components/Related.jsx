@@ -9,7 +9,7 @@ function Related({ relatedProducts, currentProduct }) {
   const [index, setIndex] = useState(0);
   const { length } = relatedProducts;
 
-  function updateIndex(i) {
+  const updateIndex = (i) => {
     let newIndex = i;
     if (newIndex < 0) {
       newIndex = 0;
@@ -17,7 +17,7 @@ function Related({ relatedProducts, currentProduct }) {
       newIndex = length - 1;
     }
     setIndex(newIndex);
-  }
+  };
 
   return (
     <div id="related" data-testid="related">
