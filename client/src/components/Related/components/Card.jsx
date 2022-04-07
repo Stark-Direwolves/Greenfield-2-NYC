@@ -29,7 +29,7 @@ function Card({ related, current }) {
         current={current}
       />
       <Button type="button" onClick={toggleCompare}>
-        <StarIcon className="h-5 w-5 text-blue-500" />
+        <StarIcon />
       </Button>
       <StyledImage
         src={related.styles[0].photos[0].url}
