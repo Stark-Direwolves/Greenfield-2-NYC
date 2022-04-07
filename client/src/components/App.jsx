@@ -4,6 +4,7 @@ import RR from './RR/RR.jsx';
 import Overview from './Overview/Overview.jsx';
 import Related from './Related/components/Related.jsx';
 import Outfit from './Related/components/Outfit.jsx';
+import Theme from './Theme.jsx';
 
 function App({ getProduct, getStyles, getRelated, getReviews, getMeta }) {
   const [product, setProduct] = useState(getProduct);
