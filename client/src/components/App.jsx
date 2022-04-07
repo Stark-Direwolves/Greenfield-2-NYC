@@ -18,7 +18,7 @@ function App({ getProduct, getStyles, getRelated, getReviews, getMeta }) {
       <div id="container">
         <Overview product={product} styles={styles} meta={meta} />
         <Related relatedProducts={related} currentProduct={product} />
-        <Outfit styles={styles} product={product} />
+        <Outfit product={product} />
         <QA productId={getProduct.id} />
         <RR reviews={reviews} meta={meta} product={product} />
       </div>
