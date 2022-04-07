@@ -6,21 +6,22 @@ import ProductInformation from './components/ProductInformation.jsx';
 import StyleSelector from './components/StyleSelector.jsx';
 import { StyledOverview, StyledDetails } from './styles/Overview.styled.js';
 
-function Overview({ product, styles, meta }) {
-  const [ currentStyle, setCurrentStyle ] = React.useState(styles.results[0]);
-  const [ currentSku, setCurrentSku ] = React.useState('none');
-  const [ currentSize, setCurrentSize ] = React.useState('Select Size');
-  const [ currentQty, setCurrentQty ] = React.useState('-');
-  const [ currentTotal, setCurrentTotal ] = React.useState(0);
-
-  React.useEffect(
-    () => {
-      setCurrentSku('none');
-      setCurrentSize('Select Size');
-      setCurrentQty('-');
-      setCurrentTotal(0);
-    }, [currentStyle],
-  );
+function Overview({
+  product,
+  styles,
+  meta,
+  set,
+  currentStyle,
+  currentSku,
+  currentSize,
+  currentQty,
+  currentTotal,
+  setCurrentStyle,
+  setCurrentSku,
+  setCurrentQty,
+  setCurrentTotal,
+  setCurrentSize
+}) {
 
   return (
     <StyledOverview>
