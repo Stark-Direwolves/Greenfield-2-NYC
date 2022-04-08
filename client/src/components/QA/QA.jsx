@@ -26,15 +26,15 @@ function QA({ productId, productName }) {
 
   useEffect(() => {
     const array = [];
-    if (search.length > 2) {
-      for (let i = 0; i < questions.length; i + 1) {
-        if (questions[i].question_body.toLowerCase().includes(search.toLowerCase())) {
-          array.push(questions[i]);
-          setQuestions(array);
+    if (search.length >= 3) {
+      questions.forEach((question) => {
+        if (question.question_body.toLowerCase().includes(search.toLowerCase())) {
+          array.push(question);
         }
-      }
+      });
+      setQuestions(array);
     }
-    if (search.length < 3) {
+    if (search.length < 2) {
       setQuestions(ogQues);
     }
   }, [search]);
