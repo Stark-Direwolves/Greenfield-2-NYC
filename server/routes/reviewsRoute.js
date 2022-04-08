@@ -7,7 +7,7 @@ router.use(express.json());
 
 const getReviews = (id) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews?product_id=${id}&sort=relevant&count=9`,
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews?product_id=${id}&sort=relevant&count=25`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -17,7 +17,7 @@ const getReviews = (id) => {
 
 const getReviewsMeta = (id) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews/meta?product_id=${id}`,
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews/meta?product_id=${id}&count=25`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },

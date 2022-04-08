@@ -225,8 +225,9 @@ header {
   width: 100%%;
   height: 15px;
   background: #d3d3d3;
-  outline: none;
+  outline: 2px black;
   opacity: 0.5;
+  border-radius: 10px
 }
 
 .slider::-webkit-slider-thumb {
@@ -234,7 +235,7 @@ header {
   appearance: none;
   width: 15px;
   height: 15px;
-  border-radius: 5px;
+  border-radius: 10px;
   background: #3e3f3f;
 }
 
