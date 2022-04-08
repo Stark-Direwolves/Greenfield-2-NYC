@@ -1,45 +1,57 @@
 import React from 'react';
 import Ratings from '../../RR/RatingHelpers';
-
-// client/src/components/RR/RatingHelpers.js
+import { StyledDiv, Category, Name, Price, BadPrice, Features, Feature, StyledA, SalePrice } from './styles/ProductInformation.styled.js';
 
 
 function ProductInformation({ currentProduct, currentStyle, meta }) {
-  let { category, name, default_price, description, slogan } = currentProduct;
-  console.log(meta);
+  let { category, name, description, slogan } = currentProduct;
+  let hasReviews = Object.keys(meta.ratings).length > 0
   return (
-    <div>
-      <div>{Ratings.findAverageRating(meta.ratings)}</div>
-      <div>
-        <span
-          className="stars"
-          style={{
-            '--rating': Ratings.findAverageRating(meta.ratings),
-          }}
-        />
-      </div>
-      <div><a href="#reviews">Read all {Ratings.findReviewCount(meta.ratings)} reviews</a></div>
-      <div>{category}</div>
-      <h2>{name}</h2>
-      <div>
-        { default_price !== currentStyle.original_price ?
+    <StyledDiv>
+      <Category>{category} »</Category>
+      <Name>{name}</Name>
+      {hasReviews
+        ? (<>
+          <StyledDiv>
+            <span
+              className="stars"
+              style={{
+                '--rating': Ratings.findAverageRating(meta.ratings),
+              }}
+            />
+          </StyledDiv>
+          <StyledA href="#reviews">read all {Ratings.findReviewCount(meta.ratings)} reviews</StyledA>
+        </>)
+        : <></>
+      }
+      <StyledDiv>
+        {currentStyle.sale_price ?
           (
             <>
-              <h3 style={{ textDecoration: default_price !== currentStyle.original_price ? 'line-through' : '' }}>
-                {default_price}
-              </h3>
-              <h3>
-                {currentStyle.original_price}
-              </h3>
+              <BadPrice>
+                ${currentStyle.original_price}
+              </BadPrice>
+              <SalePrice>
+                ${currentStyle.sale_price}
+              </SalePrice>
             </>
           )
-          : <h3>{currentStyle.original_price}</h3>
+          : <Price>${currentStyle.original_price}</Price>
         }
-      </div>
-      <div>{slogan}</div>
-      <div>{description}</div>
-      <div>Share on Social Media</div>
-    </div>
+      </StyledDiv>
+      <StyledDiv style={{ fontStyle: 'italic' }}>{slogan}</StyledDiv>
+      <br />
+      <StyledDiv>{description}</StyledDiv>
+      <Features>
+      {currentProduct.features.map((feature, index) => {
+        return (
+          <Feature key={index}>
+            » <b>{feature.feature}</b>: {feature.value}
+          </Feature>
+        )
+      })}
+      </Features>
+    </StyledDiv>
   );
 }
 

@@ -1,43 +1,49 @@
 import React from 'react';
-import Size from './Size.jsx';
 import Quantity from './Quantity.jsx'
+import { DropBtn, DropdownContent, Dropdown, DropdownContentA, AddToCartButton, SizeQuantityContainer, QuantityDiv, SizeDiv } from './styles/AddToCart.styled.js'
 
-function AddToCart({ currentStyle, sku, setSku, quantity, setQuantity }) {
-  // handle state for Size, SKU, and Quantity
-  // change size = qt 1
+function AddToCart({ currentStyle, currentSku, currentSize, currentQty, setCurrentSku, setCurrentSize, setCurrentQty, currentTotal, setCurrentTotal }) {
+  let price = Number(currentStyle.sale_price || currentStyle.original_price);
 
-  const handleChange = (e) => {
-    e.preventDefault();
-    if (e.target.value !== 'Select Size') {
-      setSku(e.target.value);
-      setQuantity('-');
-    }
+  const handleClick = (sku_id) => {
+    setCurrentSku(sku_id);
+    setCurrentSize(currentStyle.skus[sku_id].size);
   };
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    // if (sku === 'Select Size') {
+  const handleQtyClick = (num) => {
+    setCurrentQty(num);
+    setCurrentTotal(num*price);
+  }
 
-    // }
-    let purchaseObj = { sku, quantity };
+  const AddToCartClick = (e) => {
+    let purchaseObj = { currentSku, currentQty };
     console.log('purchase object:', purchaseObj);
-  };
+  }
 
   return (
-    <form className="component-separator">
-      <label htmlFor="sizes">
-        Sizes
-        <select name="sizes" id="sizes" onChange={handleChange}>
-          <option value="Select Size">Select Size</option>
-          {Object.keys(currentStyle.skus).map(
-            (sku_id, index) =>
-              <Size sku={currentStyle.skus[sku_id]} key={sku_id} setSku={setSku} sku_id={sku_id} />,
-          )}
-        </select>
-      </label>
-      <Quantity sku={currentStyle.skus[sku]} setQuantity={setQuantity} key={sku} />
-      <input type="submit" value="Add To Cart" onClick={handleClick} />
-    </form>
+    <>
+      <SizeQuantityContainer>
+        <SizeDiv>
+          size
+          <br />
+          <Dropdown>
+            <DropBtn>{currentSize}</DropBtn>
+            <DropdownContent>
+              {Object.keys(currentStyle.skus).map(
+                (sku_id, index) =>
+                  <DropdownContentA key={sku_id} onClick={()=>{ handleClick(sku_id) }}> {currentStyle.skus[sku_id].size}</DropdownContentA>
+              )}
+            </DropdownContent>
+          </Dropdown>
+        </SizeDiv>
+        <QuantityDiv>
+          <Quantity sku={currentStyle.skus[currentSku]} handleQtyClick={handleQtyClick} currentQty={currentQty} />
+        </QuantityDiv>
+      </SizeQuantityContainer>
+      <div>
+        <AddToCartButton onClick={AddToCartClick}>Add To Cart ${currentTotal}</AddToCartButton>
+      </div>
+    </>
   );
 }
 

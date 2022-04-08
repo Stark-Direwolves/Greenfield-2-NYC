@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const CardContainer = styled.div`
+const AddOutfitContainer = styled.div`
   display: flex;
   position: relative;
   flex-gap: .5px;
@@ -9,8 +9,7 @@ const CardContainer = styled.div`
   flex-shrink: 0;
   align-items: flex-start;
   padding: 5px 5px;
-  border: 2px solid;
-  background-color: white;
+  background-color: rgba(211, 211, 211, 0.5);
 `;
 
-export default CardContainer;
+export default AddOutfitContainer;

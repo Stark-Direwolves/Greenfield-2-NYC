@@ -1,12 +1,29 @@
 import React, { useState } from 'react';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import Card from './Card.jsx';
 import Container from '../styles/Container.styled';
+import LeftButton from '../styles/LeftButton.styled';
+import RightButton from '../styles/RightButton.styled';
 
-function Related({ relatedProducts }) {
+function Related({ relatedProducts, currentProduct }) {
   const [index, setIndex] = useState(0);
   const { length } = relatedProducts;
 
-  function updateIndex(i) {
+  const hideLeftButton = () => {
+    if (index === 0) {
+      return true;
+    }
+    return false;
+  };
+
+  const hideRightButton = () => {
+    if (length - 4 <= index) {
+      return true;
+    }
+    return false;
+  };
+
+  const updateIndex = (i) => {
     let newIndex = i;
     if (newIndex < 0) {
       newIndex = 0;
@@ -14,16 +31,34 @@ function Related({ relatedProducts }) {
       newIndex = length - 1;
     }
     setIndex(newIndex);
-  }
+  };
 
   return (
-    <div data-testid="related">
+    <div id="related" data-testid="related">
       <h3>Related Products</h3>
-      <Container style={{ transform: `translateX(-${index * 285}px)` }}>
-        {relatedProducts.map((product) => <Card key={product.id} product={product} />)}
+      <Container style={{ transform: `translateX(-${index * 300}px)` }}>
+        {relatedProducts.map((product) => (
+          <Card
+            key={product.id}
+            related={product}
+            current={currentProduct}
+          />
+        ))}
       </Container>
-      <button type="button" onClick={() => updateIndex(index - 1)}>Left</button>
-      <button type="button" onClick={() => updateIndex(index + 1)}>Right</button>
+      {hideLeftButton()
+        ? null
+        : (
+          <LeftButton type="button" onClick={() => updateIndex(index - 1)}>
+            <ChevronLeftIcon />
+          </LeftButton>
+        )}
+      {hideRightButton()
+        ? null
+        : (
+          <RightButton type="button" onClick={() => updateIndex(index + 1)}>
+            <ChevronRightIcon />
+          </RightButton>
+        )}
     </div>
   );
 }
