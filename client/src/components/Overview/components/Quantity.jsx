@@ -1,5 +1,5 @@
 import React from 'react';
-import { DropBtn, DropdownContent, Dropdown, DropdownContentA } from './styles/AddToCart.styled.js'
+import { DropBtn, DropdownContent, DropdownSmall, DropdownContentA } from './styles/AddToCart.styled.js'
 
 function Quantity({ sku, currentQty, handleQtyClick }) {
   const qty = (num) => <DropdownContentA key={num} onClick={() => {handleQtyClick(num)}}>{num}</DropdownContentA>;
@@ -16,14 +16,14 @@ function Quantity({ sku, currentQty, handleQtyClick }) {
 
   return (
     <>
-      Quantity:
+      quantity
       <br />
-      <Dropdown>
+      <DropdownSmall>
         <DropBtn>{currentQty}</DropBtn>
         <DropdownContent>
           {qtyArray}
         </DropdownContent>
-      </Dropdown>
+      </DropdownSmall>
     </>
   );
 }

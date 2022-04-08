@@ -13,4 +13,9 @@ const StyledDetails = styled.div`
   grid-column-end: col2-end;
 `;
 
-export { StyledOverview, StyledDetails };
+const SocialMedia = styled.div`
+  text-align: center;
+  font-family: san-serif;
+`;
+
+export { StyledOverview, StyledDetails, SocialMedia };
