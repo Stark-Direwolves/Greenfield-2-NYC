@@ -6,18 +6,22 @@ import ProductInformation from './components/ProductInformation.jsx';
 import StyleSelector from './components/StyleSelector.jsx';
 import { StyledOverview, StyledDetails } from './styles/Overview.styled.js';
 
-function Overview({ product, styles, meta }) {
-
-  const [ currentStyle, setCurrentStyle ] = React.useState(styles.results[0]);
-  const [ sku, setSku ] = React.useState('Select Size');
-  const [ quantity, setQuantity ] = React.useState('-');
-
-  React.useEffect(
-    () => {
-      setSku('Select Size');
-      setQuantity('-');
-    }, [currentStyle],
-  );
+function Overview({
+  product,
+  styles,
+  meta,
+  set,
+  currentStyle,
+  currentSku,
+  currentSize,
+  currentQty,
+  currentTotal,
+  setCurrentStyle,
+  setCurrentSku,
+  setCurrentQty,
+  setCurrentTotal,
+  setCurrentSize
+}) {
 
   return (
     <StyledOverview>
@@ -35,10 +39,15 @@ function Overview({ product, styles, meta }) {
         />
         <AddToCart
           currentStyle={currentStyle}
-          sku={sku}
-          setSku={setSku}
-          quantity={quantity}
-          setQuantity={setQuantity}
+          styles={styles}
+          currentSku={currentSku}
+          currentSize={currentSize}
+          currentQty={currentQty}
+          setCurrentSku={setCurrentSku}
+          setCurrentSize={setCurrentSize}
+          setCurrentQty={setCurrentQty}
+          currentTotal={currentTotal}
+          setCurrentTotal={setCurrentTotal}
         />
       </StyledDetails>
     </StyledOverview>

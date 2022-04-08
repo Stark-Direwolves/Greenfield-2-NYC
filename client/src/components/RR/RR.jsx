@@ -31,7 +31,7 @@ function RR({ reviews, meta, product }) {
           )
           : (
             <RRcontainer>
-              <Ratings reviewCount={reviewCount} averageRating={averageRating} />
+              <Ratings reviewCount={reviewCount} averageRating={averageRating} meta={meta} />
               <div>
                 <ReviewList reviewslist={reviews.results} setShowModal={() => setShowModal(true)} />
               </div>

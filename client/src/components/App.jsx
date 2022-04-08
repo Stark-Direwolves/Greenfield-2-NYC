@@ -3,6 +3,8 @@ import QA from './QA/QA.jsx';
 import RR from './RR/RR.jsx';
 import Overview from './Overview/Overview.jsx';
 import Related from './Related/components/Related.jsx';
+import Outfit from './Related/components/Outfit.jsx';
+import Theme from './Theme.jsx';
 
 function App({ getProduct, getStyles, getRelated, getReviews, getMeta }) {
   const [product, setProduct] = useState(getProduct);
@@ -11,13 +13,46 @@ function App({ getProduct, getStyles, getRelated, getReviews, getMeta }) {
   const [reviews, setReviews] = useState(getReviews);
   const [meta, setMeta] = useState(getMeta);
 
+  // overview
+  const [ currentStyle, setCurrentStyle ] = React.useState(styles.results[0]);
+  const [ currentSku, setCurrentSku ] = React.useState('none');
+  const [ currentSize, setCurrentSize ] = React.useState('Select Size');
+  const [ currentQty, setCurrentQty ] = React.useState('-');
+  const [ currentTotal, setCurrentTotal ] = React.useState(0);
+
+  React.useEffect(
+    () => {
+      setCurrentSku('none');
+      setCurrentSize('Select Size');
+      setCurrentQty('-');
+      setCurrentTotal(0);
+    }, [currentStyle],
+  );
+
   return (
-    <div id="container">
-      <Overview product={product} styles={styles} meta={meta} />
-      <Related relatedProducts={related} currentProduct={product} />
-      <QA productId={getProduct.id} />
-      <RR reviews={reviews} meta={meta} product={product} />
-    </div>
+    <Theme>
+      <div id="container">
+        <Overview
+          product={product}
+          styles={styles}
+          meta={meta}
+          currentStyle={currentStyle}
+          currentSku={currentSku}
+          currentSize={currentSize}
+          currentQty={currentQty}
+          currentTotal={currentTotal}
+          setCurrentSize={setCurrentSize}
+          setCurrentStyle={setCurrentStyle}
+          setCurrentSku={setCurrentSku}
+          setCurrentQty={setCurrentQty}
+          setCurrentTotal={setCurrentTotal}
+        />
+        <Related relatedProducts={related} currentProduct={product} />
+        <Outfit />
+        <QA productId={getProduct.id} />
+        <RR reviews={reviews} meta={meta} product={product} />
+      </div>
+    </Theme>
   );
 }
 

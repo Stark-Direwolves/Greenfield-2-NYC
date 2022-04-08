@@ -9,7 +9,7 @@ function Related({ relatedProducts, currentProduct }) {
   const [index, setIndex] = useState(0);
   const { length } = relatedProducts;
 
-  function updateIndex(i) {
+  const updateIndex = (i) => {
     let newIndex = i;
     if (newIndex < 0) {
       newIndex = 0;
@@ -17,12 +17,12 @@ function Related({ relatedProducts, currentProduct }) {
       newIndex = length - 1;
     }
     setIndex(newIndex);
-  }
+  };
 
   return (
     <div id="related" data-testid="related">
       <h3>Related Products</h3>
-      <Container style={{ transform: `translateX(-${index * 280}px)` }}>
+      <Container style={{ transform: `translateX(-${index * 300}px)` }}>
         {relatedProducts.map((product) => (
           <Card
             key={product.id}
@@ -32,10 +32,10 @@ function Related({ relatedProducts, currentProduct }) {
         ))}
       </Container>
       <LeftButton type="button" onClick={() => updateIndex(index - 1)}>
-        <ChevronLeftIcon className="h-5 w-5 text-blue-500" />
+        <ChevronLeftIcon />
       </LeftButton>
       <RightButton type="button" onClick={() => updateIndex(index + 1)}>
-        <ChevronRightIcon className="h-5 w-5 text-blue-500" />
+        <ChevronRightIcon />
       </RightButton>
     </div>
   );
