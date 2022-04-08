@@ -20,4 +20,10 @@ const StyledImg = styled.img`
   width: 100%;
 `;
 
-export { StyledUl, StyledLi, StyledImg };
+const StyleName = styled.h3`
+  margin-bottom: 0.5em;
+  font-family: sans-serif;
+  text-transform: lowercase;
+`
+
+export { StyledUl, StyledLi, StyledImg, StyleName };
