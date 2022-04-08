@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Question from './Question.jsx';
+import Question from './Question';
 
 function List({ questions, productName }) {
   const [display, setDisplay] = useState(4);

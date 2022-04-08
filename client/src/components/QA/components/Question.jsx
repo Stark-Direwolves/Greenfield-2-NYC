@@ -31,7 +31,7 @@ function Question({ question, answers, productName }) {
   };
 
   const updateReport = () => {
-    !isHelpfulQ ? (setReported(true))
+    !reported ? (setReported(true))
       : null;
     axios.put(`/qa/questions/${question.question_id}/report`)
       .then((result) => {
