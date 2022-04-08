@@ -1,8 +1,8 @@
 import * as React from 'react';
-import Modal from './Modal.jsx';
-import useModal from './useModal.jsx';
+import Modal from './Modal';
+import useModal from './useModal';
 
-function Ask({ productId }) {
+function Ask({ productId, productName }) {
   const { isVisible, toggleModal } = useModal();
 
   return (
@@ -10,7 +10,12 @@ function Ask({ productId }) {
       <button type="submit" onClick={toggleModal}>
         ADD A QUESTION +
       </button>
-      <Modal isVisible={isVisible} hideModal={toggleModal} productId={productId} />
+      <Modal
+        isVisible={isVisible}
+        hideModal={toggleModal}
+        productId={productId}
+        productName={productName}
+      />
     </div>
   );
 }

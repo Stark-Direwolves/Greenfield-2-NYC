@@ -7,7 +7,7 @@ import {
 } from './styles/Modal.style.jsx';
 
 function Modal({
-  isVisible, hideModal, productId, isVisibleA, hideModalA, questionId,
+  isVisible, hideModal, productId, isVisibleA, hideModalA, questionId, productName,
 }) {
   const [data, setData] = useState({ product_id: productId });
   const [dataA, setDataA] = useState({ photos: [] });
@@ -65,26 +65,35 @@ function Modal({
           <SModal>
             <SHeader>
               {isVisible ? (<STitle>Ask a Question</STitle>) : (<STitle>Answer</STitle>)}
+              {isVisible ? (
+                <span>
+                  About the
+                  {' '}
+                  {productName}
+                </span>
+              ) : null}
+
               <SDescription>
                 <form>
-                  Name
+                  Name *
                   {' '}
                   <input name="name" type="text" placeholder="Example: jackson11!" onChange={(e) => { handleEvent(e); }} />
-                  For privacy reasons, do not use your full name or email address
+                  <div>For privacy reasons, do not use your full name or email address</div>
                   <br />
-                  Email
+                  Email *
                   {' '}
-                  <input name="email" type="text" placeholder="email..." onChange={(e) => { handleEvent(e); }} />
+                  <input name="email" type="text" placeholder="Example: jack@email.com" onChange={(e) => { handleEvent(e); }} />
+                  <div>For authentication reasons, you will not be emailed</div>
                   <br />
-                  {isVisible ? (<span>Question</span>) : (<span>Answer</span>)}
+                  {isVisible ? (<span>Question *</span>) : (<span>Answer *</span>)}
                   {isVisible ? (
-                    <textarea name="body" type="text" placeholder="Question" maxLength="1000" onChange={(e) => { handleEvent(e); }} style={{ width: '418px', resize: 'none' }} />
+                    <textarea name="body" type="text" placeholder="Question" maxLength="1000" onChange={(e) => { handleEvent(e); }} style={{ resize: 'none', paddingBottom: 80, height: '80px', width: '418px' }} />
                   )
                     : (
-                      <textarea name="body" type="text" placeholder="Answer" maxLength="1000" onChange={(e) => { handleEvent(e); }} style={{ width: '418px', resize: 'none' }} />
+                      <textarea name="body" type="text" placeholder="Answer" maxLength="1000" onChange={(e) => { handleEvent(e); }} style={{ resize: 'none', paddingBottom: 80, height: '80px', width: '418px' }} />
                     )}
                   {isVisibleA ? (
-                    <textarea name="body" type="text" placeholder="Answer" maxLength="1000" onChange={(e) => { handleEvent(e); }} style={{ width: '418px', resize: 'none' }} />
+                    <textarea name="body" type="text" placeholder="Answer" maxLength="1000" onChange={(e) => { handleEvent(e); }} style={{ resize: 'none', paddingBottom: 80, height: '80px', width: '418px' }} />
                   )
                     : (
                       null)}

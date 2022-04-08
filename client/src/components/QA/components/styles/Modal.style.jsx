@@ -30,7 +30,6 @@ export const SModal = styled.div`
   border-radius: 0.25rem;
   display: flex;
   flex-direction: column;
-  margin: 15% auto;
   width: 80%;
   position: relative;
   z-index: 100;
@@ -58,5 +57,4 @@ export const SButton = styled.button`
 
 export const SDescription = styled.span`
   color: #C1C1C1;
-  text-align: center;
 `;
