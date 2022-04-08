@@ -6,7 +6,9 @@ import {
   SModalOverlay, SModalWrapper, SModal, SHeader, STitle, SButton, SDescription,
 } from './styles/Modal.style.jsx';
 
-function Modal({ isVisible, hideModal, productId, isVisibleA, hideModalA }) {
+function Modal({
+  isVisible, hideModal, productId, isVisibleA, hideModalA
+}) {
   const [data, setData] = useState({ product_id: productId });
 
   function handleEvent(event) {
@@ -68,7 +70,7 @@ function Modal({ isVisible, hideModal, productId, isVisibleA, hideModalA }) {
       App,
     )
     : null)
-    );
+  );
 }
 
 export default Modal;
