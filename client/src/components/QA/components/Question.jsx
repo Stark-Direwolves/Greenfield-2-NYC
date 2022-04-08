@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import QAnswer from './QAnswer';
@@ -6,9 +6,9 @@ import Answer from './Answer';
 
 const QuestionContainer = styled.div`
 outline: solid;
-`
+`;
 
-function Question({ question, answers }) {
+function Question({ question, answers, productName }) {
   const answerId = Object.keys(answers);
   const [qHelpful, setQHelpful] = useState(question.question_helpfulness);
   const [displayAn, setDisplayAn] = useState(2);
@@ -56,7 +56,11 @@ function Question({ question, answers }) {
         ) : (
           <span>Reported!</span>
         )}
-      <Answer questionId={question.question_id} />
+      <Answer
+        questionId={question.question_id}
+        productName={productName}
+        questionBody={question.question_body}
+      />
       <br />
       <b>A: </b>
       <div>

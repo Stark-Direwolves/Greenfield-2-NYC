@@ -4,10 +4,10 @@ import { createPortal } from 'react-dom';
 import axios from 'axios';
 import {
   SModalOverlay, SModalWrapper, SModal, SHeader, STitle, SButton, SDescription,
-} from './styles/Modal.style.jsx';
+} from './styles/Modal.style';
 
 function Modal({
-  isVisible, hideModal, productId, isVisibleA, hideModalA, questionId, productName,
+  isVisible, hideModal, productId, isVisibleA, hideModalA, questionId, productName, questionBody,
 }) {
   const [data, setData] = useState({ product_id: productId });
   const [dataA, setDataA] = useState({ photos: [] });
@@ -64,25 +64,32 @@ function Modal({
         >
           <SModal>
             <SHeader>
-              {isVisible ? (<STitle>Ask a Question</STitle>) : (<STitle>Answer</STitle>)}
+              {isVisible ? (<STitle>Ask a Question</STitle>)
+                : (<STitle>Submit your Answer</STitle>)}
               {isVisible ? (
                 <span>
                   About the
                   {' '}
                   {productName}
                 </span>
-              ) : null}
+              ) : (
+                <span>
+                  {productName}
+                  :
+                  {questionBody}
+                </span>
+              )}
 
               <SDescription>
                 <form>
                   Name *
                   {' '}
-                  <input name="name" type="text" placeholder="Example: jackson11!" onChange={(e) => { handleEvent(e); }} />
+                  <input name="name" type="text" placeholder="Example: jackson11!" maxLength="60" onChange={(e) => { handleEvent(e); }} />
                   <div>For privacy reasons, do not use your full name or email address</div>
                   <br />
                   Email *
                   {' '}
-                  <input name="email" type="text" placeholder="Example: jack@email.com" onChange={(e) => { handleEvent(e); }} />
+                  <input name="email" type="text" placeholder="Example: jack@email.com" maxLength="60" onChange={(e) => { handleEvent(e); }} />
                   <div>For authentication reasons, you will not be emailed</div>
                   <br />
                   {isVisible ? (<span>Question *</span>) : (<span>Answer *</span>)}
@@ -92,8 +99,9 @@ function Modal({
                     : (
                       <textarea name="body" type="text" placeholder="Answer" maxLength="1000" onChange={(e) => { handleEvent(e); }} style={{ resize: 'none', paddingBottom: 80, height: '80px', width: '418px' }} />
                     )}
+                  <br />
                   {isVisibleA ? (
-                    <textarea name="body" type="text" placeholder="Answer" maxLength="1000" onChange={(e) => { handleEvent(e); }} style={{ resize: 'none', paddingBottom: 80, height: '80px', width: '418px' }} />
+                    <textarea name="body" type="text" placeholder="Photo" onChange={(e) => { handleEvent(e); }} />
                   )
                     : (
                       null)}
