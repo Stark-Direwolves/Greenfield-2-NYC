@@ -11,7 +11,7 @@ const StyledDetails = styled.div`
   padding: 20px;
   grid-column-start: col2-start;
   grid-column-end: col2-end;
-`
+`;
 
 const SocialMedia = styled.div`
   text-align: center;
