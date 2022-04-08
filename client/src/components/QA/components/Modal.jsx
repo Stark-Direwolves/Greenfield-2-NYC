@@ -7,12 +7,20 @@ import {
 } from './styles/Modal.style.jsx';
 
 function Modal({
-  isVisible, hideModal, productId, isVisibleA, hideModalA
+  isVisible, hideModal, productId, isVisibleA, hideModalA, questionId,
 }) {
   const [data, setData] = useState({ product_id: productId });
+  const [dataA, setDataA] = useState({ photos: [] });
 
   function handleEvent(event) {
-    setData({ ...data, [event.target.name]: event.target.value });
+    isVisible ? (
+      setData({ ...data, [event.target.name]: event.target.value }))
+      : (null);
+    isVisibleA
+      ? (
+        setDataA({ ...dataA, [event.target.name]: event.target.value })
+      )
+      : (null);
   }
 
   function handleSubmitQ(event) {
@@ -30,7 +38,21 @@ function Modal({
       ) : alert('missing fields');
   }
 
-  return ((isVisible
+  function handleSubmitA(event) {
+    event.preventDefault();
+    (Object.keys(dataA).length === 4)
+      ? (
+        axios.post(`/qa/questions/${questionId}/answers`, dataA)
+          .then((result) => {
+            console.log(result);
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+      ) : alert('missing fields');
+  }
+
+  return (((isVisible || isVisibleA)
     ? createPortal(
       <>
         <SModalOverlay />
@@ -42,7 +64,7 @@ function Modal({
         >
           <SModal>
             <SHeader>
-              <STitle>Ask a Question</STitle>
+              {isVisible ? (<STitle>Ask a Question</STitle>) : (<STitle>Answer</STitle>)}
               <SDescription>
                 <form>
                   Name
@@ -54,16 +76,35 @@ function Modal({
                   {' '}
                   <input name="email" type="text" placeholder="email..." onChange={(e) => { handleEvent(e); }} />
                   <br />
-                  Question
-                  <textarea name="body" type="text" placeholder="Question" maxLength="1000" onChange={(e) => { handleEvent(e); }} style={{ width: '418px', resize: 'none' }} />
+                  {isVisible ? (<span>Question</span>) : (<span>Answer</span>)}
+                  {isVisible ? (
+                    <textarea name="body" type="text" placeholder="Question" maxLength="1000" onChange={(e) => { handleEvent(e); }} style={{ width: '418px', resize: 'none' }} />
+                  )
+                    : (
+                      <textarea name="body" type="text" placeholder="Answer" maxLength="1000" onChange={(e) => { handleEvent(e); }} style={{ width: '418px', resize: 'none' }} />
+                    )}
+                  {isVisibleA ? (
+                    <textarea name="body" type="text" placeholder="Answer" maxLength="1000" onChange={(e) => { handleEvent(e); }} style={{ width: '418px', resize: 'none' }} />
+                  )
+                    : (
+                      null)}
+
                   <br />
-                  <button type="submit" onClick={handleSubmitQ}>Submit</button>
+                  {isVisible ? <button type="submit" onClick={handleSubmitQ}>Submit</button> : null}
+                  {isVisibleA ? <button type="submit" onClick={handleSubmitA}>Submit</button> : null}
                 </form>
               </SDescription>
             </SHeader>
-            <SButton onClick={hideModal}>
-              Close
-            </SButton>
+            {isVisible ? (
+              <SButton onClick={hideModal}>
+                Close
+              </SButton>
+            )
+              : (
+                <SButton onClick={hideModalA}>
+                  Close
+                </SButton>
+              )}
           </SModal>
         </SModalWrapper>
       </>,

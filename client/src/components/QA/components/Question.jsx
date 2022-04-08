@@ -29,7 +29,7 @@ function Question({ question, answers }) {
       Helpful?
       {!isHelpfulQ ? (<span onClick={updateHelpQ}>Yes</span>) : (<span>ty</span>)}
       ({qHelpful})
-      <Answer />
+      <Answer questionId={question.question_id}/>
       <br />
       <b>A: </b>
       <div>
