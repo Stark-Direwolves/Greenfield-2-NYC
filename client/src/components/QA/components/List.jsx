@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Question from './Question.jsx';
 
-function List({ questions }) {
+function List({ questions, productName }) {
   const [display, setDisplay] = useState(4);
 
   const firstFour = questions.slice(0, display);
@@ -10,11 +10,25 @@ function List({ questions }) {
     <div>
       <div>
         {firstFour.map((question) => (
-          <Question key={question.question_id} question={question} answers={question.answers} />
+          <Question
+            key={question.question_id}
+            question={question}
+            answers={question.answers}
+            productName={productName}
+          />
         ))}
       </div>
       <div>
-        {(questions.length > display) ? (<button onClick={() => setDisplay((prevCount) => prevCount + 2)}> More Answered Questions </button>) : null}
+        {(questions.length > display)
+          ? (
+            <button
+              type="submit"
+              onClick={() => setDisplay((prevCount) => prevCount + 1000)}
+            >
+              More Answered Questions
+            </button>
+          )
+          : null}
       </div>
     </div>
 

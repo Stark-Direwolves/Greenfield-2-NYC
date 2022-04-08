@@ -60,11 +60,11 @@ function App({ getProduct, getStyles, getRelated, getReviews, getMeta }) {
   const [meta, setMeta] = useState(getMeta);
 
   // overview
-  const [ currentStyle, setCurrentStyle ] = React.useState(styles.results[0]);
-  const [ currentSku, setCurrentSku ] = React.useState('none');
-  const [ currentSize, setCurrentSize ] = React.useState('Select Size');
-  const [ currentQty, setCurrentQty ] = React.useState('-');
-  const [ currentTotal, setCurrentTotal ] = React.useState(0);
+  const [currentStyle, setCurrentStyle] = React.useState(styles.results[0]);
+  const [currentSku, setCurrentSku] = React.useState('none');
+  const [currentSize, setCurrentSize] = React.useState('Select Size');
+  const [currentQty, setCurrentQty] = React.useState('-');
+  const [currentTotal, setCurrentTotal] = React.useState(0);
 
   React.useEffect(
     () => {
@@ -80,7 +80,7 @@ function App({ getProduct, getStyles, getRelated, getReviews, getMeta }) {
       <Nav>
         <NavInner>
           <Cart>
-            <img src="https://img.icons8.com/windows/32/000000/shopping-cart-promotion.png"/>
+            <img src="https://img.icons8.com/windows/32/000000/shopping-cart-promotion.png" />
           </Cart>
           <Logo><img src="/assets/logo.png" height="37" /></Logo>
         </NavInner>
@@ -103,7 +103,7 @@ function App({ getProduct, getStyles, getRelated, getReviews, getMeta }) {
         />
         <Related relatedProducts={related} currentProduct={product} />
         <Outfit product={product} style={currentStyle} meta={meta} />
-        <QA productId={getProduct.id} />
+        <QA productId={getProduct.id} productName={getProduct.name} />
         <RR reviews={reviews} meta={meta} product={product} />
       </Container>
     </Theme>

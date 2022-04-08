@@ -1,21 +1,22 @@
-import * as React from "react";
-import Modal from "./Modal.jsx";
-import useModal from "./useModal.jsx";
+import * as React from 'react';
+import Modal from './Modal';
+import useModal from './useModal';
 
-function Answer() {
-  // const { isVisible, toggleModal } = useModal();
+function Answer({ questionId, productName, questionBody }) {
+  const { isVisibleA, toggleModalA } = useModal();
 
-  // return (
-  //   <div>
-  //     <button onClick={toggleModal}>
-  //       Show modal
-  //     </button>
-  //     <Modal isVisible={isVisible} hideModal={toggleModal} />
-  //   </div>
-  // );
   return (
     <div>
-      answer
+      <button type="submit" onClick={toggleModalA}>
+        Add Answer
+      </button>
+      <Modal
+        isVisibleA={isVisibleA}
+        hideModalA={toggleModalA}
+        questionId={questionId}
+        productName={productName}
+        questionBody={questionBody}
+      />
     </div>
   );
 }

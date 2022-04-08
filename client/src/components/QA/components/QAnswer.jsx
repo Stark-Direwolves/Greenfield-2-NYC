@@ -15,7 +15,7 @@ function QAnswer({ answer }) {
         <span onClick={() => { !isHelpful ? (setIsHelpful(true), setAnswerHelp(answerHelp + 1)) : null }}>Yes</span>
         ({answerHelp})
       </div>
-    </div >
+    </div>
   );
 }
 
