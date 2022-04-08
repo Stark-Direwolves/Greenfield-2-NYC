@@ -14,6 +14,7 @@ const { findReviewCount, findAverageRating } = require('./RatingHelpers.js');
 function RR({ reviews, meta, product }) {
   const reviewCount = findReviewCount(meta.ratings);
   const averageRating = findAverageRating(meta.ratings);
+  const totalReviews = findReviewCount(meta.ratings);
   const currentProduct = product.name;
   const currentProductId = product.id;
   const [showModal, setShowModal] = useState(false);
@@ -31,7 +32,7 @@ function RR({ reviews, meta, product }) {
           )
           : (
             <RRcontainer>
-              <Ratings reviewCount={reviewCount} averageRating={averageRating} meta={meta} />
+              <Ratings reviewCount={reviewCount} averageRating={averageRating} totalReviews={totalReviews} meta={meta} />
               <div>
                 <ReviewList reviewslist={reviews.results} setShowModal={() => setShowModal(true)} />
               </div>
