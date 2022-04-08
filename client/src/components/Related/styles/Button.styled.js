@@ -10,7 +10,7 @@ const Button = styled.button`
   z-index: 1;
   cursor: pointer;
 
-  svg:hover {
+  svg :hover {
     fill: black;
   }
 `;

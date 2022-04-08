@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import Container from '../styles/Container.styled';
 import AddOutfit from './AddOutfit.jsx';
 import OutfitCard from './OutfitCard.jsx';
@@ -39,7 +39,7 @@ function Outfit({ product, style, meta }) {
     const styleId = style.style_id;
     const list = outfits.slice();
     if (!localStorage.getItem(styleId)) {
-      list.unshift(currentItem);
+      list.push(currentItem);
       setOutfits(list);
       localStorage.setItem(styleId, JSON.stringify(currentItem));
     }
@@ -57,6 +57,20 @@ function Outfit({ product, style, meta }) {
     localStorage.removeItem(outfit.style.style_id);
   };
 
+  const hideLeftButton = () => {
+    if (index >= 1) {
+      return true;
+    }
+    return false;
+  };
+
+  const hideRightButton = () => {
+    if ((length - 1) - 4 >= index) {
+      return true;
+    }
+    return false;
+  };
+
   return (
     <div id="outfit">
       <h3>My Outfits</h3>
@@ -64,18 +78,25 @@ function Outfit({ product, style, meta }) {
         <AddOutfit addOutfit={addOutfit} product={product} />
         {outfits.map((outfit) => (
           <OutfitCard
+            key={outfit.style.name}
             outfit={outfit}
             outfits={outfits}
             removeOutfit={removeOutfit}
           />
         ))}
       </Container>
-      <LeftButton type="button" onClick={() => updateIndex(index - 1)}>
-        <ChevronLeftIcon />
-      </LeftButton>
-      <RightButton type="button" onClick={() => updateIndex(index + 1)}>
-        <ChevronRightIcon />
-      </RightButton>
+      {hideLeftButton()
+        ? (
+          <LeftButton type="button" onClick={() => updateIndex(index - 1)}>
+            <ChevronLeftIcon />
+          </LeftButton>
+        ) : null}
+      {hideRightButton()
+        ? (
+          <RightButton type="button" onClick={() => updateIndex(index + 1)}>
+            <ChevronRightIcon />
+          </RightButton>
+        ) : null }
     </div>
   );
 }
