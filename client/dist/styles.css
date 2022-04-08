@@ -222,11 +222,10 @@ header {
 .slider {
   -webkit-appearance: none;
   appearance: none;
-  width: 100%%;
+  width: 200px;
   height: 15px;
   background: #d3d3d3;
   outline: 2px black;
-  opacity: 0.5;
   border-radius: 10px
 }
 
@@ -239,5 +238,24 @@ header {
   background: #3e3f3f;
 }
 
+:root {
+  --revcount-size: 10px;
+  --revcount-color: #d3d3d3;
+  --revcount-background: #3e3f3f;
+}
 
+.revcount {
+  --percent: calc(var(--count) / var(--total) * 100%);
+  display: inline-block;
+  font-size: var(--revcount-size);
+  line-height: 1;
+}
+
+.revcount:before {
+  content: 'anything here';
+  letter-spacing: 15px;
+  background: linear-gradient(90deg, var(--revcount-background) var(--percent), var(--revcount-color) var(--percent));
+  -webkit-text-fill-color: transparent;
+  border-radius: 15px;
+}
 

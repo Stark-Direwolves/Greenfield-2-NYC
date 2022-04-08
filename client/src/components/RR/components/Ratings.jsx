@@ -2,7 +2,7 @@
 import React from 'react';
 import RatingsBox from '../RRstyles/RatingsBox.js';
 
-function Ratings({ reviewCount, averageRating, meta }) {
+function Ratings({ reviewCount, averageRating, totalReviews, meta }) {
   console.log(meta);
   let [size, width, comfort, quality, length, fit] = Array(6).fill(0);
 
@@ -18,6 +18,22 @@ function Ratings({ reviewCount, averageRating, meta }) {
     length = Number(meta.characteristics.Length.value)};
   if (meta.characteristics.Fit) {
     fit = Number(meta.characteristics.Fit.value)};
+
+  if(!meta.ratings[5]) {
+    meta.ratings[5] = 0;
+  }
+  if(!meta.ratings[4]) {
+    meta.ratings[4] = 0;
+  }
+  if(!meta.ratings[3]) {
+    meta.ratings[3] = 0;
+  }
+  if(!meta.ratings[2]) {
+    meta.ratings[2] = 0;
+  }
+  if(!meta.ratings[1]) {
+    meta.ratings[1] = 0;
+  }
 
   return (
     <RatingsBox>
@@ -38,6 +54,57 @@ function Ratings({ reviewCount, averageRating, meta }) {
           {reviewCount}
           {' '}
           Total Reviews
+        </div>
+        <br />
+        <div>
+          5 (
+          {meta.ratings[5]}
+          )
+          &nbsp;
+          <span
+            className="revcount"
+            style={{ '--count': meta.ratings[5], '--total': totalReviews }}
+          />
+        </div>
+        <div>
+          4 (
+          {meta.ratings[4]}
+          )
+          &nbsp;
+          <span
+            className="revcount"
+            style={{ '--count': meta.ratings[4], '--total': totalReviews }}
+          />
+        </div>
+        <div>
+          3 (
+          {meta.ratings[3]}
+          )
+          &nbsp;
+          <span
+            className="revcount"
+            style={{ '--count': meta.ratings[3], '--total': totalReviews }}
+          />
+        </div>
+        <div>
+          2 (
+          {meta.ratings[2]}
+          )
+          &nbsp;
+          <span
+            className="revcount"
+            style={{ '--count': meta.ratings[2], '--total': totalReviews }}
+          />
+        </div>
+        <div>
+          1 (
+          {meta.ratings[1]}
+          )
+          &nbsp;
+          <span
+            className="revcount"
+            style={{ '--count': meta.ratings[1], '--total': totalReviews }}
+          />
         </div>
         <br />
         {(size > 0)
