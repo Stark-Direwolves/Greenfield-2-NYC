@@ -8,9 +8,6 @@ const CardContainer = styled.div`
   flex-basis: 20%;
   flex-shrink: 0;
   align-items: flex-start;
-  padding: 5px 5px;
-  border: 2px solid;
-  background-color: white;
 `;
 
 export default CardContainer;

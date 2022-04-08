@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
-import Card from './Card.jsx';
-import Container from '../styles/Container.styled';
-import LeftButton from '../styles/LeftButton.styled';
-import RightButton from '../styles/RightButton.styled';
+import Card from './Card';
+import { LeftButton, RightButton } from '../styles/StyledButtons.styled';
+import { RelatedContainer, CarouselContainer } from '../styles/RelatedContainer.styled';
 
 function Related({ relatedProducts, currentProduct }) {
   const [index, setIndex] = useState(0);
@@ -34,9 +33,9 @@ function Related({ relatedProducts, currentProduct }) {
   };
 
   return (
-    <div id="related" data-testid="related">
+    <RelatedContainer data-testid="related">
       <h3>Related Products</h3>
-      <Container style={{ transform: `translateX(-${index * 300}px)` }}>
+      <CarouselContainer style={{ transform: `translateX(-${index * 275}px)` }}>
         {relatedProducts.map((product) => (
           <Card
             key={product.id}
@@ -44,7 +43,7 @@ function Related({ relatedProducts, currentProduct }) {
             current={currentProduct}
           />
         ))}
-      </Container>
+      </CarouselContainer>
       {hideLeftButton()
         ? null
         : (
@@ -59,7 +58,7 @@ function Related({ relatedProducts, currentProduct }) {
             <ChevronRightIcon />
           </RightButton>
         )}
-    </div>
+    </RelatedContainer>
   );
 }
 

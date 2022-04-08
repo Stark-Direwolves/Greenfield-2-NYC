@@ -1,10 +1,9 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import { XIcon } from '@heroicons/react/outline';
-import ComparisonContainer from '../styles/ComparisonContainer.styled';
-import StyledComparison from '../styles/Comparison.styled';
-import ModalButton from '../styles/ModalButton.styled';
-import Table from './Table.jsx';
+import { ComparisonBackground, ComparisonContainer } from '../styles/Comparison.styled';
+import { ModalButton } from '../styles/StyledButtons.styled';
+import Table from './Table';
 
 function Comparison({
   compare, toggleCompare, related, current,
@@ -26,7 +25,7 @@ function Comparison({
 
   return compare
     ? createPortal(
-      <StyledComparison data-testid="comparison">
+      <ComparisonBackground data-testid="comparison">
         <ComparisonContainer>
           <ModalButton type="button" onClick={toggleCompare}><XIcon /></ModalButton>
           <h3>Compare</h3>
@@ -45,7 +44,7 @@ function Comparison({
             </tbody>
           </table>
         </ComparisonContainer>
-      </StyledComparison>,
+      </ComparisonBackground>,
       document.body,
     ) : null;
 }
