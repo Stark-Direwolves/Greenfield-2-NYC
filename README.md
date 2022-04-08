@@ -4,7 +4,7 @@
 *FEC April 2022*
 
 - Nathaniel Belen --- Overview 
-- Kimberly Siu --- Questions & Answers
+- Kimberly Siu --- Ratings & Reviews
 - Julian Tam --- Related Items & Comparison
 - Patrick Lee --- Questions & Answers
 
