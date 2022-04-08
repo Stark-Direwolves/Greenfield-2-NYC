@@ -1,6 +1,6 @@
 import React from 'react';
 import Quantity from './Quantity.jsx'
-import { DropBtn, DropdownContent, Dropdown, DropdownContentA, AddToCartButton } from './styles/AddToCart.styled.js'
+import { DropBtn, DropdownContent, Dropdown, DropdownContentA, AddToCartButton, SizeQuantityContainer, QuantityDiv, SizeDiv } from './styles/AddToCart.styled.js'
 
 function AddToCart({ currentStyle, currentSku, currentSize, currentQty, setCurrentSku, setCurrentSize, setCurrentQty, currentTotal, setCurrentTotal }) {
   let price = Number(currentStyle.sale_price || currentStyle.original_price);
@@ -22,19 +22,24 @@ function AddToCart({ currentStyle, currentSku, currentSize, currentQty, setCurre
 
   return (
     <>
-      Size:
-      <br />
-      <Dropdown>
-        <DropBtn>{currentSize}</DropBtn>
-        <DropdownContent>
-          {Object.keys(currentStyle.skus).map(
-            (sku_id, index) =>
-              <DropdownContentA key={sku_id} onClick={()=>{ handleClick(sku_id) }}> {currentStyle.skus[sku_id].size}</DropdownContentA>
-          )}
-        </DropdownContent>
-      </Dropdown>
-      <br />
-      <Quantity sku={currentStyle.skus[currentSku]} handleQtyClick={handleQtyClick} currentQty={currentQty} />
+      <SizeQuantityContainer>
+        <SizeDiv>
+          size
+          <br />
+          <Dropdown>
+            <DropBtn>{currentSize}</DropBtn>
+            <DropdownContent>
+              {Object.keys(currentStyle.skus).map(
+                (sku_id, index) =>
+                  <DropdownContentA key={sku_id} onClick={()=>{ handleClick(sku_id) }}> {currentStyle.skus[sku_id].size}</DropdownContentA>
+              )}
+            </DropdownContent>
+          </Dropdown>
+        </SizeDiv>
+        <QuantityDiv>
+          <Quantity sku={currentStyle.skus[currentSku]} handleQtyClick={handleQtyClick} currentQty={currentQty} />
+        </QuantityDiv>
+      </SizeQuantityContainer>
       <div>
         <AddToCartButton onClick={AddToCartClick}>Add To Cart ${currentTotal}</AddToCartButton>
       </div>

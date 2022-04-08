@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyledUl, StyledLi, StyledImg } from './styles/StyleSelector.styled.js';
+import { StyledUl, StyledLi, StyledImg, StyleName } from './styles/StyleSelector.styled.js';
 
 function StyleSelector({ currentStyle, setCurrentStyle, styles }) {
   return (
     <div>
-      <h3>{currentStyle.name}</h3>
+      <StyleName>{currentStyle.name}</StyleName>
       <StyledUl>
         {styles.map((style, index) => (
           <StyleSelectorEntry

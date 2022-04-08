@@ -4,7 +4,7 @@ import AddToCart from './components/AddToCart.jsx';
 import ImageGallery from './components/ImageGallery.jsx';
 import ProductInformation from './components/ProductInformation.jsx';
 import StyleSelector from './components/StyleSelector.jsx';
-import { StyledOverview, StyledDetails } from './styles/Overview.styled.js';
+import { StyledOverview, StyledDetails, SocialMedia } from './styles/Overview.styled.js';
 
 function Overview({
   product,
@@ -49,6 +49,13 @@ function Overview({
           currentTotal={currentTotal}
           setCurrentTotal={setCurrentTotal}
         />
+        <SocialMedia>
+          share
+          <br />
+          <img src="https://img.icons8.com/ios/50/000000/twitter--v1.png"/>
+          <img src="https://img.icons8.com/ios/50/000000/facebook-new.png"/>
+          <img src="https://img.icons8.com/ios/50/000000/pinterest--v1.png"/>
+        </SocialMedia>
       </StyledDetails>
     </StyledOverview>
   );
