@@ -48,7 +48,7 @@ function App({ getProduct, getStyles, getRelated, getReviews, getMeta }) {
           setCurrentTotal={setCurrentTotal}
         />
         <Related relatedProducts={related} currentProduct={product} />
-        <Outfit />
+        <Outfit product={product} style={currentStyle} meta={meta} />
         <QA productId={getProduct.id} />
         <RR reviews={reviews} meta={meta} product={product} />
       </div>

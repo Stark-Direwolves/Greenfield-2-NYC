@@ -11,6 +11,6 @@ const StyledDetails = styled.div`
   padding: 20px;
   grid-column-start: col2-start;
   grid-column-end: col2-end;
-`
+`;
 
 export { StyledOverview, StyledDetails };
