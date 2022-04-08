@@ -6,8 +6,15 @@ const LeftButton = styled.button`
   top: 50%;
   left: 0;
   margin-left: 20px;
-  width: 30px;
-  height: 30px;
+  background-color: rgb(128, 128, 128, 0.5);
+  border: none;
+
+  svg {
+    margin: 0 auto;
+    width: 25px;
+    height: 25px;
+    color: black;
+  }
 `;
 
 export default LeftButton;
