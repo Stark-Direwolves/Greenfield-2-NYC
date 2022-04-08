@@ -21,20 +21,21 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
   const [charFit, charSetFit] = useState(1);
 
   const reviewBody = {
-    "product_id": 65631,
-    "rating": 1,
-    "summary": "1 star review",
-    "body": "I hate this product",
-    "recommend": false,
-    "name": "hater",
-    "email": "meanreviewer@gmail.com",
-    "photos": [],
+    "product_id": currentProductId,
+    "rating": Number(formRating),
+    "summary": formSummary,
+    "body": formBody,
+    "recommend": formRecommend,
+    "name": formName,
+    "email": formEmail,
+    "photos": formPhotos,
     "characteristics": { }
   };
 
   const submitForm = (event) => {
     event.preventDefault();
     setShowModal((prev) => !prev);
+    console.log(reviewBody);
     axios.post('/reviews', reviewBody)
       .then((res) => {
         console.log('review submitted', res);
@@ -93,16 +94,16 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
         Yes
         <input
           type="radio"
-          checked={formRecommend === 'Yes'}
+          checked={formRecommend === true}
           value="Yes"
-          onChange={(e) => { setFormRecommend(e.target.value); }}
+          onChange={(e) => { setFormRecommend(e.target.checked); }}
         />
         No
         <input
           type="radio"
-          checked={formRecommend === 'No'}
+          checked={formRecommend === false}
           value="No"
-          onChange={(e) => { setFormRecommend(e.target.value); }}
+          onChange={(e) => { setFormRecommend(e.target.checked); }}
         />
       </div>
       <br />
