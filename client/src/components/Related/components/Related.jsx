@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/outline';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import Card from './Card.jsx';
 import Container from '../styles/Container.styled';
 import LeftButton from '../styles/LeftButton.styled';
@@ -8,6 +8,20 @@ import RightButton from '../styles/RightButton.styled';
 function Related({ relatedProducts, currentProduct }) {
   const [index, setIndex] = useState(0);
   const { length } = relatedProducts;
+
+  const hideLeftButton = () => {
+    if (index === 0) {
+      return true;
+    }
+    return false;
+  };
+
+  const hideRightButton = () => {
+    if (length - 4 <= index) {
+      return true;
+    }
+    return false;
+  };
 
   const updateIndex = (i) => {
     let newIndex = i;
@@ -31,12 +45,20 @@ function Related({ relatedProducts, currentProduct }) {
           />
         ))}
       </Container>
-      <LeftButton type="button" onClick={() => updateIndex(index - 1)}>
-        <ChevronLeftIcon />
-      </LeftButton>
-      <RightButton type="button" onClick={() => updateIndex(index + 1)}>
-        <ChevronRightIcon />
-      </RightButton>
+      {hideLeftButton()
+        ? null
+        : (
+          <LeftButton type="button" onClick={() => updateIndex(index - 1)}>
+            <ChevronLeftIcon />
+          </LeftButton>
+        )}
+      {hideRightButton()
+        ? null
+        : (
+          <RightButton type="button" onClick={() => updateIndex(index + 1)}>
+            <ChevronRightIcon />
+          </RightButton>
+        )}
     </div>
   );
 }

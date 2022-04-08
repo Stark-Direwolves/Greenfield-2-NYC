@@ -54,6 +54,18 @@ const getReviewsMeta = (id) => {
   return axios.get(options.url, options);
 };
 
+const filterDefaultStyle = (styles) => {
+  const defaultStyle = [];
+  for (let i = 0; i < styles.length; i += 1) {
+    if (styles[i]['default?'] === true) {
+      defaultStyle.push(styles[i]);
+      break;
+    }
+  }
+  defaultStyle.push(styles[0]);
+  return defaultStyle.slice(0, 1);
+};
+
 router.get('/', (req, res) => {
   getProducts()
     .then((results) => res.status(200).send(results.data))
@@ -91,7 +103,7 @@ router.get('/:product_id/related', (req, res) => {
           name: results[i].name,
           default_price: results[i].default_price,
           features: results[i].features,
-          styles: results[i + 1].results,
+          styles: filterDefaultStyle(results[i + 1].results),
           ratings: results[i + 2].ratings,
         };
         products.push(obj);

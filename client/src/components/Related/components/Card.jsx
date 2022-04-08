@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StarIcon } from '@heroicons/react/outline';
 import StyledImage from '../styles/Image.styled';
 import CardContainer from '../styles/CardContainer.styled';
@@ -8,6 +8,7 @@ import Comparison from './Comparison.jsx';
 
 function Card({ related, current }) {
   const [compare, setCompare] = useState(false);
+  const [sale, setSale] = useState(false);
 
   const toggleCompare = () => {
     setCompare(!compare);
@@ -19,6 +20,16 @@ function Card({ related, current }) {
     }
     return Ratings.findAverageRating(item.ratings);
   };
+
+  const toggleSale = () => {
+    if (related.styles[0].sale_price) {
+      setSale(true);
+    }
+  };
+
+  useEffect(() => {
+    toggleSale();
+  }, []);
 
   return (
     <CardContainer>
@@ -39,7 +50,15 @@ function Card({ related, current }) {
       />
       <p>{related.category}</p>
       <div>{related.name}</div>
-      <div>{related.default_price}</div>
+      <div>{related.styles[0].name}</div>
+      {sale
+        ? (
+          <div>
+            <s>{related.styles[0].original_price}</s>
+            {related.styles[0].sale_price}
+          </div>
+        )
+        : <div>{related.styles[0].original_price}</div>}
       <div>
         <span className="stars" style={{ '--rating': filterAverageRating(related), '--star-size': '15px' }} />
       </div>
