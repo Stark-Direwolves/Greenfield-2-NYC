@@ -86,19 +86,19 @@ function Overview({
 }
 
 Overview.propTypes = {
-  product: PropTypes.object.isRequired,
-  styles: PropTypes.object.isRequired,
-  meta: PropTypes.object.isRequired,
-  currentStyle: PropTypes.object.isRequired,
-  currentSku: PropTypes.string.isRequired,
-  currentSize: PropTypes.string.isRequired,
-  currentQty: PropTypes.string.isRequired,
-  currentTotal: PropTypes.number.isRequired,
-  setCurrentStyle: PropTypes.func.isRequired,
-  setCurrentSku: PropTypes.func.isRequired,
-  setCurrentQty: PropTypes.func.isRequired,
-  setCurrentTotal: PropTypes.func.isRequired,
-  setCurrentSize: PropTypes.func.isRequired,
+  product: PropTypes.object,
+  styles: PropTypes.object,
+  meta: PropTypes.object,
+  currentStyle: PropTypes.object,
+  currentSku: PropTypes.string,
+  currentSize: PropTypes.string,
+  currentQty: PropTypes.string,
+  currentTotal: PropTypes.number,
+  setCurrentStyle: PropTypes.func,
+  setCurrentSku: PropTypes.func,
+  setCurrentQty: PropTypes.func,
+  setCurrentTotal: PropTypes.func,
+  setCurrentSize: PropTypes.func,
 };
 
 export default Overview;
