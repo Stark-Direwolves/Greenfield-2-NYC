@@ -1,35 +1,37 @@
+/* eslint-disable quote-props */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import AddReview from '../RRstyles/AddReview.js';
-import AddPhoto from '../RRstyles/AddPhoto.js';
 import axios from 'axios';
+import { StarIcon } from '@heroicons/react/outline';
+import AddReview from '../RRstyles/AddReview';
+import AddPhoto from '../RRstyles/AddPhoto';
 
 function NewReview({ currentProduct, currentProductId, setShowModal }) {
   const [formRating, setFormRating] = useState(0);
   const [formSummary, setFormSummary] = useState('');
   const [formBody, setFormBody] = useState('');
-  const [formRecommend, setFormRecommend] = useState(false);
+  const [formRecommend, setFormRecommend] = useState('');
   const [formName, setFormName] = useState('');
   const [formEmail, setFormEmail] = useState('');
   const [formPhotos, setFormPhotos] = useState([]);
   // characteristics/meta data
-  const [charSize, charSetSize] = useState(1);
-  const [charWidth, charSetWidth] = useState(1);
-  const [charComfort, charSetComfort] = useState(1);
-  const [charQuality, charSetQuality] = useState(1);
-  const [charLength, charSetLength] = useState(1);
-  const [charFit, charSetFit] = useState(1);
+  const [charSize, setCharSize] = useState(0);
+  const [charWidth, setCharWidth] = useState(0);
+  const [charComfort, setCharComfort] = useState(0);
+  const [charQuality, setCharQuality] = useState(0);
+  const [charLength, setCharLength] = useState(0);
+  const [charFit, setCharFit] = useState(1);
 
   const reviewBody = {
     "product_id": currentProductId,
     "rating": Number(formRating),
     "summary": formSummary,
     "body": formBody,
-    "recommend": formRecommend,
+    "recommend": (formRecommend === 'True'),
     "name": formName,
     "email": formEmail,
     "photos": formPhotos,
-    "characteristics": { }
+    "characteristics": { },
   };
 
   const submitForm = (event) => {
@@ -90,20 +92,222 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
         />
       </div>
       <div>
+        <b> Select Characteristics </b>
+        <div>
+          Size
+          <input
+            onChange={(e) => { setCharSize(e.target.value); }}
+            type="radio"
+            checked={charSize === '1'}
+            value="1"
+          />
+          <input
+            onChange={(e) => { setCharSize(e.target.value); }}
+            type="radio"
+            checked={charSize === '2'}
+            value="2"
+          />
+          <input
+            onChange={(e) => { setCharSize(e.target.value); }}
+            type="radio"
+            checked={charSize === '3'}
+            value="3"
+          />
+          <input
+            onChange={(e) => { setCharSize(e.target.value); }}
+            type="radio"
+            checked={charSize === '4'}
+            value="4"
+          />
+          <input
+            onChange={(e) => { setCharSize(e.target.value); }}
+            type="radio"
+            checked={charSize === '5'}
+            value="5"
+          />
+        </div>
+        <div>
+          Width
+          <input
+            onChange={(e) => { setCharWidth(e.target.value); }}
+            type="radio"
+            checked={formRating === '1'}
+            value="1"
+          />
+          <input
+            onChange={(e) => { setCharWidth(e.target.value); }}
+            type="radio"
+            checked={charWidth === '2'}
+            value="2"
+          />
+          <input
+            onChange={(e) => { setCharWidth(e.target.value); }}
+            type="radio"
+            checked={charWidth === '3'}
+            value="3"
+          />
+          <input
+            onChange={(e) => { setCharWidth(e.target.value); }}
+            type="radio"
+            checked={charWidth === '4'}
+            value="4"
+          />
+          <input
+            onChange={(e) => { setCharWidth(e.target.value); }}
+            type="radio"
+            checked={charWidth === '5'}
+            value="5"
+          />
+        </div>
+        <div>
+          Comfort
+          <input
+            onChange={(e) => { setCharComfort(e.target.value); }}
+            type="radio"
+            checked={charComfort === '1'}
+            value="1"
+          />
+          <input
+            onChange={(e) => { setCharComfort(e.target.value); }}
+            type="radio"
+            checked={charComfort === '2'}
+            value="2"
+          />
+          <input
+            onChange={(e) => { setCharComfort(e.target.value); }}
+            type="radio"
+            checked={charComfort === '3'}
+            value="3"
+          />
+          <input
+            onChange={(e) => { setCharComfort(e.target.value); }}
+            type="radio"
+            checked={charComfort === '4'}
+            value="4"
+          />
+          <input
+            onChange={(e) => { setCharComfort(e.target.value); }}
+            type="radio"
+            checked={charComfort === '5'}
+            value="5"
+          />
+        </div>
+        <div>
+          Quality
+          <input
+            onChange={(e) => { setCharQuality(e.target.value); }}
+            type="radio"
+            checked={charQuality === '1'}
+            value="1"
+          />
+          <input
+            onChange={(e) => { setCharQuality(e.target.value); }}
+            type="radio"
+            checked={charQuality === '2'}
+            value="2"
+          />
+          <input
+            onChange={(e) => { setCharQuality(e.target.value); }}
+            type="radio"
+            checked={charQuality === '3'}
+            value="3"
+          />
+          <input
+            onChange={(e) => { setCharQuality(e.target.value); }}
+            type="radio"
+            checked={charQuality === '4'}
+            value="4"
+          />
+          <input
+            onChange={(e) => { setCharQuality(e.target.value); }}
+            type="radio"
+            checked={charQuality === '5'}
+            value="5"
+          />
+        </div>
+        <div>
+          Length
+          <input
+            onChange={(e) => { setCharLength(e.target.value); }}
+            type="radio"
+            checked={charLength === '1'}
+            value="1"
+          />
+          <input
+            onChange={(e) => { setCharLength(e.target.value); }}
+            type="radio"
+            checked={charLength === '2'}
+            value="2"
+          />
+          <input
+            onChange={(e) => { setCharLength(e.target.value); }}
+            type="radio"
+            checked={charLength === '3'}
+            value="3"
+          />
+          <input
+            onChange={(e) => { setCharLength(e.target.value); }}
+            type="radio"
+            checked={charLength === '4'}
+            value="4"
+          />
+          <input
+            onChange={(e) => { setCharLength(e.target.value); }}
+            type="radio"
+            checked={charLength === '5'}
+            value="5"
+          />
+        </div>
+        <div>
+          Fit
+          <input
+            onChange={(e) => { setCharFit(e.target.value); }}
+            type="radio"
+            checked={charFit === '1'}
+            value="1"
+          />
+          <input
+            onChange={(e) => { setCharFit(e.target.value); }}
+            type="radio"
+            checked={charFit === '2'}
+            value="2"
+          />
+          <input
+            onChange={(e) => { setCharFit(e.target.value); }}
+            type="radio"
+            checked={charFit === '3'}
+            value="3"
+          />
+          <input
+            onChange={(e) => { setCharFit(e.target.value); }}
+            type="radio"
+            checked={charFit === '4'}
+            value="4"
+          />
+          <input
+            onChange={(e) => { setCharFit(e.target.value); }}
+            type="radio"
+            checked={charFit === '5'}
+            value="5"
+          />
+        </div>
+      </div>
+      <div>
         <b> Do you recommend this product? </b>
         Yes
         <input
+          onChange={(e) => { setFormRecommend(e.target.value); }}
           type="radio"
-          checked={formRecommend === true}
-          value="Yes"
-          onChange={(e) => { setFormRecommend(e.target.checked); }}
+          checked={formRecommend === 'True'}
+          value="True"
         />
+        &nbsp;
         No
         <input
+          onChange={(e) => { setFormRecommend(e.target.value); }}
           type="radio"
-          checked={formRecommend === false}
-          value="No"
-          onChange={(e) => { setFormRecommend(e.target.checked); }}
+          checked={formRecommend === 'False'}
+          value="False"
         />
       </div>
       <br />

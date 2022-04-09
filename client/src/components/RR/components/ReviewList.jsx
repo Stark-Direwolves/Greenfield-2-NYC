@@ -2,9 +2,9 @@
 /* eslint-disable import/extensions */
 import React, { useState } from 'react';
 import Review from './Review.jsx';
-import MoreButton from '../RRstyles/MoreButton.js';
-import AddButton from '../RRstyles/AddButton.js';
-import ReviewListBox from '../RRstyles/ReviewListBox.js';
+import MoreButton from '../RRstyles/MoreButton';
+import AddButton from '../RRstyles/AddButton';
+import ReviewListBox from '../RRstyles/ReviewListBox';
 
 function ReviewList({ reviewslist, setShowModal }) {
   const [view, setView] = useState(2);

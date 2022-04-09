@@ -1,20 +1,21 @@
 /* eslint-disable max-len */
 /* eslint-disable import/extensions */
 import React, { useState } from 'react';
-import Ratings from './components/Ratings.jsx';
-import ReviewList from './components/ReviewList.jsx';
-import NewReview from './components/NewReview.jsx';
+import Ratings from './components/Ratings';
+import ReviewList from './components/ReviewList';
+import NewReview from './components/NewReview';
 
 // styles
 import RRcontainer from './RRstyles/RRcontainer.js';
 import AddReview from './RRstyles/AddReview.js';
 
-const { findReviewCount, findAverageRating } = require('./RatingHelpers.js');
+const { findReviewCount, findAverageRating, findPercentRecommended } = require('./RatingHelpers.js');
 
 function RR({ reviews, meta, product }) {
   const reviewCount = findReviewCount(meta.ratings);
   const averageRating = findAverageRating(meta.ratings);
   const totalReviews = findReviewCount(meta.ratings);
+  const percentRecommended = findPercentRecommended(meta.recommended);
   const currentProduct = product.name;
   const currentProductId = product.id;
   const [showModal, setShowModal] = useState(false);
@@ -32,7 +33,7 @@ function RR({ reviews, meta, product }) {
           )
           : (
             <RRcontainer>
-              <Ratings reviewCount={reviewCount} averageRating={averageRating} totalReviews={totalReviews} meta={meta} />
+              <Ratings reviewCount={reviewCount} averageRating={averageRating} totalReviews={totalReviews} percentRecommended={percentRecommended} meta={meta} />
               <div>
                 <ReviewList reviewslist={reviews.results} setShowModal={() => setShowModal(true)} />
               </div>

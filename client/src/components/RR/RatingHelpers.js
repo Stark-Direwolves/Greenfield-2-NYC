@@ -39,7 +39,16 @@ const findAverageRating = (ratingObj) => {
   return staravg;
 };
 
+const findPercentRecommended = (ratingObj) => {
+  const totalFalse = Number(ratingObj.false);
+  const totalTrue = Number(ratingObj.true);
+  const total = totalFalse + totalTrue;
+  const percent = totalTrue / total;
+  const recommended = (Math.round(percent * 100));
+  return recommended;
+};
+
 // var test = { 1: '5', 2: '1', 3: '9', 4: '24', 5: '8'}
 // = 3.6
 
-module.exports = { findReviewCount, findTotalScore, findAverageRating };
+module.exports = { findReviewCount, findTotalScore, findAverageRating, findPercentRecommended };

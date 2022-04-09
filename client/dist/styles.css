@@ -229,7 +229,7 @@ html {
 :root {
   --revcount-size: 10px;
   --revcount-color: #d3d3d3;
-  --revcount-background: #3e3f3f;
+  --revcount-background: #32ce24;
 }
 
 .revcount {
