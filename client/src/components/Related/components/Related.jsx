@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import Card from './Card';
 import { LeftButton, RightButton } from '../styles/StyledButtons.styled';
@@ -61,5 +62,15 @@ function Related({ relatedProducts, currentProduct }) {
     </RelatedContainer>
   );
 }
+
+Related.propTypes = {
+  relatedProducts: PropTypes.instanceOf(Array),
+  currentProduct: PropTypes.instanceOf(Object),
+};
+
+Related.defaultProps = {
+  relatedProducts: [],
+  currentProduct: {},
+};
 
 export default Related;

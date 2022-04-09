@@ -9,7 +9,6 @@ const AddOutfitContainer = styled.div`
   flex-shrink: 0;
   align-items: flex-start;
   height: 365px;
-
   background-color: rgba(211, 211, 211, 0.5);
 `;
 

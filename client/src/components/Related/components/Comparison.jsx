@@ -1,7 +1,7 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import { XIcon } from '@heroicons/react/outline';
-import { ComparisonBackground, ComparisonContainer } from '../styles/Comparison.styled';
+import { ComparisonBackground, ComparisonContainer, StyledTable } from '../styles/Comparison.styled';
 import { ModalButton } from '../styles/StyledButtons.styled';
 import Table from './Table';
 
@@ -28,8 +28,8 @@ function Comparison({
       <ComparisonBackground data-testid="comparison">
         <ComparisonContainer>
           <ModalButton type="button" onClick={toggleCompare}><XIcon /></ModalButton>
-          <h3>Compare</h3>
-          <table>
+          <h3>compare</h3>
+          <StyledTable>
             <thead>
               <tr>
                 <th>{current.name}</th>
@@ -39,10 +39,15 @@ function Comparison({
             </thead>
             <tbody>
               {filterFeatures(current, related).map((feature) => (
-                <Table feature={feature} related={related.features} current={current.features} />
+                <Table
+                  key={feature.value}
+                  feature={feature}
+                  related={related.features}
+                  current={current.features}
+                />
               ))}
             </tbody>
-          </table>
+          </StyledTable>
         </ComparisonContainer>
       </ComparisonBackground>,
       document.body,

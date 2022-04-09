@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import AddOutfit from './AddOutfit';
 import OutfitCard from './OutfitCard';
@@ -99,5 +100,19 @@ function Outfit({ product, style, meta }) {
     </OutfitContainer>
   );
 }
+
+Outfit.propTypes = {
+  product: PropTypes.instanceOf(Object),
+  style: PropTypes.shape({
+    style_id: PropTypes.number,
+  }),
+  meta: PropTypes.instanceOf(Object),
+};
+
+Outfit.defaultProps = {
+  product: {},
+  style: {},
+  meta: {},
+};
 
 export default Outfit;
