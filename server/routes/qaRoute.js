@@ -8,7 +8,7 @@ router.use(express.json());
 // get all 99 questions GET /qa/questions
 const getQA = (id) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions?product_id=${id}&count=99`,
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions?product_id=${id}&count=9999`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -19,7 +19,7 @@ const getQA = (id) => {
 // get all 99 answers GET /qa/questions/:question_id/answers
 const getAnswers = (qaId, productId) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions/${qaId}/answers?product_id=${productId}&count=99`,
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions/${qaId}/answers?product_id=${productId}&count=9999`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },

@@ -32,6 +32,7 @@ function Modal({
           .then((result) => {
             console.log(result);
           })
+          .then(() => hideModal())
           .catch((err) => {
             console.log(err);
           })
@@ -46,6 +47,7 @@ function Modal({
           .then((result) => {
             console.log(result);
           })
+          .then(() => hideModalA())
           .catch((err) => {
             console.log(err);
           })
@@ -57,8 +59,8 @@ function Modal({
       <>
         <SModalOverlay />
         <SModalWrapper
-          aria-modal={true}
-          aria-hidden={true}
+          aria-modal
+          aria-hidden
           tabIndex={-1}
           role="dialog"
         >
@@ -94,10 +96,28 @@ function Modal({
                   <br />
                   {isVisible ? (<span>Question *</span>) : (<span>Answer *</span>)}
                   {isVisible ? (
-                    <textarea name="body" type="text" placeholder="Question" maxLength="1000" onChange={(e) => { handleEvent(e); }} style={{ resize: 'none', paddingBottom: 80, height: '80px', width: '418px' }} />
+                    <textarea
+                      name="body"
+                      type="text"
+                      placeholder="Question"
+                      maxLength="1000"
+                      onChange={(e) => { handleEvent(e); }}
+                      style={{
+                        resize: 'none', paddingBottom: 80, height: '80px', width: '418px',
+                      }}
+                    />
                   )
                     : (
-                      <textarea name="body" type="text" placeholder="Answer" maxLength="1000" onChange={(e) => { handleEvent(e); }} style={{ resize: 'none', paddingBottom: 80, height: '80px', width: '418px' }} />
+                      <textarea
+                        name="body"
+                        type="text"
+                        placeholder="Answer"
+                        maxLength="1000"
+                        onChange={(e) => { handleEvent(e); }}
+                        style={{
+                          resize: 'none', paddingBottom: 80, height: '80px', width: '418px',
+                        }}
+                      />
                     )}
                   <br />
                   {isVisibleA ? (

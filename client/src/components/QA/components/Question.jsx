@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import QAnswer from './QAnswer';
@@ -8,12 +8,24 @@ const QuestionContainer = styled.div`
 outline: solid;
 `;
 
-function Question({ question, answers, productName }) {
-  const answerId = Object.keys(answers);
+function Question({ question, productName }) {
+  // const answerId = Object.keys(answers);
+  const [answers, setAnswers] = useState([]);
   const [qHelpful, setQHelpful] = useState(question.question_helpfulness);
   const [displayAn, setDisplayAn] = useState(2);
   const [isHelpfulQ, setIsHelpfulQ] = useState(false);
   const [reported, setReported] = useState(false);
+
+  // /qa/questions/:question_id/answers
+  useEffect(() => {
+    axios.get(`/qa/questions/${question.question_id}/answers`, { params: { product_id: question.productId } })
+      .then((result) => {
+        setAnswers(result.data.results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const updateHelpQ = () => {
     !isHelpfulQ
@@ -41,7 +53,7 @@ function Question({ question, answers, productName }) {
         console.log(err);
       });
   };
-  const firstTwo = answerId.slice(0, displayAn);
+  const firstTwo = answers.slice(0, displayAn);
 
   return (
     <QuestionContainer>
@@ -64,12 +76,12 @@ function Question({ question, answers, productName }) {
       <br />
       <b>A: </b>
       <div>
-        {firstTwo.map((id) => (
-          <QAnswer key={id} answer={answers[id]} />
+        {firstTwo.map((answer) => (
+          <QAnswer key={answer.answer_id} answer={answer} />
         ))}
       </div>
       <div>
-        {(answerId.length > displayAn)
+        {(answers.length > displayAn)
           ? (
             <div
               onClick={() => setDisplayAn((prevCount) => prevCount + 100)}
