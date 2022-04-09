@@ -15,11 +15,68 @@ const ComparisonBackground = styled.div`
 const ComparisonContainer = styled.div`
   display: flex;
   align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.8em;
   background: white;
-  border-radius: 10px;
+  box-shadow: 10px;
   flex-direction: column;
   position: relative;
   width: 600px;
+  background-color: ${(props) => props.theme.colors[0]};
+  z-index: 1000;
+
+  h3 {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+  }
 `;
 
-export { ComparisonBackground, ComparisonContainer };
+const StyledTable = styled.table`
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid black;
+
+  thead th:nth-child(1) {
+    width: 33%;
+  }
+
+  thead th:nth-child(2) {
+    width: 33%;
+  }
+
+  thead th:nth-child(3) {
+    width: 33%;
+  }
+
+  th {
+    letter-spacing: 1px;
+  }
+
+  td {
+    letter-spacing: 1px;
+    text-transform: lowercase;
+  }
+
+  tbody tr {
+    .center {
+      text-align: center;
+    }
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: ${(props) => props.theme.colors[1]};
+  }
+
+  th, td {
+    padding: 5px;
+  }
+
+  svg {
+    height: 20px;
+    width: 20px;
+  }
+
+`;
+
+export { ComparisonBackground, ComparisonContainer, StyledTable };

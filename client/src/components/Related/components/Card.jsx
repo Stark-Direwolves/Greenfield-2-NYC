@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { StarIcon } from '@heroicons/react/outline';
 import { StyledImage, ImageContainer } from '../styles/Image.styled';
 import CardContainer from '../styles/CardContainer.styled';
 import { ActionButton } from '../styles/StyledButtons.styled';
-import Ratings from '../../RR/RatingHelpers';
 import Comparison from './Comparison';
 import CardInfo from './CardInfo';
 
@@ -13,13 +13,6 @@ function Card({ related, current }) {
 
   const toggleCompare = () => {
     setCompare(!compare);
-  };
-
-  const filterAverageRating = (item) => {
-    if (Number.isNaN(Ratings.findAverageRating(item.ratings))) {
-      return 0;
-    }
-    return Ratings.findAverageRating(item.ratings);
   };
 
   const toggleSale = () => {
@@ -55,5 +48,20 @@ function Card({ related, current }) {
     </CardContainer>
   );
 }
+
+Card.propTypes = {
+  related: PropTypes.shape({
+    styles: PropTypes.instanceOf(Array),
+    id: PropTypes.number,
+  }),
+  current: PropTypes.instanceOf(Object),
+};
+
+Card.defaultProps = {
+  related: {
+    styles: [],
+  },
+  current: {},
+};
 
 export default Card;

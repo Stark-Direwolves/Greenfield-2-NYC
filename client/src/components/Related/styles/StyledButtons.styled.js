@@ -52,8 +52,8 @@ const ActionButton = styled.button`
 const ModalButton = styled.button`
   cursor: pointer;
   position: absolute;
-  top: 3%;
-  right: 1%;
+  top: 2.5%;
+  right: 0;
   width: 35px;
   height: 35px;
   background-color: transparent;
