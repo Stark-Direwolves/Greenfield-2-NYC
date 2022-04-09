@@ -1,17 +1,15 @@
 import styled from 'styled-components';
 
 const RelatedContainer = styled.div`
-  font: "Roboto";
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
   position: relative;
-  background-color:${(props) => props.theme.colors[0]};
+  background-color: ${(props) => props.theme.colors[0]};
   padding: 20px;
   overflow-x: hidden;
 `;
 
 const OutfitContainer = styled.div`
-  font: "Roboto";
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
   position: relative;
   background-color: ${(props) => props.theme.colors[0]};
   padding: 20px;

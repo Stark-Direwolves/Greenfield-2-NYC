@@ -7,6 +7,7 @@ const ImageContainer = styled.div`
 `;
 
 const StyledImage = styled.img`
+  cursor: pointer;
   width: 250px;
   height: 250px;
   object-fit: cover;
