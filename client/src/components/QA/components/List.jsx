@@ -13,7 +13,6 @@ function List({ questions, productName }) {
           <Question
             key={question.question_id}
             question={question}
-            // answers={question.answers}
             productName={productName}
           />
         ))}

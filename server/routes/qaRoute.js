@@ -16,7 +16,7 @@ const getQA = (id) => {
   return axios.get(options.url, options);
 };
 
-// get all 99 answers GET /qa/questions/:question_id/answers
+// get all 9999 answers GET /qa/questions/:question_id/answers
 const getAnswers = (qaId, productId) => {
   const options = {
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions/${qaId}/answers?product_id=${productId}&count=9999`,
@@ -93,17 +93,23 @@ const putReportA = (aID) => {
   return axios.put(options.url, {}, options);
 };
 
-// route to get all 99 questions
+// route to get all 9999 questions
 router.get('/questions/', (req, res) => {
   getQA(req.query.product_id)
     .then((results) => res.status(200).send(results.data))
     .catch((err) => res.status(404).send(err));
 });
 
-// route to get all 99 answers
+// route to get all 9999 answers
 router.get('/questions/:question_id/answers', (req, res) => {
   getAnswers(req.params.question_id, req.query.product_id)
-    .then((results) => res.status(200).send(results.data))
+    .then((results) => {
+      const seller = results.data.results.filter((user) => user.answerer_name.toLowerCase() === 'seller');
+      const others = results.data.results.filter((user) => user.answerer_name.toLowerCase() !== 'seller');
+      const sortedA = seller.concat(others);
+      return (sortedA);
+    })
+    .then((results) => res.status(200).send(results))
     .catch((err) => res.status(404).send(err));
 });
 

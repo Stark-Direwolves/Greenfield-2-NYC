@@ -9,7 +9,6 @@ outline: solid;
 `;
 
 function Question({ question, productName }) {
-  // const answerId = Object.keys(answers);
   const [answers, setAnswers] = useState([]);
   const [qHelpful, setQHelpful] = useState(question.question_helpfulness);
   const [displayAn, setDisplayAn] = useState(2);
@@ -18,13 +17,15 @@ function Question({ question, productName }) {
 
   // /qa/questions/:question_id/answers
   useEffect(() => {
-    axios.get(`/qa/questions/${question.question_id}/answers`, { params: { product_id: question.productId } })
-      .then((result) => {
-        setAnswers(result.data.results);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (Object.keys(question.answers).length > 0) {
+      axios.get(`/qa/questions/${question.question_id}/answers`, { params: { product_id: question.productId } })
+        .then((result) => {
+          setAnswers(result.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }, []);
 
   const updateHelpQ = () => {
@@ -53,6 +54,7 @@ function Question({ question, productName }) {
         console.log(err);
       });
   };
+
   const firstTwo = answers.slice(0, displayAn);
 
   return (
@@ -77,14 +79,14 @@ function Question({ question, productName }) {
       <b>A: </b>
       <div>
         {firstTwo.map((answer) => (
-          <QAnswer key={answer.answer_id} answer={answer} />
-        ))}
+          <QAnswer key={answer.answer_id} answer={answer} />))}
+
       </div>
       <div>
         {(answers.length > displayAn)
           ? (
             <div
-              onClick={() => setDisplayAn((prevCount) => prevCount + 100)}
+              onClick={() => setDisplayAn((prevCount) => prevCount + 1000)}
             >
               LOAD MORE ANSWERS
             </div>
