@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { XIcon } from '@heroicons/react/solid';
 import CardContainer from '../styles/CardContainer.styled';
 import { ActionButton } from '../styles/StyledButtons.styled';
@@ -33,5 +34,15 @@ function OutfitCard({ outfit, removeOutfit }) {
     </CardContainer>
   );
 }
+
+OutfitCard.propTypes = {
+  outfit: PropTypes.instanceOf(Object),
+  removeOutfit: PropTypes.func,
+};
+
+OutfitCard.defaultProps = {
+  outfit: {},
+  removeOutfit: () => {},
+};
 
 export default OutfitCard;

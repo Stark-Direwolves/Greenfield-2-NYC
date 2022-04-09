@@ -12,4 +12,14 @@ function AddOutfit({ addOutfit, product }) {
   );
 }
 
+AddOutfit.propTypes = {
+  addOutfit: PropTypes.func,
+  product: PropTypes.instanceOf(Object),
+};
+
+AddOutfit.defaultProps = {
+  addOutfit: () => {},
+  product: {},
+};
+
 export default AddOutfit;

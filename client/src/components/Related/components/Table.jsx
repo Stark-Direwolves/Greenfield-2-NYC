@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { CheckIcon } from '@heroicons/react/outline';
 
 function Table({ feature, current, related }) {
@@ -15,11 +16,24 @@ function Table({ feature, current, related }) {
     <tr>
       <td className="center">{toggleFeature(current, feature) ? <CheckIcon /> : null}</td>
       <td>
-        <b>{feature.feature}</b> : {feature.value}
+        <b>{feature.feature}</b>
+        {`: ${feature.value}`}
       </td>
       <td className="center">{toggleFeature(related, feature) ? <CheckIcon /> : null}</td>
     </tr>
   );
 }
+
+Table.propTypes = {
+  feature: PropTypes.instanceOf(Object),
+  current: PropTypes.instanceOf(Object),
+  related: PropTypes.instanceOf(Object),
+};
+
+Table.defaultProps = {
+  feature: {},
+  current: {},
+  related: {},
+};
 
 export default Table;

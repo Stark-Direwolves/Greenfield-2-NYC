@@ -39,7 +39,12 @@ function Comparison({
             </thead>
             <tbody>
               {filterFeatures(current, related).map((feature) => (
-                <Table feature={feature} related={related.features} current={current.features} />
+                <Table
+                  key={feature.value}
+                  feature={feature}
+                  related={related.features}
+                  current={current.features}
+                />
               ))}
             </tbody>
           </StyledTable>
