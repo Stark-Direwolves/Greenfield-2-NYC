@@ -25,8 +25,8 @@ function Modal({
 
   function handleSubmitQ(event) {
     event.preventDefault();
-    console.log(data);
-    (Object.keys(data).length === 4)
+    console.log(data.email);
+    (Object.keys(data).length === 4 && data.email.includes('@') && data.email.includes('.com'))
       ? (
         axios.post('/qa/questions', data)
           .then((result) => {
@@ -35,12 +35,12 @@ function Modal({
           .catch((err) => {
             console.log(err);
           })
-      ) : alert('missing fields');
+      ) : alert('You must enter the following: ');
   }
 
   function handleSubmitA(event) {
     event.preventDefault();
-    (Object.keys(dataA).length === 4)
+    (Object.keys(dataA).length === 4 && dataA.email.includes('@') && dataA.email.includes('.com'))
       ? (
         axios.post(`/qa/questions/${questionId}/answers`, dataA)
           .then((result) => {
@@ -49,7 +49,7 @@ function Modal({
           .catch((err) => {
             console.log(err);
           })
-      ) : alert('missing fields');
+      ) : alert('You must enter the following: ');
   }
 
   return (((isVisible || isVisibleA)
