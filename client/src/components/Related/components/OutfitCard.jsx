@@ -3,7 +3,6 @@ import { XIcon } from '@heroicons/react/solid';
 import CardContainer from '../styles/CardContainer.styled';
 import { ActionButton } from '../styles/StyledButtons.styled';
 import { StyledImage, ImageContainer } from '../styles/Image.styled';
-import Ratings from '../../RR/RatingHelpers';
 import OutfitCardInfo from './OutfitCardInfo';
 
 function OutfitCard({ outfit, removeOutfit }) {
@@ -19,13 +18,6 @@ function OutfitCard({ outfit, removeOutfit }) {
     toggleSale();
   }, []);
 
-  const filterAverageRating = (item) => {
-    if (Number.isNaN(Ratings.findAverageRating(item.ratings))) {
-      return 0;
-    }
-    return Ratings.findAverageRating(item.ratings);
-  };
-
   return (
     <CardContainer>
       <ActionButton type="button" onClick={() => removeOutfit(outfit)}><XIcon /></ActionButton>
@@ -37,7 +29,7 @@ function OutfitCard({ outfit, removeOutfit }) {
           }}
         />
       </ImageContainer>
-      <OutfitCardInfo outfit={outfit} sale={sale}/>
+      <OutfitCardInfo outfit={outfit} sale={sale} />
     </CardContainer>
   );
 }

@@ -1,16 +1,5 @@
 import React from 'react';
 import { CheckIcon } from '@heroicons/react/outline';
-import styled from 'styled-components';
-
-const StyledRow = styled.tr`
-  .center {
-    text-align: center;
-  }
-  svg {
-    width: 25px;
-    height: 25px;
-  }
-`;
 
 function Table({ feature, current, related }) {
   const toggleFeature = (product, features) => {
@@ -23,13 +12,13 @@ function Table({ feature, current, related }) {
   };
 
   return (
-    <StyledRow>
+    <tr>
       <td className="center">{toggleFeature(current, feature) ? <CheckIcon /> : null}</td>
       <td>
-        {feature.feature}: {feature.value}
+        <b>{feature.feature}</b> : {feature.value}
       </td>
       <td className="center">{toggleFeature(related, feature) ? <CheckIcon /> : null}</td>
-    </StyledRow>
+    </tr>
   );
 }
 

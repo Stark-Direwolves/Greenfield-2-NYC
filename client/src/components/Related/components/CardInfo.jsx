@@ -1,21 +1,6 @@
 import React from 'react';
 import Ratings from '../../RR/RatingHelpers';
-import styled from 'styled-components';
-
-const InfoContainer = styled.div`
-  display: block;
-  background-color: ${(props) => props.theme.colors[0]};
-  width: 100%;
-
-  p {
-    font-size: ${(props) => props.theme.fontSizes.smaller};
-    border-bottom: 2px solid black;
-  }
-
-  div {
-    font-size: ${(props) => props.theme.fontSizes.small};
-  }
-`;
+import CardInfoContainer from '../styles/CardInfoContainer.styled';
 
 function CardInfo({ related, sale }) {
   const filterAverageRating = (item) => {
@@ -25,8 +10,8 @@ function CardInfo({ related, sale }) {
     return Ratings.findAverageRating(item.ratings);
   };
   return (
-    <InfoContainer>
-      <p><b>{related.category.toUpperCase()}</b></p>
+    <CardInfoContainer>
+      <p>{related.category}</p>
       <div>{related.name}</div>
       <div><b>{related.styles[0].name.toLowerCase()}</b></div>
       {sale
@@ -40,7 +25,7 @@ function CardInfo({ related, sale }) {
       <div>
         <span className="stars" style={{ '--rating': filterAverageRating(related), '--star-size': '15px' }} />
       </div>
-    </InfoContainer>
+    </CardInfoContainer>
   );
 }
 
