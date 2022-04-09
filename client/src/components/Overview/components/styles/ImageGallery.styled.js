@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledImageGallery = styled.div`
   display: grid;
-  background-color: ${props => props.theme.colors[0]};
+  background-color: ${(props) => props.theme.colors[0]};
   padding: 20px;
   height: 835px;
   grid-column-start: col1-start;
@@ -31,7 +31,6 @@ const CurvedDiv = styled.div`
   justify-content: center;
   width: 75px;
   height: 75px;
-  background: #ccc;
 `;
 
 const StyledImg = styled.img`
@@ -53,4 +52,7 @@ const StyledUl = styled.ul`
   flex-wrap: wrap;
 `;
 
-export { StyledImageGallery, StyledImageSelector, StyledImagePreview, CurvedDiv, StyledImg, StyledLi, StyledUl };
+export {
+  StyledImageGallery, StyledImageSelector, StyledImagePreview, CurvedDiv,
+  StyledImg, StyledLi, StyledUl,
+};

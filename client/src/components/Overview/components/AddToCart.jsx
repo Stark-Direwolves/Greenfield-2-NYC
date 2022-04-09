@@ -1,6 +1,6 @@
 import React from 'react';
-import Quantity from './Quantity.jsx'
-import { DropBtn, DropdownContent, Dropdown, DropdownContentA, AddToCartButton, SizeQuantityContainer, QuantityDiv, SizeDiv } from './styles/AddToCart.styled.js'
+import Quantity from './Quantity';
+import { DropBtn, DropdownContent, Dropdown, DropdownContentA, AddToCartButton, SizeQuantityContainer, QuantityDiv, SizeDiv } from './styles/AddToCart.styled';
 
 function AddToCart({ currentStyle, currentSku, currentSize, currentQty, setCurrentSku, setCurrentSize, setCurrentQty, currentTotal, setCurrentTotal }) {
   let price = Number(currentStyle.sale_price || currentStyle.original_price);

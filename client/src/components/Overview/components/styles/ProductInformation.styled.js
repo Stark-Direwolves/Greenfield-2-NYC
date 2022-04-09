@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledDiv = styled.div`
-  font: "Roboto";
+  font: 'Roboto';
   font-family: sans-serif;
 `;
 
@@ -20,22 +20,22 @@ const StyledA = styled.a`
 const Category = styled.div`
   margin-top: 10px;
   margin-bottom: -5px;
-  font: "Roboto";
+  font: 'Roboto';
   font-family: sans-serif;
-  font-size: ${props => props.theme.fontSizes.smaller};
+  font-size: ${(props) => props.theme.fontSizes.smaller};
   font-weight: bold;
   text-transform: uppercase;
 `;
 
 const Name = styled.h2`
-  font-size: ${props => props.theme.fontSizes.large};
+  font-size: ${(props) => props.theme.fontSizes.large};
   margin-top: 0;
   margin-bottom: 0;
 `;
 
 const Price = styled.h3`
   display: inline-block;
-  font-size: ${props => props.theme.fontSizes.medium};
+  font-size: ${(props) => props.theme.fontSizes.medium};
   margin-top: 0.2em;
   margin-bottom: 1em;
   margin-left: 0;
@@ -51,7 +51,7 @@ const BadPrice = styled(Price)`
 `;
 
 const SalePrice = styled(Price)`
-  color: ${props => props.theme.colors[7]};
+  color: ${(props) => props.theme.colors[7]};
   margin-right: 10px;
 `;
 
@@ -62,6 +62,8 @@ const Features = styled.div`
 
 const Feature = styled(StyledDiv)`
   text-transform: lowercase;
-`
+`;
 
-export { StyledDiv, Category, Name, Price, BadPrice, Features, Feature, StyledA, SalePrice };
+export {
+  StyledDiv, Category, Name, Price, BadPrice, Features, Feature, StyledA, SalePrice,
+};
