@@ -18,7 +18,7 @@ router.use(express.json());
 
 const getReviews = (id) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews?product_id=${id}&sort=relevant&count=25`,
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews?product_id=${id}&sort=${sort}&count=35`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -69,7 +69,7 @@ const reportReview = (id) => {
 };
 
 router.get('/', (req, res) => {
-  getReviews(req.query.product_id)
+  getReviews(req.query.product_id, req.query.sort)
     .then((results) => res.status(200).send(results.data))
     .catch((err) => res.status(404).send(err));
 });
