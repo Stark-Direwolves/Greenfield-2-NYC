@@ -66,7 +66,7 @@ function Review({ review }) {
       <div4 is="x3d">{moment(review.date).format('MMM Do YYYY')}</div4>
       <div4 is="x3d">
         {(review.photos.length >= 1)
-          ? <img src={`${review.photos[0].url}`} alt="" style={{ height: '80px', width: '80px' }} />
+          ? review.photos.map((photo) => <img src={`${photo.url}`} alt="" style={{ height: '100px', width: '100px' }} />)
           : null}
       </div4>
       <div4 is="x3d">

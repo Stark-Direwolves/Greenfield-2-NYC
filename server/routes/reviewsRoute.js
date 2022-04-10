@@ -16,7 +16,7 @@ cloudinary.config({
 const router = express.Router();
 router.use(express.json());
 
-const getReviews = (id) => {
+const getReviews = (id, sort) => {
   const options = {
     url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews?product_id=${id}&sort=${sort}&count=35`,
     headers: {
@@ -69,6 +69,7 @@ const reportReview = (id) => {
 };
 
 router.get('/', (req, res) => {
+  console.log(req.query.sort);
   getReviews(req.query.product_id, req.query.sort)
     .then((results) => res.status(200).send(results.data))
     .catch((err) => res.status(404).send(err));

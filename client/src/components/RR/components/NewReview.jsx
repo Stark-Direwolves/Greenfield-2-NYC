@@ -408,10 +408,10 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
       <br />
       <div>
         <b> Upload Your Photos </b>
-        <input type="file" onChange={(e) => { setFormPhotos(Array.from(e.target.files)); }} />
+        <input type="file" multiple onChange={(e) => { setFormPhotos(Array.from(e.target.files)); }} />
         <AddPhoto>
           {(formPhotos.length >= 1)
-            ? <img src={URL.createObjectURL(formPhotos[0])} alt="" style={{ height: '80px', width: '80px' }} />
+            ? formPhotos.map((photo, index) => <img key={index} src={URL.createObjectURL(photo)} alt="" style={{ height: '80px', width: '80px' }} />)
             : null}
         </AddPhoto>
       </div>
