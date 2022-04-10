@@ -4,7 +4,6 @@ import React from 'react';
 import RatingsBox from '../RRstyles/RatingsBox';
 
 function Ratings({ reviewCount, averageRating, totalReviews, meta, percentRecommended }) {
-  console.log(meta);
   let [size, width, comfort, quality, length, fit] = Array(6).fill(0);
 
   if (meta.characteristics.Size) {

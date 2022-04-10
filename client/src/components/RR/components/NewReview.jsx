@@ -34,6 +34,17 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
     "characteristics": { },
   };
 
+  const submitPhoto = (event) => {
+    axios.post('/photos/upload', formPhotos)
+      .then((res) => {
+        console.log(res.url);
+        formPhotos.push(res.url);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const submitForm = (event) => {
     event.preventDefault();
     console.log(reviewBody);

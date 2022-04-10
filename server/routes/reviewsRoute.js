@@ -100,24 +100,23 @@ router.put('/:review_id/report', (req, res) => {
 
 router.post('/photos/upload', fileUpload.single('photos'), (req, res, next) => {
   let streamUpload = (req) => {
-      return new Promise((resolve, reject) => {
-          let stream = cloudinary.uploader.upload_stream(
-            (error, result) => {
-              if (result) {
-                resolve(result);
-              } else {
-                reject(error);
-              }
-            }
-          );
-
+    return new Promise((resolve, reject) => {
+      let stream = cloudinary.uploader.upload_stream(
+        (error, result) => {
+          if (result) {
+            resolve(result);
+          } else {
+            reject(error);
+          }
+        }
+      );
         streamifier.createReadStream(req.file.buffer).pipe(stream);
       });
   };
 
   async function upload(req) {
-      let result = await streamUpload(req);
-      console.log(result);
+    let result = await streamUpload(req);
+    console.log(result);
   }
 
   upload(req);
