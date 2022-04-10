@@ -5,7 +5,7 @@ const AddReview = styled.div`
   min-width: 900px;
   color: black;
   // display: block;
-  height: 750px;
+  height: 850px;
   margin: auto;
   border: 2px solid black;
   margin-top: 25%;

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import ReviewBox from '../RRstyles/ReviewBox.js';
-import ReviewHelpful from '../RRstyles/ReviewHelpful.js';
-import ReviewReport from '../RRstyles/ReviewReport.js';
 import axios from 'axios';
+import ReviewBox from '../RRstyles/ReviewBox';
+import ReviewHelpful from '../RRstyles/ReviewHelpful';
+import ReviewReport from '../RRstyles/ReviewReport';
 
 // reference to get rid of warning message
 // https://github.com/facebook/react/issues/11184#issuecomment-335942439
@@ -66,7 +66,7 @@ function Review({ review }) {
       <div4 is="x3d">{moment(review.date).format('MMM Do YYYY')}</div4>
       <div4 is="x3d">
         {(review.photos.length >= 1)
-          ? <img src={review.photos.url} alt="" style={{ height: '80px', width: '80px' }} />
+          ? <img src={`${review.photos[0].url}`} alt="" style={{ height: '80px', width: '80px' }} />
           : null}
       </div4>
       <div4 is="x3d">

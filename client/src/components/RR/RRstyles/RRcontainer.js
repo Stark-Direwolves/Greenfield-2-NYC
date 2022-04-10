@@ -9,6 +9,7 @@ const RRcontainer = styled.div`
   flex-basis: content;
   row-gap: 20px;
   padding-bottom: 25px;
+  font-family: sans-serif;
   `;
 
 export default RRcontainer;
