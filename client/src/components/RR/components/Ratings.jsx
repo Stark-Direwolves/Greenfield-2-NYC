@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-wrap-multilines */
 import React from 'react';
 import RatingsBox from '../RRstyles/RatingsBox';
@@ -55,7 +56,7 @@ function Ratings({ reviewCount, averageRating, totalReviews, meta, percentRecomm
         Total Reviews
       </div>
       <br />
-      <div style={{float: 'left', marginLeft: '10%'}}>
+      <div style={{ float: 'left', marginLeft: '10%' }}>
         <div>
           5 (
           {meta.ratings[5]}
@@ -107,15 +108,15 @@ function Ratings({ reviewCount, averageRating, totalReviews, meta, percentRecomm
           />
         </div>
       </div>
-      <div style={{float: 'right', marginRight: '10%'}}>
+      <div style={{ float: 'right', marginRight: '10%' }}>
         {(size > 0)
           ? <div className="slidecontainer">
             <span> Size </span>
             <input type="range" min="1" max="5" value={size} className="slider" disabled />
             <br />
-            <span style={{fontSize: '10px'}}> A size too small </span>
+            <span style={{ fontSize: '10px' }}> A size too small </span>
             &nbsp;
-            <span style={{fontSize: '10px'}}> A size too wide </span>
+            <span style={{ fontSize: '10px' }}> A size too wide </span>
             </div>
           : null}
         {(width > 0)
@@ -123,9 +124,9 @@ function Ratings({ reviewCount, averageRating, totalReviews, meta, percentRecomm
             <span> Width </span>
             <input type="range" min="1" max="5" value={width} className="slider" disabled />
             <br />
-            <span style={{fontSize: '10px'}}> Too narrow </span>
+            <span style={{ fontSize: '10px' }}> Too narrow </span>
             &nbsp;
-            <span style={{fontSize: '10px'}}> Too wide </span>
+            <span style={{ fontSize: '10px' }}> Too wide </span>
             </div>
           : null}
         {(comfort > 0)
@@ -133,9 +134,9 @@ function Ratings({ reviewCount, averageRating, totalReviews, meta, percentRecomm
             <span> Comfort </span>
             <input type="range" min="1" max="5" value={comfort} className="slider" disabled />
             <br />
-            <span style={{fontSize: '10px'}}> Uncomfortable </span>
+            <span style={{ fontSize: '10px' }}> Uncomfortable </span>
             &nbsp;
-            <span style={{fontSize: '10px'}}> Perfect </span>
+            <span style={{ fontSize: '10px' }}> Perfect </span>
             </div>
           : null}
         {(quality > 0)
@@ -143,9 +144,9 @@ function Ratings({ reviewCount, averageRating, totalReviews, meta, percentRecomm
             <span> Quality </span>
             <input type="range" min="1" max="5" value={quality} className="slider" disabled />
             <br />
-            <span style={{fontSize: '10px'}}> Poor </span>
+            <span style={{ fontSize: '10px' }}> Poor </span>
             &nbsp;
-            <span style={{fontSize: '10px'}}> Perfect </span>
+            <span style={{ fontSize: '10px' }}> Perfect </span>
             </div>
           : null}
         {(length > 0)
@@ -153,9 +154,9 @@ function Ratings({ reviewCount, averageRating, totalReviews, meta, percentRecomm
             <span> Length </span>
             <input type="range" min="1" max="5" value={length} className="slider" disabled />
             <br />
-            <span style={{fontSize: '10px'}}> Runs short </span>
+            <span style={{ fontSize: '10px' }}> Runs short </span>
             &nbsp;
-            <span style={{fontSize: '10px'}}> Runs long </span>
+            <span style={{ fontSize: '10px' }}> Runs long </span>
             </div>
           : null}
         {(fit > 0)
@@ -163,9 +164,9 @@ function Ratings({ reviewCount, averageRating, totalReviews, meta, percentRecomm
             <span> Fit </span>
             <input type="range" min="1" max="5" value={fit} className="slider" disabled />
             <br />
-            <span style={{fontSize: '10px'}}> Runs tight </span>
+            <span style={{ fontSize: '10px' }}> Runs tight </span>
             &nbsp;
-            <span style={{fontSize: '10px'}}> Runs long </span>
+            <span style={{ fontSize: '10px' }}> Runs long </span>
             </div>
           : null}
       </div>

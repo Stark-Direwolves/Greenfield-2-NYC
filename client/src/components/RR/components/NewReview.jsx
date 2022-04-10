@@ -30,14 +30,14 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
     "recommend": (formRecommend === 'True'),
     "name": formName,
     "email": formEmail,
-    "photos": formPhotos,
+    "photos": [],
     "characteristics": { },
   };
 
   const submitForm = (event) => {
     event.preventDefault();
-    setShowModal((prev) => !prev);
     console.log(reviewBody);
+    setShowModal((prev) => !prev);
     axios.post('/reviews', reviewBody)
       .then((res) => {
         console.log('review submitted', res);
@@ -95,30 +95,36 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
         <b> Select Characteristics </b>
         <div>
           Size
+          &nbsp;
+          A size too small
           <input
             onChange={(e) => { setCharSize(e.target.value); }}
             type="radio"
             checked={charSize === '1'}
             value="1"
           />
+          1/2 a size too small
           <input
             onChange={(e) => { setCharSize(e.target.value); }}
             type="radio"
             checked={charSize === '2'}
             value="2"
           />
+          Perfect
           <input
             onChange={(e) => { setCharSize(e.target.value); }}
             type="radio"
             checked={charSize === '3'}
             value="3"
           />
+          1/2 a size too big
           <input
             onChange={(e) => { setCharSize(e.target.value); }}
             type="radio"
             checked={charSize === '4'}
             value="4"
           />
+          A size too wide
           <input
             onChange={(e) => { setCharSize(e.target.value); }}
             type="radio"
@@ -128,30 +134,36 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
         </div>
         <div>
           Width
+          &nbsp;
+          Too narrow
           <input
             onChange={(e) => { setCharWidth(e.target.value); }}
             type="radio"
             checked={formRating === '1'}
             value="1"
           />
+          Slightly narrow
           <input
             onChange={(e) => { setCharWidth(e.target.value); }}
             type="radio"
             checked={charWidth === '2'}
             value="2"
           />
+          Perfect
           <input
             onChange={(e) => { setCharWidth(e.target.value); }}
             type="radio"
             checked={charWidth === '3'}
             value="3"
           />
+          Slightly wide
           <input
             onChange={(e) => { setCharWidth(e.target.value); }}
             type="radio"
             checked={charWidth === '4'}
             value="4"
           />
+          Too wide
           <input
             onChange={(e) => { setCharWidth(e.target.value); }}
             type="radio"
@@ -161,30 +173,36 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
         </div>
         <div>
           Comfort
+          &nbsp;
+          Uncomfortable
           <input
             onChange={(e) => { setCharComfort(e.target.value); }}
             type="radio"
             checked={charComfort === '1'}
             value="1"
           />
+          Slightly uncomfortable
           <input
             onChange={(e) => { setCharComfort(e.target.value); }}
             type="radio"
             checked={charComfort === '2'}
             value="2"
           />
+          Ok
           <input
             onChange={(e) => { setCharComfort(e.target.value); }}
             type="radio"
             checked={charComfort === '3'}
             value="3"
           />
+          Comfortable
           <input
             onChange={(e) => { setCharComfort(e.target.value); }}
             type="radio"
             checked={charComfort === '4'}
             value="4"
           />
+          Perfect
           <input
             onChange={(e) => { setCharComfort(e.target.value); }}
             type="radio"
@@ -194,30 +212,36 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
         </div>
         <div>
           Quality
+          &nbsp;
+          Poor
           <input
             onChange={(e) => { setCharQuality(e.target.value); }}
             type="radio"
             checked={charQuality === '1'}
             value="1"
           />
+          Below average
           <input
             onChange={(e) => { setCharQuality(e.target.value); }}
             type="radio"
             checked={charQuality === '2'}
             value="2"
           />
+          What I expected
           <input
             onChange={(e) => { setCharQuality(e.target.value); }}
             type="radio"
             checked={charQuality === '3'}
             value="3"
           />
+          Pretty great
           <input
             onChange={(e) => { setCharQuality(e.target.value); }}
             type="radio"
             checked={charQuality === '4'}
             value="4"
           />
+          Perfect
           <input
             onChange={(e) => { setCharQuality(e.target.value); }}
             type="radio"
@@ -227,30 +251,36 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
         </div>
         <div>
           Length
+          &nbsp;
+          Runs short
           <input
             onChange={(e) => { setCharLength(e.target.value); }}
             type="radio"
             checked={charLength === '1'}
             value="1"
           />
+          Runs slightly short
           <input
             onChange={(e) => { setCharLength(e.target.value); }}
             type="radio"
             checked={charLength === '2'}
             value="2"
           />
+          Perfect
           <input
             onChange={(e) => { setCharLength(e.target.value); }}
             type="radio"
             checked={charLength === '3'}
             value="3"
           />
+          Runs slightly long
           <input
             onChange={(e) => { setCharLength(e.target.value); }}
             type="radio"
             checked={charLength === '4'}
             value="4"
           />
+          Runs long
           <input
             onChange={(e) => { setCharLength(e.target.value); }}
             type="radio"
@@ -260,30 +290,36 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
         </div>
         <div>
           Fit
+          &nbsp;
+          Runs tight
           <input
             onChange={(e) => { setCharFit(e.target.value); }}
             type="radio"
             checked={charFit === '1'}
             value="1"
           />
+          Runs slightly tight
           <input
             onChange={(e) => { setCharFit(e.target.value); }}
             type="radio"
             checked={charFit === '2'}
             value="2"
           />
+          Perfect
           <input
             onChange={(e) => { setCharFit(e.target.value); }}
             type="radio"
             checked={charFit === '3'}
             value="3"
           />
+          Runs slightly long
           <input
             onChange={(e) => { setCharFit(e.target.value); }}
             type="radio"
             checked={charFit === '4'}
             value="4"
           />
+          Runs long
           <input
             onChange={(e) => { setCharFit(e.target.value); }}
             type="radio"

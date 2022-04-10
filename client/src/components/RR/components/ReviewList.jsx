@@ -11,7 +11,8 @@ function ReviewList({ reviewslist, setShowModal }) {
   const firstTwo = reviewslist.slice(0, view);
   return (
     <ReviewListBox>
-      <label>Sort By</label>
+      <b>Sort By</b>
+      &nbsp;
       <select>
         <option>Relevance</option>
         <option>Newest</option>

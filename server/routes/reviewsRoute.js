@@ -1,6 +1,19 @@
 const express = require('express');
 const axios = require('axios');
+const cloudinary = require('cloudinary').v2;
+const streamifier = require('streamifier')
+const multer = require('multer');
+// const upload = multer({ dest: './Images/' });
+const fileUpload = multer();
+
+
 require('dotenv').config();
+
+cloudinary.config({
+  cloud_name: 'dlweybd3e',
+  api_key: '248988888969496',
+  api_secret: '4ZDQUMh6y7WQTfasJh41JDDDje8',
+});
 
 const router = express.Router();
 router.use(express.json());
@@ -24,20 +37,6 @@ const getReviewsMeta = (id) => {
   };
   return axios.get(options.url, options);
 };
-
-router.get('/', (req, res) => {
-  getReviews(req.query.product_id)
-    .then((results) => res.status(200).send(results.data))
-    .catch((err) => res.status(404).send(err));
-});
-
-router.get('/meta', (req, res) => {
-  getReviewsMeta(req.query.product_id)
-    .then((results) => res.status(200).send(results.data))
-    .catch((err) => res.status(404).send(err));
-});
-
-// move below vvv routes to avoid merge conflict if any changes were made
 
 const addReview = (body) => {
   const options = {
@@ -71,8 +70,19 @@ const reportReview = (id) => {
   return axios.put(options.url, {}, options);
 };
 
+router.get('/', (req, res) => {
+  getReviews(req.query.product_id)
+    .then((results) => res.status(200).send(results.data))
+    .catch((err) => res.status(404).send(err));
+});
+
+router.get('/meta', (req, res) => {
+  getReviewsMeta(req.query.product_id)
+    .then((results) => res.status(200).send(results.data))
+    .catch((err) => res.status(404).send(err));
+});
+
 router.post('/', (req, res) => {
-  console.log(req.body)
   addReview(req.body)
     .then((results) => res.status(201).send(results.data))
     .catch((err) => res.status(400).send(err));
@@ -88,6 +98,55 @@ router.put('/:review_id/report', (req, res) => {
   reportReview(req.params.review_id)
     .then((results) => res.status(200).send(results.data))
     .catch((err) => res.status(400).send(err));
+});
+
+// const photoUpload = (photo) => {
+//   cloudinary.v2.uploader.upload(
+//     photo,
+//     (error, result) => {
+//       if (result) {
+//         console.log(result);
+//       } else {
+//         console.log(error);
+//       }
+//     },
+//   );
+// };
+
+// // router.use('/photos/upload', upload);
+
+// router.post('/photos/upload', upload.single('photos'), (req, res) => {
+//   console.log(req.body);
+//   console.log(req.file);
+//   // photoUpload(req.body)
+//     // .then((results) => res.status(200).send(results))
+//     // .catch((err) => res.status(400).send(err));
+// });
+
+router.post('/photos/upload', fileUpload.single('photos'), (req, res, next) => {
+  let streamUpload = (req) => {
+      return new Promise((resolve, reject) => {
+          let stream = cloudinary.uploader.upload_stream(
+            (error, result) => {
+              if (result) {
+                resolve(result);
+              } else {
+                reject(error);
+              }
+            }
+          );
+
+        streamifier.createReadStream(req.file.buffer).pipe(stream);
+      });
+  };
+
+  async function upload(req) {
+      let result = await streamUpload(req);
+      console.log(result);
+      console.log(result.)
+  }
+
+  upload(req);
 });
 
 module.exports = router;
