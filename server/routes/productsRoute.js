@@ -87,7 +87,8 @@ router.get('/:product_id/styles', (req, res) => {
 router.get('/:product_id/related', (req, res) => {
   const promises = [];
   getRelatedProducts(req.params.product_id)
-    .then((results) => results.data.forEach((result) => {
+    .then((results) => [...new Set(results.data)])
+    .then((results) => results.forEach((result) => {
       promises.push(getProductsById(result));
       promises.push(getProductStyles(result));
       promises.push(getReviewsMeta(result));

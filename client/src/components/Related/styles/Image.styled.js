@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 
-const StyledImage = styled.img`
-  width: 275px;
+const ImageContainer = styled.div`
+  width: 250px;
   height: 250px;
-  margin: 0 auto;
-  object-fit: cover;
-  max-height: 100%;
-  max-width: 100%;
+  border: 1px solid black;
 `;
 
-export default StyledImage;
+const StyledImage = styled.img`
+  cursor: pointer;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+`;
+
+export { StyledImage, ImageContainer };

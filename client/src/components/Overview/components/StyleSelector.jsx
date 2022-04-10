@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledUl, StyledLi, StyledImg, StyleName } from './styles/StyleSelector.styled.js';
+import { StyledUl, StyledLi, StyledImg, StyleName, Checkmark, Style } from './styles/StyleSelector.styled';
 
 function StyleSelector({ currentStyle, setCurrentStyle, styles }) {
   return (
@@ -22,18 +22,16 @@ function StyleSelector({ currentStyle, setCurrentStyle, styles }) {
 }
 
 function StyleSelectorEntry({ currentStyle, style, setCurrentStyle, index }) {
-  const current = style.style_id === currentStyle.style_id;
-
+  const selected = style.style_id === currentStyle.style_id;
   return (
     <StyledLi>
       <div style={{ position: 'relative' }}>
         <div style={{ position: 'absolute', right: '50%' }}>
-          <div className={`checkmark ${current ? "cm-visible" : "cm-hidden"}`}>✓</div>
+          <Checkmark selected={selected}>✓</Checkmark>
         </div>
-
-        <div className={`circleBase ${current ? "selected" : "unselected"}`} onClick={() => { setCurrentStyle(style); }}>
+        <Style selected={selected} onClick={() => { setCurrentStyle(style); }}>
           <StyledImg src={style.photos[0].thumbnail_url} alt={style.name} />
-        </div>
+        </Style>
       </div>
 
     </StyledLi>

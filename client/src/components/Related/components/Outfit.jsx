@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
-import Container from '../styles/Container.styled';
-import AddOutfit from './AddOutfit.jsx';
-import OutfitCard from './OutfitCard.jsx';
-import LeftButton from '../styles/LeftButton.styled';
-import RightButton from '../styles/RightButton.styled';
+import AddOutfit from './AddOutfit';
+import OutfitCard from './OutfitCard';
+import { LeftButton, RightButton } from '../styles/StyledButtons.styled';
+import { OutfitContainer, CarouselContainer } from '../styles/RelatedContainer.styled';
 
 function Outfit({ product, style, meta }) {
   const [outfits, setOutfits] = useState([]);
@@ -72,9 +72,9 @@ function Outfit({ product, style, meta }) {
   };
 
   return (
-    <div id="outfit">
+    <OutfitContainer>
       <h3>My Outfits</h3>
-      <Container style={{ transform: `translateX(-${index * 300}px)` }}>
+      <CarouselContainer style={{ transform: `translateX(-${index * 275}px)` }}>
         <AddOutfit addOutfit={addOutfit} product={product} />
         {outfits.map((outfit) => (
           <OutfitCard
@@ -84,7 +84,7 @@ function Outfit({ product, style, meta }) {
             removeOutfit={removeOutfit}
           />
         ))}
-      </Container>
+      </CarouselContainer>
       {hideLeftButton()
         ? (
           <LeftButton type="button" onClick={() => updateIndex(index - 1)}>
@@ -97,8 +97,22 @@ function Outfit({ product, style, meta }) {
             <ChevronRightIcon />
           </RightButton>
         ) : null }
-    </div>
+    </OutfitContainer>
   );
 }
+
+Outfit.propTypes = {
+  product: PropTypes.instanceOf(Object),
+  style: PropTypes.shape({
+    style_id: PropTypes.number,
+  }),
+  meta: PropTypes.instanceOf(Object),
+};
+
+Outfit.defaultProps = {
+  product: {},
+  style: {},
+  meta: {},
+};
 
 export default Outfit;

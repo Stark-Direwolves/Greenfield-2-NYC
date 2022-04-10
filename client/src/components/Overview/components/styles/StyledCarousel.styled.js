@@ -1,40 +1,53 @@
-import styled from "styled-components";
+import styled, { css } from 'styled-components';
+
+const StyledCarousel = styled.div`
+  overflow: hidden;
+  position: relative;
+  background-color: #E3E3DD;
+`;
+
+const StyledInner = styled.div`
+  white-space: nowrap;
+  transition: transform 0.3s;
+`;
+
+const StyledCarouselItem = styled.div`
+  display: inline-flex;
+  align-items: center;
+  height: 650px;
+  width: ${(props) => props.width};
+  justify-content: center;
+  color: #fff;
+`;
 
 const StyledImg = styled.img`
+  height: auto;
   max-height:100%;
   max-width:100%;
   object-fit: cover;
 `;
 
-const LeftDiv = styled.button`
-  visibility: ${props => props.show.left || 'visible'};
+const StyledButton = styled.button`
   border: none;
   display: flex;
   position: absolute;
   margin: 5px 0px;
   top: 50%;
-  left: 0;
   font-size: 30px;
   width: 30px;
   height: 30px;
   background-color: #00000033;
+  ${(props) => props.show && css`
+    visibility: hidden;
+  `}
 `;
 
-const RightDiv = styled.button`
-  visibility: ${props => props.show.right || 'visible'};
-  border: none;
-  display: flex;
-  position: absolute;
-  margin: 5px 0px;
-  top: 50%;
+const RightButton = styled(StyledButton)`
   right: 0;
-  font-size: 30px;
-  width: 30px;
-  height: 30px;
-  background-color: #00000033;
 `;
 
-export { StyledImg, LeftDiv, RightDiv };
+const LeftButton = styled(StyledButton)`
+  left: 0;
+`;
 
-// height: auto;
-// width: 100%;
+export { StyledImg, LeftButton, RightButton, StyledCarousel, StyledInner, StyledCarouselItem };
