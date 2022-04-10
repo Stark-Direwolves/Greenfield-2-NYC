@@ -3,16 +3,14 @@ const axios = require('axios');
 const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier')
 const multer = require('multer');
-// const upload = multer({ dest: './Images/' });
 const fileUpload = multer();
-
 
 require('dotenv').config();
 
 cloudinary.config({
-  cloud_name: 'dlweybd3e',
-  api_key: '248988888969496',
-  api_secret: '4ZDQUMh6y7WQTfasJh41JDDDje8',
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
 });
 
 const router = express.Router();
@@ -100,29 +98,6 @@ router.put('/:review_id/report', (req, res) => {
     .catch((err) => res.status(400).send(err));
 });
 
-// const photoUpload = (photo) => {
-//   cloudinary.v2.uploader.upload(
-//     photo,
-//     (error, result) => {
-//       if (result) {
-//         console.log(result);
-//       } else {
-//         console.log(error);
-//       }
-//     },
-//   );
-// };
-
-// // router.use('/photos/upload', upload);
-
-// router.post('/photos/upload', upload.single('photos'), (req, res) => {
-//   console.log(req.body);
-//   console.log(req.file);
-//   // photoUpload(req.body)
-//     // .then((results) => res.status(200).send(results))
-//     // .catch((err) => res.status(400).send(err));
-// });
-
 router.post('/photos/upload', fileUpload.single('photos'), (req, res, next) => {
   let streamUpload = (req) => {
       return new Promise((resolve, reject) => {
@@ -143,7 +118,6 @@ router.post('/photos/upload', fileUpload.single('photos'), (req, res, next) => {
   async function upload(req) {
       let result = await streamUpload(req);
       console.log(result);
-      console.log(result.)
   }
 
   upload(req);
