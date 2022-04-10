@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledOverview = styled.div`
   display: grid;
@@ -6,8 +6,13 @@ const StyledOverview = styled.div`
   height: auto;
 `;
 
+const ExpandedView = styled.div`
+  height: 875px;
+  background-color: gray;
+`;
+
 const StyledDetails = styled.div`
-  background-color: ${props => props.theme.colors[0]};
+  background-color: ${(props) => props.theme.colors[0]};
   padding: 20px;
   grid-column-start: col2-start;
   grid-column-end: col2-end;
@@ -18,4 +23,6 @@ const SocialMedia = styled.div`
   font-family: san-serif;
 `;
 
-export { StyledOverview, StyledDetails, SocialMedia };
+export {
+  StyledOverview, StyledDetails, SocialMedia, ExpandedView,
+};

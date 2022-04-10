@@ -1,6 +1,9 @@
 ## Mac OSX ##
 .DS_Store
 
+## coverage files ##
+##/coverage##
+
 ## modules ##
 node_modules/
 

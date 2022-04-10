@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for Related/components/Comparison.jsx</title>
+    <title>Code coverage report for Overview/components/ProductInformation.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">Related/components</a> Comparison.jsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">Overview/components</a> ProductInformation.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">13.33% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/15</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/3</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">15.38% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/13</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
@@ -115,32 +115,42 @@
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -168,58 +178,63 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
-import { createPortal } from 'react-dom';
-import { XIcon } from '@heroicons/react/outline';
-import { ComparisonBackground, ComparisonContainer } from '../styles/Comparison.styled';
-import { ModalButton } from '../styles/StyledButtons.styled';
-import Table from './Table';
+import Ratings from '../../RR/RatingHelpers';
+import { StyledDiv, Category, Name, Price, BadPrice, Features, Feature, StyledA, SalePrice } from './styles/ProductInformation.styled.js';
 &nbsp;
-function Comparison({
-  compare, toggleCompare, related, current,
-}) {
-  const filterFeatures = <span class="fstat-no" title="function not covered" >(c</span>urrentProduct, relatedProduct) =&gt; {
-    const features = <span class="cstat-no" title="statement not covered" >currentProduct.features.concat(relatedProduct.features);</span>
-    const filtered = <span class="cstat-no" title="statement not covered" >[];</span>
-    const featObj = <span class="cstat-no" title="statement not covered" >{};</span>
-<span class="cstat-no" title="statement not covered" >    for (let i = <span class="cstat-no" title="statement not covered" >0;</span> i &lt; features.length; i += 1) {</span>
-      const { feature } = <span class="cstat-no" title="statement not covered" >features[i];</span>
-<span class="cstat-no" title="statement not covered" >      featObj[feature] = features[i];</span>
-    }
-    const keys = <span class="cstat-no" title="statement not covered" >Object.keys(featObj);</span>
-<span class="cstat-no" title="statement not covered" >    for (let j = <span class="cstat-no" title="statement not covered" >0;</span> j &lt; keys.length; j += 1) {</span>
-<span class="cstat-no" title="statement not covered" >      filtered.push(featObj[keys[j]]);</span>
-    }
-<span class="cstat-no" title="statement not covered" >    return filtered;</span>
-  };
 &nbsp;
-  return compare
-    ? <span class="branch-0 cbranch-no" title="branch not covered" >createPortal(</span>
-      &lt;ComparisonBackground data-testid="comparison"&gt;
-        &lt;ComparisonContainer&gt;
-          &lt;ModalButton type="button" onClick={toggleCompare}&gt;&lt;XIcon /&gt;&lt;/ModalButton&gt;
-          &lt;h3&gt;Compare&lt;/h3&gt;
-          &lt;table&gt;
-            &lt;thead&gt;
-              &lt;tr&gt;
-                &lt;th&gt;{current.name}&lt;/th&gt;
-                &lt;th&gt; &lt;/th&gt;
-                &lt;th&gt;{related.name}&lt;/th&gt;
-              &lt;/tr&gt;
-            &lt;/thead&gt;
-            &lt;tbody&gt;
-              {filterFeatures(current, related).map(<span class="fstat-no" title="function not covered" >(f</span>eature) =&gt; (
-<span class="cstat-no" title="statement not covered" >                &lt;Table feature={feature} related={related.features} current={current.features} /&gt;</span>
-              ))}
-            &lt;/tbody&gt;
-          &lt;/table&gt;
-        &lt;/ComparisonContainer&gt;
-      &lt;/ComparisonBackground&gt;,
-      document.body,
-    ) : null;
+function <span class="fstat-no" title="function not covered" >ProductInformation(</span>{ currentProduct, currentStyle, meta }) {
+  let { category, name, description, slogan } = <span class="cstat-no" title="statement not covered" >currentProduct;</span>
+  let hasReviews = <span class="cstat-no" title="statement not covered" >Object.keys(meta.ratings).length &gt; 0</span>
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;StyledDiv&gt;
+      &lt;Category&gt;{category} »&lt;/Category&gt;
+      &lt;Name&gt;{name}&lt;/Name&gt;
+      {hasReviews
+        ? (&lt;&gt;
+          &lt;StyledDiv&gt;
+            &lt;span
+              className="stars"
+              style={{
+                '--rating': Ratings.findAverageRating(meta.ratings),
+              }}
+            /&gt;
+          &lt;/StyledDiv&gt;
+          &lt;StyledA href="#reviews"&gt;read all {Ratings.findReviewCount(meta.ratings)} reviews&lt;/StyledA&gt;
+        &lt;/&gt;)
+        : &lt;&gt;&lt;/&gt;
+      }
+      &lt;StyledDiv&gt;
+        {currentStyle.sale_price ?
+          (
+            &lt;&gt;
+              &lt;BadPrice&gt;
+                ${currentStyle.original_price}
+              &lt;/BadPrice&gt;
+              &lt;SalePrice&gt;
+                ${currentStyle.sale_price}
+              &lt;/SalePrice&gt;
+            &lt;/&gt;
+          )
+          : &lt;Price&gt;${currentStyle.original_price}&lt;/Price&gt;
+        }
+      &lt;/StyledDiv&gt;
+      &lt;StyledDiv style={{ fontStyle: 'italic' }}&gt;{slogan}&lt;/StyledDiv&gt;
+      &lt;br /&gt;
+      &lt;StyledDiv&gt;{description}&lt;/StyledDiv&gt;
+      &lt;Features&gt;
+      {currentProduct.features.map(<span class="fstat-no" title="function not covered" >(f</span>eature, index) =&gt; {
+<span class="cstat-no" title="statement not covered" >        return (</span>
+          &lt;Feature key={index}&gt;
+            » &lt;b&gt;{feature.feature}&lt;/b&gt;: {feature.value}
+          &lt;/Feature&gt;
+        )
+      })}
+      &lt;/Features&gt;
+    &lt;/StyledDiv&gt;
+  );
 }
 &nbsp;
-export default Comparison;
-&nbsp;</pre></td></tr></table></pre>
+export default ProductInformation;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
