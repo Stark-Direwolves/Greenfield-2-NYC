@@ -42,7 +42,7 @@ function QA({ productId, productName }) {
   return (
     <Container>
       <Header> Questions & Answers</Header>
-      <Search search={search} setSearch={setSearch} />
+      {questions.length > 0 ? <Search search={search} setSearch={setSearch} /> : null}
       <List questions={questions} productName={productName} />
       <Ask productId={productId} productName={productName} />
     </Container>

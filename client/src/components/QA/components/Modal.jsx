@@ -25,8 +25,13 @@ function Modal({
 
   function handleSubmitQ(event) {
     event.preventDefault();
-    console.log(data.email);
-    (Object.keys(data).length === 4 && data.email.includes('@') && data.email.includes('.com'))
+    let alert = 'You must enter the following: ';
+
+    if (!data.name) {
+      alert += ' name';
+    }
+
+    (Object.keys(data).length === 4 && data.email.includes('@') && data.email.includes('.'))
       ? (
         axios.post('/qa/questions', data)
           .then((result) => {
@@ -36,7 +41,7 @@ function Modal({
           .catch((err) => {
             console.log(err);
           })
-      ) : alert('You must enter the following: ');
+      ) : alert(alert);
   }
 
   function handleSubmitA(event) {
@@ -121,7 +126,8 @@ function Modal({
                     )}
                   <br />
                   {isVisibleA ? (
-                    <textarea name="body" type="text" placeholder="Photo" onChange={(e) => { handleEvent(e); }} />
+                    <input type="file" />
+                    // <textarea name="body" type="text" placeholder="Photo" onChange={(e) => { handleEvent(e); }} />
                   )
                     : (
                       null)}

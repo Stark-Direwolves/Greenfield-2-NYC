@@ -60,23 +60,25 @@ function Question({ question, productName }) {
   return (
     <QuestionContainer>
       <b>Q: {question.question_body} </b>
-      Helpful?
-      {!isHelpfulQ ? (<span onClick={updateHelpQ}>Yes</span>) : (<span>ty</span>)}
-      ({qHelpful}
-      )
-      {!reported
-        ? (
-          <span onClick={updateReport}>Report</span>
-        ) : (
-          <span>Reported!</span>
-        )}
-      <Answer
-        questionId={question.question_id}
-        productName={productName}
-        questionBody={question.question_body}
-      />
+
+      <div>
+        <span>Helpful?</span>
+        {!isHelpfulQ ? (<span onClick={updateHelpQ}>Yes</span>) : (<span>ty</span>)}
+        <span>({qHelpful})</span>
+        {!reported
+          ? (
+            <span onClick={updateReport}>Report</span>
+          ) : (
+            <span>Reported!</span>
+          )}
+        <Answer
+          questionId={question.question_id}
+          productName={productName}
+          questionBody={question.question_body}
+        />
+      </div>
       <br />
-      <b>A: </b>
+      {Object.keys(question.answers).length > 0 ? <b>A: </b> : null}
       <div>
         {firstTwo.map((answer) => (
           <QAnswer key={answer.answer_id} answer={answer} />))}

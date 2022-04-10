@@ -1,5 +1,21 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
+
 import Question from './Question';
+
+const Button = styled.button`
+  width: 50%;
+  background-color: ${props => props.theme.colors[6]};
+  color: white;
+  margin: 20px 0 20px 0;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    background-color: ${props => props.theme.colors[7]};
+  }
+`;
 
 function List({ questions, productName }) {
   const [display, setDisplay] = useState(4);
@@ -20,12 +36,12 @@ function List({ questions, productName }) {
       <div>
         {(questions.length > display)
           ? (
-            <button
+            <Button
               type="submit"
               onClick={() => setDisplay((prevCount) => prevCount + 1000)}
             >
               More Answered Questions
-            </button>
+            </Button>
           )
           : null}
       </div>
