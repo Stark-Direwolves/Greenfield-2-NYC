@@ -5,7 +5,56 @@ import QAnswer from './QAnswer';
 import Answer from './Answer';
 
 const QuestionContainer = styled.div`
-outline: solid;
+margin: 10px 0px;
+border-bottom: 2px solid black;
+`;
+
+const QuestionHeader = styled.div`
+display: flex;
+justify-content: space-between;
+`;
+
+const QuestionTitle = styled.div`
+font-weight: bold;
+`;
+
+const QHRAContainer = styled.div`
+display: flex;
+width: 25%;
+justify-content: space-evenly;
+`;
+
+const HelpfulQContainer = styled.span`
+order: 1;
+border-right: 2px solid black;
+padding-right: 5px;
+`;
+
+const ReportQContainer = styled.span`
+order: 2;
+border-right: 2px solid black;
+padding-right: 5px;
+`;
+
+const AddAContainer = styled.span`
+order: 3;
+`;
+
+const AnswerContainer = styled.div`
+display: flex;
+/* flex-direction: column; */
+`;
+
+const AnswerHeader = styled.div`
+flex: 2%;
+`;
+
+const AnswerBody = styled.div`
+flex: 98%;
+`;
+
+const LoadMore = styled.div`
+margin-bottom: 10px;
 `;
 
 function Question({ question, productName }) {
@@ -59,42 +108,51 @@ function Question({ question, productName }) {
 
   return (
     <QuestionContainer>
-      <b>Q: {question.question_body} </b>
-
-      <div>
-        <span>Helpful?</span>
-        {!isHelpfulQ ? (<span onClick={updateHelpQ}>Yes</span>) : (<span>ty</span>)}
-        <span>({qHelpful})</span>
-        {!reported
-          ? (
-            <span onClick={updateReport}>Report</span>
-          ) : (
-            <span>Reported!</span>
-          )}
-        <Answer
-          questionId={question.question_id}
-          productName={productName}
-          questionBody={question.question_body}
-        />
-      </div>
+      <QuestionHeader>
+        <QuestionTitle>Q: {question.question_body}</QuestionTitle>
+        <QHRAContainer>
+          <HelpfulQContainer>Helpful?&nbsp;
+            {!isHelpfulQ ? (<span onClick={updateHelpQ}>Yes</span>) : (<span>ty</span>)}
+            <span>({qHelpful})</span>
+          </HelpfulQContainer>
+          <ReportQContainer>
+            {!reported
+              ? (
+                <span onClick={updateReport}>Report</span>
+              ) : (
+                <span>Reported!</span>
+              )}
+          </ReportQContainer>
+          <AddAContainer>
+            <Answer
+              questionId={question.question_id}
+              productName={productName}
+              questionBody={question.question_body}
+            />
+          </AddAContainer>
+        </QHRAContainer>
+      </QuestionHeader>
       <br />
-      {Object.keys(question.answers).length > 0 ? <b>A: </b> : null}
-      <div>
-        {firstTwo.map((answer) => (
-          <QAnswer key={answer.answer_id} answer={answer} />))}
-
-      </div>
-      <div>
-        {(answers.length > displayAn)
-          ? (
-            <div
-              onClick={() => setDisplayAn((prevCount) => prevCount + 1000)}
-            >
-              LOAD MORE ANSWERS
-            </div>
-          )
-          : (null)}
-      </div>
+      <AnswerContainer>
+        <AnswerHeader>
+          {Object.keys(question.answers).length > 0 ? <b>A: </b> : null}
+        </AnswerHeader>
+        <AnswerBody>
+          {firstTwo.map((answer) => (
+            <QAnswer key={answer.answer_id} answer={answer} />))}
+          <div>
+            {(answers.length > displayAn)
+              ? (
+                <LoadMore
+                  onClick={() => setDisplayAn((prevCount) => prevCount + 1000)}
+                >
+                  LOAD MORE ANSWERS
+                </LoadMore>
+              )
+              : (null)}
+          </div>
+        </AnswerBody>
+      </AnswerContainer>
     </QuestionContainer>
   );
 }

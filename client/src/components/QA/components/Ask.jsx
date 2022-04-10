@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 const Button = styled.button`
   width: 100%;
-  background-color: ${props => props.theme.colors[6]};
+  background: ${props => props.theme.colors[6]};
   color: white;
   margin: 20px 0 20px 0;
   padding: 16px;
@@ -14,7 +14,7 @@ const Button = styled.button`
   border: none;
   cursor: pointer;
   &:hover {
-    background-color: ${props => props.theme.colors[7]};
+    background: ${props => props.theme.colors[7]};
   }
 `;
 

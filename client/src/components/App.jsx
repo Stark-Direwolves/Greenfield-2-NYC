@@ -104,7 +104,7 @@ function App({ getProduct, getStyles, getRelated, getReviews, getMeta }) {
         <Related relatedProducts={related} currentProduct={product} />
         <Outfit product={product} style={currentStyle} meta={meta} />
         <QA productId={getProduct.id} productName={getProduct.name} />
-        {/* <RR reviews={reviews} meta={meta} product={product} /> */}
+        <RR reviews={reviews} meta={meta} product={product} />
       </Container>
     </Theme>
   );
