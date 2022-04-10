@@ -7,6 +7,8 @@ function QAnswer({ answer }) {
   const [isHelpful, setIsHelpful] = useState(false);
   const [reported, setReported] = useState(false);
 
+  console.log(answer);
+
   const updateHelpA = () => {
     !isHelpful
       ? (
@@ -42,6 +44,13 @@ function QAnswer({ answer }) {
         <div>by: </div>
         <div>{(answer.answerer_name.toLowerCase() === 'seller') ? <b>{answer.answerer_name}</b> : answer.answerer_name}
           , {moment(answer.date).format('LL')}
+        </div>
+        <div>
+          {(answer.photos.length > 0)
+            ? (
+              answer.photos.map((photo, key) => <img src={`${photo.url}`} alt="" style={{ height: '80px', width: '80px' }} key={photo.id} />)
+            )
+            : null}
         </div>
         <div>Helpful?</div>
         {!isHelpful ? (<span onClick={updateHelpA}>Yes</span>) : (<span>ty</span>)}
