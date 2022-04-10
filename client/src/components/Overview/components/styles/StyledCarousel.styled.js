@@ -14,8 +14,8 @@ const StyledInner = styled.div`
 const StyledCarouselItem = styled.div`
   display: inline-flex;
   align-items: center;
-  height: 650px;
   width: ${(props) => props.width};
+  height: 650px;
   justify-content: center;
   color: #fff;
 `;

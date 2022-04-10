@@ -66,6 +66,8 @@ function App({ getProduct, getStyles, getRelated, getReviews, getMeta }) {
   const [currentQty, setCurrentQty] = React.useState('-');
   const [currentTotal, setCurrentTotal] = React.useState(0);
 
+  const [expanded, setExpanded] = React.useState(false);
+
   React.useEffect(
     () => {
       setCurrentSku('none');
@@ -75,37 +77,49 @@ function App({ getProduct, getStyles, getRelated, getReviews, getMeta }) {
     }, [currentStyle],
   );
 
+  const handleClick = (e) => {
+    if (e.target.id === 'whitespace') {
+      if (expanded) {
+        setExpanded(false);
+      }
+    }
+  };
+
   return (
     <Theme>
-      <Nav>
-        <NavInner>
-          <Cart>
-            <img src="https://img.icons8.com/windows/32/000000/shopping-cart-promotion.png" />
-          </Cart>
-          <Logo><img src="/assets/logo.png" height="37" /></Logo>
-        </NavInner>
-      </Nav>
-      <Container>
-        <Overview
-          product={product}
-          styles={styles}
-          meta={meta}
-          currentStyle={currentStyle}
-          currentSku={currentSku}
-          currentSize={currentSize}
-          currentQty={currentQty}
-          currentTotal={currentTotal}
-          setCurrentSize={setCurrentSize}
-          setCurrentStyle={setCurrentStyle}
-          setCurrentSku={setCurrentSku}
-          setCurrentQty={setCurrentQty}
-          setCurrentTotal={setCurrentTotal}
-        />
-        <Related relatedProducts={related} currentProduct={product} />
-        <Outfit product={product} style={currentStyle} meta={meta} />
-        <QA productId={getProduct.id} productName={getProduct.name} />
-        <RR reviews={reviews} meta={meta} product={product} />
-      </Container>
+      <div id='whitespace' onClick={handleClick}>
+        <Nav>
+          <NavInner>
+            <Cart>
+              <img src="https://img.icons8.com/windows/32/000000/shopping-cart-promotion.png" />
+            </Cart>
+            <Logo><img src="/assets/logo.png" height="37" /></Logo>
+          </NavInner>
+        </Nav>
+        <Container>
+          <Overview
+            product={product}
+            styles={styles}
+            meta={meta}
+            currentStyle={currentStyle}
+            currentSku={currentSku}
+            currentSize={currentSize}
+            currentQty={currentQty}
+            currentTotal={currentTotal}
+            setCurrentSize={setCurrentSize}
+            setCurrentStyle={setCurrentStyle}
+            setCurrentSku={setCurrentSku}
+            setCurrentQty={setCurrentQty}
+            setCurrentTotal={setCurrentTotal}
+            expanded={expanded}
+            setExpanded={setExpanded}
+          />
+          <Related relatedProducts={related} currentProduct={product} />
+          <Outfit product={product} style={currentStyle} meta={meta} />
+          <QA productId={getProduct.id} productName={getProduct.name} />
+          <RR reviews={reviews} meta={meta} product={product} />
+        </Container>
+      </div>
     </Theme>
   );
 }

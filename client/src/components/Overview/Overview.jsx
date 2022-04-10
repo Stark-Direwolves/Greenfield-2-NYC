@@ -7,7 +7,7 @@ import ImageGallery from './components/ImageGallery';
 import ProductInformation from './components/ProductInformation';
 import StyleSelector from './components/StyleSelector';
 import {
-  StyledOverview, StyledDetails, SocialMedia, ExpandedView,
+  StyledOverview, StyledDetails, SocialMedia,
 } from './styles/Overview.styled';
 
 function Overview({
@@ -24,12 +24,15 @@ function Overview({
   setCurrentQty,
   setCurrentTotal,
   setCurrentSize,
+  expanded,
+  setExpanded,
 }) {
-  const [expandedView, setExpandedView] = React.useState(false);
-  if (!expandedView) {
-    return (
-      <StyledOverview>
-        <ImageGallery styleImages={currentStyle.photos} setExpandedView={setExpandedView} />
+  // const [expanded, setExpanded] = React.useState(false);
+
+  return (
+    <StyledOverview expanded={expanded} >
+      <ImageGallery styleImages={currentStyle.photos} setExpanded={setExpanded} expanded={expanded} />
+      { !expanded ?
         <StyledDetails>
           <ProductInformation
             currentProduct={product}
@@ -60,29 +63,10 @@ function Overview({
             <img src="https://img.icons8.com/ios/50/000000/facebook-new.png" alt="facebook" />
             <img src="https://img.icons8.com/ios/50/000000/pinterest--v1.png" alt="pinterest" />
           </SocialMedia>
-        </StyledDetails>
-      </StyledOverview>
-    );
-  }
-  return (
-  <ExpandedView
-    product={product}
-    styles={styles}
-    meta={meta}
-    currentStyle={currentStyle}
-    currentSku={currentSku}
-    currentSize={currentSize}
-    currentQty={currentQty}
-    currentTotal={currentTotal}
-    setCurrentStyle={setCurrentStyle}
-    setCurrentSku={setCurrentSku}
-    setCurrentQty={setCurrentQty}
-    setCurrentTotal={setCurrentTotal}
-    setCurrentSize={setCurrentSize}
-  >
-    test
-  </ExpandedView>
-);
+        </StyledDetails> : <></>
+      }
+    </StyledOverview>
+  );
 }
 
 Overview.propTypes = {
