@@ -118,22 +118,25 @@ html {
   height: 15px;
   background: #d3d3d3;
   outline: 2px black;
-  border-radius: 10px
+  border-radius: 5px;
 }
 
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 15px;
-  height: 15px;
-  border-radius: 10px;
-  background: #3e3f3f;
+  width: 20px;
+  height: 20px;
+  /* background: #C7A794; */
+  background-image: url('https://cdn-icons-png.flaticon.com/512/60/60995.png');
+  background-size: 25px;
+  background-position: center -8px;
+  background-repeat: no-repeat;
 }
 
 :root {
   --revcount-size: 10px;
   --revcount-color: #d3d3d3;
-  --revcount-background: #32ce24;
+  --revcount-background: #C7A794;
 }
 
 .revcount {

@@ -62,11 +62,12 @@ function Review({ review }) {
       {(review.recommend)
         ? <div3 is="x3d"> ✓ I recommend this product</div3>
         : null }
+      <br />
       <div3 is="x3d">{review.body}</div3>
       <div4 is="x3d">{moment(review.date).format('MMM Do YYYY')}</div4>
       <div4 is="x3d">
         {(review.photos.length >= 1)
-          ? review.photos.map((photo, i) => <img key={i} src={`${photo.url}`} alt="" style={{ height: '100px', width: '100px' }} />)
+          ? review.photos.map((photo, i) => <img key={i} src={`${photo.url}`} alt="" style={{ maxHeight: '100px', maxWidth: '100%', padding: '10px' }}/>)
           : null}
       </div4>
       <div4 is="x3d">
@@ -76,7 +77,6 @@ function Review({ review }) {
           ? ('Thanks for your vote!')
           : (
             <ReviewHelpful onClick={updateYesCount}>
-              {' '}
               Yes:
               {' '}
               {review.helpfulness}
