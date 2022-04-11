@@ -50,7 +50,7 @@ function RR({ reviews, meta, product }) {
           ? (
             <AddReview><NewReview currentProduct={currentProduct} currentProductId={currentProductId} setShowModal={setShowModal}> </NewReview></AddReview>
           )
-          : (
+          : null}
             <RRcontainer>
               <Ratings reviewCount={reviewCount} averageRating={averageRating} totalReviews={totalReviews} percentRecommended={percentRecommended} meta={meta} />
               <CharacteristicRatings>
@@ -125,7 +125,6 @@ function RR({ reviews, meta, product }) {
                 <ReviewList reviewslist={reviews.results} setShowModal={() => setShowModal(true)} />
               </div>
             </RRcontainer>
-          )}
       </div>
     </div>
   );

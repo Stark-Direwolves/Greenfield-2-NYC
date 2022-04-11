@@ -6,7 +6,7 @@ const AddButton = styled.button`
   text-align: center;
   display: inline-block;
   font-size: 16px;
-  background-color:#C7A794;
+  background-color: #C7A794;
   &:hover {
     background-color: #bd8d71;
   }

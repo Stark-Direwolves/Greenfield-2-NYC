@@ -80,6 +80,7 @@ function Review({ review }) {
           ? (review.body.slice(250, review.body.length))
           : null} */}
       </div3>
+      <br />
       <div4 is="x3d">{moment(review.date).format('MMM Do YYYY')}</div4>
       <div4 is="x3d">
         {(review.photos.length >= 1)
