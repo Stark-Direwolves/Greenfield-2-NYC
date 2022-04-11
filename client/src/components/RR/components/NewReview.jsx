@@ -2,7 +2,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import axios from 'axios';
-import { StarIcon, xcircle } from '@heroicons/react/outline';
 import AddReview from '../RRstyles/AddReview';
 import AddPhoto from '../RRstyles/AddPhoto';
 import FormCharacteristics from '../RRstyles/FormCharacteristics';
@@ -60,13 +59,6 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
     "photos": [],
     "characteristics": characteristics,
   };
-
-  // '${meta.characteristics.size.id}': charSize,
-  //     '${meta.characteristics.width.id}': charWidth,
-  //     '${meta.characteristics.comfort.id}': charComfort,
-  //     '${meta.characteristics.quality.id}': charQuality,
-  //     '${meta.characteristics.length.id}': charLength,
-  //     '${meta.characteristics.fit.id}': charFit,
 
   const submitPhoto = (event) => {
     axios.post('/photos/upload', formPhotos)
