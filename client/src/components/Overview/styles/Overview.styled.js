@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const StyledOverview = styled.div`
+  background-color: ${(props) => props.theme.colors[0]};
   grid-template-columns: [col1-start] 60% [col1-end col2-start] 40% [col2-end];
   height: auto;
   display: grid;
