@@ -7,7 +7,7 @@ import AddReview from '../RRstyles/AddReview';
 import AddPhoto from '../RRstyles/AddPhoto';
 import FormCharacteristics from '../RRstyles/FormCharacteristics';
 
-function NewReview({ currentProduct, currentProductId, setShowModal }) {
+function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
   const [formRating, setFormRating] = useState(0);
   const [formSummary, setFormSummary] = useState('');
   const [formBody, setFormBody] = useState('');
@@ -23,6 +23,32 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
   const [charLength, setCharLength] = useState(0);
   const [charFit, setCharFit] = useState(1);
 
+  let characteristics = {};
+  if (meta.characteristics.Size) {
+    const size = meta.characteristics.Size.id;
+    characteristics[String(size)] = Number(charSize);
+  }
+  if (meta.characteristics.Width) {
+    const width = meta.characteristics.Width.id;
+    characteristics[String(width)] = Number(charWidth);
+  }
+  if (meta.characteristics.Comfort) {
+    const comfort = meta.characteristics.Comfort.id;
+    characteristics[String(comfort)] = Number(charComfort);
+  }
+  if (meta.characteristics.Quality) {
+    const quality = meta.characteristics.Quality.id;
+    characteristics[String(quality)] = Number(charQuality);
+  }
+  if (meta.characteristics.Length) {
+    const length = meta.characteristics.Length.id;
+    characteristics[String(length)] = Number(charLength);
+  }
+  if (meta.characteristics.Fit) {
+    const fit = meta.characteristics.Fit.id;
+    characteristics[String(fit)] = Number(charFit);
+  }
+
   const reviewBody = {
     "product_id": currentProductId,
     "rating": Number(formRating),
@@ -32,8 +58,15 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
     "name": formName,
     "email": formEmail,
     "photos": [],
-    "characteristics": { },
+    "characteristics": characteristics,
   };
+
+  // '${meta.characteristics.size.id}': charSize,
+  //     '${meta.characteristics.width.id}': charWidth,
+  //     '${meta.characteristics.comfort.id}': charComfort,
+  //     '${meta.characteristics.quality.id}': charQuality,
+  //     '${meta.characteristics.length.id}': charLength,
+  //     '${meta.characteristics.fit.id}': charFit,
 
   const submitPhoto = (event) => {
     axios.post('/photos/upload', formPhotos)

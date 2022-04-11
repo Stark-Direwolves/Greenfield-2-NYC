@@ -48,7 +48,7 @@ function RR({ reviews, meta, product }) {
       <div>
         {(showModal === true)
           ? (
-            <AddReview><NewReview currentProduct={currentProduct} currentProductId={currentProductId} setShowModal={setShowModal}> </NewReview></AddReview>
+            <AddReview><NewReview currentProduct={currentProduct} currentProductId={currentProductId} setShowModal={setShowModal} meta={meta}> </NewReview></AddReview>
           )
           : null}
             <RRcontainer>
