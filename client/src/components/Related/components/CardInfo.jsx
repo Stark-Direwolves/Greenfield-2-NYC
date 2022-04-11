@@ -10,6 +10,7 @@ function CardInfo({ related, sale }) {
     }
     return Ratings.findAverageRating(item.ratings);
   };
+
   return (
     <CardInfoContainer>
       <p>{related.category}</p>
