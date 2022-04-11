@@ -16,7 +16,7 @@ app.use('/products', products);
 
 app.use('/reviews', reviews);
 
-app.use('/qa/questions', questions);
+app.use('/qa', questions);
 
 app.use('/:product', express.static(path.join(__dirname, '..', 'client', 'dist'))); // moved static get down to catch all req
 

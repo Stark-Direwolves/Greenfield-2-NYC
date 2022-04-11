@@ -14,6 +14,7 @@ box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
             -4px -4px 6px 0 rgba(116, 125, 136, .2),
   inset -4px -4px 6px 0 rgba(255,255,255,.2),
   inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+  margin-bottom: 18.72px;
 `;
 
 export const Input = styled.input`
@@ -26,10 +27,10 @@ export const Input = styled.input`
   transition: 0.8s;
   `;
 
-export const Form = styled.form`
-    display: flex;
-    flex-grow: 1;
-    flex-shrink: 0;
-    flex-basis: 260px;
-    margin-right: 20px;
-  `;
+// export const Form = styled.form`
+//     display: flex;
+//     flex-grow: 1;
+//     flex-shrink: 0;
+//     flex-basis: 260px;
+//     margin-right: 20px;
+//   `;

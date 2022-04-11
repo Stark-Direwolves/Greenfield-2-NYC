@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
 const RatingsBox = styled.div`
-  height:400px;
+  // height:25%;
   width:100%;
-  background-color:#f5f5f5;
+  background-color:#E3E3DD;
   text-align: center;
   text-wrap: balance;
   display: inline;
-  font-size: 23px
+  font-size: 23px;
+  padding-top: 3%;
+  padding-bottom: 3%;
 `;
 
 export default RatingsBox;

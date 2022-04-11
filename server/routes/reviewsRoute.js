@@ -1,13 +1,24 @@
 const express = require('express');
 const axios = require('axios');
+const cloudinary = require('cloudinary').v2;
+const streamifier = require('streamifier')
+const multer = require('multer');
+const fileUpload = multer();
+
 require('dotenv').config();
+
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
+});
 
 const router = express.Router();
 router.use(express.json());
 
-const getReviews = (id) => {
+const getReviews = (id, sort) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews?product_id=${id}&sort=relevant&count=25`,
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews?product_id=${id}&sort=${sort}&count=35`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -24,20 +35,6 @@ const getReviewsMeta = (id) => {
   };
   return axios.get(options.url, options);
 };
-
-router.get('/', (req, res) => {
-  getReviews(req.query.product_id)
-    .then((results) => res.status(200).send(results.data))
-    .catch((err) => res.status(404).send(err));
-});
-
-router.get('/meta', (req, res) => {
-  getReviewsMeta(req.query.product_id)
-    .then((results) => res.status(200).send(results.data))
-    .catch((err) => res.status(404).send(err));
-});
-
-// move below vvv routes to avoid merge conflict if any changes were made
 
 const addReview = (body) => {
   const options = {
@@ -71,8 +68,20 @@ const reportReview = (id) => {
   return axios.put(options.url, {}, options);
 };
 
+router.get('/', (req, res) => {
+  console.log(req.query.sort);
+  getReviews(req.query.product_id, req.query.sort)
+    .then((results) => res.status(200).send(results.data))
+    .catch((err) => res.status(404).send(err));
+});
+
+router.get('/meta', (req, res) => {
+  getReviewsMeta(req.query.product_id)
+    .then((results) => res.status(200).send(results.data))
+    .catch((err) => res.status(404).send(err));
+});
+
 router.post('/', (req, res) => {
-  console.log(req.body)
   addReview(req.body)
     .then((results) => res.status(201).send(results.data))
     .catch((err) => res.status(400).send(err));
@@ -88,6 +97,30 @@ router.put('/:review_id/report', (req, res) => {
   reportReview(req.params.review_id)
     .then((results) => res.status(200).send(results.data))
     .catch((err) => res.status(400).send(err));
+});
+
+router.post('/photos/upload', fileUpload.single('photos'), (req, res, next) => {
+  let streamUpload = (req) => {
+    return new Promise((resolve, reject) => {
+      let stream = cloudinary.uploader.upload_stream(
+        (error, result) => {
+          if (result) {
+            resolve(result);
+          } else {
+            reject(error);
+          }
+        }
+      );
+        streamifier.createReadStream(req.file.buffer).pipe(stream);
+      });
+  };
+
+  async function upload(req) {
+    let result = await streamUpload(req);
+    console.log(result);
+  }
+
+  upload(req);
 });
 
 module.exports = router;

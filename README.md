@@ -4,10 +4,10 @@
 
 *FEC April 2022*
 
-- Nathaniel Belen --- Overview 
-- Kimberly Siu --- Ratings & Reviews
+- Nathaniel Belen --- Overview
+- Kimberly Siu --- Questions & Answers
 - Julian Tam --- Related Items & Comparison
-- Patrick Lee --- Questions & Answers
+- Patrick Lee --- Ratings & Reviews
 
 To run the app:
 - create a .env file in the root directory using the .env.example file

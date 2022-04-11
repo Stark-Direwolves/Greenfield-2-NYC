@@ -9,9 +9,9 @@ function Search({ setSearch }) {
 
   return (
     <SContainer>
-      <Form>
+      {/* <Form> */}
         <Input placeholder="Have a question? Search for answers…" onChange={onChange} />
-      </Form>
+      {/* </Form> */}
     </SContainer>
   );
 }
