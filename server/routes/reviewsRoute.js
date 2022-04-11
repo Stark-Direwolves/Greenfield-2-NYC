@@ -16,9 +16,9 @@ cloudinary.config({
 const router = express.Router();
 router.use(express.json());
 
-const getReviews = (id) => {
+const getReviews = (id, sort) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews?product_id=${id}&sort=relevant&count=25`,
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews?product_id=${id}&sort=${sort}&count=35`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -69,7 +69,8 @@ const reportReview = (id) => {
 };
 
 router.get('/', (req, res) => {
-  getReviews(req.query.product_id)
+  console.log(req.query.sort);
+  getReviews(req.query.product_id, req.query.sort)
     .then((results) => res.status(200).send(results.data))
     .catch((err) => res.status(404).send(err));
 });
@@ -100,24 +101,23 @@ router.put('/:review_id/report', (req, res) => {
 
 router.post('/photos/upload', fileUpload.single('photos'), (req, res, next) => {
   let streamUpload = (req) => {
-      return new Promise((resolve, reject) => {
-          let stream = cloudinary.uploader.upload_stream(
-            (error, result) => {
-              if (result) {
-                resolve(result);
-              } else {
-                reject(error);
-              }
-            }
-          );
-
+    return new Promise((resolve, reject) => {
+      let stream = cloudinary.uploader.upload_stream(
+        (error, result) => {
+          if (result) {
+            resolve(result);
+          } else {
+            reject(error);
+          }
+        }
+      );
         streamifier.createReadStream(req.file.buffer).pipe(stream);
       });
   };
 
   async function upload(req) {
-      let result = await streamUpload(req);
-      console.log(result);
+    let result = await streamUpload(req);
+    console.log(result);
   }
 
   upload(req);
