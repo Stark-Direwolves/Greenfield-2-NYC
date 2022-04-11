@@ -22,10 +22,24 @@ function Carousel({ children, currentImageIndex, updateIndex, limit }) {
   );
 };
 
-export function CarouselItem({ width, image }) {
+export function CarouselItem({ width, image, expanded, expandedZoom, setExpandedZoom, setExpanded }) {
+  let height = '650px';
+  if (expanded) {
+    height = (window.innerHeight - 50).toString();
+    height += 'px';
+  }
+
+  const handleClick = () => {
+    if (!expanded) {
+      setExpanded(true);
+    } else {
+      setExpandedZoom(true);
+    }
+  };
+
   return (
-    <StyledCarouselItem width={width}>
-      <StyledImg src={image.url} />
+    <StyledCarouselItem width={width} height={height} >
+      <StyledImg src={image.url} onClick={handleClick}/>
     </StyledCarouselItem>
   );
 }
