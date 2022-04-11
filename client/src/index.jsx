@@ -9,7 +9,7 @@ const grabInfo = (id) => {
     axios.get(`/products/${id}`),
     axios.get(`/products/${id}/styles`),
     axios.get(`/products/${id}/related`),
-    axios.get(`/reviews?product_id=${id}`),
+    axios.get(`/reviews?product_id=${id}&sort=relevant`),
     axios.get(`/reviews/meta?product_id=${id}`),
   ];
   return Promise.all(promises);

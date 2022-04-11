@@ -2,9 +2,10 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import axios from 'axios';
-import { StarIcon } from '@heroicons/react/outline';
+import { StarIcon, xcircle } from '@heroicons/react/outline';
 import AddReview from '../RRstyles/AddReview';
 import AddPhoto from '../RRstyles/AddPhoto';
+import FormCharacteristics from '../RRstyles/FormCharacteristics';
 
 function NewReview({ currentProduct, currentProductId, setShowModal }) {
   const [formRating, setFormRating] = useState(0);
@@ -34,6 +35,17 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
     "characteristics": { },
   };
 
+  const submitPhoto = (event) => {
+    axios.post('/photos/upload', formPhotos)
+      .then((res) => {
+        console.log(res.url);
+        formPhotos.push(res.url);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const submitForm = (event) => {
     event.preventDefault();
     console.log(reviewBody);
@@ -47,9 +59,14 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
       });
   };
 
+  const closeForm = (event) => {
+    event.preventDefault();
+    setShowModal(false);
+  };
+
   return (
     <div>
-      <h2> Write your Review </h2>
+      <h2 style={{ color: '#6b6a6a' }}> Write your Review </h2>
       <h3>
         About the {currentProduct}
       </h3>
@@ -91,9 +108,10 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           value="5"
         />
       </div>
+      <br />
       <div>
         <b> Select Characteristics </b>
-        <div>
+        <FormCharacteristics>
           Size
           &nbsp;
           A size too small
@@ -131,12 +149,13 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
             checked={charSize === '5'}
             value="5"
           />
-        </div>
+        </FormCharacteristics>
         <div>
           Width
           &nbsp;
           Too narrow
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharWidth(e.target.value); }}
             type="radio"
             checked={formRating === '1'}
@@ -144,6 +163,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           />
           Slightly narrow
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharWidth(e.target.value); }}
             type="radio"
             checked={charWidth === '2'}
@@ -151,6 +171,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           />
           Perfect
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharWidth(e.target.value); }}
             type="radio"
             checked={charWidth === '3'}
@@ -158,6 +179,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           />
           Slightly wide
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharWidth(e.target.value); }}
             type="radio"
             checked={charWidth === '4'}
@@ -165,6 +187,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           />
           Too wide
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharWidth(e.target.value); }}
             type="radio"
             checked={charWidth === '5'}
@@ -176,6 +199,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           &nbsp;
           Uncomfortable
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharComfort(e.target.value); }}
             type="radio"
             checked={charComfort === '1'}
@@ -183,6 +207,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           />
           Slightly uncomfortable
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharComfort(e.target.value); }}
             type="radio"
             checked={charComfort === '2'}
@@ -190,6 +215,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           />
           Ok
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharComfort(e.target.value); }}
             type="radio"
             checked={charComfort === '3'}
@@ -197,6 +223,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           />
           Comfortable
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharComfort(e.target.value); }}
             type="radio"
             checked={charComfort === '4'}
@@ -204,6 +231,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           />
           Perfect
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharComfort(e.target.value); }}
             type="radio"
             checked={charComfort === '5'}
@@ -215,6 +243,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           &nbsp;
           Poor
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharQuality(e.target.value); }}
             type="radio"
             checked={charQuality === '1'}
@@ -222,6 +251,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           />
           Below average
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharQuality(e.target.value); }}
             type="radio"
             checked={charQuality === '2'}
@@ -229,6 +259,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           />
           What I expected
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharQuality(e.target.value); }}
             type="radio"
             checked={charQuality === '3'}
@@ -236,6 +267,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           />
           Pretty great
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharQuality(e.target.value); }}
             type="radio"
             checked={charQuality === '4'}
@@ -243,6 +275,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           />
           Perfect
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharQuality(e.target.value); }}
             type="radio"
             checked={charQuality === '5'}
@@ -254,6 +287,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           &nbsp;
           Runs short
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharLength(e.target.value); }}
             type="radio"
             checked={charLength === '1'}
@@ -261,6 +295,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           />
           Runs slightly short
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharLength(e.target.value); }}
             type="radio"
             checked={charLength === '2'}
@@ -268,6 +303,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           />
           Perfect
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharLength(e.target.value); }}
             type="radio"
             checked={charLength === '3'}
@@ -275,6 +311,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           />
           Runs slightly long
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharLength(e.target.value); }}
             type="radio"
             checked={charLength === '4'}
@@ -282,6 +319,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           />
           Runs long
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharLength(e.target.value); }}
             type="radio"
             checked={charLength === '5'}
@@ -293,6 +331,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           &nbsp;
           Runs tight
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharFit(e.target.value); }}
             type="radio"
             checked={charFit === '1'}
@@ -300,6 +339,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           />
           Runs slightly tight
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharFit(e.target.value); }}
             type="radio"
             checked={charFit === '2'}
@@ -307,6 +347,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           />
           Perfect
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharFit(e.target.value); }}
             type="radio"
             checked={charFit === '3'}
@@ -314,6 +355,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           />
           Runs slightly long
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharFit(e.target.value); }}
             type="radio"
             checked={charFit === '4'}
@@ -321,6 +363,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           />
           Runs long
           <input
+            style={{ textAlign: 'center' }}
             onChange={(e) => { setCharFit(e.target.value); }}
             type="radio"
             checked={charFit === '5'}
@@ -328,6 +371,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
           />
         </div>
       </div>
+      <br />
       <div>
         <b> Do you recommend this product? </b>
         Yes
@@ -358,7 +402,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
         <b> Review Body </b>
         <br />
         <form>
-          <textarea type="text" display="flex" maxLength="1000" size="60" placeholder="Why did you like the product or not?" style={{ resize: 'none', paddingBottom: 80, height: '80px', width: '418px' }} onChange={(event) => { setFormBody(event.target.value); }} required />
+          <textarea type="text" display="flex" maxLength="1000" size="60" placeholder="Why did you like the product or not?" style={{ resize: 'none', paddingBottom: 80, height: '60px', width: '418px' }} onChange={(event) => { setFormBody(event.target.value); }} required />
           <div>
             {(formBody.length < 50)
               ? (
@@ -397,15 +441,17 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
       <br />
       <div>
         <b> Upload Your Photos </b>
-        <input type="file" onChange={(e) => { setFormPhotos(Array.from(e.target.files)); }} />
+        <input type="file" multiple onChange={(e) => { setFormPhotos(Array.from(e.target.files)); }} />
         <AddPhoto>
           {(formPhotos.length >= 1)
-            ? <img src={URL.createObjectURL(formPhotos[0])} alt="" style={{ height: '80px', width: '80px' }} />
+            ? formPhotos.map((photo, i) => <img key={i} src={URL.createObjectURL(photo)} alt="" style={{ height: '80px', width: '80px', padding: '10px' }} />)
             : null}
         </AddPhoto>
       </div>
       <br />
       <button type="submit" onClick={(event) => { submitForm(event); }}> Submit Review </button>
+      &nbsp;
+      <button type="submit" onClick={(event) => { closeForm(event); }}> Close Review </button>
     </div>
   );
 }
