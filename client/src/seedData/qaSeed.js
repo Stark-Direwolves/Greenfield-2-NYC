@@ -130,6 +130,14 @@ const answers = {
       helpfulness: 3,
       photos: [],
     },
+    {
+      answer_id: 5361403,
+      body: 'Yes',
+      date: '2019-11-24T00:00:00.000Z',
+      answerer_name: 'n00bgamer',
+      helpfulness: 3,
+      photos: [],
+    },
   ],
 };
 
