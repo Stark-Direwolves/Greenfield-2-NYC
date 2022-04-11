@@ -50,8 +50,6 @@ function QAnswer({ answer }) {
   const [isHelpful, setIsHelpful] = useState(false);
   const [reported, setReported] = useState(false);
 
-
-  console.log(answer);
   const updateHelpA = () => {
     (!isHelpful)
       ? (

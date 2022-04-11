@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   background-color: ${(props) => props.theme.colors[0]};
   /* height: 85vh; */
-  ${(styles) => styles};
+  ${({styles}) => `${styles}`};
   width: 100%;
   margin: 16px 0px;
   font: "Roboto";
