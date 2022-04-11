@@ -120,6 +120,7 @@ function Modal({
                   <div>For authentication reasons, you will not be emailed</div>
                   <br />
                   {isVisible ? (<span>Question *</span>) : (<span>Answer *</span>)}
+                  <br />
                   {isVisible ? (
                     <textarea
                       name="body"

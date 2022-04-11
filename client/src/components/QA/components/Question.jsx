@@ -22,17 +22,21 @@ const QHRAContainer = styled.div`
 display: flex;
 width: 25%;
 justify-content: space-evenly;
+font-size: 12px;
+font-weight: 700;
+margin: 12px 0px;
+text-transform: uppercase;
 `;
 
 const HelpfulQContainer = styled.span`
 order: 1;
-border-right: 2px solid black;
+border-right: 1px solid black;
 padding-right: 5px;
 `;
 
 const ReportQContainer = styled.span`
 order: 2;
-border-right: 2px solid black;
+border-right: 1px solid black;
 padding-right: 5px;
 `;
 
@@ -42,7 +46,6 @@ order: 3;
 
 const AnswerContainer = styled.div`
 display: flex;
-/* flex-direction: column; */
 `;
 
 const AnswerHeader = styled.div`
@@ -55,6 +58,12 @@ flex: 98%;
 
 const LoadMore = styled.div`
 margin-bottom: 10px;
+font-size: 12px;
+font-weight: 700;
+margin: 12px 0px;
+text-transform: uppercase;
+font-weight: bold;
+cursor: pointer;
 `;
 
 function Question({ question, productName }) {

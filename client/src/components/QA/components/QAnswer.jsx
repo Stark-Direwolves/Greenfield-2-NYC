@@ -21,20 +21,24 @@ margin-right: 10px;
 
 const AFooterContainer = styled.div`
 display: flex;
+font-size: 12px;
+font-weight: 700;
+margin: 12px 0px;
+text-transform: uppercase;
 `;
 
 const AuthorContainer = styled.div`
 order: 1;
 margin-right: 10px;
 padding-right: 5px;
-border-right: 2px black solid;
+border-right: 1px black solid;
 `;
 
 const AHelpContainer = styled.div`
 order: 2;
 margin-right: 10px;
 padding-right: 5px;
-border-right: 2px black solid;
+border-right: 1px black solid;
 `;
 
 const AReportContainer = styled.div`
@@ -88,7 +92,8 @@ function QAnswer({ answer }) {
         <AuthorContainer>by: {(answer.answerer_name.toLowerCase() === 'seller') ? <b>{answer.answerer_name}</b> : answer.answerer_name}
           , {moment(answer.date).format('LL')}
         </AuthorContainer>
-        <AHelpContainer>Helpful?&nbsp;
+        <AHelpContainer>
+          Helpful?&nbsp;
           {!isHelpful ? (<span onClick={updateHelpA}>Yes</span>) : (<span>ty</span>)}
           ({answerHelp})
         </AHelpContainer>

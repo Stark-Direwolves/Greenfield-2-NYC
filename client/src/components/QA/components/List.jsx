@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import Question from './Question';
 
 const ListContainer = styled.div`
-width: 90vw;
-height: 60%;
+width: 98%;
 overflow: hidden;
 overflow-y: scroll;
+margin: 10px 15px;
 `;
 
 function List({ questions, productName, display, setDisplay }) {
@@ -25,7 +25,7 @@ function List({ questions, productName, display, setDisplay }) {
           ))}
         </div>
       </ListContainer>
-  );Î
+  );
 }
 
 export default List;
