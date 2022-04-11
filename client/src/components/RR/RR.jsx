@@ -52,7 +52,7 @@ function RR({ reviews, meta, product }) {
           )
           : null}
             <RRcontainer>
-              <Ratings reviewCount={reviewCount} averageRating={averageRating} totalReviews={totalReviews} percentRecommended={percentRecommended} meta={meta} />
+              <Ratings reviewCount={reviewCount} averageRating={averageRating} totalReviews={totalReviews} percentRecommended={percentRecommended} meta={meta} currentProduct={currentProduct}/>
               <CharacteristicRatings>
                 {(size > 0)
                   ? <div className="slidecontainer">
