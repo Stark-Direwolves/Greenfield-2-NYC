@@ -1,37 +1,30 @@
 import React, { useState } from 'react';
-import Question from './Question.jsx';
+import styled from 'styled-components';
 
-function List({ questions, productName }) {
-  const [display, setDisplay] = useState(4);
+import Question from './Question';
 
+const ListContainer = styled.div`
+width: 98%;
+overflow: hidden;
+overflow-y: scroll;
+margin: 10px 15px;
+`;
+
+function List({ questions, productName, display, setDisplay }) {
   const firstFour = questions.slice(0, display);
 
   return (
-    <div>
-      <div>
-        {firstFour.map((question) => (
-          <Question
-            key={question.question_id}
-            question={question}
-            answers={question.answers}
-            productName={productName}
-          />
-        ))}
-      </div>
-      <div>
-        {(questions.length > display)
-          ? (
-            <button
-              type="submit"
-              onClick={() => setDisplay((prevCount) => prevCount + 1000)}
-            >
-              More Answered Questions
-            </button>
-          )
-          : null}
-      </div>
-    </div>
-
+      <ListContainer>
+        <div>
+          {firstFour.map((question) => (
+            <Question
+              key={question.question_id}
+              question={question}
+              productName={productName}
+            />
+          ))}
+        </div>
+      </ListContainer>
   );
 }
 
