@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const AddReview = styled.div`
+  font-family: sans-serif;
   width: 50%;
   min-width: 900px;
   color: black;

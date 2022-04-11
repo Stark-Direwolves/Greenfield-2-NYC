@@ -58,6 +58,11 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
       });
   };
 
+  const closeForm = (event) => {
+    event.preventDefault();
+    setShowModal(false);
+  };
+
   return (
     <div>
       <h2> Write your Review </h2>
@@ -417,6 +422,8 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
       </div>
       <br />
       <button type="submit" onClick={(event) => { submitForm(event); }}> Submit Review </button>
+      &nbsp;
+      <button type="submit" onClick={(event) => { closeForm(event); }}> Close Review </button>
     </div>
   );
 }

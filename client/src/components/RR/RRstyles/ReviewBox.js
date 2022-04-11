@@ -36,6 +36,7 @@ const ReviewBox = styled.div`
   Div3 {
     align-self: flex-start;
     font-family: sans-serif;
+    margin-right: 15%;
   }
   Div4 {
     align-self: flex-start;

@@ -46,6 +46,7 @@ function Ratings({ reviewCount, averageRating, totalReviews, meta, percentRecomm
         className="stars"
         style={{
           '--rating': averageRating,
+          '--star-background': '#C7A794',
           paddingLeft: '15px',
         }}
       />

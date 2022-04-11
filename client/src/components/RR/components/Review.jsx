@@ -1,8 +1,11 @@
+/* eslint-disable react/jsx-wrap-multilines */
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import axios from 'axios';
 import ReviewBox from '../RRstyles/ReviewBox';
 import ReviewHelpful from '../RRstyles/ReviewHelpful';
 import ReviewReport from '../RRstyles/ReviewReport';
+import ViewMoreBody from '../RRstyles/ViewMoreBody';
 
 // reference to get rid of warning message
 // https://github.com/facebook/react/issues/11184#issuecomment-335942439
@@ -14,6 +17,7 @@ function Review({ review }) {
   const [report, setReport] = useState(false);
   const [clickYes, setClickYes] = useState(0);
   // const [clickNo, setClickNo] = useState(0);
+  const [viewMore, setViewMore] = useState(false);
 
   // no review API information for no counter, omitting for now
   // const updateNoCount = (event) => {
@@ -46,6 +50,10 @@ function Review({ review }) {
       });
   };
 
+  const viewMoreBody = () => {
+    setViewMore(true);
+  };
+
   return (
     <ReviewBox>
       <div4 is="x3d">
@@ -63,7 +71,15 @@ function Review({ review }) {
         ? <div3 is="x3d"> ✓ I recommend this product</div3>
         : null }
       <br />
-      <div3 is="x3d">{review.body}</div3>
+      <div3 is="x3d">
+        {(review.body.length >= 250 && (viewMore === false))
+          ? (<>{review.body.slice(0, 250)}
+            <ViewMoreBody onClick={viewMoreBody}> ... view more </ViewMoreBody></>)
+          : review.body}
+        {/* {(viewMore)
+          ? (review.body.slice(250, review.body.length))
+          : null} */}
+      </div3>
       <div4 is="x3d">{moment(review.date).format('MMM Do YYYY')}</div4>
       <div4 is="x3d">
         {(review.photos.length >= 1)
