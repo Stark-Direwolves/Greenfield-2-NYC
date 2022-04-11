@@ -9,8 +9,6 @@ const StyledOverview = styled.div`
   `}
 `;
 
-
-
 const ExpandedView = styled.div`
   height: 875px;
   background-color: gray;

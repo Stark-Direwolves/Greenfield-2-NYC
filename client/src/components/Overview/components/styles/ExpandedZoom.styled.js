@@ -15,6 +15,7 @@ const StyledDiv = styled.div`
 
 const StyledImg = styled.img`
   position: relative;
+  width: 250%;
 `;
 
 const Viewport = styled.div`
@@ -22,7 +23,6 @@ const Viewport = styled.div`
   width: ${() => (window.innerWidth - 100).toString() + 'px' };
   height: ${() => (window.innerHeight - 120).toString() + 'px' };
   margin: auto;
-  text-align: center;
 `;
 
 export { StyledDiv, StyledImg, Viewport};
