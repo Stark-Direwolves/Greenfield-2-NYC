@@ -13,7 +13,6 @@ const StyledImageGallery = styled.div`
 const StyledImageSelector = styled.div`
   grid-row-start: row2-start;
   grid-row-end: row2-end;
-  margin: auto;
 `;
 
 const StyledImagePreview = styled.div`
