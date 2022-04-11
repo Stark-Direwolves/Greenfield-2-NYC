@@ -50,14 +50,17 @@ function QAnswer({ answer }) {
   const [isHelpful, setIsHelpful] = useState(false);
   const [reported, setReported] = useState(false);
 
+
+  console.log(answer);
   const updateHelpA = () => {
     (!isHelpful)
       ? (
         setAnswerHelp(true), setAnswerHelp(answerHelp + 1)
       )
       : null;
-    axios.put(`/qa/answers/${answer.id}/helpful`)
+    axios.put(`/qa/answers/${answer.answer_id}/helpful`)
       .then((result) => {
+        setIsHelpful(!isHelpful);
         console.log(result.data);
       })
       .catch((err) => {
@@ -69,7 +72,7 @@ function QAnswer({ answer }) {
     console.log(answer.id);
     !reported ? (setReported(true))
       : null;
-    axios.put(`/qa/answers/${answer.id}/report`)
+    axios.put(`/qa/answers/${answer.answer_id}/report`)
       .then((result) => {
         console.log(result.data);
       })
