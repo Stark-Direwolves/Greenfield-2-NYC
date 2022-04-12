@@ -1,9 +1,13 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const StyledOverview = styled.div`
-  display: grid;
+  background-color: ${(props) => props.theme.colors[0]};
   grid-template-columns: [col1-start] 60% [col1-end col2-start] 40% [col2-end];
   height: auto;
+  display: grid;
+  ${(props) => props.expanded && css`
+    display: flex;
+  `}
 `;
 
 const ExpandedView = styled.div`
@@ -16,6 +20,7 @@ const StyledDetails = styled.div`
   padding: 20px;
   grid-column-start: col2-start;
   grid-column-end: col2-end;
+  width: 100%;
 `;
 
 const SocialMedia = styled.div`
