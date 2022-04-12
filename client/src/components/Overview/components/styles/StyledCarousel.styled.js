@@ -24,6 +24,9 @@ const StyledImg = styled.img`
   max-height:100%;
   max-width:100%;
   object-fit: cover;
+  &:hover {
+    cursor: zoom-in;
+  }
 `;
 
 const StyledButton = styled.button`

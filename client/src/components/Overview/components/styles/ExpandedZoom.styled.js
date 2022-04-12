@@ -20,8 +20,8 @@ const StyledImg = styled.img`
 
 const Viewport = styled.div`
   overflow: hidden;
-  width: ${() => (window.innerWidth - 100).toString() + 'px' };
-  height: ${() => (window.innerHeight - 120).toString() + 'px' };
+  width: ${() => (window.innerWidth - 150).toString() + 'px'};
+  height: ${() => (window.innerHeight - 135).toString() + 'px'};
   margin: auto;
 `;
 
