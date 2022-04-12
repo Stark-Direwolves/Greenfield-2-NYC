@@ -49,7 +49,7 @@ function Related({ relatedProducts, currentProduct }) {
   return (
     <RelatedContainer data-testid="related">
       <h3>Related Products</h3>
-      <CarouselContainer style={{ transform: `translateX(-${index * 275}px)` }}>
+      <CarouselContainer style={{ transform: `translateX(-${index * 272}px)` }}>
         {relatedProducts.map((product) => (
           <Card
             key={product.id}

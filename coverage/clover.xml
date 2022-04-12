@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1649732236454" clover="3.2.0">
-  <project timestamp="1649732236454" name="All files">
-    <metrics statements="256" coveredstatements="104" conditionals="64" coveredconditionals="7" methods="85" coveredmethods="8" elements="405" coveredelements="119" complexity="0" loc="256" ncloc="256" packages="11" files="32" classes="32"/>
+<coverage generated="1649787743573" clover="3.2.0">
+  <project timestamp="1649787743573" name="All files">
+    <metrics statements="296" coveredstatements="107" conditionals="76" coveredconditionals="6" methods="95" coveredmethods="8" elements="467" coveredelements="121" complexity="0" loc="296" ncloc="296" packages="11" files="34" classes="34"/>
     <package name="components">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="Theme.jsx" path="/Users/julian/fec/Starkfront/client/src/components/Theme.jsx">
@@ -12,18 +12,15 @@
       </file>
     </package>
     <package name="components.Overview">
-      <metrics statements="5" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="Overview.jsx" path="/Users/julian/fec/Starkfront/client/src/components/Overview/Overview.jsx">
-        <metrics statements="5" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="28" count="2" type="stmt"/>
-        <line num="29" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="30" count="2" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="88" count="1" type="stmt"/>
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="72" count="1" type="stmt"/>
       </file>
     </package>
     <package name="components.Overview.components">
-      <metrics statements="51" coveredstatements="0" conditionals="16" coveredconditionals="0" methods="27" coveredmethods="0"/>
+      <metrics statements="84" coveredstatements="0" conditionals="26" coveredconditionals="0" methods="32" coveredmethods="0"/>
       <file name="AddToCart.jsx" path="/Users/julian/fec/Starkfront/client/src/components/Overview/components/AddToCart.jsx">
         <metrics statements="12" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="0"/>
         <line num="6" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -40,7 +37,7 @@
         <line num="34" count="0" type="stmt"/>
       </file>
       <file name="Carousel.jsx" path="/Users/julian/fec/Starkfront/client/src/components/Overview/components/Carousel.jsx">
-        <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <metrics statements="15" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="0"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
@@ -48,23 +45,59 @@
         <line num="15" count="0" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+      </file>
+      <file name="ExpandedZoom.jsx" path="/Users/julian/fec/Starkfront/client/src/components/Overview/components/ExpandedZoom.jsx">
+        <metrics statements="24" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="33" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
       </file>
       <file name="ImageGallery.jsx" path="/Users/julian/fec/Starkfront/client/src/components/Overview/components/ImageGallery.jsx">
-        <metrics statements="14" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="7" coveredmethods="0"/>
-        <line num="6" count="0" type="stmt"/>
+        <metrics statements="15" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="7" coveredmethods="0"/>
+        <line num="7" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="10" count="0" type="stmt"/>
         <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="12" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
+        <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
       </file>
       <file name="ProductInformation.jsx" path="/Users/julian/fec/Starkfront/client/src/components/Overview/components/ProductInformation.jsx">
         <metrics statements="4" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
@@ -95,7 +128,7 @@
       </file>
     </package>
     <package name="components.Overview.components.styles">
-      <metrics statements="52" coveredstatements="38" conditionals="6" coveredconditionals="0" methods="14" coveredmethods="0"/>
+      <metrics statements="58" coveredstatements="41" conditionals="6" coveredconditionals="0" methods="17" coveredmethods="0"/>
       <file name="AddToCart.styled.js" path="/Users/julian/fec/Starkfront/client/src/components/Overview/components/styles/AddToCart.styled.js">
         <metrics statements="14" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
         <line num="3" count="1" type="stmt"/>
@@ -113,16 +146,24 @@
         <line num="72" count="1" type="stmt"/>
         <line num="76" count="1" type="stmt"/>
       </file>
+      <file name="ExpandedZoom.styled.js" path="/Users/julian/fec/Starkfront/client/src/components/Overview/components/styles/ExpandedZoom.styled.js">
+        <metrics statements="5" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+      </file>
       <file name="ImageGallery.styled.js" path="/Users/julian/fec/Starkfront/client/src/components/Overview/components/styles/ImageGallery.styled.js">
         <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="3" count="1" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="44" count="1" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
       </file>
       <file name="ProductInformation.styled.js" path="/Users/julian/fec/Starkfront/client/src/components/Overview/components/styles/ProductInformation.styled.js">
         <metrics statements="13" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
@@ -152,27 +193,30 @@
         <line num="64" count="0" type="cond" truecount="0" falsecount="2"/>
       </file>
       <file name="StyledCarousel.styled.js" path="/Users/julian/fec/Starkfront/client/src/components/Overview/components/styles/StyledCarousel.styled.js">
-        <metrics statements="9" coveredstatements="7" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <metrics statements="10" coveredstatements="7" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="3" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="45" count="1" type="stmt"/>
-        <line num="49" count="1" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="39" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
       </file>
     </package>
     <package name="components.Overview.styles">
-      <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="7" coveredstatements="4" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
       <file name="Overview.styled.js" path="/Users/julian/fec/Starkfront/client/src/components/Overview/styles/Overview.styled.js">
-        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="7" coveredstatements="4" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="21" count="1" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="8" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
       </file>
     </package>
     <package name="components.QA.components.styles">
@@ -263,7 +307,7 @@
       </file>
     </package>
     <package name="components.Related.components">
-      <metrics statements="64" coveredstatements="20" conditionals="28" coveredconditionals="6" methods="19" coveredmethods="4"/>
+      <metrics statements="66" coveredstatements="22" conditionals="28" coveredconditionals="6" methods="19" coveredmethods="4"/>
       <file name="Card.jsx" path="/Users/julian/fec/Starkfront/client/src/components/Related/components/Card.jsx">
         <metrics statements="13" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
         <line num="11" count="0" type="stmt"/>
@@ -307,30 +351,32 @@
         <line num="42" count="0" type="stmt"/>
       </file>
       <file name="Related.jsx" path="/Users/julian/fec/Starkfront/client/src/components/Related/components/Related.jsx">
-        <metrics statements="23" coveredstatements="12" conditionals="12" coveredconditionals="4" methods="7" coveredmethods="3"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
+        <metrics statements="25" coveredstatements="14" conditionals="12" coveredconditionals="4" methods="7" coveredmethods="3"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="20" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="21" count="1" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="27" count="1" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="66" count="1" type="stmt"/>
-        <line num="71" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
       </file>
       <file name="Table.jsx" path="/Users/julian/fec/Starkfront/client/src/components/Related/components/Table.jsx">
         <metrics statements="8" coveredstatements="2" conditionals="8" coveredconditionals="0" methods="2" coveredmethods="0"/>

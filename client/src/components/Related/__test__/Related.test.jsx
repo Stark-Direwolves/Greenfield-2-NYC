@@ -6,28 +6,13 @@ import Theme from '../../Theme';
 import '@testing-library/jest-dom';
 import Related from '../components/Related';
 
-const server = setupServer(
-  rest.get('/products/65631/related', (req, res, ctx) => (
-    res(ctx.json([
-      {
-        id: 65631,
-        category: 'Kicks',
-        name: 'test',
-        default_price: '$100',
-      },
-    ]))
-  )),
-);
-
-beforeAll(() => server.listen());
-afterEach(() => server.resetHandlers());
-afterAll(() => server.close());
+const data = [];
 
 describe('Related Products', () => {
-  it('renders header and related products', async () => {
+  it('renders header and related products', () => {
     render(
       <Theme>
-        <Related />
+        <Related relatedProducts={data} />
       </Theme>,
     );
 
