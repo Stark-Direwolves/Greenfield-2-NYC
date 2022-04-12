@@ -13,6 +13,8 @@ function Modal({
   const [data, setData] = useState({ product_id: productId });
   const [dataA, setDataA] = useState({ photos: [] });
   const [uploadPhotos, setUploadPhotos] = useState([]);
+  const [imageStore, setImageStore] = useState([]);
+  const [limitPhotos, setLimitPhotos] = useState(0);
   // not changing colors?? ^^
 
   function handleEvent(event) {
@@ -52,29 +54,55 @@ function Modal({
 
   function handleSubmitA(event) {
     event.preventDefault();
-    let alerting = 'You must enter the following: \n';
-    const name = ((!dataA.name || dataA.name.length < 1) ? '  \u2022  Name\n' : '');
-    const email = (!dataA.email ? '  \u2022  Email\n' : '');
-    const body = (!dataA.body ? '  \u2022  Answer\n' : '');
-    alerting += name + email + body;
 
-    (Object.keys(dataA).length === 4 && dataA.email.includes('@') && dataA.email.includes('.'))
-      ? (
-        axios.post(`/qa/questions/${questionId}/answers`, dataA)
-          .then((result) => {
-            setDataA({ photos: [] });
-            console.log(result);
-          })
-          .then(() => hideModalA())
-          .catch((err) => {
-            console.log(err);
-          })
-      ) : alert(alerting);
-    alerting = 'You must enter the following: \n';
+    // let alerting = 'You must enter the following: \n';
+    // const name = ((!dataA.name || dataA.name.length < 1) ? '  \u2022  Name\n' : '');
+    // const email = (!dataA.email ? '  \u2022  Email\n' : '');
+    // const body = (!dataA.body ? '  \u2022  Answer\n' : '');
+    // alerting += name + email + body;
+
+    // (Object.keys(dataA).length === 4 && dataA.email.includes('@') && dataA.email.includes('.'))
+    //   ? (
+    //     axios.post(`/qa/questions/${questionId}/answers`, dataA)
+    //       .then((result) => {
+    //         setDataA({ photos: [] });
+    //         console.log(result);
+    //       })
+    //       .then(() => hideModalA())
+    //       .catch((err) => {
+    //         console.log(err);
+    //       })
+    //   ) : alert(alerting);
+    // alerting = 'You must enter the following: \n';
   }
 
   function onChange(e) {
-    setUploadPhotos((Array.from(e.target.files)));
+    console.log(e.target.files);
+    const images = Array.from(e.target.files);
+    console.log(images);
+
+    // setUploadPhotos((Array.from(e.target.files)));
+
+    const formData = new FormData();
+    const types = ['png', 'jpeg', 'gif', 'webp'];
+
+    images.forEach((file, i) => {
+      formData.append(i, file);
+    });
+
+    axios.post('/qa/answers/image-upload', formData)
+      .then((response) => {
+        console.log('photo posted, in client now');
+        if (types.every((type) => response.data[0].format !== type)) {
+          throw response;
+        }
+        return response;
+      })
+      .then((response) => {
+        setImageStore((prev) => prev.concat(response.data));
+        setLimitPhotos((prev) => prev + 1);
+      })
+      .catch((err) => new Error(err));
   }
 
   const handleChange = useCallback((e) => { onChange(e); }, []);
