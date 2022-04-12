@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">17.85% </span>
+                <span class="strong">78.57% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/28</span>
+                <span class='fraction'>22/28</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">19.23% </span>
+                <span class="strong">76.92% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/26</span>
+                <span class='fraction'>20/26</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -129,33 +129,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
@@ -182,34 +182,34 @@
 // }
 &nbsp;
 // count how many reviews there are (each rating = 1 rev)
-const findReviewCount = <span class="fstat-no" title="function not covered" >(r</span>atingObj) =&gt; {
-  const ratingVal = <span class="cstat-no" title="statement not covered" >Object.keys(ratingObj);</span>
-  let totalReviews = <span class="cstat-no" title="statement not covered" >0;</span>
+const findReviewCount = (ratingObj) =&gt; {
+  const ratingVal = Object.keys(ratingObj);
+  let totalReviews = 0;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  for (let i = <span class="cstat-no" title="statement not covered" >0;</span> i &lt; ratingVal.length; i++) {</span>
-    const ratingCount = <span class="cstat-no" title="statement not covered" >Number(ratingObj[ratingVal[i]]);</span>
-<span class="cstat-no" title="statement not covered" >    totalReviews += ratingCount;</span>
+  for (let i = 0; i &lt; ratingVal.length; i++) {
+    const ratingCount = Number(ratingObj[ratingVal[i]]);
+    totalReviews += ratingCount;
   }
-<span class="cstat-no" title="statement not covered" >  return totalReviews;</span>
+  return totalReviews;
 };
 &nbsp;
 // just needed to find avg score unless someone really needs
-const findTotalScore = <span class="fstat-no" title="function not covered" >(r</span>atingObj) =&gt; {
-  const ratingVal = <span class="cstat-no" title="statement not covered" >Object.keys(ratingObj);</span>
-  let totalScore = <span class="cstat-no" title="statement not covered" >0;</span>
+const findTotalScore = (ratingObj) =&gt; {
+  const ratingVal = Object.keys(ratingObj);
+  let totalScore = 0;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  for (let i = <span class="cstat-no" title="statement not covered" >0;</span> i &lt; ratingVal.length; i++) {</span>
-    const score = (<span class="cstat-no" title="statement not covered" >Number(ratingObj[ratingVal[i]]) * Number(ratingVal[i]))</span>;
-<span class="cstat-no" title="statement not covered" >    totalScore += score;</span>
+  for (let i = 0; i &lt; ratingVal.length; i++) {
+    const score = (Number(ratingObj[ratingVal[i]]) * Number(ratingVal[i]));
+    totalScore += score;
   }
-<span class="cstat-no" title="statement not covered" >  return totalScore;</span>
+  return totalScore;
 };
 &nbsp;
 // stars need 1 decimal
-const findAverageRating = <span class="fstat-no" title="function not covered" >(r</span>atingObj) =&gt; {
-  const avg = (<span class="cstat-no" title="statement not covered" >findTotalScore(ratingObj) / findReviewCount(ratingObj))</span>;
-  const staravg = (<span class="cstat-no" title="statement not covered" >Math.round(avg * 10) / 10)</span>;
-<span class="cstat-no" title="statement not covered" >  return staravg;</span>
+const findAverageRating = (ratingObj) =&gt; {
+  const avg = (findTotalScore(ratingObj) / findReviewCount(ratingObj));
+  const staravg = (Math.round(avg * 10) / 10);
+  return staravg;
 };
 &nbsp;
 const findPercentRecommended = <span class="fstat-no" title="function not covered" >(r</span>atingObj) =&gt; {
@@ -232,7 +232,7 @@ module.exports = { findReviewCount, findTotalScore, findAverageRating, findPerce
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Tue Apr 12 2022 11:22:23 GMT-0700 (Pacific Daylight Time)
+                at Tue Apr 12 2022 16:47:06 GMT-0700 (Pacific Daylight Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
