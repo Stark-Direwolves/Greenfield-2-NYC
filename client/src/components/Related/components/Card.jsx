@@ -38,7 +38,7 @@ function Card({ related, current }) {
       </ActionButton>
       <ImageContainer>
         <StyledImage
-          src={related.styles[0].photos[0].url}
+          src={related.styles[0].photos[0].url ? related.styles[0].photos[0].url : '/assets/blackgold.jpg'}
           onClick={() => {
             window.location.href = `/${related.id}`;
           }}
