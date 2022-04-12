@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import QA from './QA/QA.jsx';
 import RR from './RR/RR.jsx';
 import Overview from './Overview/Overview.jsx';
@@ -85,6 +86,13 @@ function App({ getProduct, getStyles, getRelated, getReviews, getMeta }) {
     }
   };
 
+  const getReviewSort = (id, sort) => {
+    axios.get(`/reviews?product_id=${id}&sort=${sort}`)
+      .then((res) => {
+        setReviews(res.data);
+      });
+  };
+
   return (
     <Theme>
       <div id='whitespace' onClick={handleClick}>
@@ -117,7 +125,7 @@ function App({ getProduct, getStyles, getRelated, getReviews, getMeta }) {
           <Related relatedProducts={related} currentProduct={product} />
           <Outfit product={product} style={currentStyle} meta={meta} />
           <QA productId={getProduct.id} productName={getProduct.name} />
-          <RR reviews={reviews} meta={meta} product={product} />
+          <RR reviews={reviews} meta={meta} product={product} getReviewSort={getReviewSort} />
         </Container>
       </div>
     </Theme>
