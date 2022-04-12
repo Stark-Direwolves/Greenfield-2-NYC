@@ -15,6 +15,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
   const [formName, setFormName] = useState('');
   const [formEmail, setFormEmail] = useState('');
   const [formPhotos, setFormPhotos] = useState([]);
+  const [photoPreview, setPhotoPreview] = useState([]);
   // characteristics/meta data
   const [charSize, setCharSize] = useState(0);
   const [charWidth, setCharWidth] = useState(0);
@@ -49,36 +50,18 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
     characteristics[String(fit)] = Number(charFit);
   }
 
-  const reviewBody = {
-    "product_id": currentProductId,
-    "rating": Number(formRating),
-    "summary": formSummary,
-    "body": formBody,
-    "recommend": (formRecommend === 'True'),
-    "name": formName,
-    "email": formEmail,
-    "photos": [],
-    "characteristics": characteristics,
-  };
-
-  const submitPhoto = (event) => {
-    // const body = { photos: formPhotos[0] };
-    console.log(formPhotos[0]);
-    const options = {
-      headers: { 'Content-type': 'image/jpeg' }
+  const submitForm = () => {
+    const reviewBody = {
+      "product_id": currentProductId,
+      "rating": Number(formRating),
+      "summary": formSummary,
+      "body": formBody,
+      "recommend": (formRecommend === 'True'),
+      "name": formName,
+      "email": formEmail,
+      "photos": formPhotos,
+      "characteristics": characteristics,
     };
-    axios.post('/reviews/photos/upload', formPhotos[0], options)
-      .then((res) => {
-        console.log(res.url);
-      })
-      .catch((err) => {
-        console.log('photo didnt go through', err);
-      });
-  };
-
-  const submitForm = (event) => {
-    event.preventDefault();
-    console.log(reviewBody);
     setShowModal((prev) => !prev);
     axios.post('/reviews', reviewBody)
       .then((res) => {
@@ -88,6 +71,23 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
         console.log('uh oh try again', err);
       });
   };
+
+  const submitPhoto = () => {
+    const data = new FormData();
+    data.append('photos', photoPreview[0]);
+    axios.post('/reviews/photos/upload', data)
+      .then((res) => {
+        formPhotos.push((res.data));
+      })
+      .then(() => {
+        console.log(formPhotos);
+        submitForm();
+      })
+      .catch((err) => {
+        console.log('photo didnt go through', err);
+      });
+  };
+
 
   const closeForm = (event) => {
     event.preventDefault();
@@ -471,16 +471,15 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
       <br />
       <div>
         <b> Upload Your Photos </b>
-        <input type="file" multiple onChange={(e) => { setFormPhotos(Array.from(e.target.files)) }} />
+        <input type="file" multiple onChange={(e) => { setPhotoPreview(Array.from(e.target.files)) }} />
         <AddPhoto>
-          {(formPhotos.length >= 1)
-            ? formPhotos.map((photo, i) => <img key={i} src={URL.createObjectURL(photo)} alt="" style={{ height: '80px', width: '80px', padding: '10px' }} />)
+          {(photoPreview.length >= 1)
+            ? photoPreview.map((photo, i) => <img key={i} src={URL.createObjectURL(photo)} alt="" style={{ height: '80px', width: '80px', padding: '10px' }} />)
             : null}
         </AddPhoto>
       </div>
       <br />
-
-      <button type="submit" onClick={(event) => { submitForm(event); (submitPhoto(event)) }}> Submit Review </button>
+      <button type="submit" onClick={(event) => { (submitPhoto(event)) }}> Submit Review </button>
       &nbsp;
       <button type="submit" onClick={(event) => { closeForm(event); }}> Close Review </button>
     </div>

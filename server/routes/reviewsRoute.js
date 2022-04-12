@@ -106,13 +106,14 @@ router.post('/photos/upload', fileUpload.single('photos'), (req, res, next) => {
   // const options = {
   //   headers: { 'Content-type': 'image/jpeg' }
   // }
-  console.log('req.file', req.file);
+  // console.log('req.file', req.file);
   const streamUpload = (req) => {
     return new Promise((resolve, reject) => {
       const stream = cloudinary.uploader.upload_stream(
         (error, result) => {
           if (result) {
             resolve(result);
+            res.send(result.url);
           } else {
             reject(error);
           }
@@ -124,7 +125,7 @@ router.post('/photos/upload', fileUpload.single('photos'), (req, res, next) => {
 
   async function upload(req) {
     let result = await streamUpload(req);
-    // console.log(result);
+    console.log(result);
   }
 
   upload(req);
