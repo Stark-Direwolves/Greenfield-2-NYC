@@ -3,7 +3,6 @@
 /* eslint-disable max-len */
 /* eslint-disable import/extensions */
 import React, { useState } from 'react';
-import { ChevronDoubleDownIcon } from '@heroicons/react/solid';
 import Ratings from './components/Ratings';
 import ReviewList from './components/ReviewList';
 import NewReview from './components/NewReview';

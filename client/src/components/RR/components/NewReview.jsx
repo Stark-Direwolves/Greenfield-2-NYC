@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable quote-props */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
@@ -20,9 +21,9 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
   const [charComfort, setCharComfort] = useState(0);
   const [charQuality, setCharQuality] = useState(0);
   const [charLength, setCharLength] = useState(0);
-  const [charFit, setCharFit] = useState(1);
+  const [charFit, setCharFit] = useState(0);
 
-  let characteristics = {};
+  const characteristics = {};
   if (meta.characteristics.Size) {
     const size = meta.characteristics.Size.id;
     characteristics[String(size)] = Number(charSize);
@@ -61,13 +62,17 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
   };
 
   const submitPhoto = (event) => {
-    axios.post('/photos/upload', formPhotos)
+    // const body = { photos: formPhotos[0] };
+    console.log(formPhotos[0]);
+    const options = {
+      headers: { 'Content-type': 'image/jpeg' }
+    };
+    axios.post('/reviews/photos/upload', formPhotos[0], options)
       .then((res) => {
         console.log(res.url);
-        formPhotos.push(res.url);
       })
       .catch((err) => {
-        console.log(err);
+        console.log('photo didnt go through', err);
       });
   };
 
@@ -136,7 +141,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
       <br />
       <div>
         <b> Select Characteristics </b>
-        <FormCharacteristics>
+        <div>
           Size
           &nbsp;
           A size too small
@@ -174,7 +179,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
             checked={charSize === '5'}
             value="5"
           />
-        </FormCharacteristics>
+        </div>
         <div>
           Width
           &nbsp;
@@ -466,7 +471,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
       <br />
       <div>
         <b> Upload Your Photos </b>
-        <input type="file" multiple onChange={(e) => { setFormPhotos(Array.from(e.target.files)); }} />
+        <input type="file" multiple onChange={(e) => { setFormPhotos(Array.from(e.target.files)) }} />
         <AddPhoto>
           {(formPhotos.length >= 1)
             ? formPhotos.map((photo, i) => <img key={i} src={URL.createObjectURL(photo)} alt="" style={{ height: '80px', width: '80px', padding: '10px' }} />)
@@ -474,7 +479,8 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
         </AddPhoto>
       </div>
       <br />
-      <button type="submit" onClick={(event) => { submitForm(event); }}> Submit Review </button>
+
+      <button type="submit" onClick={(event) => { submitForm(event); (submitPhoto(event)) }}> Submit Review </button>
       &nbsp;
       <button type="submit" onClick={(event) => { closeForm(event); }}> Close Review </button>
     </div>
