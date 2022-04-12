@@ -27,7 +27,7 @@ function Comparison({
     ? createPortal(
       <ComparisonBackground data-testid="comparison">
         <ComparisonContainer>
-          <ModalButton type="button" onClick={toggleCompare}><XIcon /></ModalButton>
+          <ModalButton type="button" onClick={toggleCompare} data-testid="modalButton"><XIcon /></ModalButton>
           <h3>compare</h3>
           <StyledTable>
             <thead>

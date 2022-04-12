@@ -3,7 +3,7 @@
 import React from 'react';
 import RatingsBox from '../RRstyles/RatingsBox';
 
-function Ratings({ reviewCount, averageRating, totalReviews, meta, percentRecommended, currentProduct }) {
+function Ratings({ averageRating, totalReviews, meta, percentRecommended, currentProduct }) {
   let [size, width, comfort, quality, length, fit] = Array(6).fill(0);
 
   if (meta.characteristics.Size) {
@@ -54,7 +54,7 @@ function Ratings({ reviewCount, averageRating, totalReviews, meta, percentRecomm
       />
       <br />
       <b>
-        {reviewCount}
+        {totalReviews}
         {' '}
         Total Reviews
       </b>

@@ -1,9 +1,11 @@
 import React from 'react';
 import Carousel, { CarouselItem } from './Carousel';
-import { StyledImageGallery, StyledImageSelector, StyledImagePreview, CurvedDiv, StyledImg, StyledLi, StyledUl } from './styles/ImageGallery.styled';
+import ExpandedZoom from './ExpandedZoom';
+import { StyledImageGallery, StyledImageSelector, StyledImagePreview, CurvedDiv, StyledImg, StyledLi, StyledUl} from './styles/ImageGallery.styled';
 
-function ImageGallery({ styleImages }) {
+function ImageGallery({ styleImages, setExpanded, expanded }) {
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
+  const [expandedZoom, setExpandedZoom] = React.useState(false);
 
   const updateIndex = (newIndex) => {
     if (newIndex < 0) {
@@ -21,6 +23,7 @@ function ImageGallery({ styleImages }) {
 
   return (
     <StyledImageGallery>
+      { expandedZoom ? <ExpandedZoom expandedZoom={expandedZoom} setExpandedZoom={setExpandedZoom} image={styleImages[currentImageIndex]} /> : <></> }
       <StyledImagePreview>
         <Carousel
           styleImages={styleImages}
@@ -28,8 +31,10 @@ function ImageGallery({ styleImages }) {
           limit={styleImages.length}
           currentImageIndex={currentImageIndex}
           updateIndex={updateIndex}
+          setExpanded={setExpanded}
+          expanded={expanded}
         >
-          {styleImages.map((image, index) => <CarouselItem image={image} key={index} />)}
+          {styleImages.map((image, index) => <CarouselItem image={image} key={index} expanded={expanded} expandedZoom={expandedZoom} setExpandedZoom={setExpandedZoom} setExpanded={setExpanded} />)}
         </Carousel>
       </StyledImagePreview>
       <StyledImageSelector>

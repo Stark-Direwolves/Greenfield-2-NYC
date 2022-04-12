@@ -15,8 +15,7 @@ import CharacteristicRatings from './RRstyles/CharacteristicRatings.js';
 
 const { findReviewCount, findAverageRating, findPercentRecommended } = require('./RatingHelpers.js');
 
-function RR({ reviews, meta, product }) {
-  const reviewCount = findReviewCount(meta.ratings);
+function RR({ reviews, meta, product, getReviewSort }) {
   const averageRating = findAverageRating(meta.ratings);
   const totalReviews = findReviewCount(meta.ratings);
   const percentRecommended = findPercentRecommended(meta.recommended);
@@ -52,7 +51,7 @@ function RR({ reviews, meta, product }) {
           )
           : null}
             <RRcontainer>
-              <Ratings reviewCount={reviewCount} averageRating={averageRating} totalReviews={totalReviews} percentRecommended={percentRecommended} meta={meta} currentProduct={currentProduct}/>
+              <Ratings averageRating={averageRating} totalReviews={totalReviews} percentRecommended={percentRecommended} meta={meta} currentProduct={currentProduct}/>
               <CharacteristicRatings>
                 {(size > 0)
                   ? <div className="slidecontainer">
@@ -122,7 +121,7 @@ function RR({ reviews, meta, product }) {
                   : null}
               </CharacteristicRatings>
               <div>
-                <ReviewList reviewslist={reviews.results} setShowModal={() => setShowModal(true)} />
+                <ReviewList currentProductId={currentProductId} reviewslist={reviews.results} setShowModal={() => setShowModal(true)} getReviewSort={getReviewSort} />
               </div>
             </RRcontainer>
       </div>
