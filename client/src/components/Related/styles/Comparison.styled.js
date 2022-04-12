@@ -10,6 +10,7 @@ const ComparisonBackground = styled.div`
   height: 100%;
   position: fixed;
   background-color: rgba(128, 128, 128, 0.5);
+  z-index: 500;
 `;
 
 const ComparisonContainer = styled.div`
