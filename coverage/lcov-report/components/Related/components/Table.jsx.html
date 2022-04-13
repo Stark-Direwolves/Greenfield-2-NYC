@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">22.22% </span>
+                <span class="strong">88.88% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/9</span>
+                <span class='fraction'>8/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">62.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>5/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/8</span>
+                <span class='fraction'>7/8</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -107,16 +107,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -145,24 +145,24 @@
 import PropTypes from 'prop-types';
 import { CheckIcon } from '@heroicons/react/outline';
 &nbsp;
-function <span class="fstat-no" title="function not covered" >Table(</span>{ feature, current, related }) {
-  const toggleFeature = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(p</span>roduct, features) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    for (let i = <span class="cstat-no" title="statement not covered" >0;</span> i &lt; product.length; i += 1) {</span>
-<span class="cstat-no" title="statement not covered" >      if (product[i].feature === features.feature &amp;&amp; product[i].value === features.value) {</span>
-<span class="cstat-no" title="statement not covered" >        return true;</span>
+function Table({ feature, current, related }) {
+  const toggleFeature = (product, features) =&gt; {
+    for (let i = 0; i &lt; product.length; i += 1) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (product[i].feature === features.feature &amp;&amp; product[i].value === features.value) {
+        return true;
       }
     }
 <span class="cstat-no" title="statement not covered" >    return false;</span>
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;tr&gt;
-      &lt;td className="center"&gt;{toggleFeature(current, feature) ? &lt;CheckIcon /&gt; : null}&lt;/td&gt;
+      &lt;td className="center"&gt;{toggleFeature(current, feature) ? &lt;CheckIcon /&gt; : <span class="branch-1 cbranch-no" title="branch not covered" >null}</span>&lt;/td&gt;
       &lt;td&gt;
         &lt;b&gt;{feature.feature}&lt;/b&gt;
         {`: ${feature.value}`}
       &lt;/td&gt;
-      &lt;td className="center"&gt;{toggleFeature(related, feature) ? &lt;CheckIcon /&gt; : null}&lt;/td&gt;
+      &lt;td className="center"&gt;{toggleFeature(related, feature) ? &lt;CheckIcon /&gt; : <span class="branch-1 cbranch-no" title="branch not covered" >null}</span>&lt;/td&gt;
     &lt;/tr&gt;
   );
 }
@@ -187,7 +187,7 @@ export default Table;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Tue Apr 12 2022 16:47:06 GMT-0700 (Pacific Daylight Time)
+                at Tue Apr 12 2022 16:55:54 GMT-0700 (Pacific Daylight Time)
             </div>
         <script src="../../../prettify.js"></script>
         <script>

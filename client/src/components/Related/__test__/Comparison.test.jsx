@@ -1,5 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import Theme from '../../Theme';
+import '@testing-library/jest-dom';
 import Comparison from '../components/Comparison';
 
 const current = {
@@ -20,9 +22,13 @@ const related = {
 
 describe('Comparison Modal', () => {
   it('renders comparison modal', () => {
-    render(<Comparison compare current={current} related={related} />);
+    render(
+      <Theme>
+        <Comparison compare current={current} related={related} />
+      </Theme>,
+    );
     expect(screen.getByTestId('comparison').toBeInTheDocument());
-    expect(screen.getByTestId('modalButton').toBeInTheDoucment());
+    expect(screen.getByTestId('modalButton').toBeInTheDocument());
   });
 
   it('doesn\'t render comparison modal', () => {
