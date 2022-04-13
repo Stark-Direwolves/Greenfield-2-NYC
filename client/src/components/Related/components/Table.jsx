@@ -17,7 +17,7 @@ function Table({ feature, current, related }) {
       <td className="center">{toggleFeature(current, feature) ? <CheckIcon /> : null}</td>
       <td>
         <b>{feature.feature}</b>
-        {`: ${feature.value}`}
+        {feature.value ? `: ${feature.value}` : null}
       </td>
       <td className="center">{toggleFeature(related, feature) ? <CheckIcon /> : null}</td>
     </tr>

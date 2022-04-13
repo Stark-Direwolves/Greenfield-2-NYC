@@ -4,6 +4,7 @@ const ImageContainer = styled.div`
   width: 250px;
   height: 250px;
   border: 1px solid black;
+  box-shadow: 2px 0 5px gray;
 `;
 
 const StyledImage = styled.img`

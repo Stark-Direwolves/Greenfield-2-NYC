@@ -72,6 +72,20 @@ const AddButton = styled.button`
   height: 50px;
   background-color: transparent;
   border: none;
+
+  @keyframes enlarge {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.2);
+    }
+  }
+
+  :hover {
+    animation: enlarge 0.3s;
+    animation-fill-mode: forwards;
+  }
 `;
 
 export {
