@@ -15,9 +15,8 @@ const moment = require('moment');
 function Review({ review }) {
   const [clicked, setClicked] = useState(false);
   const [report, setReport] = useState(false);
-  const [clickYes, setClickYes] = useState(0);
-  // const [clickNo, setClickNo] = useState(0);
   const [viewMore, setViewMore] = useState(false);
+  const [viewPhoto, setViewPhoto] = useState(false);
 
   // no review API information for no counter, omitting for now
   // const updateNoCount = (event) => {
@@ -27,12 +26,9 @@ function Review({ review }) {
   // };
 
   const updateYesCount = () => {
-    console.log(review.review_id);
     axios.put(`/reviews/${review.review_id}/helpful`)
-      .then((res) => {
-        setClickYes(clickYes + 1);
+      .then(() => {
         setClicked(true);
-        console.log(res);
       })
       .catch((err) => {
         console.log('unable to vote', err);
@@ -52,6 +48,10 @@ function Review({ review }) {
 
   const viewMoreBody = () => {
     setViewMore(true);
+  };
+
+  const seePhotoPreview = () => {
+    setViewPhoto(!viewPhoto);
   };
 
   return (
@@ -84,14 +84,20 @@ function Review({ review }) {
       <div4 is="x3d">{moment(review.date).format('MMM Do YYYY')}</div4>
       <div4 is="x3d">
         {(review.photos.length >= 1)
-          ? review.photos.map((photo, i) => <img key={i} src={`${photo.url}`} alt="" style={{ maxHeight: '100px', maxWidth: '100%', padding: '10px' }}/>)
+          ? review.photos.map((photo, i) => <img key={i} src={`${photo.url}`} alt="" style={{ maxHeight: '100px', maxWidth: '100%', padding: '10px' }} onClick={seePhotoPreview} />)
           : null}
       </div4>
       <div4 is="x3d">
         Was this rating Helpful?
         &nbsp;
         {(clicked)
-          ? ('Thanks for your vote!')
+          ? (<ReviewHelpful>
+            Yes:
+            {' '}
+            {review.helpfulness + 1}
+            {' '}
+            Thanks for voting!
+          </ReviewHelpful>)
           : (
             <ReviewHelpful onClick={updateYesCount}>
               Yes:

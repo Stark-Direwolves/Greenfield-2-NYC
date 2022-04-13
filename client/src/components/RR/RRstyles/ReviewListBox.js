@@ -5,6 +5,7 @@ justify-content: space-between;
 z-index: auto;
 margin-left: 15%;
 margin-top: -28%;
+position: static;
 `;
 
 export default ReviewListBox;
