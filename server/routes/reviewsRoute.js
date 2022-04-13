@@ -2,7 +2,7 @@
 const express = require('express');
 const axios = require('axios');
 const cloudinary = require('cloudinary').v2;
-const streamifier = require('streamifier')
+const streamifier = require('streamifier');
 const multer = require('multer');
 const fileUpload = multer();
 
