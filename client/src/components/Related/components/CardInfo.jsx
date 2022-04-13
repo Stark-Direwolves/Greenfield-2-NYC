@@ -19,17 +19,13 @@ function CardInfo({ related, sale }) {
       {sale
         ? (
           <div>
-            <s>
-              $
-              {related.styles[0].original_price}
-            </s>
-            {related.styles[0].sale_price}
+            <s>{`$${related.styles[0].original_price}`}</s>
+            <span>{` $${related.styles[0].sale_price}`}</span>
           </div>
         )
         : (
           <div>
-            $
-            {related.styles[0].original_price}
+            {`$${related.styles[0].original_price}`}
           </div>
         )}
       <div>
