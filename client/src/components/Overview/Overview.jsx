@@ -29,6 +29,23 @@ function Overview({
 }) {
   // const [expanded, setExpanded] = React.useState(false);
 
+  const [curStyles, setCurStyles] = React.useState(styles.results);
+
+  React.useEffect(() => { // if product is 65632, hardcode null images. is there a better way?
+    if (product.id === 65632) {
+      const replacement = Object.create(styles.results)
+      replacement[0].photos[0].url = '/assets/blackblack.jpg'
+      replacement[0].photos[0].thumbnail_url = '/assets/blackblack.jpg'
+      replacement[1].photos[0].url = '/assets/blackgold.jpg'
+      replacement[1].photos[0].thumbnail_url = '/assets/blackgold.jpg'
+      replacement[2].photos[0].url = '/assets/goldblack.jpg'
+      replacement[2].photos[0].thumbnail_url = '/assets/goldblack.jpg'
+      replacement[3].photos[0].url = '/assets/goldgold.jpg'
+      replacement[3].photos[0].thumbnail_url = '/assets/goldgold.jpg'
+      setCurStyles(replacement);
+    }
+  }, []);
+
   return (
     <StyledOverview expanded={expanded} >
       <ImageGallery styleImages={currentStyle.photos} setExpanded={setExpanded} expanded={expanded} />
@@ -42,11 +59,11 @@ function Overview({
           <StyleSelector
             currentStyle={currentStyle}
             setCurrentStyle={setCurrentStyle}
-            styles={styles.results}
+            styles={curStyles}
           />
           <AddToCart
             currentStyle={currentStyle}
-            styles={styles}
+            styles={curStyles}
             currentSku={currentSku}
             currentSize={currentSize}
             currentQty={currentQty}
