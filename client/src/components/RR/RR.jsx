@@ -38,7 +38,6 @@ function RR({ reviews, meta, product, getReviewSort }) {
     fit = Number(meta.characteristics.Fit.value)};
 
   return (
-    // if there are reviews, if none just show add review button
     <div id="reviews" style={{ backgroundColor: '#EDEDE9' }}>
       <div>
         <h3> Ratings & Reviews </h3>
