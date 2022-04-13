@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const cloudinary = require('cloudinary');
+const formData = require('express-form-data')
 require('dotenv').config();
 
 const router = express.Router();
@@ -11,6 +12,8 @@ cloudinary.config({
   api_key: process.env.API_KEY,
   api_secret: process.env.API_SECRET,
 });
+
+router.use(formData.parse());
 
 // get all 99 questions GET /qa/questions
 const getQA = (id) => {
@@ -163,13 +166,12 @@ router.put('/answers/:answers/helpful', (req, res) => {
 });
 
 router.post('/answers/image-upload', (req, res) => {
-  console.log('in server')
-  // const values = Object.values(req.files);
-  // const promises = values.map((image) => cloudinary.v2.uploader.upload(image.path));
+  const values = Object.values(req.files);
+  const promises = values.map((image) => cloudinary.v2.uploader.upload(image.path));
 
-  // Promise
-  //   .all(promises)
-  //   .then((results) => res.json(results));
+  Promise.all(promises)
+    .then((results) => res.send(results))
+    .catch((err) => new Error(err));
 });
 
 module.exports = router;

@@ -45,6 +45,7 @@
     "cloudinary": "^1.29.0",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "express-form-data": "^2.0.17",
     "fontawesome": "^5.6.3",
     "install": "^0.13.0",
     "moment": "^2.29.2",
