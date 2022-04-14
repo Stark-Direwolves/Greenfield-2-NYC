@@ -12,3 +12,5 @@ node_modules/
 
 ## compiled ##
 client/dist/bundle.*
+
+starkfront.pem
