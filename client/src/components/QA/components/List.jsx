@@ -4,11 +4,12 @@ import styled from 'styled-components';
 import Question from './Question';
 
 const ListContainer = styled.div`
-width: 98%;
+width: 100%;
 overflow: hidden;
 overflow-y: scroll;
-margin: 10px 15px;
+margin: auto;
 background: linear-gradient(0deg, rgba(255,255,255,.6) 0%, rgba(0,0,0,0) 20%);
+border-bottom: 1px solid black;
 `;
 
 function List({ questions, productName, display, setDisplay }) {

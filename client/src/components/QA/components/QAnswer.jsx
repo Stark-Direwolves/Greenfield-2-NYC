@@ -22,7 +22,7 @@ margin-right: 10px;
 const AFooterContainer = styled.div`
 display: flex;
 font-size: 12px;
-font-weight: 700;
+font-weight: 600;
 margin: 12px 0px;
 text-transform: uppercase;
 `;
@@ -90,20 +90,25 @@ function QAnswer({ answer }) {
           : null}
       </APhotoContainer>
       <AFooterContainer>
-        <AuthorContainer>by: {(answer.answerer_name.toLowerCase() === 'seller') ? <b>{answer.answerer_name}</b> : answer.answerer_name}
+        <AuthorContainer>
+          by:
+          {' '}
+          {(answer.answerer_name.toLowerCase() === 'seller') ? <span style={{ fontWeight: '900', fontSize: '14px' }}>{answer.answerer_name}</span> : answer.answerer_name}
           , {moment(answer.date).format('LL')}
         </AuthorContainer>
         <AHelpContainer>
           Helpful?&nbsp;
-          {!isHelpful ? (<span onClick={updateHelpA}>Yes</span>) : (<span>ty</span>)}
-          ({answerHelp})
+          {!isHelpful ? (<span onClick={updateHelpA} style={{ textDecorationLine: 'underline', cursor: 'pointer' }}>Yes</span>) : (<span>ty</span>)}
+          (
+          {answerHelp}
+          )
         </AHelpContainer>
         <AReportContainer>
           {!reported
             ? (
-              <span onClick={updateReport}>Report</span>
+              <span onClick={updateReport} style={{ textDecorationLine: 'underline', cursor: 'pointer' }}>Report</span>
             ) : (
-              <span>Reported!</span>
+              <span style={{ textDecorationLine: 'underline', cursor: 'pointer' }}>Reported!</span>
             )}
         </AReportContainer>
       </AFooterContainer>

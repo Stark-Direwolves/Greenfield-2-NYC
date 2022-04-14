@@ -121,13 +121,18 @@ function Question({ question, productName }) {
         <QuestionTitle>Q: {question.question_body}</QuestionTitle>
         <QHRAContainer>
           <HelpfulQContainer>Helpful?&nbsp;
-            {!isHelpfulQ ? (<span onClick={updateHelpQ}>Yes</span>) : (<span>ty</span>)}
+            {!isHelpfulQ ? (<span onClick={updateHelpQ} style={{ textDecorationLine: 'underline', cursor: 'pointer' }}>Yes</span>) : (<span>ty</span>)}
             <span>({qHelpful})</span>
           </HelpfulQContainer>
           <ReportQContainer>
             {!reported
               ? (
-                <span onClick={updateReport}>Report</span>
+                <div
+                  onClick={updateReport}
+                  style={{ textDecorationLine: 'underline', cursor: 'pointer' }}
+                >
+                  Report
+                </div>
               ) : (
                 <span>Reported!</span>
               )}
