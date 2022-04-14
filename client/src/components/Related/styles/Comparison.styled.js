@@ -10,6 +10,7 @@ const ComparisonBackground = styled.div`
   height: 100%;
   position: fixed;
   background-color: rgba(128, 128, 128, 0.5);
+  z-index: 500;
 `;
 
 const ComparisonContainer = styled.div`
@@ -29,6 +30,17 @@ const ComparisonContainer = styled.div`
     text-transform: uppercase;
     letter-spacing: 5px;
   }
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  animation: fade 0.5s;
 `;
 
 const StyledTable = styled.table`

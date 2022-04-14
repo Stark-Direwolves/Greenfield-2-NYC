@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { XIcon } from '@heroicons/react/solid';
-import CardContainer from '../styles/CardContainer.styled';
+import { OutfitCardContainer } from '../styles/CardContainer.styled';
 import { ActionButton } from '../styles/StyledButtons.styled';
 import { StyledImage, ImageContainer } from '../styles/Image.styled';
 import OutfitCardInfo from './OutfitCardInfo';
@@ -20,7 +20,7 @@ function OutfitCard({ outfit, removeOutfit }) {
   }, []);
 
   return (
-    <CardContainer>
+    <OutfitCardContainer>
       <ActionButton type="button" onClick={() => removeOutfit(outfit)}><XIcon /></ActionButton>
       <ImageContainer>
         <StyledImage
@@ -31,7 +31,7 @@ function OutfitCard({ outfit, removeOutfit }) {
         />
       </ImageContainer>
       <OutfitCardInfo outfit={outfit} sale={sale} />
-    </CardContainer>
+    </OutfitCardContainer>
   );
 }
 

@@ -74,7 +74,7 @@ function Outfit({ product, style, meta }) {
   return (
     <OutfitContainer>
       <h3>My Outfits</h3>
-      <CarouselContainer style={{ transform: `translateX(-${index * 275}px)` }}>
+      <CarouselContainer style={{ transform: `translateX(-${index * 272}px)` }}>
         <AddOutfit addOutfit={addOutfit} product={product} />
         {outfits.map((outfit) => (
           <OutfitCard

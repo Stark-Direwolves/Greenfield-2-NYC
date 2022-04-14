@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { StarIcon } from '@heroicons/react/outline';
 import { StyledImage, ImageContainer } from '../styles/Image.styled';
-import CardContainer from '../styles/CardContainer.styled';
+import { CardContainer } from '../styles/CardContainer.styled';
 import { ActionButton } from '../styles/StyledButtons.styled';
 import Comparison from './Comparison';
 import CardInfo from './CardInfo';
@@ -38,7 +38,7 @@ function Card({ related, current }) {
       </ActionButton>
       <ImageContainer>
         <StyledImage
-          src={related.styles[0].photos[0].url}
+          src={related.styles[0].photos[0].url ? related.styles[0].photos[0].url : '/assets/blackgold.jpg'}
           onClick={() => {
             window.location.href = `/${related.id}`;
           }}

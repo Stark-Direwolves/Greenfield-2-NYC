@@ -13,9 +13,8 @@ const StyledInner = styled.div`
 
 const StyledCarouselItem = styled.div`
   display: inline-flex;
-  align-items: center;
-  height: 650px;
   width: ${(props) => props.width};
+  height: ${(props) => props.height};
   justify-content: center;
   color: #fff;
 `;
@@ -25,6 +24,9 @@ const StyledImg = styled.img`
   max-height:100%;
   max-width:100%;
   object-fit: cover;
+  &:hover {
+    cursor: zoom-in;
+  }
 `;
 
 const StyledButton = styled.button`

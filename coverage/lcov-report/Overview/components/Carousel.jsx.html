@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>0/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>0/15</span>
             </div>
         
             
@@ -96,7 +96,21 @@
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -118,6 +132,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -153,10 +181,24 @@ function <span class="fstat-no" title="function not covered" >Carousel(</span>{ 
   );
 };
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >CarouselItem(</span>{ width, image }) {
+export function <span class="fstat-no" title="function not covered" >CarouselItem(</span>{ width, image, expanded, expandedZoom, setExpandedZoom, setExpanded }) {
+  let height = <span class="cstat-no" title="statement not covered" >'650px';</span>
+<span class="cstat-no" title="statement not covered" >  if (expanded) {</span>
+<span class="cstat-no" title="statement not covered" >    height = (window.innerHeight - 50).toString();</span>
+<span class="cstat-no" title="statement not covered" >    height += 'px';</span>
+  }
+&nbsp;
+  const handleClick = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (!expanded) {</span>
+<span class="cstat-no" title="statement not covered" >      setExpanded(true);</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      setExpandedZoom(true);</span>
+    }
+  };
+&nbsp;
 <span class="cstat-no" title="statement not covered" >  return (</span>
-    &lt;StyledCarouselItem width={width}&gt;
-      &lt;StyledImg src={image.url} /&gt;
+    &lt;StyledCarouselItem width={width} height={height} &gt;
+      &lt;StyledImg src={image.url} onClick={handleClick}/&gt;
     &lt;/StyledCarouselItem&gt;
   );
 }
@@ -169,7 +211,15 @@ export default Carousel;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+<<<<<<< HEAD
                 at Mon Apr 11 2022 15:56:23 GMT-0700 (Pacific Daylight Time)
+=======
+<<<<<<< HEAD
+                at Tue Apr 12 2022 10:42:40 GMT-0700 (Pacific Daylight Time)
+=======
+                at Mon Apr 11 2022 16:59:15 GMT-0700 (Pacific Daylight Time)
+>>>>>>> 34a4eb8b510b67fb071f6469262a527a9495bf28
+>>>>>>> main
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -3,7 +3,6 @@
 /* eslint-disable max-len */
 /* eslint-disable import/extensions */
 import React, { useState } from 'react';
-import { ChevronDoubleDownIcon } from '@heroicons/react/solid';
 import Ratings from './components/Ratings';
 import ReviewList from './components/ReviewList';
 import NewReview from './components/NewReview';
@@ -15,8 +14,7 @@ import CharacteristicRatings from './RRstyles/CharacteristicRatings.js';
 
 const { findReviewCount, findAverageRating, findPercentRecommended } = require('./RatingHelpers.js');
 
-function RR({ reviews, meta, product }) {
-  const reviewCount = findReviewCount(meta.ratings);
+function RR({ reviews, meta, product, getReviewSort }) {
   const averageRating = findAverageRating(meta.ratings);
   const totalReviews = findReviewCount(meta.ratings);
   const percentRecommended = findPercentRecommended(meta.recommended);
@@ -40,7 +38,6 @@ function RR({ reviews, meta, product }) {
     fit = Number(meta.characteristics.Fit.value)};
 
   return (
-    // if there are reviews, if none just show add review button
     <div id="reviews" style={{ backgroundColor: '#EDEDE9' }}>
       <div>
         <h3> Ratings & Reviews </h3>
@@ -48,11 +45,11 @@ function RR({ reviews, meta, product }) {
       <div>
         {(showModal === true)
           ? (
-            <AddReview><NewReview currentProduct={currentProduct} currentProductId={currentProductId} setShowModal={setShowModal}> </NewReview></AddReview>
+            <AddReview><NewReview currentProduct={currentProduct} currentProductId={currentProductId} setShowModal={setShowModal} meta={meta}> </NewReview></AddReview>
           )
           : null}
             <RRcontainer>
-              <Ratings reviewCount={reviewCount} averageRating={averageRating} totalReviews={totalReviews} percentRecommended={percentRecommended} meta={meta} currentProduct={currentProduct}/>
+              <Ratings averageRating={averageRating} totalReviews={totalReviews} percentRecommended={percentRecommended} meta={meta} currentProduct={currentProduct}/>
               <CharacteristicRatings>
                 {(size > 0)
                   ? <div className="slidecontainer">
@@ -122,7 +119,7 @@ function RR({ reviews, meta, product }) {
                   : null}
               </CharacteristicRatings>
               <div>
-                <ReviewList reviewslist={reviews.results} setShowModal={() => setShowModal(true)} />
+                <ReviewList currentProductId={currentProductId} reviewslist={reviews.results} setShowModal={() => setShowModal(true)} getReviewSort={getReviewSort} />
               </div>
             </RRcontainer>
       </div>

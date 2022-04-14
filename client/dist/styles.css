@@ -6,7 +6,7 @@ html {
   scroll-behavior: smooth;
 }
 
-#related {
+/* #related {
   position: relative;
   background-color:aliceblue;
   padding: 20px;
@@ -18,12 +18,12 @@ html {
   background-color:aliceblue;
   padding: 20px;
   overflow-x: hidden;
-}
+} */
 
-#qa {
+/* #qa {
   background-color:aliceblue;
   padding: 20px;
-}
+} */
 
 #rr {
   background-color:aliceblue;

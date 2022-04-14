@@ -1,13 +1,14 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable quote-props */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import axios from 'axios';
-import { StarIcon, xcircle } from '@heroicons/react/outline';
 import AddReview from '../RRstyles/AddReview';
 import AddPhoto from '../RRstyles/AddPhoto';
 import FormCharacteristics from '../RRstyles/FormCharacteristics';
+import SubmitCloseReview from '../RRstyles/SubmitCloseReview';
 
-function NewReview({ currentProduct, currentProductId, setShowModal }) {
+function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
   const [formRating, setFormRating] = useState(0);
   const [formSummary, setFormSummary] = useState('');
   const [formBody, setFormBody] = useState('');
@@ -15,40 +16,53 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
   const [formName, setFormName] = useState('');
   const [formEmail, setFormEmail] = useState('');
   const [formPhotos, setFormPhotos] = useState([]);
+  const [photoPreview, setPhotoPreview] = useState([]);
   // characteristics/meta data
   const [charSize, setCharSize] = useState(0);
   const [charWidth, setCharWidth] = useState(0);
   const [charComfort, setCharComfort] = useState(0);
   const [charQuality, setCharQuality] = useState(0);
   const [charLength, setCharLength] = useState(0);
-  const [charFit, setCharFit] = useState(1);
+  const [charFit, setCharFit] = useState(0);
 
-  const reviewBody = {
-    "product_id": currentProductId,
-    "rating": Number(formRating),
-    "summary": formSummary,
-    "body": formBody,
-    "recommend": (formRecommend === 'True'),
-    "name": formName,
-    "email": formEmail,
-    "photos": [],
-    "characteristics": { },
-  };
+  const characteristics = {};
+  if (meta.characteristics.Size) {
+    const size = meta.characteristics.Size.id;
+    characteristics[String(size)] = Number(charSize);
+  }
+  if (meta.characteristics.Width) {
+    const width = meta.characteristics.Width.id;
+    characteristics[String(width)] = Number(charWidth);
+  }
+  if (meta.characteristics.Comfort) {
+    const comfort = meta.characteristics.Comfort.id;
+    characteristics[String(comfort)] = Number(charComfort);
+  }
+  if (meta.characteristics.Quality) {
+    const quality = meta.characteristics.Quality.id;
+    characteristics[String(quality)] = Number(charQuality);
+  }
+  if (meta.characteristics.Length) {
+    const length = meta.characteristics.Length.id;
+    characteristics[String(length)] = Number(charLength);
+  }
+  if (meta.characteristics.Fit) {
+    const fit = meta.characteristics.Fit.id;
+    characteristics[String(fit)] = Number(charFit);
+  }
 
-  const submitPhoto = (event) => {
-    axios.post('/photos/upload', formPhotos)
-      .then((res) => {
-        console.log(res.url);
-        formPhotos.push(res.url);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const submitForm = (event) => {
-    event.preventDefault();
-    console.log(reviewBody);
+  const submitForm = () => {
+    const reviewBody = {
+      "product_id": currentProductId,
+      "rating": Number(formRating),
+      "summary": formSummary,
+      "body": formBody,
+      "recommend": (formRecommend === 'True'),
+      "name": formName,
+      "email": formEmail,
+      "photos": formPhotos,
+      "characteristics": characteristics,
+    };
     setShowModal((prev) => !prev);
     axios.post('/reviews', reviewBody)
       .then((res) => {
@@ -56,6 +70,22 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
       })
       .catch((err) => {
         console.log('uh oh try again', err);
+      });
+  };
+
+  const submitPhoto = () => {
+    const data = new FormData();
+    data.append('photos', photoPreview[0]);
+    axios.post('/reviews/photos/upload', data)
+      .then((res) => {
+        formPhotos.push((res.data));
+      })
+      .then(() => {
+        console.log(formPhotos);
+        submitForm();
+      })
+      .catch((err) => {
+        console.log('photo didnt go through', err);
       });
   };
 
@@ -109,266 +139,343 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
         />
       </div>
       <br />
-      <div>
+      <div style={{ width: '600px', border: '2px solid black', padding: '1%', borderRadius: '5px' }}>
         <b> Select Characteristics </b>
-        <FormCharacteristics>
-          Size
-          &nbsp;
-          A size too small
-          <input
-            onChange={(e) => { setCharSize(e.target.value); }}
-            type="radio"
-            checked={charSize === '1'}
-            value="1"
-          />
-          1/2 a size too small
-          <input
-            onChange={(e) => { setCharSize(e.target.value); }}
-            type="radio"
-            checked={charSize === '2'}
-            value="2"
-          />
-          Perfect
-          <input
-            onChange={(e) => { setCharSize(e.target.value); }}
-            type="radio"
-            checked={charSize === '3'}
-            value="3"
-          />
-          1/2 a size too big
-          <input
-            onChange={(e) => { setCharSize(e.target.value); }}
-            type="radio"
-            checked={charSize === '4'}
-            value="4"
-          />
-          A size too wide
-          <input
-            onChange={(e) => { setCharSize(e.target.value); }}
-            type="radio"
-            checked={charSize === '5'}
-            value="5"
-          />
-        </FormCharacteristics>
-        <div>
-          Width
-          &nbsp;
-          Too narrow
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharWidth(e.target.value); }}
-            type="radio"
-            checked={formRating === '1'}
-            value="1"
-          />
-          Slightly narrow
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharWidth(e.target.value); }}
-            type="radio"
-            checked={charWidth === '2'}
-            value="2"
-          />
-          Perfect
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharWidth(e.target.value); }}
-            type="radio"
-            checked={charWidth === '3'}
-            value="3"
-          />
-          Slightly wide
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharWidth(e.target.value); }}
-            type="radio"
-            checked={charWidth === '4'}
-            value="4"
-          />
-          Too wide
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharWidth(e.target.value); }}
-            type="radio"
-            checked={charWidth === '5'}
-            value="5"
-          />
+        <div style={{ textAlign: 'center' }}>
+          <b style={{ fontWeight: '900', textDecoration: 'underline' }}>
+            Size
+          </b>
+          <br />
+          <FormCharacteristics>
+            A size too small
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharSize(e.target.value); }}
+              type="radio"
+              checked={charSize === '1'}
+              value="1"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            1/2 a size too small
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharSize(e.target.value); }}
+              type="radio"
+              checked={charSize === '2'}
+              value="2"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            Perfect
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharSize(e.target.value); }}
+              type="radio"
+              checked={charSize === '3'}
+              value="3"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            1/2 a size too big
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharSize(e.target.value); }}
+              type="radio"
+              checked={charSize === '4'}
+              value="4"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            A size too wide
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharSize(e.target.value); }}
+              type="radio"
+              checked={charSize === '5'}
+              value="5"
+            />
+          </FormCharacteristics>
         </div>
-        <div>
-          Comfort
-          &nbsp;
-          Uncomfortable
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharComfort(e.target.value); }}
-            type="radio"
-            checked={charComfort === '1'}
-            value="1"
-          />
-          Slightly uncomfortable
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharComfort(e.target.value); }}
-            type="radio"
-            checked={charComfort === '2'}
-            value="2"
-          />
-          Ok
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharComfort(e.target.value); }}
-            type="radio"
-            checked={charComfort === '3'}
-            value="3"
-          />
-          Comfortable
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharComfort(e.target.value); }}
-            type="radio"
-            checked={charComfort === '4'}
-            value="4"
-          />
-          Perfect
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharComfort(e.target.value); }}
-            type="radio"
-            checked={charComfort === '5'}
-            value="5"
-          />
+        <div style={{ textAlign: 'center' }}>
+          <b style={{ fontWeight: '900', textDecoration: 'underline' }}>
+            Width
+          </b>
+          <br />
+          <FormCharacteristics>
+            Too narrow
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharWidth(e.target.value); }}
+              type="radio"
+              checked={charWidth === '1'}
+              value="1"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            Slightly narrow
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharWidth(e.target.value); }}
+              type="radio"
+              checked={charWidth === '2'}
+              value="2"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            Perfect
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharWidth(e.target.value); }}
+              type="radio"
+              checked={charWidth === '3'}
+              value="3"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            Slightly wide
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharWidth(e.target.value); }}
+              type="radio"
+              checked={charWidth === '4'}
+              value="4"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            Too wide
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharWidth(e.target.value); }}
+              type="radio"
+              checked={charWidth === '5'}
+              value="5"
+            />
+          </FormCharacteristics>
         </div>
-        <div>
-          Quality
-          &nbsp;
-          Poor
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharQuality(e.target.value); }}
-            type="radio"
-            checked={charQuality === '1'}
-            value="1"
-          />
-          Below average
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharQuality(e.target.value); }}
-            type="radio"
-            checked={charQuality === '2'}
-            value="2"
-          />
-          What I expected
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharQuality(e.target.value); }}
-            type="radio"
-            checked={charQuality === '3'}
-            value="3"
-          />
-          Pretty great
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharQuality(e.target.value); }}
-            type="radio"
-            checked={charQuality === '4'}
-            value="4"
-          />
-          Perfect
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharQuality(e.target.value); }}
-            type="radio"
-            checked={charQuality === '5'}
-            value="5"
-          />
+        <div style={{ textAlign: 'center' }}>
+          <b style={{ fontWeight: '900', textDecoration: 'underline' }}>
+            Comfort
+          </b>
+          <br />
+          <FormCharacteristics>
+            Uncomfortable
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharComfort(e.target.value); }}
+              type="radio"
+              checked={charComfort === '1'}
+              value="1"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            Slightly Uncomfortable
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharComfort(e.target.value); }}
+              type="radio"
+              checked={charComfort === '2'}
+              value="2"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            Ok
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharComfort(e.target.value); }}
+              type="radio"
+              checked={charComfort === '3'}
+              value="3"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            Comfortable
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharComfort(e.target.value); }}
+              type="radio"
+              checked={charComfort === '4'}
+              value="4"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            Perfect
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharComfort(e.target.value); }}
+              type="radio"
+              checked={charComfort === '5'}
+              value="5"
+            />
+          </FormCharacteristics>
         </div>
-        <div>
-          Length
-          &nbsp;
-          Runs short
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharLength(e.target.value); }}
-            type="radio"
-            checked={charLength === '1'}
-            value="1"
-          />
-          Runs slightly short
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharLength(e.target.value); }}
-            type="radio"
-            checked={charLength === '2'}
-            value="2"
-          />
-          Perfect
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharLength(e.target.value); }}
-            type="radio"
-            checked={charLength === '3'}
-            value="3"
-          />
-          Runs slightly long
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharLength(e.target.value); }}
-            type="radio"
-            checked={charLength === '4'}
-            value="4"
-          />
-          Runs long
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharLength(e.target.value); }}
-            type="radio"
-            checked={charLength === '5'}
-            value="5"
-          />
+        <div style={{ textAlign: 'center' }}>
+          <b style={{ fontWeight: '900', textDecoration: 'underline' }}>
+            Quality
+          </b>
+          <br />
+          <FormCharacteristics>
+            Poor
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharQuality(e.target.value); }}
+              type="radio"
+              checked={charQuality === '1'}
+              value="1"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            Below average
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharQuality(e.target.value); }}
+              type="radio"
+              checked={charQuality === '2'}
+              value="2"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            What I expected
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharQuality(e.target.value); }}
+              type="radio"
+              checked={charQuality === '3'}
+              value="3"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            Pretty great
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharQuality(e.target.value); }}
+              type="radio"
+              checked={charQuality === '4'}
+              value="4"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            Perfect
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharQuality(e.target.value); }}
+              type="radio"
+              checked={charQuality === '5'}
+              value="5"
+            />
+          </FormCharacteristics>
         </div>
-        <div>
-          Fit
-          &nbsp;
-          Runs tight
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharFit(e.target.value); }}
-            type="radio"
-            checked={charFit === '1'}
-            value="1"
-          />
-          Runs slightly tight
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharFit(e.target.value); }}
-            type="radio"
-            checked={charFit === '2'}
-            value="2"
-          />
-          Perfect
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharFit(e.target.value); }}
-            type="radio"
-            checked={charFit === '3'}
-            value="3"
-          />
-          Runs slightly long
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharFit(e.target.value); }}
-            type="radio"
-            checked={charFit === '4'}
-            value="4"
-          />
-          Runs long
-          <input
-            style={{ textAlign: 'center' }}
-            onChange={(e) => { setCharFit(e.target.value); }}
-            type="radio"
-            checked={charFit === '5'}
-            value="5"
-          />
+        <div style={{ textAlign: 'center' }}>
+          <b style={{ fontWeight: '900', textDecoration: 'underline' }}>
+            Length
+          </b>
+          <br />
+          <FormCharacteristics>
+            Runs short
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharLength(e.target.value); }}
+              type="radio"
+              checked={charLength === '1'}
+              value="1"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            Runs slightly short
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharLength(e.target.value); }}
+              type="radio"
+              checked={charLength === '2'}
+              value="2"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            Perfect
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharLength(e.target.value); }}
+              type="radio"
+              checked={charLength === '3'}
+              value="3"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            Runs slightly long
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharLength(e.target.value); }}
+              type="radio"
+              checked={charLength === '4'}
+              value="4"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            Runs long
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharLength(e.target.value); }}
+              type="radio"
+              checked={charLength === '5'}
+              value="5"
+            />
+          </FormCharacteristics>
+        </div>
+        <div style={{ textAlign: 'center' }}>
+          <b style={{ fontWeight: '900', textDecoration: 'underline' }}>
+            Fit
+          </b>
+          <br />
+          <FormCharacteristics>
+            Runs tight
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharFit(e.target.value); }}
+              type="radio"
+              checked={charFit === '1'}
+              value="1"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            Runs slightly tight
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharFit(e.target.value); }}
+              type="radio"
+              checked={charFit === '2'}
+              value="2"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            Perfect
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharFit(e.target.value); }}
+              type="radio"
+              checked={charFit === '3'}
+              value="3"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            Runs slightly long
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharFit(e.target.value); }}
+              type="radio"
+              checked={charFit === '4'}
+              value="4"
+            />
+          </FormCharacteristics>
+          <FormCharacteristics>
+            Runs long
+            <input
+              // style={{ textAlign: 'center' }}
+              onChange={(e) => { setCharFit(e.target.value); }}
+              type="radio"
+              checked={charFit === '5'}
+              value="5"
+            />
+          </FormCharacteristics>
         </div>
       </div>
       <br />
@@ -394,7 +501,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
       <div>
         <b> Review Summary </b>
         <form>
-          <textarea type="text" maxLength="60" placeholder="Example: Best purchase ever!" onChange={(event) => { setFormSummary(event.target.value); }} style={{ width: '418px', resize: 'none' }} />
+          <textarea type="text" maxLength="60" placeholder="Example: Best purchase ever!" onChange={(event) => { setFormSummary(event.target.value); }} style={{ width: '620px', resize: 'none', marginTop: '10px' }} />
         </form>
       </div>
       <br />
@@ -402,7 +509,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
         <b> Review Body </b>
         <br />
         <form>
-          <textarea type="text" display="flex" maxLength="1000" size="60" placeholder="Why did you like the product or not?" style={{ resize: 'none', paddingBottom: 80, height: '60px', width: '418px' }} onChange={(event) => { setFormBody(event.target.value); }} required />
+          <textarea type="text" display="flex" maxLength="1000" size="60" placeholder="Why did you like the product or not?" style={{ resize: 'none', paddingBottom: 80, height: '60px', width: '620px', marginTop: '10px' }} onChange={(event) => { setFormBody(event.target.value); }} required />
           <div>
             {(formBody.length < 50)
               ? (
@@ -424,7 +531,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
       <div>
         <b> What is your Name </b>
         <form>
-          <textarea type="text" maxLength="60" placeholder="Example: jackson11!" onChange={(event) => { setFormName(event.target.value); }} style={{ resize: 'none' }} size="60" required />
+          <textarea type="text" maxLength="60" placeholder="Example: jackson11!" onChange={(event) => { setFormName(event.target.value); }} style={{ resize: 'none', marginTop: '10px' }} size="60" required />
           <br />
           <small> For privacy reasons, do not use your full name or email address </small>
         </form>
@@ -433,7 +540,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
       <div>
         <b> Email </b>
         <form>
-          <textarea type="text" maxLength="60" placeholder="Example: jackson11@email.com" onChange={(event) => { setFormEmail(event.target.value); }} style={{ resize: 'none' }} required />
+          <textarea type="text" maxLength="60" placeholder="Example: jackson11@email.com" onChange={(event) => { setFormEmail(event.target.value); }} style={{ resize: 'none', marginTop: '10px' }} required />
           <br />
           <small> For authentication reasons, you will not be emailed </small>
         </form>
@@ -441,17 +548,17 @@ function NewReview({ currentProduct, currentProductId, setShowModal }) {
       <br />
       <div>
         <b> Upload Your Photos </b>
-        <input type="file" multiple onChange={(e) => { setFormPhotos(Array.from(e.target.files)); }} />
+        <input type="file" multiple onChange={(e) => { setPhotoPreview(Array.from(e.target.files)) }} />
         <AddPhoto>
-          {(formPhotos.length >= 1)
-            ? formPhotos.map((photo, i) => <img key={i} src={URL.createObjectURL(photo)} alt="" style={{ height: '80px', width: '80px', padding: '10px' }} />)
+          {(photoPreview.length >= 1)
+            ? photoPreview.map((photo, i) => <img key={i} src={URL.createObjectURL(photo)} alt="" style={{ height: '80px', width: '80px', padding: '10px' }} />)
             : null}
         </AddPhoto>
       </div>
       <br />
-      <button type="submit" onClick={(event) => { submitForm(event); }}> Submit Review </button>
+      <SubmitCloseReview type="submit" onClick={(event) => { (submitPhoto(event)) }}> Submit Review </SubmitCloseReview>
       &nbsp;
-      <button type="submit" onClick={(event) => { closeForm(event); }}> Close Review </button>
+      <SubmitCloseReview type="submit" onClick={(event) => { closeForm(event); }}> Close Review </SubmitCloseReview>
     </div>
   );
 }
