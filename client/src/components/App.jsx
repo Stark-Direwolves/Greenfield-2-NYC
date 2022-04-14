@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import { RelatedContainer, OutfitContainer } from './Related/styles/RelatedContainer.styled';
 import QA from './QA/QA';
 import RR from './RR/RR';
 import Overview from './Overview/Overview';
@@ -24,7 +25,7 @@ const NavInner = styled.div`
   height: 50px;
   margin: auto;
   width: 1300px;
-`
+`;
 
 const Logo = styled.div`
   padding: 7px 0;
@@ -180,7 +181,7 @@ function App({ id }) {
         </>
       );
     }
-    return (<div>loading</div>)
+    return (null);
   };
 
   const renderQA = () => {
