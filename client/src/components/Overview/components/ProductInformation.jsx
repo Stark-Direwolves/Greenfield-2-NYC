@@ -5,25 +5,34 @@ import { StyledDiv, Category, Name, Price, BadPrice, Features, Feature, StyledA,
 
 function ProductInformation({ currentProduct, currentStyle, meta }) {
   let { category, name, description, slogan } = currentProduct;
-  let hasReviews = Object.keys(meta.ratings).length > 0
+  const renderReviews = () => {
+    if (meta) {
+      if (Object.keys(meta.ratings).length > 0) {
+        return (
+          <>
+            <StyledDiv>
+              <span
+                className="stars"
+                style={{
+                  '--rating': Ratings.findAverageRating(meta.ratings),
+                }}
+              />
+            </StyledDiv>
+            <StyledA href="#reviews">read all {Ratings.findReviewCount(meta.ratings)} reviews</StyledA>
+          </>
+        );
+      }
+    }
+    return (
+      <StyledDiv>no reviews</StyledDiv>
+    );
+  };
+
   return (
     <StyledDiv>
       <Category>{category} »</Category>
       <Name>{name}</Name>
-      {hasReviews
-        ? (<>
-          <StyledDiv>
-            <span
-              className="stars"
-              style={{
-                '--rating': Ratings.findAverageRating(meta.ratings),
-              }}
-            />
-          </StyledDiv>
-          <StyledA href="#reviews">read all {Ratings.findReviewCount(meta.ratings)} reviews</StyledA>
-        </>)
-        : <></>
-      }
+      {renderReviews()}
       <StyledDiv>
         {currentStyle.sale_price ?
           (
