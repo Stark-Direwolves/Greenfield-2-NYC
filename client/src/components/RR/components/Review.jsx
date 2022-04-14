@@ -67,10 +67,11 @@ function Review({ review }) {
       </div4>
       <div1 is="x3d"><b>{review.summary}</b></div1>
       <div2 is="x3d">{review.reviewer_name}</div2>
+      <div2 is="x3d">{moment(review.date).format('MMM Do YYYY')}</div2>
       {(review.recommend)
         ? <div3 is="x3d"> ✓ I recommend this product</div3>
         : null }
-      <br />
+      {/* <br /> */}
       <div3 is="x3d">
         {(review.body.length >= 250 && (viewMore === false))
           ? (<>{review.body.slice(0, 250)}
@@ -81,7 +82,6 @@ function Review({ review }) {
           : null} */}
       </div3>
       <br />
-      <div4 is="x3d">{moment(review.date).format('MMM Do YYYY')}</div4>
       <div4 is="x3d">
         {(review.photos.length >= 1)
           ? review.photos.map((photo, i) => <img key={i} src={`${photo.url}`} alt="" style={{ maxHeight: '100px', maxWidth: '100%', padding: '10px' }} onClick={seePhotoPreview} />)
