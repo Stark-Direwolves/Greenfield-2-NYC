@@ -69,7 +69,7 @@ function Ratings({ averageRating, totalReviews, meta, percentRecommended, curren
       <br />
       <br />
       <div>
-        <div style={{textAlign: 'justify', marginLeft: '37.5%'}}>
+        <div style={{ textAlign: 'justify', marginLeft: '37.5%'}}>
           5
           &nbsp;
           <span
@@ -84,7 +84,7 @@ function Ratings({ averageRating, totalReviews, meta, percentRecommended, curren
             )
           </small>
         </div>
-        <div style={{textAlign: 'justify', marginLeft: '37.5%'}}>
+        <div style={{ textAlign: 'justify', marginLeft: '37.5%' }}>
           4
           &nbsp;
           <span
@@ -99,7 +99,7 @@ function Ratings({ averageRating, totalReviews, meta, percentRecommended, curren
             )
           </small>
         </div>
-        <div style={{textAlign: 'justify', marginLeft: '37.5%'}}>
+        <div style={{ textAlign: 'justify', marginLeft: '37.5%' }}>
           3
           &nbsp;
           <span
@@ -114,7 +114,7 @@ function Ratings({ averageRating, totalReviews, meta, percentRecommended, curren
             )
           </small>
         </div>
-        <div style={{textAlign: 'justify', marginLeft: '37.5%'}}>
+        <div style={{ textAlign: 'justify', marginLeft: '37.5%' }}>
           2
           &nbsp;
           <span
@@ -129,7 +129,7 @@ function Ratings({ averageRating, totalReviews, meta, percentRecommended, curren
             )
           </small>
         </div>
-        <div style={{textAlign: 'justify', marginLeft: '37.5%'}}>
+        <div style={{ textAlign: 'justify', marginLeft: '37.5%' }}>
           1
           &nbsp;
           <span
