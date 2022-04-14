@@ -7,6 +7,7 @@ const AContainer = styled.div`
 display: flex;
 flex-direction: column;
 margin-bottom: 10px;
+width: 70%;
 `;
 
 const APhotoContainer = styled.div`
@@ -22,27 +23,26 @@ margin-right: 10px;
 const AFooterContainer = styled.div`
 display: flex;
 font-size: 12px;
-font-weight: 700;
+font-weight: 600;
 margin: 12px 0px;
 text-transform: uppercase;
 `;
 
 const AuthorContainer = styled.div`
 order: 1;
-margin-right: 10px;
-padding-right: 5px;
+padding: 0 10px;
 border-right: 1px black solid;
 `;
 
 const AHelpContainer = styled.div`
 order: 2;
-margin-right: 10px;
-padding-right: 5px;
+padding: 0 10px;
 border-right: 1px black solid;
 `;
 
 const AReportContainer = styled.div`
 order: 3;
+padding: 0 10px;
 `;
 
 function QAnswer({ answer }) {
@@ -90,20 +90,25 @@ function QAnswer({ answer }) {
           : null}
       </APhotoContainer>
       <AFooterContainer>
-        <AuthorContainer>by: {(answer.answerer_name.toLowerCase() === 'seller') ? <b>{answer.answerer_name}</b> : answer.answerer_name}
-          , {moment(answer.date).format('LL')}
+        <AuthorContainer>
+          by:
+          {' '}
+          {(answer.answerer_name.toLowerCase() === 'seller') ? <span style={{ fontWeight: '900', fontSize: '14px' }}>{answer.answerer_name}</span> : answer.answerer_name}
+          &nbsp;– {moment(answer.date).format('LL')}
         </AuthorContainer>
         <AHelpContainer>
           Helpful?&nbsp;
-          {!isHelpful ? (<span onClick={updateHelpA}>Yes</span>) : (<span>ty</span>)}
-          ({answerHelp})
+          {!isHelpful ? (<span onClick={updateHelpA} style={{ textDecorationLine: 'underline', cursor: 'pointer' }}>Yes&nbsp;</span>) : (<span>ty</span>)}
+          (
+          {answerHelp}
+          )
         </AHelpContainer>
         <AReportContainer>
           {!reported
             ? (
-              <span onClick={updateReport}>Report</span>
+              <span onClick={updateReport} style={{ textDecorationLine: 'underline', cursor: 'pointer' }}>Report</span>
             ) : (
-              <span>Reported!</span>
+              <span style={{ textDecorationLine: 'underline', cursor: 'pointer' }}>Reported!</span>
             )}
         </AReportContainer>
       </AFooterContainer>

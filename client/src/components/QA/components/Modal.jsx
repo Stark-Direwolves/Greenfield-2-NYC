@@ -12,7 +12,6 @@ function Modal({
   // console.log(productId)
   const [data, setData] = useState({ product_id: productId });
   const [uploadPhotos, setUploadPhotos] = useState([]);
-  const [upPhotos, setUpPhotos] = useState([]);
   const [limitPhotos, setLimitPhotos] = useState(0);
   const [dataA, setDataA] = useState({});
 
@@ -22,7 +21,7 @@ function Modal({
       : (null);
     isVisibleA
       ? (
-        setDataA({ ...dataA, [event.target.name]: event.target.value, photos: upPhotos })
+        setDataA({ ...dataA, [event.target.name]: event.target.value, photos: uploadPhotos })
       )
       : (null);
   }
@@ -39,9 +38,8 @@ function Modal({
     (Object.keys(data).length === 4 && data.email.includes('@') && data.email.includes('.'))
       ? (
         axios.post('/qa/questions', data)
-          .then((result) => {
+          .then(() => {
             setData({ product_id: productId });
-            // console.log(result);
           })
           .then(() => hideModal())
           .catch((err) => {
@@ -53,10 +51,8 @@ function Modal({
 
   function onChange(e) {
     const images = Array.from(e.target.files);
-    setUploadPhotos(Array.from(e.target.files));
 
     const formData = new FormData();
-    const types = ['png', 'jpeg', 'gif', 'webp'];
 
     images.forEach((file, i) => {
       formData.append(i, file);
@@ -64,15 +60,15 @@ function Modal({
 
     axios.post('/qa/answers/image-upload', formData)
       .then((response) => {
-        setUpPhotos((prev) => prev.concat(response.data[0].url));
+        setUploadPhotos((prev) => prev.concat(response.data[0].url));
         setLimitPhotos((prev) => prev + 1);
       })
       .catch((err) => new Error(err));
   }
 
   useEffect(() => {
-    setDataA({ ...dataA, photos: upPhotos });
-  }, [upPhotos]);
+    setDataA({ ...dataA, photos: uploadPhotos });
+  }, [uploadPhotos]);
 
   function handleSubmitA(event) {
     event.preventDefault();
@@ -171,19 +167,25 @@ function Modal({
                       />
                     )}
                   <br />
-                  {isVisibleA ? (
-                    <input
-                      type="file"
-                      id="multi"
-                      multiple
-                      onChange={(e) => { handleChange(e); }}
-                    />
-                  )
-                    : (
-                      null)}
+                  {(isVisibleA) ? (
+                    (limitPhotos < 5)
+                      ? (
+                        <input
+                          type="file"
+                          id="multi"
+                          accept="image/png, image/gif, image/jpeg"
+                          multiple
+                          onChange={(e) => { handleChange(e); }}
+                        />
+                      )
+                      : (
+                        'Max 5 photos allowed'))
+                    : (null)}
                   <div>
                     {(uploadPhotos.length > 0)
-                      ? <img src={URL.createObjectURL(uploadPhotos[0])} alt="" style={{ height: '80px', width: '80px' }} />
+                      ? uploadPhotos.map((image, i) => (
+                        <img key={i} src={image} alt="" style={{ height: '80px', width: '80px', padding: '3px' }} />
+                      ))
                       : null}
                   </div>
                   <br />

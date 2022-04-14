@@ -50,7 +50,7 @@ const Container = styled.div`
   flex-direction: column;
   flex: auto;
   margin: 50px auto auto auto;
-  background-color:aliceblue;
+  /* background-color:aliceblue; */
   width: 1300px;
 `;
 

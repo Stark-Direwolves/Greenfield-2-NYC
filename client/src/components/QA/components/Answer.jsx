@@ -9,7 +9,7 @@ function Answer({ questionId, productName, questionBody }) {
 
   return (
     <>
-      <span onClick={toggleModalA}>
+      <span onClick={toggleModalA} style={{textDecorationLine: 'underline', cursor: 'pointer'}}>
         Add Answer
       </span>
       <Modal
