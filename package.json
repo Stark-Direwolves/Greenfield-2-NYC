@@ -5,7 +5,8 @@
   "main": "index.jsx",
   "scripts": {
     "test": "jest",
-    "build": "webpack watch --mode development",
+    "react:dev": "webpack watch --config webpack.dev.js",
+    "react:prod": "webpack --config webpack.prod.js",
     "server": "nodemon server"
   },
   "repository": {

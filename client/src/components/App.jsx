@@ -33,7 +33,7 @@ const Logo = styled.div`
   color: black;
   text-align: center;
   text-decoration: none;
-`
+`;
 
 const Cart = styled.div`
   padding: 10px 0;
@@ -42,7 +42,7 @@ const Cart = styled.div`
   color: black;
   text-align: center;
   text-decoration: none;
-`
+`;
 
 const Container = styled.div`
   display: flex;
@@ -51,22 +51,24 @@ const Container = styled.div`
   margin: 50px auto auto auto;
   background-color:aliceblue;
   width: 1300px;
-`
+`;
 
 const OverviewLoading = styled.div`
   background-color: ${(props) => props.theme.colors[0]};
   height: 875px;
 `;
 
-function App({ getProduct, getStyles, getRelated, getReviews, getMeta, id }) {
-  const [product, setProduct] = useState(getProduct);
-  const [styles, setStyles] = useState(getStyles);
-  const [related, setRelated] = useState(getRelated);
-  const [reviews, setReviews] = useState(getReviews);
-  const [meta, setMeta] = useState(getMeta);
+function App({ id }) {
+  const [product, setProduct] = useState(null);
+  const [styles, setStyles] = useState(null);
+  const [related, setRelated] = useState(null);
+  const [reviews, setReviews] = useState(null);
+  const [meta, setMeta] = useState(null);
 
   // data received state
   const [receivedProductInfo, setReceivedProductInfo] = useState(false);
+  const [receivedRelatedInfo, setReceivedRelatedInfo] = useState(false);
+  const [receivedReviewInfo, setReceivedReviewInfo] = useState(false);
 
   // overview state
   const [currentStyle, setCurrentStyle] = useState(null);
@@ -76,6 +78,8 @@ function App({ getProduct, getStyles, getRelated, getReviews, getMeta, id }) {
   const [currentTotal, setCurrentTotal] = useState(0);
   const [expanded, setExpanded] = useState(false);
 
+  // API CALL HELPERS
+
   const getProductInfo = (ID) => {
     const promises = [
       axios.get(`/products/${ID}`),
@@ -83,6 +87,25 @@ function App({ getProduct, getStyles, getRelated, getReviews, getMeta, id }) {
     ];
     return Promise.all(promises);
   };
+
+  const getRelatedInfo = (ID) => axios.get(`/products/${ID}/related`);
+
+  const getReviewInfo = (ID) => {
+    const promises = [
+      axios.get(`/reviews?product_id=${ID}&sort=relevant`),
+      axios.get(`/reviews/meta?product_id=${ID}`),
+    ];
+    return Promise.all(promises);
+  };
+
+  const getReviewSort = (id, sort) => {
+    axios.get(`/reviews?product_id=${id}&sort=${sort}`)
+      .then((res) => {
+        setReviews(res.data);
+      });
+  };
+
+  // USE EFFECT HOOKS
 
   React.useEffect(() => {
     setCurrentSku('none');
@@ -99,6 +122,17 @@ function App({ getProduct, getStyles, getRelated, getReviews, getMeta, id }) {
         setCurrentStyle(data[1].data.results[0]);
         setReceivedProductInfo(true);
       });
+    getRelatedInfo(id)
+      .then((data) => {
+        setRelated(data.data);
+        setReceivedRelatedInfo(true);
+      });
+    getReviewInfo(id)
+      .then((data) => {
+        setReviews(data[0].data);
+        setMeta(data[1].data);
+        setReceivedReviewInfo(true);
+      });
   }, []);
 
   const handleClick = (e) => {
@@ -109,12 +143,7 @@ function App({ getProduct, getStyles, getRelated, getReviews, getMeta, id }) {
     }
   };
 
-  const getReviewSort = (id, sort) => {
-    axios.get(`/reviews?product_id=${id}&sort=${sort}`)
-      .then((res) => {
-        setReviews(res.data);
-      });
-  };
+  // conditional render for components
 
   const renderOverview = () => {
     if (receivedProductInfo) {
@@ -139,7 +168,19 @@ function App({ getProduct, getStyles, getRelated, getReviews, getMeta, id }) {
         />
       );
     }
-    return (<OverviewLoading>loading..</OverviewLoading>);
+    return (<OverviewLoading />);
+  };
+
+  const renderRelated = () => {
+    if (receivedProductInfo && receivedRelatedInfo) {
+      return (
+        <>
+          <Related relatedProducts={related} currentProduct={product} />
+          <Outfit product={product} style={currentStyle} meta={meta} />
+        </>
+      );
+    }
+    return (<div>loading</div>)
   };
 
   const renderQA = () => {
@@ -148,16 +189,16 @@ function App({ getProduct, getStyles, getRelated, getReviews, getMeta, id }) {
         <QA productId={product.id} productName={product.name} />
       );
     }
-    return (<div>loading..</div>);
+    return (null);
   };
 
   const renderRR = () => {
-    if (receivedProductInfo) {
+    if (receivedProductInfo && receivedReviewInfo) {
       return (
         <RR reviews={reviews} meta={meta} product={product} getReviewSort={getReviewSort} />
       );
     }
-    return (<div>loading..</div>);
+    return (null);
   };
 
   return (
@@ -173,8 +214,7 @@ function App({ getProduct, getStyles, getRelated, getReviews, getMeta, id }) {
         </Nav>
         <Container>
           {renderOverview()}
-          <Related relatedProducts={related} currentProduct={product} />
-          <Outfit product={product} style={currentStyle} meta={meta} />
+          {renderRelated()}
           {renderQA()}
           {renderRR()}
         </Container>
