@@ -8,7 +8,7 @@ width: 100%;
 overflow: hidden;
 overflow-y: scroll;
 margin: auto;
-background: linear-gradient(0deg, rgba(255,255,255,.6) 0%, rgba(0,0,0,0) 20%);
+background: linear-gradient(0deg, rgba(184, 144, 122, 0.299) 0%, rgba(0,0,0,0) 20%);
 border-bottom: 1px solid black;
 `;
 

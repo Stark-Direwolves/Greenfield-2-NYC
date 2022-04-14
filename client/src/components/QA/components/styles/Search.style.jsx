@@ -4,7 +4,6 @@ export const SContainer = styled.div`
     width: 50%;
     appearance: none;
     outline: none;
-    height: 100px;
     font-size: 16px;
     letter-spacing: 0.5px;
     font-weight: 700;
@@ -20,6 +19,7 @@ export const SContainer = styled.div`
     padding: 2px 12px 0px;
     color: rgb(33, 42, 47);
     box-shadow: transparent 0px 2px 0px 0px inset;
+    margin: 10px 0;
     &:focus-within {
     outline: 2px solid rgb(33, 42, 47);
 }
@@ -34,5 +34,4 @@ font-weight: 500;
 font-size: 16px;
 transition: 0.8s;
 padding: 10px;
-margin: auto;
   `;

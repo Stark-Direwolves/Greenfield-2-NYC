@@ -38,9 +38,8 @@ function Modal({
     (Object.keys(data).length === 4 && data.email.includes('@') && data.email.includes('.'))
       ? (
         axios.post('/qa/questions', data)
-          .then((result) => {
+          .then(() => {
             setData({ product_id: productId });
-            // console.log(result);
           })
           .then(() => hideModal())
           .catch((err) => {
@@ -168,17 +167,20 @@ function Modal({
                       />
                     )}
                   <br />
-                  {(isVisibleA && limitPhotos < 5) ? (
-                    <input
-                      type="file"
-                      id="multi"
-                      accept="image/png, image/gif, image/jpeg"
-                      multiple
-                      onChange={(e) => { handleChange(e); }}
-                    />
-                  )
-                    : (
-                      'Max 5 photos allowed')}
+                  {(isVisibleA) ? (
+                    (limitPhotos < 5)
+                      ? (
+                        <input
+                          type="file"
+                          id="multi"
+                          accept="image/png, image/gif, image/jpeg"
+                          multiple
+                          onChange={(e) => { handleChange(e); }}
+                        />
+                      )
+                      : (
+                        'Max 5 photos allowed'))
+                    : (null)}
                   <div>
                     {(uploadPhotos.length > 0)
                       ? uploadPhotos.map((image, i) => (

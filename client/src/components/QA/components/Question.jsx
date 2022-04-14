@@ -16,32 +16,35 @@ justify-content: space-between;
 
 const QuestionTitle = styled.div`
 font-weight: bold;
+width: 75%;
 `;
 
 const QHRAContainer = styled.div`
 display: flex;
 width: 25%;
+height: 16px;
 justify-content: space-evenly;
 font-size: 12px;
 font-weight: 700;
-margin: 12px 0px;
+/* margin: 12px 0px; */
 text-transform: uppercase;
 `;
 
 const HelpfulQContainer = styled.span`
 order: 1;
 border-right: 1px solid black;
-padding-right: 5px;
+padding: 0 10px;
 `;
 
 const ReportQContainer = styled.span`
 order: 2;
 border-right: 1px solid black;
-padding-right: 5px;
+padding: 0 10px;
 `;
 
 const AddAContainer = styled.span`
 order: 3;
+padding: 0 0 0 10px;
 `;
 
 const AnswerContainer = styled.div`
