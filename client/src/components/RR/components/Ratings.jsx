@@ -69,55 +69,80 @@ function Ratings({ averageRating, totalReviews, meta, percentRecommended, curren
       <br />
       <br />
       <div>
-        <div>
-          5 (
-          {meta.ratings[5]}
-          )
+        <div style={{textAlign: 'justify', marginLeft: '37.5%'}}>
+          5
           &nbsp;
           <span
             className="revcount"
-            style={{ '--count': meta.ratings[5], '--total': totalReviews }}
+            style={{
+              '--count': meta.ratings[5], '--total': totalReviews, marginLeft: '10px', marginRight: '10px'
+            }}
           />
+          <small style={{ fontSize: '10px' }}>
+            (
+            {meta.ratings[5]}
+            )
+          </small>
         </div>
-        <div>
-          4 (
-          {meta.ratings[4]}
-          )
+        <div style={{textAlign: 'justify', marginLeft: '37.5%'}}>
+          4
           &nbsp;
           <span
             className="revcount"
-            style={{ '--count': meta.ratings[4], '--total': totalReviews }}
+            style={{
+              '--count': meta.ratings[4], '--total': totalReviews, marginLeft: '10px', marginRight: '10px'
+            }}
           />
+          <small style={{ fontSize: '10px' }}>
+            (
+            {meta.ratings[4]}
+            )
+          </small>
         </div>
-        <div>
-          3 (
-          {meta.ratings[3]}
-          )
+        <div style={{textAlign: 'justify', marginLeft: '37.5%'}}>
+          3
           &nbsp;
           <span
             className="revcount"
-            style={{ '--count': meta.ratings[3], '--total': totalReviews }}
+            style={{
+              '--count': meta.ratings[3], '--total': totalReviews, marginLeft: '10px', marginRight: '10px'
+            }}
           />
+          <small style={{ fontSize: '10px' }}>
+            (
+            {meta.ratings[3]}
+            )
+          </small>
         </div>
-        <div>
-          2 (
-          {meta.ratings[2]}
-          )
+        <div style={{textAlign: 'justify', marginLeft: '37.5%'}}>
+          2
           &nbsp;
           <span
             className="revcount"
-            style={{ '--count': meta.ratings[2], '--total': totalReviews }}
+            style={{
+              '--count': meta.ratings[2], '--total': totalReviews, marginLeft: '10px', marginRight: '10px'
+            }}
           />
+          <small style={{ fontSize: '10px' }}>
+            (
+            {meta.ratings[2]}
+            )
+          </small>
         </div>
-        <div>
-          1 (
-          {meta.ratings[1]}
-          )
+        <div style={{textAlign: 'justify', marginLeft: '37.5%'}}>
+          1
           &nbsp;
           <span
             className="revcount"
-            style={{ '--count': meta.ratings[1], '--total': totalReviews }}
+            style={{
+              '--count': meta.ratings[1], '--total': totalReviews, marginLeft: '10px', marginRight: '10px'
+            }}
           />
+          <small style={{ fontSize: '10px' }}>
+            (
+            {meta.ratings[1]}
+            )
+          </small>
         </div>
       </div>
     </RatingsBox>

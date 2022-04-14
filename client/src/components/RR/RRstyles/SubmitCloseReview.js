@@ -10,6 +10,7 @@ const SubmitCloseReview = styled.button`
   &:hover {
     background-color: #bd8d71;
   }
+  border: 0;
   cursor: pointer;
 `;
 

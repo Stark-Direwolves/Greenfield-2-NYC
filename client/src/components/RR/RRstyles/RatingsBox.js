@@ -3,9 +3,9 @@ import styled from 'styled-components';
 const RatingsBox = styled.div`
   // height:25%;
   width:100%;
-  background-color:#E3E3DD;
+  background-color: #E3E3DD;
   text-align: center;
-  text-wrap: balance;
+  align-items: center;
   display: inline;
   font-size: 23px;
   padding-top: 3%;

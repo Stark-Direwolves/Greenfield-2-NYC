@@ -12,6 +12,7 @@ const AddButton = styled.button`
   }
   margin-left: 8%;
   cursor: pointer;
+  border: 0;
 `;
 
 export default AddButton;

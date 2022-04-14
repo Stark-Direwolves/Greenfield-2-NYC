@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const AddReview = styled.div`
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
   width: 60%;
   height: 875px;
   margin: auto;
