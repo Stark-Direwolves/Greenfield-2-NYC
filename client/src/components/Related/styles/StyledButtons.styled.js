@@ -41,7 +41,7 @@ const ActionButton = styled.button`
   height: 30px;
   background-color: transparent;
   border: none;
-  z-index: 1;
+  z-index: 5;
   cursor: pointer;
 
   svg :hover {
