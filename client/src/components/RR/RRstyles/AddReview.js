@@ -4,11 +4,12 @@ const AddReview = styled.div`
   font-family: "Roboto", sans-serif;
   // max-width: 865px;
   width: 60%;
-  height: 1000px;
+  height: 80vh;
   margin: auto;
-  margin-top: -1004px;
-  // top: 1700px;
-  top: 2150px;
+  // margin-top: -1004px;
+  margin-top: -518px;
+  top: 1580px;
+  // top: 2000px;
   display: flex;
   background-color: #EDEDE9;
   justify-content: center;

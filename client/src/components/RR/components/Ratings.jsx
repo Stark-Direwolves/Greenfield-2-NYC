@@ -70,7 +70,7 @@ function Ratings({ averageRating, totalReviews, meta, percentRecommended, curren
       <br />
       <div>
         <div style={{ textAlign: 'justify', marginLeft: '37.5%'}}>
-          5
+          5 ★
           &nbsp;
           <span
             className="revcount"
@@ -85,7 +85,7 @@ function Ratings({ averageRating, totalReviews, meta, percentRecommended, curren
           </small>
         </div>
         <div style={{ textAlign: 'justify', marginLeft: '37.5%' }}>
-          4
+          4 ★
           &nbsp;
           <span
             className="revcount"
@@ -100,7 +100,7 @@ function Ratings({ averageRating, totalReviews, meta, percentRecommended, curren
           </small>
         </div>
         <div style={{ textAlign: 'justify', marginLeft: '37.5%' }}>
-          3
+          3 ★
           &nbsp;
           <span
             className="revcount"
@@ -115,7 +115,7 @@ function Ratings({ averageRating, totalReviews, meta, percentRecommended, curren
           </small>
         </div>
         <div style={{ textAlign: 'justify', marginLeft: '37.5%' }}>
-          2
+          2 ★
           &nbsp;
           <span
             className="revcount"
@@ -130,7 +130,7 @@ function Ratings({ averageRating, totalReviews, meta, percentRecommended, curren
           </small>
         </div>
         <div style={{ textAlign: 'justify', marginLeft: '37.5%' }}>
-          1
+          1 ★
           &nbsp;
           <span
             className="revcount"
