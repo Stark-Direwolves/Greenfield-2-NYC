@@ -19,15 +19,19 @@ export const SContainer = styled.div`
     border-radius: 0px;
     padding: 2px 12px 0px;
     color: rgb(33, 42, 47);
-    box-shadow: transparent 0px 2px 0px 0px inset,
+    box-shadow: transparent 0px 2px 0px 0px inset;
+    &:focus-within {
+    border: 2px solid rgb(33, 42, 47);
+}
 `;
 
 export const Input = styled.input`
 background: transparent;
-/* border: none; */
+border: none;
 outline: none;
 width: 100%;
 font-weight: 500;
 font-size: 16px;
 transition: 0.8s;
+
   `;
