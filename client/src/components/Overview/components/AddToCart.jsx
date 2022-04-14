@@ -4,31 +4,50 @@ import { DropBtn, DropdownContent, Dropdown, DropdownContentA, AddToCartButton, 
 
 function AddToCart({ currentStyle, currentSku, currentSize, currentQty, setCurrentSku, setCurrentSize, setCurrentQty, currentTotal, setCurrentTotal }) {
   let price = Number(currentStyle.sale_price || currentStyle.original_price);
+  let currentTotalString;
+  console.log(currentStyle, 'currentStyle')
+
+  const [forceShowSize, setForceShowSize] = React.useState(false);
+
+  const sizeMessage = forceShowSize ? 'Please select a size.' : 'size';
+  if (currentTotal > 0) {
+    currentTotalString = ' $' + currentTotal.toString();
+  } else {
+    currentTotalString = '';
+  }
 
   const handleClick = (sku_id) => {
     setCurrentSku(sku_id);
+    setForceShowSize(false);
     setCurrentSize(currentStyle.skus[sku_id].size);
   };
 
   const handleQtyClick = (num) => {
     setCurrentQty(num);
     setCurrentTotal(num*price);
-  }
+  };
 
   const AddToCartClick = (e) => {
+    if (currentSize === 'Select Size') {
+      setForceShowSize(true);
+    }
     let purchaseObj = { currentSku, currentQty };
     console.log('purchase object:', purchaseObj);
+  }
+
+  const renderAddToCart = () => {
+    // if (currr)
   }
 
   return (
     <>
       <SizeQuantityContainer>
         <SizeDiv>
-          size
+          {sizeMessage}
           <br />
           <Dropdown>
             <DropBtn>{currentSize}</DropBtn>
-            <DropdownContent>
+            <DropdownContent forceShowSize={forceShowSize}>
               {Object.keys(currentStyle.skus).map(
                 (sku_id, index) =>
                   <DropdownContentA key={sku_id} onClick={()=>{ handleClick(sku_id) }}> {currentStyle.skus[sku_id].size}</DropdownContentA>
@@ -41,7 +60,7 @@ function AddToCart({ currentStyle, currentSku, currentSize, currentQty, setCurre
         </QuantityDiv>
       </SizeQuantityContainer>
       <div>
-        <AddToCartButton onClick={AddToCartClick}>Add To Cart ${currentTotal}</AddToCartButton>
+        <AddToCartButton onClick={AddToCartClick}>ADD TO CART{currentTotalString}</AddToCartButton>
       </div>
     </>
   );

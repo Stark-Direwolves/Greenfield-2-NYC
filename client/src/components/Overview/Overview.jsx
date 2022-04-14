@@ -74,8 +74,6 @@ function Overview({
             setCurrentTotal={setCurrentTotal}
           />
           <SocialMedia>
-            share
-            <br />
             <img src="https://img.icons8.com/ios/50/000000/twitter--v1.png" alt="twitter" />
             <img src="https://img.icons8.com/ios/50/000000/facebook-new.png" alt="facebook" />
             <img src="https://img.icons8.com/ios/50/000000/pinterest--v1.png" alt="pinterest" />
