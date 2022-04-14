@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import { RelatedContainer, OutfitContainer } from './Related/styles/RelatedContainer.styled';
 import QA from './QA/QA';
 import RR from './RR/RR';
 import Overview from './Overview/Overview';
@@ -81,25 +80,25 @@ function App({ id }) {
 
   // API CALL HELPERS
 
-  const getProductInfo = (ID) => {
+  const getProductInfo = () => {
     const promises = [
-      axios.get(`/products/${ID}`),
-      axios.get(`/products/${ID}/styles`),
+      axios.get(`/products/${id}`),
+      axios.get(`/products/${id}/styles`),
     ];
     return Promise.all(promises);
   };
 
-  const getRelatedInfo = (ID) => axios.get(`/products/${ID}/related`);
+  const getRelatedInfo = () => axios.get(`/products/${id}/related`);
 
-  const getReviewInfo = (ID) => {
+  const getReviewInfo = () => {
     const promises = [
-      axios.get(`/reviews?product_id=${ID}&sort=relevant`),
-      axios.get(`/reviews/meta?product_id=${ID}`),
+      axios.get(`/reviews?product_id=${id}&sort=relevant`),
+      axios.get(`/reviews/meta?product_id=${id}`),
     ];
     return Promise.all(promises);
   };
 
-  const getReviewSort = (id, sort) => {
+  const getReviewSort = (sort) => {
     axios.get(`/reviews?product_id=${id}&sort=${sort}`)
       .then((res) => {
         setReviews(res.data);
@@ -116,19 +115,19 @@ function App({ id }) {
   }, [currentStyle]);
 
   React.useEffect(() => {
-    getProductInfo(id)
+    getProductInfo()
       .then((data) => {
         setProduct(data[0].data);
         setStyles(data[1].data);
         setCurrentStyle(data[1].data.results[0]);
         setReceivedProductInfo(true);
       });
-    getRelatedInfo(id)
+    getRelatedInfo()
       .then((data) => {
         setRelated(data.data);
         setReceivedRelatedInfo(true);
       });
-    getReviewInfo(id)
+    getReviewInfo()
       .then((data) => {
         setReviews(data[0].data);
         setMeta(data[1].data);
