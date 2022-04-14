@@ -6,7 +6,7 @@ import axios from 'axios';
 import AddReview from '../RRstyles/AddReview';
 import AddPhoto from '../RRstyles/AddPhoto';
 import FormCharacteristics from '../RRstyles/FormCharacteristics';
-import SubmitCloseReview from '../RRstyles/SubmitCloseReview';
+import CloseReview from '../RRstyles/CloseReview';
 
 function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
   const [formRating, setFormRating] = useState(0);
@@ -555,9 +555,9 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
         </AddPhoto>
       </div>
       <br />
-      <SubmitCloseReview type="submit" onClick={(event) => { (submitPhoto(event)); }}> Submit Review </SubmitCloseReview>
+      <button type="submit" onClick={(event) => { (submitPhoto(event)); }}> Submit Review </button>
       &nbsp;
-      <SubmitCloseReview type="submit" onClick={(event) => { closeForm(event); }}> Close Review </SubmitCloseReview>
+      <CloseReview type="submit" onClick={(event) => { closeForm(event); }}> Close Review </CloseReview>
     </div>
   );
 }

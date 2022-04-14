@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const SubmitCloseReview = styled.button`
+const CloseReview = styled.button`
   color: white;
   padding: 15px 32px;
   text-align: center;
@@ -13,4 +13,4 @@ const SubmitCloseReview = styled.button`
   cursor: pointer;
 `;
 
-export default SubmitCloseReview;
+export default CloseReview;
