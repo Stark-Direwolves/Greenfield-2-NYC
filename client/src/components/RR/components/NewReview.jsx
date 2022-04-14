@@ -96,11 +96,11 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
 
   return (
     <div>
-      <h2 style={{ color: '#6b6a6a' }}> Write your Review </h2>
-      <h3>
+      <h2 style={{ color: '#6b6a6a', marginLeft: '33%' }}> Write your Review </h2>
+      <h3 style={{ marginLeft: '32%', marginTop: '-2%' }}>
         About the {currentProduct}
       </h3>
-      <div>
+      <b>
         <b> Select Rating </b>
         1
         <input
@@ -137,9 +137,56 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           checked={formRating === '5'}
           value="5"
         />
+      </b>
+      <b style={{ marginLeft: '9.5%' }}>
+        <b> Recommend this product? </b>
+        Yes
+        <input
+          onChange={(e) => { setFormRecommend(e.target.value); }}
+          type="radio"
+          checked={formRecommend === 'True'}
+          value="True"
+        />
+        &nbsp;
+        No
+        <input
+          onChange={(e) => { setFormRecommend(e.target.value); }}
+          type="radio"
+          checked={formRecommend === 'False'}
+          value="False"
+        />
+      </b>
+      <div style={{ marginTop: '3%' }}>
+        <b> Review Summary </b>
+        <form>
+          <textarea type="text" maxLength="60" placeholder="Example: Best purchase ever!" onChange={(event) => { setFormSummary(event.target.value); }} style={{ width: '620px', resize: 'none', marginTop: '10px' }} />
+        </form>
       </div>
       <br />
-      <div style={{ width: '600px', border: '2px solid black', padding: '1%', borderRadius: '5px' }}>
+      <div>
+        <b> Review Body </b>
+        <br />
+        <form>
+          <textarea type="text" display="flex" maxLength="1000" size="60" placeholder="Why did you like the product or not?" style={{ resize: 'none', paddingBottom: 80, height: '60px', width: '620px', marginTop: '10px' }} onChange={(event) => { setFormBody(event.target.value); }} required />
+          <div>
+            {(formBody.length < 50)
+              ? (
+                <small>
+                  {50 - formBody.length}
+                  {' '}
+                  characters required
+                </small>
+              )
+              : (
+                <small>
+                  Minimum characters reached!
+                </small>
+              )}
+          </div>
+        </form>
+      </div>
+      <br />
+      <div style={{ width: '600px', border: '2px solid black', padding: '1%', borderRadius: '5px',   backgroundColor: '#d4beb2', textAlign: 'center' }}>
         <b> Select Characteristics </b>
         <div style={{ textAlign: 'center' }}>
           <b style={{ fontWeight: '900', textDecoration: 'underline' }}>
@@ -479,54 +526,6 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
         </div>
       </div>
       <br />
-      <div>
-        <b> Do you recommend this product? </b>
-        Yes
-        <input
-          onChange={(e) => { setFormRecommend(e.target.value); }}
-          type="radio"
-          checked={formRecommend === 'True'}
-          value="True"
-        />
-        &nbsp;
-        No
-        <input
-          onChange={(e) => { setFormRecommend(e.target.value); }}
-          type="radio"
-          checked={formRecommend === 'False'}
-          value="False"
-        />
-      </div>
-      <br />
-      <div>
-        <b> Review Summary </b>
-        <form>
-          <textarea type="text" maxLength="60" placeholder="Example: Best purchase ever!" onChange={(event) => { setFormSummary(event.target.value); }} style={{ width: '620px', resize: 'none', marginTop: '10px' }} />
-        </form>
-      </div>
-      <br />
-      <div>
-        <b> Review Body </b>
-        <br />
-        <form>
-          <textarea type="text" display="flex" maxLength="1000" size="60" placeholder="Why did you like the product or not?" style={{ resize: 'none', paddingBottom: 80, height: '60px', width: '620px', marginTop: '10px' }} onChange={(event) => { setFormBody(event.target.value); }} required />
-          <div>
-            {(formBody.length < 50)
-              ? (
-                <small>
-                  {50 - formBody.length}
-                  {' '}
-                  characters required
-                </small>
-              )
-              : (
-                <small>
-                  Minimum characters reached!
-                </small>
-              )}
-          </div>
-        </form>
-      </div>
       <br />
       <div>
         <b> What is your Name </b>
@@ -556,7 +555,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
         </AddPhoto>
       </div>
       <br />
-      <SubmitCloseReview type="submit" onClick={(event) => { (submitPhoto(event)) }}> Submit Review </SubmitCloseReview>
+      <SubmitCloseReview type="submit" onClick={(event) => { (submitPhoto(event)); }}> Submit Review </SubmitCloseReview>
       &nbsp;
       <SubmitCloseReview type="submit" onClick={(event) => { closeForm(event); }}> Close Review </SubmitCloseReview>
     </div>

@@ -41,18 +41,19 @@ const StyledImg = styled.img`
   object-fit: cover;
 `;
 
-const StyledLi = styled.li`
+const ThumbnailContainer = styled.div`
   display: inline-block;
 `;
 
-const StyledUl = styled.ul`
+const ImageSelectorContainer = styled.div`
   padding: 0;
   margin: 0;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `;
 
 export {
   StyledImageGallery, StyledImageSelector, StyledImagePreview, CurvedDiv,
-  StyledImg, StyledLi, StyledUl,
+  StyledImg, ThumbnailContainer, ImageSelectorContainer,
 };

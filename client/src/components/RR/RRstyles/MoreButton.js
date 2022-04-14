@@ -11,7 +11,8 @@ const MoreButton = styled.button`
     background-color: #bd8d71;
   }
   cursor: pointer;
-  margin-left: 2%
+  margin-left: 2%;
+  border: 0;
 `;
 
 export default MoreButton;

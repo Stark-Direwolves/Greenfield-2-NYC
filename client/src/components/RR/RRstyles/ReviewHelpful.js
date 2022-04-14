@@ -4,8 +4,9 @@ const ReviewHelpful = styled.span`
   text-decoration: underline;
   cursor: pointer;
   &:hover {
-    color: #b5b0b0;
+    color: #a6a2a2;
   }
+  font-weight: 700;
 `;
 
 export default ReviewHelpful;

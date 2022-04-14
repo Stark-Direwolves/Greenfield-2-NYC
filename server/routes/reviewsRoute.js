@@ -70,7 +70,6 @@ const reportReview = (id) => {
 };
 
 router.get('/', (req, res) => {
-  console.log(req.query.sort);
   getReviews(req.query.product_id, req.query.sort)
     .then((results) => res.status(200).send(results.data))
     .catch((err) => res.status(404).send(err));

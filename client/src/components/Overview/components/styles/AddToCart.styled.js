@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const DropBtn = styled.div`
   width: 100px;
@@ -8,6 +8,7 @@ const DropBtn = styled.div`
   font-size: 16px;
   border: none;
   cursor: pointer;
+  font-family: sans-serif;
 `;
 
 /* Dropdown Content (Hidden by Default) */
@@ -16,9 +17,14 @@ const DropdownContent = styled.div`
   position: absolute;
   background-color: #f9f9f9;
   width: 132px;
+  font-size: 16px;
+  font-family: sans-serif;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
   }
+  ${(props) => props.forceShowSize && css`
+    display: block;
+  `}
 `;
 
 /* The container <div> - needed to position the dropdown content */
@@ -71,6 +77,8 @@ const SizeQuantityContainer = styled.div`
 
 const SizeDiv = styled.div`
   padding: 10px;
+  font-size: ${(props) => props.theme.fontSizes.smaller};
+  font-family: sans-serif;
 `;
 
 const QuantityDiv = styled(SizeDiv)`
