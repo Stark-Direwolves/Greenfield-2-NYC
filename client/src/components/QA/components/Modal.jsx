@@ -172,12 +172,13 @@ function Modal({
                     <input
                       type="file"
                       id="multi"
+                      accept="image/png, image/gif, image/jpeg"
                       multiple
                       onChange={(e) => { handleChange(e); }}
                     />
                   )
                     : (
-                      'Max 5 photos')}
+                      'Max 5 photos allowed')}
                   <div>
                     {(uploadPhotos.length > 0)
                       ? uploadPhotos.map((image, i) => (
