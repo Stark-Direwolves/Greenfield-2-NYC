@@ -30,6 +30,17 @@ const ComparisonContainer = styled.div`
     text-transform: uppercase;
     letter-spacing: 5px;
   }
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  animation: fade 0.5s;
 `;
 
 const StyledTable = styled.table`
