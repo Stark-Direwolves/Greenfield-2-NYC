@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-expressions */
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import axios from 'axios';
 import {
@@ -11,9 +11,10 @@ function Modal({
 }) {
   // console.log(productId)
   const [data, setData] = useState({ product_id: productId });
-  const [dataA, setDataA] = useState({ photos: [] });
   const [uploadPhotos, setUploadPhotos] = useState([]);
-  // not changing colors?? ^^
+  const [upPhotos, setUpPhotos] = useState([]);
+  const [limitPhotos, setLimitPhotos] = useState(0);
+  const [dataA, setDataA] = useState({});
 
   function handleEvent(event) {
     isVisible ? (
@@ -21,7 +22,7 @@ function Modal({
       : (null);
     isVisibleA
       ? (
-        setDataA({ ...dataA, [event.target.name]: event.target.value })
+        setDataA({ ...dataA, [event.target.name]: event.target.value, photos: upPhotos })
       )
       : (null);
   }
@@ -40,7 +41,7 @@ function Modal({
         axios.post('/qa/questions', data)
           .then((result) => {
             setData({ product_id: productId });
-            console.log(result);
+            // console.log(result);
           })
           .then(() => hideModal())
           .catch((err) => {
@@ -50,8 +51,35 @@ function Modal({
     alerting = 'You must enter the following: \n';
   }
 
+  function onChange(e) {
+    const images = Array.from(e.target.files);
+    setUploadPhotos(Array.from(e.target.files));
+
+    const formData = new FormData();
+    const types = ['png', 'jpeg', 'gif', 'webp'];
+
+    images.forEach((file, i) => {
+      formData.append(i, file);
+    });
+
+    axios.post('/qa/answers/image-upload', formData)
+      .then((response) => {
+        setUpPhotos((prev) => prev.concat(response.data[0].url));
+        setLimitPhotos((prev) => prev + 1);
+      })
+      .catch((err) => new Error(err));
+  }
+
+  useEffect(() => {
+    setDataA({ ...dataA, photos: upPhotos });
+  }, [upPhotos]);
+
   function handleSubmitA(event) {
     event.preventDefault();
+
+    console.log(dataA);
+
+    console.log('current state to send ', dataA);
     let alerting = 'You must enter the following: \n';
     const name = ((!dataA.name || dataA.name.length < 1) ? '  \u2022  Name\n' : '');
     const email = (!dataA.email ? '  \u2022  Email\n' : '');
@@ -62,7 +90,6 @@ function Modal({
       ? (
         axios.post(`/qa/questions/${questionId}/answers`, dataA)
           .then((result) => {
-            setDataA({ photos: [] });
             console.log(result);
           })
           .then(() => hideModalA())
@@ -71,10 +98,6 @@ function Modal({
           })
       ) : alert(alerting);
     alerting = 'You must enter the following: \n';
-  }
-
-  function onChange(e) {
-    setUploadPhotos((Array.from(e.target.files)));
   }
 
   const handleChange = useCallback((e) => { onChange(e); }, []);

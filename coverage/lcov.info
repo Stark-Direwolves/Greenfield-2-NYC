@@ -457,12 +457,54 @@ BRF:0
 BRH:0
 end_of_record
 TN:
+SF:client/src/components/QA/components/styles/Container.style.jsx
+FN:4,(anonymous_0)
+FN:6,(anonymous_1)
+FNF:2
+FNH:0
+FNDA:0,(anonymous_0)
+FNDA:0,(anonymous_1)
+DA:3,1
+DA:4,0
+DA:6,0
+LF:3
+LH:1
+BRF:0
+BRH:0
+end_of_record
+TN:
 SF:client/src/components/RR/RatingHelpers.js
 FN:12,(anonymous_0)
 FN:24,(anonymous_1)
 FN:36,(anonymous_2)
 FN:42,(anonymous_3)
 FNF:4
+<<<<<<< HEAD
+FNH:0
+FNDA:0,(anonymous_0)
+FNDA:0,(anonymous_1)
+FNDA:0,(anonymous_2)
+FNDA:0,(anonymous_3)
+DA:12,1
+DA:13,0
+DA:14,0
+DA:16,0
+DA:17,0
+DA:18,0
+DA:20,0
+DA:24,1
+DA:25,0
+DA:26,0
+DA:28,0
+DA:29,0
+DA:30,0
+DA:32,0
+DA:36,1
+DA:37,0
+DA:38,0
+DA:39,0
+DA:42,1
+=======
 FNH:3
 FNDA:2,(anonymous_0)
 FNDA:2,(anonymous_1)
@@ -487,15 +529,22 @@ DA:37,2
 DA:38,2
 DA:39,2
 DA:42,2
+>>>>>>> main
 DA:43,0
 DA:44,0
 DA:45,0
 DA:46,0
 DA:47,0
 DA:48,0
+<<<<<<< HEAD
+DA:54,1
+LF:26
+LH:5
+=======
 DA:54,2
 LF:26
 LH:20
+>>>>>>> main
 BRF:0
 BRH:0
 end_of_record
@@ -782,6 +831,29 @@ TN:
 SF:client/src/components/Related/styles/CardContainer.styled.js
 FNF:0
 FNH:0
+<<<<<<< HEAD
+FNDA:0,Table
+FNDA:0,(anonymous_1)
+DA:6,0
+DA:7,0
+DA:8,0
+DA:9,0
+DA:12,0
+DA:15,0
+DA:27,1
+DA:33,1
+LF:8
+LH:2
+BRDA:8,0,0,0
+BRDA:8,0,1,0
+BRDA:8,1,0,0
+BRDA:8,1,1,0
+BRDA:17,2,0,0
+BRDA:17,2,1,0
+BRDA:22,3,0,0
+BRDA:22,3,1,0
+BRF:8
+=======
 DA:3,1
 LF:1
 LH:1
@@ -805,10 +877,16 @@ DA:16,1
 LF:4
 LH:4
 BRF:0
+>>>>>>> main
 BRH:0
 end_of_record
 TN:
 SF:client/src/components/Related/styles/Comparison.styled.js
+<<<<<<< HEAD
+FN:25,(anonymous_0)
+FN:68,(anonymous_1)
+FNF:2
+=======
 FN:26,(anonymous_0)
 FN:69,(anonymous_1)
 FNF:2
@@ -828,11 +906,23 @@ end_of_record
 TN:
 SF:client/src/components/Related/styles/Image.styled.js
 FNF:0
+>>>>>>> main
 FNH:0
+FNDA:0,(anonymous_0)
+FNDA:0,(anonymous_1)
 DA:3,1
+<<<<<<< HEAD
+DA:15,1
+DA:25,0
+DA:34,1
+DA:68,0
+LF:5
+LH:3
+=======
 DA:9,1
 LF:2
 LH:2
+>>>>>>> main
 BRF:0
 BRH:0
 end_of_record
