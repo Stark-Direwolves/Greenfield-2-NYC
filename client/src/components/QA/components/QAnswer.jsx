@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import moment from 'moment';
 import axios from 'axios';
 import styled from 'styled-components';
+import Photo from './Photo';
+import useModal from './useModal';
 
 const AContainer = styled.div`
 display: flex;
@@ -18,19 +20,20 @@ margin: 10px 0;
 
 const APhoto = styled.img`
 margin-right: 10px;
+cursor: pointer;
 `;
 
 const AFooterContainer = styled.div`
 display: flex;
 font-size: 12px;
 font-weight: 600;
-margin: 12px 0px;
+margin: 5px 0px;
 text-transform: uppercase;
 `;
 
 const AuthorContainer = styled.div`
 order: 1;
-padding: 0 10px;
+padding: 0 10px 0 0;
 border-right: 1px black solid;
 `;
 
@@ -49,6 +52,7 @@ function QAnswer({ answer }) {
   const [answerHelp, setAnswerHelp] = useState(answer.helpfulness);
   const [isHelpful, setIsHelpful] = useState(false);
   const [reported, setReported] = useState(false);
+  const { isPhotoA, togglePhotoA } = useModal();
 
   const updateHelpA = () => {
     (!isHelpful)
@@ -85,7 +89,22 @@ function QAnswer({ answer }) {
       <APhotoContainer>
         {(answer.photos.length > 0)
           ? (
-            answer.photos.map((photo, key) => <APhoto src={`${photo.url}`} alt="" style={{ height: '80px', width: '80px' }} key={photo.id} />)
+            answer.photos.map((photo) => (
+              <>
+                <APhoto
+                  src={`${photo.url}`}
+                  alt=""
+                  style={{ height: '80px', width: '80px' }}
+                  key={photo.id}
+                  onClick={togglePhotoA}
+                />
+                <Photo
+                  isPhotoA={isPhotoA}
+                  hidePhotoA={togglePhotoA}
+                  photo={photo.url}
+                />
+              </>
+            ))
           )
           : null}
       </APhotoContainer>

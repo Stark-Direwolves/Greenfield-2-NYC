@@ -189,8 +189,8 @@ function Modal({
                       : null}
                   </div>
                   <br />
-                  {isVisible ? <button type="submit" onClick={handleSubmitQ}>Submit</button> : null}
-                  {isVisibleA ? <button type="submit" onClick={handleSubmitA}>Submit</button> : null}
+                  {isVisible ? <SButton type="submit" onClick={handleSubmitQ} style={{ width: '20%' }}>Submit</SButton> : null}
+                  {isVisibleA ? <SButton type="submit" onClick={handleSubmitA} style={{ width: '20%' }}>Submit</SButton> : null}
                 </form>
               </SDescription>
             </SHeader>

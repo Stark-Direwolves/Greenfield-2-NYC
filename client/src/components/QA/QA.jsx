@@ -73,7 +73,7 @@ function QA({ productId, productName }) {
   }, [search]);
 
   return (
-    <Container styles={(questions.length > 0) ? 'height: 700px' : 'height: 100%;'}>
+    <Container styles={(questions.length > 0) ? 'height: 500px' : 'height: 100%;'}>
       <Header> Questions & Answers</Header>
       {ogQues.length > 0 ? <Search search={search} setSearch={setSearch} /> : null}
       <List
