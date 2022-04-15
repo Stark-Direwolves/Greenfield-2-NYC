@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import { RelatedContainer, OutfitContainer } from './Related/styles/RelatedContainer.styled';
 import QA from './QA/QA';
 import RR from './RR/RR';
 import Overview from './Overview/Overview';
@@ -180,7 +181,7 @@ function App({ id }) {
         </>
       );
     }
-    return (<div>loading</div>)
+    return (null);
   };
 
   const renderQA = () => {

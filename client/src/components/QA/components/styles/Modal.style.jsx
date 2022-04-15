@@ -32,7 +32,7 @@ background-color: ${(props) => props.theme.colors[0]};
   border-radius: 0.25rem;
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 550px;
   position: relative;
   z-index: 100;
 `;
@@ -43,7 +43,6 @@ export const SHeader = styled.div`ƒ
   flex-direction: column;
   padding: 1.875rem 0.9375rem 1.875rem 0.9375rem;
   font-family: ${(props) => props.theme.fonts[0]};
-
 `;
 
 export const STitle = styled.div`
