@@ -102,44 +102,56 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
       </h3>
       <b>
         <b> Select Rating </b>
-        1
-        <input
-          onChange={(e) => { setFormRating(e.target.value); }}
-          type="radio"
-          checked={formRating === '1'}
-          value="1"
-        />
-        2
-        <input
-          onChange={(e) => { setFormRating(e.target.value); }}
-          type="radio"
-          checked={formRating === '2'}
-          value="2"
-        />
-        3
-        <input
-          onChange={(e) => { setFormRating(e.target.value); }}
-          type="radio"
-          checked={formRating === '3'}
-          value="3"
-        />
-        4
-        <input
-          onChange={(e) => { setFormRating(e.target.value); }}
-          type="radio"
-          checked={formRating === '4'}
-          value="4"
-        />
-        5
-        <input
-          onChange={(e) => { setFormRating(e.target.value); }}
-          type="radio"
-          checked={formRating === '5'}
-          value="5"
-        />
+        <b className="rating" style={{ textAlign: 'left' }}>
+          <input
+            style={{ display: 'none' }}
+            type="radio"
+            id="r5"
+            onChange={(e) => { setFormRating(e.target.value); }}
+            checked={formRating === '5'}
+            value="5"
+          />
+          <label htmlFor="r5">★</label>
+          <input
+            style={{ display: 'none' }}
+            type="radio"
+            id="r4"
+            onChange={(e) => { setFormRating(e.target.value); }}
+            checked={formRating === '4'}
+            value="4"
+          />
+          <label htmlFor="r4">★</label>
+          <input
+            style={{ display: 'none' }}
+            type="radio"
+            id="r3"
+            onChange={(e) => { setFormRating(e.target.value); }}
+            checked={formRating === '3'}
+            value="3"
+          />
+          <label htmlFor="r3">★</label>
+          <input
+            style={{ display: 'none' }}
+            type="radio"
+            id="r2"
+            onChange={(e) => { setFormRating(e.target.value); }}
+            checked={formRating === '2'}
+            value="2"
+          />
+          <label htmlFor="r2">★</label>
+          <input
+            style={{ display: 'none' }}
+            type="radio"
+            id="r1"
+            onChange={(e) => { setFormRating(e.target.value); }}
+            checked={formRating === '1'}
+            value="1"
+          />
+          <label htmlFor="r1">★</label>
+        </b>
       </b>
       <b style={{ marginLeft: '9.5%' }}>
-        <b> Recommend this product? </b>
+        <b> Do you recommend this product? </b>
         Yes
         <input
           onChange={(e) => { setFormRecommend(e.target.value); }}
