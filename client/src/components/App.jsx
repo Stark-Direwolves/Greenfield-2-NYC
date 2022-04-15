@@ -49,7 +49,7 @@ const Container = styled.div`
   flex-direction: column;
   flex: auto;
   margin: 50px auto auto auto;
-  /* background-color:aliceblue; */
+  background-color: ${(props) => props.theme.colors[0]};
   width: 1300px;
 `;
 
