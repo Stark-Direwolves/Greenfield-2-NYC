@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import PropTypes from 'prop-types';
 import { StarIcon } from '@heroicons/react/outline';
 import { StyledImage, ImageContainer } from '../styles/Image.styled';
 import { CardContainer } from '../styles/CardContainer.styled';
 import { ActionButton } from '../styles/StyledButtons.styled';
-import Comparison from './Comparison';
 import CardInfo from './CardInfo';
+
+const Comparison = React.lazy(() => import('./Comparison'));
 
 function Card({ related, current }) {
   const [compare, setCompare] = useState(false);
@@ -27,12 +28,14 @@ function Card({ related, current }) {
 
   return (
     <CardContainer>
-      <Comparison
-        compare={compare}
-        toggleCompare={toggleCompare}
-        related={related}
-        current={current}
-      />
+      <Suspense fallback={null}>
+        <Comparison
+          compare={compare}
+          toggleCompare={toggleCompare}
+          related={related}
+          current={current}
+        />
+      </Suspense>
       <ActionButton type="button" onClick={toggleCompare}>
         <StarIcon />
       </ActionButton>
