@@ -15,6 +15,10 @@ const CardInfoContainer = styled.div`
   div {
     font-size: ${(props) => props.theme.fontSizes.small};
   }
+
+  span {
+    color: ${(props) => props.theme.colors[7]};
+  }
 `;
 
 export default CardInfoContainer;
