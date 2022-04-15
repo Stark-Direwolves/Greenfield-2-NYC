@@ -27,13 +27,13 @@ const AFooterContainer = styled.div`
 display: flex;
 font-size: 12px;
 font-weight: 600;
-margin: 12px 0px;
+margin: 5px 0px;
 text-transform: uppercase;
 `;
 
 const AuthorContainer = styled.div`
 order: 1;
-padding: 0 10px;
+padding: 0 10px 0 0;
 border-right: 1px black solid;
 `;
 
