@@ -9,7 +9,10 @@ function Answer({ questionId, productName, questionBody }) {
 
   return (
     <>
-      <span onClick={toggleModalA} style={{textDecorationLine: 'underline', cursor: 'pointer'}}>
+      <span
+        onClick={toggleModalA}
+        style={{ textDecorationLine: 'underline', cursor: 'pointer' }}
+      >
         Add Answer
       </span>
       <Modal
