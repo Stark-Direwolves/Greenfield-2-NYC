@@ -38,7 +38,7 @@ function RR({ reviews, meta, product, getReviewSort }) {
     fit = Number(meta.characteristics.Fit.value)};
 
   return (
-    <div id="reviews" style={{ backgroundColor: '#EDEDE9' }}>
+    <div id="reviews" style={{ backgroundColor: '#EDEDE9', paddingLeft: '20px, 20px' }}>
       <div>
         <h3 style={{ fontFamily: 'sans-serif' }}> Ratings & Reviews </h3>
       </div>

@@ -102,7 +102,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
       </h3>
       <b>
         <b> Select Rating </b>
-        <b className="rating" style={{ textAlign: 'left' }}>
+        <b className="rating" style={{ textAlign: 'left', position: 'relative', top: '5px' }}>
           <input
             style={{ display: 'none' }}
             type="radio"
@@ -208,7 +208,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             A size too small
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharSize(e.target.value); }}
               type="radio"
               checked={charSize === '1'}
@@ -218,7 +218,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             1/2 a size too small
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharSize(e.target.value); }}
               type="radio"
               checked={charSize === '2'}
@@ -228,7 +228,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Perfect
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharSize(e.target.value); }}
               type="radio"
               checked={charSize === '3'}
@@ -238,7 +238,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             1/2 a size too big
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharSize(e.target.value); }}
               type="radio"
               checked={charSize === '4'}
@@ -248,7 +248,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             A size too wide
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharSize(e.target.value); }}
               type="radio"
               checked={charSize === '5'}
@@ -264,7 +264,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Too narrow
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharWidth(e.target.value); }}
               type="radio"
               checked={charWidth === '1'}
@@ -274,7 +274,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Slightly narrow
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharWidth(e.target.value); }}
               type="radio"
               checked={charWidth === '2'}
@@ -284,7 +284,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Perfect
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharWidth(e.target.value); }}
               type="radio"
               checked={charWidth === '3'}
@@ -294,7 +294,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Slightly wide
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharWidth(e.target.value); }}
               type="radio"
               checked={charWidth === '4'}
@@ -304,7 +304,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Too wide
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharWidth(e.target.value); }}
               type="radio"
               checked={charWidth === '5'}
@@ -320,7 +320,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Uncomfortable
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharComfort(e.target.value); }}
               type="radio"
               checked={charComfort === '1'}
@@ -330,7 +330,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Slightly Uncomfortable
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharComfort(e.target.value); }}
               type="radio"
               checked={charComfort === '2'}
@@ -340,7 +340,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Ok
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharComfort(e.target.value); }}
               type="radio"
               checked={charComfort === '3'}
@@ -350,7 +350,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Comfortable
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharComfort(e.target.value); }}
               type="radio"
               checked={charComfort === '4'}
@@ -360,7 +360,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Perfect
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharComfort(e.target.value); }}
               type="radio"
               checked={charComfort === '5'}
@@ -376,7 +376,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Poor
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharQuality(e.target.value); }}
               type="radio"
               checked={charQuality === '1'}
@@ -386,7 +386,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Below average
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharQuality(e.target.value); }}
               type="radio"
               checked={charQuality === '2'}
@@ -396,7 +396,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             What I expected
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharQuality(e.target.value); }}
               type="radio"
               checked={charQuality === '3'}
@@ -406,7 +406,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Pretty great
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharQuality(e.target.value); }}
               type="radio"
               checked={charQuality === '4'}
@@ -416,7 +416,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Perfect
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharQuality(e.target.value); }}
               type="radio"
               checked={charQuality === '5'}
@@ -432,7 +432,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Runs short
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharLength(e.target.value); }}
               type="radio"
               checked={charLength === '1'}
@@ -442,7 +442,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Runs slightly short
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharLength(e.target.value); }}
               type="radio"
               checked={charLength === '2'}
@@ -452,7 +452,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Perfect
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharLength(e.target.value); }}
               type="radio"
               checked={charLength === '3'}
@@ -462,7 +462,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Runs slightly long
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharLength(e.target.value); }}
               type="radio"
               checked={charLength === '4'}
@@ -472,7 +472,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Runs long
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharLength(e.target.value); }}
               type="radio"
               checked={charLength === '5'}
@@ -488,7 +488,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Runs tight
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharFit(e.target.value); }}
               type="radio"
               checked={charFit === '1'}
@@ -498,7 +498,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Runs slightly tight
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharFit(e.target.value); }}
               type="radio"
               checked={charFit === '2'}
@@ -508,7 +508,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Perfect
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharFit(e.target.value); }}
               type="radio"
               checked={charFit === '3'}
@@ -518,7 +518,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Runs slightly long
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharFit(e.target.value); }}
               type="radio"
               checked={charFit === '4'}
@@ -528,7 +528,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
           <FormCharacteristics>
             Runs long
             <input
-              // style={{ textAlign: 'center' }}
+              style={{ margin: 'auto' }}
               onChange={(e) => { setCharFit(e.target.value); }}
               type="radio"
               checked={charFit === '5'}
@@ -567,7 +567,7 @@ function NewReview({ currentProduct, currentProductId, setShowModal, meta }) {
         </AddPhoto>
       </div>
       <br />
-      <button type="submit" onClick={(event) => { (submitPhoto(event)); }}> Submit Review </button>
+      <CloseReview type="submit" onClick={(event) => { (submitPhoto(event)); }}> Submit Review </CloseReview>
       &nbsp;
       <CloseReview type="submit" onClick={(event) => { closeForm(event); }}> Close Review </CloseReview>
     </div>
