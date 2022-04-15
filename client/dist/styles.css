@@ -154,3 +154,18 @@ html {
   border-radius: 15px;
 }
 
+.rating {
+  display: inline-block;
+}
+.rating * {
+  float: right;
+}
+
+label {
+  font-size: 15px;
+}
+
+input:checked ~ label {
+  color: #C7A794;
+}
+
