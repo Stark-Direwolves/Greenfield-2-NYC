@@ -8,7 +8,7 @@ const AddReview = styled.div`
   margin: auto;
   // margin-top: -1004px;
   margin-top: -518px;
-  top: 1450px;
+  top: 1500px;
   // top: 2000px;
   display: flex;
   background-color: #EDEDE9;
