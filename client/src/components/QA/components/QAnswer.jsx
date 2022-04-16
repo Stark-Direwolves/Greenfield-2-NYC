@@ -52,6 +52,7 @@ function QAnswer({ answer }) {
   const [answerHelp, setAnswerHelp] = useState(answer.helpfulness);
   const [isHelpful, setIsHelpful] = useState(false);
   const [reported, setReported] = useState(false);
+  const [currentPhoto, setCurrentPhoto] = useState(null);
   const { isPhotoA, togglePhotoA } = useModal();
 
   const updateHelpA = () => {
@@ -90,23 +91,26 @@ function QAnswer({ answer }) {
         {(answer.photos.length > 0)
           ? (
             answer.photos.map((photo) => (
-              <>
-                <APhoto
-                  src={`${photo.url}`}
-                  alt=""
-                  style={{ height: '80px', width: '80px' }}
-                  key={photo.id}
-                  onClick={togglePhotoA}
-                />
-                <Photo
-                  isPhotoA={isPhotoA}
-                  hidePhotoA={togglePhotoA}
-                  photo={photo.url}
-                />
-              </>
+              <APhoto
+                src={`${photo.url}`}
+                alt=""
+                style={{ height: '80px', width: '80px' }}
+                key={photo.id}
+                onClick={
+                  () => {
+                    togglePhotoA();
+                    setCurrentPhoto(photo.url);
+                  }
+                }
+              />
             ))
           )
           : null}
+        <Photo
+          isPhotoA={isPhotoA}
+          hidePhotoA={togglePhotoA}
+          photo={currentPhoto}
+        />
       </APhotoContainer>
       <AFooterContainer>
         <AuthorContainer>

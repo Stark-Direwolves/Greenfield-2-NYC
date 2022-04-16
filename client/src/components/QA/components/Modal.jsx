@@ -7,7 +7,7 @@ import {
 } from './styles/Modal.style';
 
 function Modal({
-  isVisible, hideModal, productId, isVisibleA, hideModalA, questionId, productName, questionBody,
+  isVisible, hideModal, productId, isVisibleA, hideModalA, questionId, productName, questionBody, setAnswers
 }) {
   // console.log(productId)
   const [data, setData] = useState({ product_id: productId });
@@ -87,7 +87,9 @@ function Modal({
         axios.post(`/qa/questions/${questionId}/answers`, dataA)
           .then((result) => {
             console.log(result);
+            console.log(dataA);
           })
+          // .then(() => setAnswers(dataA))
           .then(() => hideModalA())
           .catch((err) => {
             console.log(err);
