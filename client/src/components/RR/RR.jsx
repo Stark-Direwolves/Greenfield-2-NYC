@@ -40,7 +40,7 @@ function RR({ reviews, meta, product, getReviewSort }) {
   return (
     <div id="reviews" style={{ backgroundColor: '#EDEDE9', paddingLeft: '20px, 20px' }}>
       <div>
-        <h3 style={{ fontFamily: 'sans-serif' }}> Ratings & Reviews </h3>
+        <h3 style={{ fontFamily: 'sans-serif', marginLeft: '20px' }}> Ratings & Reviews </h3>
       </div>
       <div>
         {(showModal === true)
