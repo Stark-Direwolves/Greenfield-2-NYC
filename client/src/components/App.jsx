@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import styled from 'styled-components';
 import QA from './QA/QA';
@@ -107,14 +108,14 @@ function App({ id }) {
 
   // USE EFFECT HOOKS
 
-  React.useEffect(() => {
+  useEffect(() => {
     setCurrentSku('none');
     setCurrentSize('Select Size');
     setCurrentQty('-');
     setCurrentTotal(0);
   }, [currentStyle]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     getProductInfo()
       .then((data) => {
         setProduct(data[0].data);
@@ -222,5 +223,13 @@ function App({ id }) {
     </Theme>
   );
 }
+
+App.propTypes = {
+  id: PropTypes.number,
+};
+
+App.defaultProps = {
+  id: 0,
+};
 
 export default App;
