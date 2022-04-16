@@ -6,10 +6,10 @@ const AddReview = styled.div`
   width: 60%;
   height: 80vh;
   margin: auto;
-  margin-top: 15%;
+  margin-top: 25%;
   // top: 1500px;
   // bottom: 1%;
-  top: 150px;
+  top: 25%;
   left: 20%;
   display: flex;
   background-color: #EDEDE9;
