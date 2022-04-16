@@ -12,5 +12,3 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 20px;
 `;
-
-//test
