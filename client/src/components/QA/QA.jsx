@@ -7,7 +7,6 @@ import { Header } from './components/styles/Header.style';
 import Ask from './components/Ask';
 import List from './components/List';
 import Search from './components/Search';
-// import Questions from '../../seedData/qaSeed.js';
 
 const Button = styled.button`
   width: 100%;

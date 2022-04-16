@@ -111,6 +111,7 @@ function Question({ question, productName }) {
       .then((result) => {
         console.log(result.data);
       })
+      .then(() => GetQues())
       .catch((err) => {
         console.log(err);
       });
@@ -145,6 +146,7 @@ function Question({ question, productName }) {
               questionId={question.question_id}
               productName={productName}
               questionBody={question.question_body}
+              setAnswers={setAnswers}
             />
           </AddAContainer>
         </QHRAContainer>

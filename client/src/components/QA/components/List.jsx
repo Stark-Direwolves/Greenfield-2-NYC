@@ -12,7 +12,7 @@ background: linear-gradient(0deg, rgba(184, 144, 122, 0.299) 0%, rgba(0,0,0,0) 2
 border-bottom: 1px solid black;
 `;
 
-function List({ questions, productName, display, setDisplay }) {
+function List({ questions, productName, display, setDisplay, GetQues }) {
   const firstFour = questions.slice(0, display);
 
   return (
@@ -23,6 +23,7 @@ function List({ questions, productName, display, setDisplay }) {
             key={question.question_id}
             question={question}
             productName={productName}
+            GetQues={GetQues}
           />
         ))}
       </div>
