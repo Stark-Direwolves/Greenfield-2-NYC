@@ -6,7 +6,7 @@ const AddReview = styled.div`
   width: 60%;
   height: 80vh;
   margin: auto;
-  margin-top: 25%;
+  margin-top: 15%;
   // top: 1500px;
   // bottom: 1%;
   top: 25%;
