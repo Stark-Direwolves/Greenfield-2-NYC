@@ -98,8 +98,8 @@ function App({ id }) {
     return Promise.all(promises);
   };
 
-  const getReviewSort = (sort) => {
-    axios.get(`/reviews?product_id=${id}&sort=${sort}`)
+  const getReviewSort = (revid, sort) => {
+    axios.get(`/reviews?product_id=${revid}&sort=${sort}`)
       .then((res) => {
         setReviews(res.data);
       });

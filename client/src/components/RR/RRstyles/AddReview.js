@@ -6,10 +6,11 @@ const AddReview = styled.div`
   width: 60%;
   height: 80vh;
   margin: auto;
-  // margin-top: -1004px;
-  margin-top: -518px;
-  top: 1500px;
-  // top: 2000px;
+  margin-top: 15%;
+  // top: 1500px;
+  // bottom: 1%;
+  top: 150px;
+  left: 20%;
   display: flex;
   background-color: #EDEDE9;
   justify-content: center;
@@ -17,8 +18,9 @@ const AddReview = styled.div`
   border: 2px solid black;
   overflow-x: hidden;
   overflow-y: auto;
-  position: relative;
-  z-index: 0;
+  // position: relative;
+  position: fixed;
+  z-index: 2;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 `;
