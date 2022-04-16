@@ -58,7 +58,7 @@ function Photo({ isPhotoA, hidePhotoA, photo }) {
             <CloseButton onClick={hidePhotoA}>
               x
             </CloseButton>
-            <img src={photo} alt="" style={{ width: '500px', height: '100%' }} />
+            <img src={photo} alt="" />
           </Modal>
         </PhotoContainer>
       </>,
