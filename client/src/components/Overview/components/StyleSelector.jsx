@@ -1,5 +1,9 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable react/prop-types */
 import React from 'react';
-import { StyledUl, StyledLi, StyledImg, StyleName, Checkmark, Style } from './styles/StyleSelector.styled';
+import {
+  StyledUl, StyledLi, StyledImg, StyleName, Checkmark, Style,
+} from './styles/StyleSelector.styled';
 
 function StyleSelector({ currentStyle, setCurrentStyle, styles }) {
   return (
@@ -17,7 +21,6 @@ function StyleSelector({ currentStyle, setCurrentStyle, styles }) {
         ))}
       </StyledUl>
     </div>
-
   );
 }
 

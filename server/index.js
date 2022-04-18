@@ -11,12 +11,23 @@ require('dotenv').config();
 
 const app = express();
 
+const addToCart = (body) => {
+  const options = {
+    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/cart`,
+    headers: {
+      Authorization: process.env.GITHUB_AUTH_KEY,
+    },
+  };
+  return axios.post(options.url, body, options);
+};
+
 app.use('/', expressStaticGzip(path.join(__dirname, '..', 'client', 'dist'), {
   enableBrotli: true,
   orderPreference: ['br'],
 }));
 
-// app.use(express.static(path.join(__dirname, '..', 'client', 'dist'))); // moved static get down to catch all req
+// app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
+// moved static get down to catch all req
 
 app.use('/products', products);
 
@@ -28,6 +39,12 @@ app.use('/:product', expressStaticGzip(path.join(__dirname, '..', 'client', 'dis
   enableBrotli: true,
   orderPreference: ['br'],
 }));
+
+app.post('/cart/add', (req, res) => {
+  addToCart(req.body)
+    .then(() => res.status(200).send(`answer post created for ${req.params.question_id}`))
+    .catch((err) => res.status(404).send(err));
+});
 
 // app.use('/:product', express.static(path.join(__dirname, '..', 'client', 'dist'))); // moved static get down to catch all req
 

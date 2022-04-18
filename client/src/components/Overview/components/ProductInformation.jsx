@@ -1,10 +1,17 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable prefer-const */
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable react/prop-types */
 import React from 'react';
 import Ratings from '../../RR/RatingHelpers';
-import { StyledDiv, Category, Name, Price, BadPrice, Features, Feature, StyledA, SalePrice } from './styles/ProductInformation.styled.js';
-
+import {
+  StyledDiv, Category, Name, Price, BadPrice, Features, Feature, StyledA, SalePrice,
+} from './styles/ProductInformation.styled';
 
 function ProductInformation({ currentProduct, currentStyle, meta }) {
-  let { category, name, description, slogan } = currentProduct;
+  let {
+    category, name, description, slogan,
+  } = currentProduct;
   const renderReviews = () => {
     if (meta) {
       if (Object.keys(meta.ratings).length > 0) {
@@ -18,7 +25,9 @@ function ProductInformation({ currentProduct, currentStyle, meta }) {
                 }}
               />
             </StyledDiv>
-            <StyledA href="#reviews">read all {Ratings.findReviewCount(meta.ratings)} reviews</StyledA>
+            <StyledA href="#reviews">
+              read all {Ratings.findReviewCount(meta.ratings)} reviews
+            </StyledA>
           </>
         );
       }
@@ -34,8 +43,8 @@ function ProductInformation({ currentProduct, currentStyle, meta }) {
       <Name>{name}</Name>
       {renderReviews()}
       <StyledDiv>
-        {currentStyle.sale_price ?
-          (
+        {currentStyle.sale_price
+          ? (
             <>
               <BadPrice>
                 ${currentStyle.original_price}
@@ -45,20 +54,17 @@ function ProductInformation({ currentProduct, currentStyle, meta }) {
               </SalePrice>
             </>
           )
-          : <Price>${currentStyle.original_price}</Price>
-        }
+          : <Price>${currentStyle.original_price}</Price>}
       </StyledDiv>
       <StyledDiv style={{ fontStyle: 'italic' }}>{slogan}</StyledDiv>
       <br />
       <StyledDiv>{description}</StyledDiv>
       <Features>
-      {currentProduct.features.map((feature, index) => {
-        return (
+        {currentProduct.features.map((feature, index) => (
           <Feature key={index}>
             » <b>{feature.feature}</b>: {feature.value}
           </Feature>
-        )
-      })}
+        ))}
       </Features>
     </StyledDiv>
   );
