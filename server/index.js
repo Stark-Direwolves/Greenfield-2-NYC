@@ -42,7 +42,7 @@ app.use('/:product', expressStaticGzip(path.join(__dirname, '..', 'client', 'dis
 
 app.post('/cart/add', (req, res) => {
   addToCart(req.body)
-    .then(() => res.status(200).send(`answer post created for ${req.params.question_id}`))
+    .then(() => res.status(200).send(`successfully added to cart`))
     .catch((err) => res.status(404).send(err));
 });
 
