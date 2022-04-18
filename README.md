@@ -1,7 +1,7 @@
 # Project Atelier - Starkfront
 
 ## Overview
-Starkfront is an e-commerce project built from scratch that was developed as a group as part of Hack Reactor's front-end capstone project. The main goal of the project was to create a single page application tailored to business client specifications that dynamically rendered product information obtained from a third party API. The project consists of four main sections: product detail overview, related items and comparison, questions and answers, and ratings and reviews.
+Starkfront is an e-commerce project built from scratch that was developed as a group as part of Hack Reactor's front-end capstone project. The main goal of the project was to create a single page application tailored to business client specifications that dynamically render product information obtained from a third party API. The project consists of four main sections: product detail overview, related items and comparison, questions and answers, and ratings and reviews.
 
 ## Technology
 To strengthen and emphasize on front-end concepts, we focused on using functional React components utilizing hooks. We avoided using frameworks like Bootstrap and Material UI and instead used CSS Styled Components to design our application. The application was then deployed on AWS EC2 following satisfaction of business requirements.
