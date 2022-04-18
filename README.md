@@ -20,7 +20,7 @@ To strengthen and emphasize on front-end concepts, we focused on using functiona
 **Ratings and Reviews**
 
 
-### To run the app:
+## To run the app:
 - `git clone https://github.com/Stark-Direwolves/Starkfront.git` to clone repository
 - create a .env file in the root directory using the .env.example file
   - replace `GIT_AUTH_KEY` with token that contains sufficient privileges
