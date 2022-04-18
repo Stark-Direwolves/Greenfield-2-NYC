@@ -1,9 +1,14 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import { DropBtn, DropdownContent, DropdownSmall, DropdownContentA } from './styles/AddToCart.styled.js'
+import {
+  DropBtn, DropdownContent, DropdownSmall, DropdownContentA,
+} from './styles/AddToCart.styled';
 
 function Quantity({ sku, currentQty, handleQtyClick }) {
-  const qty = (num) => <DropdownContentA key={num} onClick={() => {handleQtyClick(num)}}>{num}</DropdownContentA>;
-  let qtyArray = [];
+  const qty = (num) => (
+    <DropdownContentA key={num} onClick={() => { handleQtyClick(num); }}>{num}</DropdownContentA>
+  );
+  const qtyArray = [];
   if (sku) {
     if (sku.quantity > 0) {
       let cur = 1;
