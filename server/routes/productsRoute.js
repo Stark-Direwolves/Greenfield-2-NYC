@@ -6,7 +6,7 @@ const router = express.Router();
 
 const getProducts = () => {
   const options = {
-    url: 'https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products',
+    url: `${process.env.API_URL}/products`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -16,7 +16,7 @@ const getProducts = () => {
 
 const getProductsById = (id) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${id}`,
+    url: `${process.env.API_URL}/products/${id}`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -26,7 +26,7 @@ const getProductsById = (id) => {
 
 const getProductStyles = (id) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${id}/styles`,
+    url: `${process.env.API_URL}/products/${id}/styles`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -36,7 +36,7 @@ const getProductStyles = (id) => {
 
 const getRelatedProducts = (id) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/products/${id}/related`,
+    url: `${process.env.API_URL}/products/${id}/related`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -46,7 +46,7 @@ const getRelatedProducts = (id) => {
 
 const getReviewsMeta = (id) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews/meta?product_id=${id}`,
+    url: `${process.env.API_URL}/reviews/meta?product_id=${id}`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },

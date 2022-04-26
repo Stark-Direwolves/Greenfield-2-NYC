@@ -18,7 +18,7 @@ router.use(formData.parse());
 // get all 99 questions GET /qa/questions
 const getQA = (id) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions?product_id=${id}&count=9999`,
+    url: `${process.env.API_URL}/qa/questions?product_id=${id}&count=9999`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -29,7 +29,7 @@ const getQA = (id) => {
 // get all 9999 answers GET /qa/questions/:question_id/answers
 const getAnswers = (qaId, productId) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions/${qaId}/answers?product_id=${productId}&count=9999`,
+    url: `${process.env.API_URL}/qa/questions/${qaId}/answers?product_id=${productId}&count=9999`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -40,7 +40,7 @@ const getAnswers = (qaId, productId) => {
 // POST /qa/questions/:question_id/answers
 const postAnswer = (body, qaId) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions/${qaId}/answers`,
+    url: `${process.env.API_URL}/qa/questions/${qaId}/answers`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -51,7 +51,7 @@ const postAnswer = (body, qaId) => {
 // PUT /qa/questions/:question_id/helpful
 const putQ = (qaID) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions/${qaID}/helpful`,
+    url: `${process.env.API_URL}/qa/questions/${qaID}/helpful`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -62,7 +62,7 @@ const putQ = (qaID) => {
 // POST /qa/questions
 const postQA = (body) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions`,
+    url: `${process.env.API_URL}/qa/questions`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -73,7 +73,7 @@ const postQA = (body) => {
 // PUT /qa/questions/:question_id/report
 const putReport = (qaID) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/questions/${qaID}/report`,
+    url: `${process.env.API_URL}/qa/questions/${qaID}/report`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -84,7 +84,7 @@ const putReport = (qaID) => {
 // PUT /qa/answers/:answer_id/helpful
 const putHepfulA = (aID) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/answers/${aID}/helpful`,
+    url: `${process.env.API_URL}/qa/answers/${aID}/helpful`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -95,7 +95,7 @@ const putHepfulA = (aID) => {
 // PUT /qa/answers/:answer_id/report
 const putReportA = (aID) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/qa/answers/${aID}/report`,
+    url: `${process.env.API_URL}/qa/answers/${aID}/report`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },

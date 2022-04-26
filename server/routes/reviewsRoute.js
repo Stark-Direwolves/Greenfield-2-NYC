@@ -19,7 +19,7 @@ router.use(express.json());
 
 const getReviews = (id, sort) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews?product_id=${id}&sort=${sort}&count=100`,
+    url: `${process.env.API_URL}/reviews?product_id=${id}&sort=${sort}&count=100`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -29,7 +29,7 @@ const getReviews = (id, sort) => {
 
 const getReviewsMeta = (id) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews/meta?product_id=${id}&count=25`,
+    url: `${process.env.API_URL}/reviews/meta?product_id=${id}&count=25`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -39,7 +39,7 @@ const getReviewsMeta = (id) => {
 
 const addReview = (body) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews`,
+    url: `${process.env.API_URL}/reviews`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -51,7 +51,7 @@ const addReview = (body) => {
 
 const markReviewHelpful = (id) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews/${id}/helpful`,
+    url: `${process.env.API_URL}/reviews/${id}/helpful`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
@@ -61,7 +61,7 @@ const markReviewHelpful = (id) => {
 
 const reportReview = (id) => {
   const options = {
-    url: `https://app-hrsei-api.herokuapp.com/api/fec2/rfp/reviews/${id}/report`,
+    url: `${process.env.API_URL}/reviews/${id}/report`,
     headers: {
       Authorization: process.env.GITHUB_AUTH_KEY,
     },
