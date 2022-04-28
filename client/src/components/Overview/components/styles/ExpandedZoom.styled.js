@@ -1,3 +1,4 @@
+/* eslint-disable prefer-template */
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
@@ -25,9 +26,4 @@ const Viewport = styled.div`
   margin: auto;
 `;
 
-export { StyledDiv, StyledImg, Viewport};
-
-
-//  text-align: center;
-// align-items: center;
-// justify-content: center;
+export { StyledDiv, StyledImg, Viewport };

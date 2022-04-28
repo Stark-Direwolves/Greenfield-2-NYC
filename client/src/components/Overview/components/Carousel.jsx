@@ -1,8 +1,13 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import { StyledImg, LeftButton, RightButton, StyledCarousel, StyledInner, StyledCarouselItem } from './styles/StyledCarousel.styled.js';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
+import {
+  StyledImg, LeftButton, RightButton, StyledCarousel, StyledInner, StyledCarouselItem,
+} from './styles/StyledCarousel.styled';
 
-function Carousel({ children, currentImageIndex, updateIndex, limit }) {
+function Carousel({
+  children, currentImageIndex, updateIndex, limit,
+}) {
   const showLeft = (currentImageIndex === 0);
   const showRight = (currentImageIndex === limit - 1);
   return (
@@ -13,16 +18,18 @@ function Carousel({ children, currentImageIndex, updateIndex, limit }) {
         {React.Children.map(children, (child, index) => React.cloneElement(child, { width: '100%' }))}
       </StyledInner>
       <LeftButton show={showLeft} onClick={() => { updateIndex(currentImageIndex - 1); }}>
-        <ChevronLeftIcon style={{ height: "25px" }} />
+        <ChevronLeftIcon style={{ height: '25px' }} />
       </LeftButton>
       <RightButton show={showRight} onClick={() => { updateIndex(currentImageIndex + 1); }}>
-        <ChevronRightIcon style={{ height: "25px" }} />
+        <ChevronRightIcon style={{ height: '25px' }} />
       </RightButton>
     </StyledCarousel>
   );
-};
+}
 
-export function CarouselItem({ width, image, expanded, expandedZoom, setExpandedZoom, setExpanded }) {
+export function CarouselItem({
+  width, image, expanded, setExpandedZoom, setExpanded,
+}) {
   let height = '650px';
   if (expanded) {
     height = (window.innerHeight - 50).toString();
@@ -38,8 +45,8 @@ export function CarouselItem({ width, image, expanded, expandedZoom, setExpanded
   };
 
   return (
-    <StyledCarouselItem width={width} height={height} >
-      <StyledImg src={image.url} onClick={handleClick}/>
+    <StyledCarouselItem width={width} height={height}>
+      <StyledImg src={image.url} onClick={handleClick} />
     </StyledCarouselItem>
   );
 }

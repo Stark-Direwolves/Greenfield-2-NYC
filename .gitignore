@@ -12,5 +12,7 @@ node_modules/
 
 ## compiled ##
 client/dist/bundle.*
+client/dist/86.bundled.*
+client/dist/client_src_components*
 
 starkfront.pem

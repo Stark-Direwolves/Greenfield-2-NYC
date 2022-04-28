@@ -42,4 +42,6 @@ const ImageSelectorContainer = styled.div`
   justify-content: center;
 `;
 
-export { StyledImageSelector, CurvedDiv, StyledImg, ThumbnailContainer, ImageSelectorContainer };
+export {
+  StyledImageSelector, CurvedDiv, StyledImg, ThumbnailContainer, ImageSelectorContainer,
+};
